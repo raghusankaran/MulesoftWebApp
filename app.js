@@ -8,7 +8,7 @@ var hbs = require('hbs');
 
 var fs = require('fs');
 
-app.listen(3000);
+app.listen(8880);
 
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
