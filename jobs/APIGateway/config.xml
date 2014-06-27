@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <project-properties class="java.util.concurrent.ConcurrentHashMap">
+    <entry>
+      <string>parametersDefinitionProperties</string>
+      <copy-write-list-property>
+        <originalValue class="hudson.util.CopyOnWriteList">
+          <hudson.model.ParametersDefinitionProperty>
+            <parameterDefinitions>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>ENDPOINT</name>
+                <description></description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string>wsdl-proxy 8889</string>
+                    <string>wsdl-proxy-jetty 8889</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>JMETER_TESTFILE</name>
+                <description>app_name server:port optional_description
+</description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string>apigateway_wsdl.10t.jmx</string>
+                    <string>apigateway_wsdl.20t.jmx</string>
+                    <string>apigateway_wsdl.30t.jmx</string>
+                    <string>apigateway_wsdl.40t.jmx</string>
+                    <string>apigateway_wsdl.50t.jmx</string>
+                    <string>apigateway_wsdl.60t.jmx</string>
+                    <string>apigateway_wsdl.100t.jmx</string>
+                    <string></string>
+                    <string>tomcatWS_wsdl.10t.jmx</string>
+                    <string>tomcatWS_wsdl.20t.jmx</string>
+                    <string>tomcatWS_wsdl.30t.jmx</string>
+                    <string>tomcatWS_wsdl.40t.jmx</string>
+                    <string>tomcatWS_wsdl.50t.jmx</string>
+                    <string>tomcatWS_wsdl.60t.jmx</string>
+                    <string>tomcatWS_wsdl.100t.jmx</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>SERVER</name>
+                <description></description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string>mule-perflab02.managed.contegix.com</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>ADDITIONAL_SERVERS</name>
+                <description></description>
+                <defaultValue>mule-perflab05.managed.contegix.com</defaultValue>
+              </hudson.model.StringParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>MULE_BUILD</name>
+                <description></description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string>api-gateway-standalone-1.0.0-SNAPSHOT</string>
+                    <string>api-gateway-standalone-1.0.0-SNAPSHOT.20140603.patched</string>
+                    <string>mule-enterprise-standalone-3.5.0-M5-SNAPSHOT</string>
+                    <string>mule-enterprise-standalone-3.5.0-M4</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.BooleanParameterDefinition>
+                <name>DEPLOY_FRESH_MULE_APP</name>
+                <description>If true, it will do a (re)deploy the app you specified. If false, the test will run only if the app under test is already deployed.</description>
+                <defaultValue>true</defaultValue>
+              </hudson.model.BooleanParameterDefinition>
+              <hudson.model.BooleanParameterDefinition>
+                <name>RESTART_MULE</name>
+                <description>Start or Restart mule server before test ( will add an additional 90 seconds for the app restart )</description>
+                <defaultValue>true</defaultValue>
+              </hudson.model.BooleanParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>NOTES</name>
+                <description>Notes to annotate your run. e.g &quot;Quick test from Wai&quot;</description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>RERUN_NUMBER</name>
+                <description>Rerun an earlier run you made.  e.g. 333</description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+            </parameterDefinitions>
+          </hudson.model.ParametersDefinitionProperty>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+      </copy-write-list-property>
+    </entry>
+    <entry>
+      <string>builders</string>
+      <describable-list-property>
+        <originalValue class="hudson.util.DescribableList">
+          <hudson.tasks.Shell>
+            <command>KEY=$HOME/.ssh/id_rsa.perftest
+USER=perftest
+export KEY
+export USER
+HUDSON_PERFTEST_PWD=muleftw!
+export HUDSON_PERFTEST_PWD
+export SERVER_SCRIPTS=/mnt/nfsshare
+
+if [ &quot;$RERUN_NUMBER&quot; != &quot;&quot; ]; then
+  if [ -f &quot;$WORKSPACE/input.sh&quot; ]; then
+    rm input.sh
+  fi
+  curl --user perftest:$HUDSON_PERFTEST_PWD &quot;http://mule-perflab06.managed.contegix.com:8080/job/$JOB_NAME/$RERUN_NUMBER/artifact/logs/input.sh&quot; -o $WORKSPACE/input.sh
+  . $WORKSPACE/input.sh
+fi
+
+echo &quot;COUNT=$COUNT&quot;
+
+curl --user perftest:$HUDSON_PERFTEST_PWD --data &quot;description=\&quot;$NOTES $SERVER $ENDPOINT $JMETER_TESTFILE \&quot;&quot; http://mule-perflab06.managed.contegix.com:8080/job/$JOB_NAME/$BUILD_NUMBER/submitDescription
+
+
+
+MULE_STARTUP_WAIT=30
+TESTAPP=$( echo $ENDPOINT | awk &apos;{ print $1 }&apos; )
+
+if [ &quot;$MULE_BUILD&quot; != &quot;&quot; ]; then
+  ssh -tt -i $KEY $USER@$SERVER &apos;rm mule-esb; ln -s builds/&apos;&quot;&apos;$MULE_BUILD&apos;&quot;&apos; mule-esb; sleep 1&apos;
+fi
+
+if [ &quot;$DEPLOY_FRESH_MULE_APP&quot; == &quot;true&quot; ]; then
+  DEPLOY_APP=$TESTAPP
+  if [ &quot;$RESTART_MULE&quot; != &quot;true&quot; ]; then
+    echo &quot;==== WARNING ====  It is NOT recommended to deploy the app WITHOUT restarting ESB for perf testing purpose!!!&quot;
+    ssh -tt -i $KEY $USER@$SERVER &apos;cp -rf /mnt/nfsshare/APPS/&apos;&quot;&apos;$DEPLOY_APP&apos;&quot;&apos; /home/$USER/mule-esb/apps/; sleep 5&apos;
+  fi
+fi
+
+if [ &quot;$RESTART_MULE&quot; == &quot;true&quot; ]; then
+  # Start ( or restart ) mule ESB and apps on remote server
+  echo &quot;STARTING MULE ESB at  $( date )&quot;
+  ssh -tt -i $KEY $USER@$SERVER &apos;/mnt/nfsshare/SERVER/restart_esb.sh &apos;&quot;&apos;$DEPLOY_APP&apos;&quot;&apos; &apos;
+  echo &quot;... Start sleeping and waiting $MULE_STARTUP_WAIT seconds for mule apps to start ...&quot;
+  sleep $MULE_STARTUP_WAIT
+  echo &quot;... Done sleeping $MULE_STARTUP_WAIT seconds ... mule SHOULD HAVE started by now ....&quot;
+fi
+
+
+rm -rf $WORKSPACE/logs/
+/mnt/nfsshare/CLIENT/starttest.jmeter.sh $COUNT $CONCURRENTUSER &quot;$ENDPOINT&quot;
+
+</command>
+          </hudson.tasks.Shell>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+      </describable-list-property>
+    </entry>
+    <entry>
+      <string>appointedNode</string>
+      <base-property>
+        <originalValue class="appointed-node-property">
+          <nodeName>master</nodeName>
+          <advancedAffinityChooser>false</advancedAffinityChooser>
+          <canRoam>false</canRoam>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+      </base-property>
+    </entry>
+    <entry>
+      <string>hudson-tasks-ArtifactArchiver</string>
+      <external-property>
+        <originalValue class="hudson.tasks.ArtifactArchiver">
+          <artifacts>logs/**</artifacts>
+          <compressionType>GZIP</compressionType>
+          <latestOnly>false</latestOnly>
+          <autoValidateFileMask>false</autoValidateFileMask>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+        <modified>false</modified>
+      </external-property>
+    </entry>
+    <entry>
+      <string>scm</string>
+      <scm-property>
+        <originalValue class="hudson.scm.NullSCM"/>
+        <propertyOverridden>false</propertyOverridden>
+      </scm-property>
+    </entry>
+  </project-properties>
+  <keepDependencies>false</keepDependencies>
+  <createdBy>wai.ip</createdBy>
+  <creationTime>1401867296991</creationTime>
+  <properties>
+    <hudson.security.AuthorizationMatrixProperty>
+      <permission>hudson.model.Item.Build:wai.ip</permission>
+      <permission>hudson.model.Item.Configure:wai.ip</permission>
+      <permission>hudson.model.Item.Workspace:wai.ip</permission>
+      <permission>hudson.model.Run.Delete:wai.ip</permission>
+      <permission>hudson.model.Item.Read:wai.ip</permission>
+      <permission>hudson.model.Run.Update:wai.ip</permission>
+      <permission>hudson.model.Item.Delete:wai.ip</permission>
+    </hudson.security.AuthorizationMatrixProperty>
+  </properties>
+  <cascadingChildrenNames class="java.util.concurrent.CopyOnWriteArraySet"/>
+  <cascading-job-properties class="java.util.concurrent.CopyOnWriteArraySet"/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <concurrentBuild>false</concurrentBuild>
+  <cleanWorkspaceRequired>false</cleanWorkspaceRequired>
+</project>

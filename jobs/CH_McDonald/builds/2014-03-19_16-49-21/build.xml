@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>COUNT</name>
+          <description></description>
+          <value>10000</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>CONCURRENTUSER</name>
+          <description></description>
+          <value>40</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ENDPOINT</name>
+          <description>the cloudhub application domain</description>
+          <value>stg-mcdonald.stg.cloudhub.io</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>QUERY_PARAM</name>
+          <description></description>
+          <value>api/b2bshipping/1.0/shipment/22121</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>NOTES</name>
+          <description></description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>POST_CONTENT_TYPE</name>
+          <description>For POST request only.</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>PAYLOAD_FILE</name>
+          <description>For POST request only.</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SERVER</name>
+          <description></description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>RERUN_NUMBER</name>
+          <description>Rerun an earlier run you made.  e.g. 333</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causes>
+        <hudson.model.Cause_-UserCause>
+          <authenticationName>wai.ip</authenticationName>
+        </hudson.model.Cause_-UserCause>
+      </causes>
+    </hudson.model.CauseAction>
+  </actions>
+  <number>46</number>
+  <result>SUCCESS</result>
+  <description>1 worker stg-mcdonald.stg.cloudhub.ioapi/b2bshipping/1.0/shipment/22121  c=40 n=10000  &quot;</description>
+  <duration>19020</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn>PerfClient</builtOn>
+  <workspace>/mnt/perf/.hudson/workspace/CH_McDonald</workspace>
+  <hudsonVersion>1.392.LI22</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits/>
+</build>

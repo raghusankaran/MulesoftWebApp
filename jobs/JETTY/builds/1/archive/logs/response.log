@@ -1,0 +1,59 @@
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking mule-perflab02.managed.contegix.com (be patient)...INFO: POST header == 
+---
+POST / HTTP/1.0
+Connection: Keep-Alive
+Content-length: 1201
+Content-type: text/plain
+Host: mule-perflab02.managed.contegix.com:8081
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+LOG: header received:
+HTTP/1.1 200 OK
+Date: Thu, 20 Mar 2014 17:05:27 -0500
+Server: Mule EE Core Extensions/3.5.0-M5-SNAPSHOT
+X-MULE_SESSION: rO0ABXNyACNvcmcubXVsZS5zZXNzaW9uLkRlZmF1bHRNdWxlU2Vzc2lvbi7rdtEW7GGKAwAFWgAFdmFsaWRMAA1mbG93Q29uc3RydWN0dAAmTG9yZy9tdWxlL2FwaS9jb25zdHJ1Y3QvRmxvd0NvbnN0cnVjdDtMAAJpZHQAEkxqYXZhL2xhbmcvU3RyaW5nO0wACnByb3BlcnRpZXN0AA9MamF2YS91dGlsL01hcDtMAA9zZWN1cml0eUNvbnRleHR0ACdMb3JnL211bGUvYXBpL3NlY3VyaXR5L1NlY3VyaXR5Q29udGV4dDt4cAFwdAAkYmU2NGNlMDgtYjA3Yi0xMWUzLWIzOWQtOWQ1YzNjNzA4MmNjc3IAJWphdmEudXRpbC5Db2xsZWN0aW9ucyRTeW5jaHJvbml6ZWRNYXAbc/kJS0s5ewMAAkwAAW1xAH4AA0wABW11dGV4dAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgAkb3JnLm11bGUudXRpbC5DYXNlSW5zZW5zaXRpdmVIYXNoTWFwndHZ72dFzgADAAB4cHcMP0AAAAAAABAAAAAAeHEAfgAJeHB4
+X-MULE_ENCODING: UTF-8
+Content-Length: 1201
+Content-Type: text/plain
+Connection: keep-alive
+
+12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+..done
+
+
+Server Software:        Mule
+Server Hostname:        mule-perflab02.managed.contegix.com
+Server Port:            8081
+
+Document Path:          /
+Document Length:        1201 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.352 seconds
+Complete requests:      1
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    1
+Total transferred:      2020 bytes
+Total POSTed:           2764
+HTML transferred:       1201 bytes
+Requests per second:    2.84 [#/sec] (mean)
+Time per request:       352.495 [ms] (mean)
+Time per request:       352.495 [ms] (mean, across all concurrent requests)
+Transfer rate:          5.60 [Kbytes/sec] received
+                        7.66 kb/s sent
+                        13.25 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   352  352   0.0    352     352
+Waiting:      352  352   0.0    352     352
+Total:        352  352   0.0    352     352

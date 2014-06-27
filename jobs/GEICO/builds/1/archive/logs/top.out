@@ -1,0 +1,1183 @@
+top - 00:55:59 up 2 days,  2:00,  1 user,  load average: 0.42, 0.19, 0.84
+Tasks: 150 total,   2 running, 148 sleeping,   0 stopped,   0 zombie
+Cpu(s):  4.3%us,  0.8%sy,  0.0%ni, 94.9%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
+Mem:  6952.082M total, 3325.902M used, 3626.180M free,   81.992M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.500M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6767m 2.3g  23m S 571.0 33.4   1:10.37 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S 44.8  0.2   0:00.23 sh                 
+ 7378 ec2-user  20   0  121m  17m 1164 S 42.9  0.2   0:00.22 sh                 
+ 7382 ec2-user  20   0  121m  17m 1164 S 42.9  0.2   0:00.22 sh                 
+ 7379 ec2-user  20   0  125m 4852 1956 R  5.8  0.1   0:00.03 python             
+ 7383 ec2-user  20   0  125m 4872 1956 S  5.8  0.1   0:00.03 python             
+ 7345 ec2-user  20   0 15032 1184  872 R  1.9  0.0   0:00.01 top                
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+   16 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 migration/4        
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/4:0        
+   18 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/4        
+--
+top - 00:56:01 up 2 days,  2:00,  1 user,  load average: 1.43, 0.41, 0.90
+Tasks: 152 total,   2 running, 150 sleeping,   0 stopped,   0 zombie
+Cpu(s): 71.6%us, 15.2%sy,  0.0%ni, 10.7%id,  0.0%wa,  0.0%hi,  2.1%si,  0.3%st
+Mem:  6952.082M total, 3333.703M used, 3618.379M free,   81.996M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.578M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6767m 2.3g  23m S 702.9 33.5   1:24.50 java              
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.06 python             
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.25 sh                 
+ 7379 ec2-user  20   0  125m 4964 2000 S  1.0  0.1   0:00.05 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.24 sh                 
+ 7424 ec2-user  20   0  107m 1172  976 R  1.0  0.0   0:00.02 ps                 
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.02 top                
+ 7378 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.23 sh                 
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.01 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+   16 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 migration/4        
+--
+top - 00:56:03 up 2 days,  2:00,  1 user,  load average: 1.43, 0.41, 0.90
+Tasks: 148 total,   1 running, 147 sleeping,   0 stopped,   0 zombie
+Cpu(s): 76.2%us, 12.1%sy,  0.0%ni, 10.2%id,  0.0%wa,  0.0%hi,  1.3%si,  0.3%st
+Mem:  6952.082M total, 3337.008M used, 3615.074M free,   81.996M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.586M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6795m 2.3g  23m S 710.6 33.5   1:38.78 java              
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.26 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.26 sh                 
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.01 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7369 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.26 sh                 
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.01 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7383 ec2-user  20   0  125m 5000 2000 S  0.5  0.1   0:00.07 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:56:05 up 2 days,  2:00,  1 user,  load average: 1.43, 0.41, 0.90
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 81.3%us, 13.7%sy,  0.0%ni,  4.7%id,  0.0%wa,  0.0%hi,  0.3%si,  0.1%st
+Mem:  6952.082M total, 3350.328M used, 3601.754M free,   82.000M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.613M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6795m 2.3g  23m S 752.1 33.7   1:53.90 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.29 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.07 python             
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.09 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.08 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.03 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.01 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.01 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+   16 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 migration/4        
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/4:0        
+--
+top - 00:56:07 up 2 days,  2:00,  1 user,  load average: 2.12, 0.57, 0.95
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 78.0%us, 16.8%sy,  0.0%ni,  4.8%id,  0.0%wa,  0.0%hi,  0.4%si,  0.0%st
+Mem:  6952.082M total, 3384.973M used, 3567.109M free,   82.000M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.629M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6795m 2.3g  23m S 749.8 34.2   2:09.13 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.32 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.28 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.28 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.11 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.09 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.04 top                
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.01 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+--
+top - 00:56:09 up 2 days,  2:00,  1 user,  load average: 2.12, 0.57, 0.95
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 75.4%us, 20.5%sy,  0.0%ni,  3.7%id,  0.0%wa,  0.0%hi,  0.3%si,  0.1%st
+Mem:  6952.082M total, 3406.441M used, 3545.641M free,   82.000M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.648M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6796m 2.3g  23m S 758.7 34.5   2:24.37 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.35 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.30 sh                 
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.05 top                
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.01 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7378 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.29 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.08 python             
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.02 sadc               
+ 7383 ec2-user  20   0  125m 5000 2000 S  0.5  0.1   0:00.12 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:56:11 up 2 days,  2:00,  1 user,  load average: 3.47, 0.87, 1.05
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 75.5%us, 17.0%sy,  0.0%ni,  6.5%id,  0.0%wa,  0.0%hi,  0.8%si,  0.2%st
+Mem:  6952.082M total, 3472.480M used, 3479.602M free,   82.004M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.680M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6805m 2.4g  23m S 736.1 35.4   2:39.23 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.39 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.31 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.32 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.14 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.10 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.06 top                
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.02 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.02 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.09 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+--
+top - 00:56:13 up 2 days,  2:00,  1 user,  load average: 3.47, 0.87, 1.05
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 78.2%us, 15.2%sy,  0.0%ni,  5.5%id,  0.0%wa,  0.0%hi,  0.7%si,  0.4%st
+Mem:  6952.082M total, 3608.227M used, 3343.855M free,   82.004M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.695M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6805m 2.5g  23m S 742.8 37.4   2:54.16 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.42 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.33 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.34 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.16 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.07 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.02 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.02 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.02 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.10 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:56:15 up 2 days,  2:00,  1 user,  load average: 3.47, 0.87, 1.05
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 79.6%us, 15.7%sy,  0.0%ni,  3.5%id,  0.0%wa,  0.0%hi,  0.9%si,  0.3%st
+Mem:  6952.082M total, 3737.559M used, 3214.523M free,   82.008M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.719M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6805m 2.7g  23m S 759.0 39.3   3:09.52 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.45 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.12 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.36 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.18 python             
+  763 root      20   0     0    0    0 S  0.5  0.0   0:04.01 jbd2/xvdb-8        
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.11 wrapper-linux-x    
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.02 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7378 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.34 sh                 
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.03 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:56:17 up 2 days,  2:01,  1 user,  load average: 4.31, 1.09, 1.12
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 72.7%us, 18.1%sy,  0.0%ni,  7.8%id,  0.0%wa,  0.0%hi,  1.4%si,  0.1%st
+Mem:  6952.082M total, 3957.852M used, 2994.230M free,   82.008M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.746M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 6869m 2.9g  23m S 724.9 42.4   3:24.09 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.48 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.36 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.38 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.20 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.08 top                
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+   16 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 migration/4        
+--
+top - 00:56:19 up 2 days,  2:01,  1 user,  load average: 4.31, 1.09, 1.12
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 68.9%us, 19.5%sy,  0.0%ni,  9.2%id,  0.0%wa,  0.0%hi,  2.1%si,  0.3%st
+Mem:  6952.082M total, 4265.324M used, 2686.758M free,   82.008M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.793M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 7195m 3.2g  23m S 713.1 46.8   3:38.42 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.51 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.39 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.40 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.12 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.09 top                
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.03 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.03 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.03 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.13 python             
+ 7383 ec2-user  20   0  125m 5000 2000 S  0.5  0.1   0:00.21 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+--
+top - 00:56:21 up 2 days,  2:01,  1 user,  load average: 5.01, 1.29, 1.18
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 67.1%us, 19.7%sy,  0.0%ni, 10.9%id,  0.0%wa,  0.0%hi,  2.1%si,  0.2%st
+Mem:  6952.082M total, 4625.559M used, 2326.523M free,   82.016M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.871M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 7899m 3.5g  23m S 698.8 52.0   3:52.48 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.55 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.24 python             
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.41 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.15 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.42 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.13 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.10 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.03 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.03 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.03 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.04 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+--
+top - 00:56:23 up 2 days,  2:01,  1 user,  load average: 5.01, 1.29, 1.18
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 66.3%us, 21.0%sy,  0.0%ni, 10.0%id,  0.0%wa,  0.0%hi,  2.4%si,  0.3%st
+Mem:  6952.082M total, 4999.832M used, 1952.250M free,   82.016M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.914M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 7964m 3.9g  23m S 704.9 57.3   4:06.65 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.59 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.27 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.15 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.43 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.17 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.44 sh                 
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.11 top                
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.04 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.04 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.04 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.04 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+--
+top - 00:56:25 up 2 days,  2:01,  1 user,  load average: 5.01, 1.29, 1.18
+Tasks: 150 total,   2 running, 148 sleeping,   0 stopped,   0 zombie
+Cpu(s): 58.7%us, 13.4%sy,  0.0%ni, 26.5%id,  0.0%wa,  0.0%hi,  1.2%si,  0.2%st
+Mem:  6952.082M total, 5263.230M used, 1688.852M free,   82.023M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.957M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8092m 4.1g  23m S 574.7 61.1   4:18.20 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.62 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.45 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.46 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 R  1.0  0.1   0:00.29 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.16 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.12 top                
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.04 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.04 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.05 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.18 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+--
+top - 00:56:27 up 2 days,  2:01,  1 user,  load average: 5.33, 1.42, 1.22
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 63.3%us, 14.9%sy,  0.0%ni, 19.8%id,  0.0%wa,  0.0%hi,  1.8%si,  0.2%st
+Mem:  6952.082M total, 5328.379M used, 1623.703M free,   82.023M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  527.992M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8093m 4.2g  23m S 627.8 62.0   4:30.81 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.65 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.47 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.17 wrapper-linux-x    
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.19 python             
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.05 sadc               
+ 7382 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.47 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  0.5  0.1   0:00.30 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+   16 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 migration/4        
+--
+top - 00:56:29 up 2 days,  2:01,  1 user,  load average: 5.33, 1.42, 1.22
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 63.4%us, 18.5%sy,  0.0%ni, 15.7%id,  0.0%wa,  0.0%hi,  2.1%si,  0.3%st
+Mem:  6952.082M total, 5368.309M used, 1583.773M free,   82.023M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.082M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8157m 4.3g  23m S 661.9 62.6   4:44.12 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.69 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.49 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.49 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.32 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.18 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.13 top                
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.05 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.20 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+--
+top - 00:56:31 up 2 days,  2:01,  1 user,  load average: 5.06, 1.43, 1.23
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 63.9%us, 13.0%sy,  0.0%ni, 21.6%id,  0.0%wa,  0.0%hi,  1.2%si,  0.2%st
+Mem:  6952.082M total, 5454.496M used, 1497.586M free,   82.023M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.152M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8285m 4.3g  23m S 613.5 63.8   4:56.46 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.72 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.20 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.51 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.22 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.51 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.34 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.14 top                
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.05 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.05 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.05 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+--
+top - 00:56:33 up 2 days,  2:01,  1 user,  load average: 5.06, 1.43, 1.23
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 61.9%us, 19.3%sy,  0.0%ni, 16.3%id,  0.0%wa,  0.0%hi,  2.3%si,  0.3%st
+Mem:  6952.082M total, 5454.789M used, 1497.293M free,   82.027M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.258M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8285m 4.3g  23m S 655.9 63.9   5:09.64 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.75 sh                 
+ 7345 ec2-user  20   0 15040 1224  888 R  1.0  0.0   0:00.16 top                
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.53 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.53 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.36 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.21 wrapper-linux-x    
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.05 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.06 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.06 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.23 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+--
+top - 00:56:35 up 2 days,  2:01,  1 user,  load average: 5.06, 1.43, 1.23
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 62.6%us, 18.1%sy,  0.0%ni, 17.2%id,  0.1%wa,  0.0%hi,  1.8%si,  0.3%st
+Mem:  6952.082M total, 5546.391M used, 1405.691M free,   82.031M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.367M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8413m 4.4g  23m S 649.6 65.2   5:22.71 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.79 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.39 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.23 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.55 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.25 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.55 sh                 
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.06 sadc               
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.06 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+--
+top - 00:56:37 up 2 days,  2:01,  1 user,  load average: 5.30, 1.54, 1.26
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 63.8%us, 13.7%sy,  0.0%ni, 20.5%id,  0.1%wa,  0.0%hi,  1.7%si,  0.3%st
+Mem:  6952.082M total, 5519.176M used, 1432.906M free,   82.031M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.375M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8349m 4.4g  23m S 623.5 64.8   5:35.23 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.82 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.57 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.57 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.41 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.24 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.17 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.06 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.26 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:56:39 up 2 days,  2:01,  1 user,  load average: 5.30, 1.54, 1.26
+Tasks: 152 total,   2 running, 150 sleeping,   0 stopped,   0 zombie
+Cpu(s): 61.1%us, 19.1%sy,  0.0%ni, 17.2%id,  0.0%wa,  0.0%hi,  2.4%si,  0.2%st
+Mem:  6952.082M total, 5520.621M used, 1431.461M free,   82.031M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.492M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8349m 4.4g  23m S 648.7 64.8   5:48.27 java              
+15287 ec2-user  20   0  107m 1172  976 R  2.0  0.0   0:00.04 ps                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.5  0.0   0:00.27 wrapper-linux-x    
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.85 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.59 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.28 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.59 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.43 python             
+   16 root      RT   0     0    0    0 S  0.5  0.0   0:00.08 migration/4        
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.06 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.07 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.06 sadc               
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.07 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+--
+top - 00:56:41 up 2 days,  2:01,  1 user,  load average: 5.27, 1.59, 1.28
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 68.3%us, 10.9%sy,  0.0%ni, 19.6%id,  0.0%wa,  0.0%hi,  0.9%si,  0.3%st
+Mem:  6952.082M total, 5566.418M used, 1385.664M free,   82.035M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.594M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8413m 4.4g  23m S 634.3 65.5   6:01.04 java              
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.61 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.61 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.45 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.18 top                
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.07 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.29 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+   16 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/4        
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/4:0        
+--
+top - 00:56:43 up 2 days,  2:01,  1 user,  load average: 5.27, 1.59, 1.28
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 61.8%us, 17.7%sy,  0.0%ni, 17.9%id,  0.0%wa,  0.0%hi,  2.2%si,  0.4%st
+Mem:  6952.082M total, 5410.301M used, 1541.781M free,   82.035M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.648M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8349m 4.3g  23m S 644.6 63.2   6:14.00 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.89 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.29 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.63 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.63 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.47 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.19 top                
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.07 sadc               
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.07 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.07 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.30 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+--
+top - 00:56:45 up 2 days,  2:01,  1 user,  load average: 5.27, 1.59, 1.28
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 58.9%us, 20.5%sy,  0.0%ni, 18.2%id,  0.1%wa,  0.0%hi,  2.1%si,  0.2%st
+Mem:  6952.082M total, 5461.285M used, 1490.797M free,   82.039M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.789M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8349m 4.3g  23m S 639.0 63.9   6:26.87 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:00.93 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.31 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.65 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.32 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.65 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.49 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.20 top                
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.08 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.08 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+--
+top - 00:56:47 up 2 days,  2:01,  1 user,  load average: 4.93, 1.58, 1.28
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 67.8%us, 11.9%sy,  0.0%ni, 18.2%id,  0.0%wa,  0.0%hi,  1.3%si,  0.7%st
+Mem:  6952.082M total, 5426.770M used, 1525.312M free,   82.039M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.820M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8221m 4.3g  23m S 639.3 63.4   6:39.72 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.96 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.67 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.67 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.51 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.32 wrapper-linux-x    
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.07 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.08 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.08 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.33 python             
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.08 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+--
+top - 00:56:49 up 2 days,  2:01,  1 user,  load average: 4.93, 1.58, 1.28
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 60.5%us, 19.4%sy,  0.0%ni, 17.4%id,  0.0%wa,  0.0%hi,  2.4%si,  0.3%st
+Mem:  6952.082M total, 5435.594M used, 1516.488M free,   82.039M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  528.910M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8225m 4.3g  23m S 649.1 63.6   6:52.78 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.99 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.54 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.34 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.69 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.69 sh                 
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.21 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.08 sadc               
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.09 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.34 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+--
+top - 00:56:51 up 2 days,  2:01,  1 user,  load average: 5.26, 1.71, 1.32
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 63.1%us, 14.2%sy,  0.0%ni, 20.7%id,  0.1%wa,  0.0%hi,  1.7%si,  0.2%st
+Mem:  6952.082M total, 5557.035M used, 1395.047M free,   82.039M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.020M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8417m 4.4g  23m S 619.9 65.3   7:05.24 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:01.02 sh                 
+ 7345 ec2-user  20   0 15040 1224  888 R  1.0  0.0   0:00.23 top                
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.71 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.36 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.71 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.56 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.35 wrapper-linux-x    
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.09 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.08 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:56:53 up 2 days,  2:01,  1 user,  load average: 5.26, 1.71, 1.32
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 63.5%us, 17.4%sy,  0.0%ni, 16.9%id,  0.0%wa,  0.0%hi,  1.9%si,  0.3%st
+Mem:  6952.082M total, 5498.664M used, 1453.418M free,   82.039M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.070M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8289m 4.4g  23m S 652.7 64.4   7:18.36 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:01.05 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.37 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.73 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.58 python             
+  126 root      20   0     0    0    0 S  0.5  0.0   0:00.77 kworker/4:1        
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.24 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.09 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.09 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.10 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.37 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.72 sh                 
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+--
+top - 00:56:55 up 2 days,  2:01,  1 user,  load average: 5.26, 1.71, 1.32
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 60.4%us, 18.4%sy,  0.0%ni, 19.0%id,  0.1%wa,  0.0%hi,  1.9%si,  0.2%st
+Mem:  6952.082M total, 5512.871M used, 1439.211M free,   82.043M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.180M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8353m 4.4g  23m S 633.6 64.6   7:31.14 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:01.09 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.39 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.75 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.39 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.74 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.60 python             
+ 1567 root      20   0 89036 2392  708 S  0.5  0.0   0:04.85 sendmail           
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.25 top                
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.09 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.09 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+--
+top - 00:56:57 up 2 days,  2:01,  1 user,  load average: 6.04, 1.93, 1.40
+Tasks: 150 total,   2 running, 148 sleeping,   0 stopped,   0 zombie
+Cpu(s): 66.7%us, 12.7%sy,  0.0%ni, 19.1%id,  0.0%wa,  0.0%hi,  1.2%si,  0.2%st
+Mem:  6952.082M total, 5467.086M used, 1484.996M free,   82.043M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.301M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8353m 4.3g  23m S 633.7 64.0   7:43.87 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:01.12 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.77 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.63 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.40 wrapper-linux-x    
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.10 sadc               
+ 7378 ec2-user  20   0  121m  17m 1184 S  0.5  0.2   0:00.76 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 R  0.5  0.1   0:00.40 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+--
+top - 00:56:59 up 2 days,  2:01,  1 user,  load average: 6.04, 1.93, 1.40
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 59.9%us, 20.3%sy,  0.0%ni, 17.3%id,  0.0%wa,  0.0%hi,  2.1%si,  0.4%st
+Mem:  6952.082M total, 5469.949M used, 1482.133M free,   82.043M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.398M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8417m 4.3g  23m S 649.0 64.0   7:56.92 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:01.15 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.42 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.78 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.42 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.79 sh                 
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.26 top                
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.10 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7383 ec2-user  20   0  125m 5000 2000 S  0.5  0.1   0:00.64 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+--
+top - 00:57:01 up 2 days,  2:01,  1 user,  load average: 6.99, 2.19, 1.49
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 64.3%us, 17.6%sy,  0.0%ni, 16.0%id,  0.0%wa,  0.0%hi,  1.9%si,  0.3%st
+Mem:  6952.082M total, 5557.102M used, 1394.980M free,   82.047M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.461M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8545m 4.4g  23m S 658.4 65.3   8:10.15 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:01.18 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.67 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.44 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  1.0  0.0   0:00.28 top                
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.80 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.81 sh                 
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.09 sadc               
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.10 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.10 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.11 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.11 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.43 python             
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.10 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+--
+top - 00:57:04 up 2 days,  2:01,  1 user,  load average: 6.99, 2.19, 1.49
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 65.3%us, 11.1%sy,  0.0%ni, 22.1%id,  0.0%wa,  0.0%hi,  1.3%si,  0.3%st
+Mem:  6952.082M total, 5544.305M used, 1407.777M free,   82.047M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.504M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8545m 4.4g  23m S 610.9 65.1   8:22.43 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:01.22 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.5  0.1   0:00.70 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.46 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.82 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.45 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.83 sh                 
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.11 sadc               
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.11 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/3        
+--
+top - 00:57:06 up 2 days,  2:01,  1 user,  load average: 6.99, 2.19, 1.49
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 61.6%us, 17.7%sy,  0.0%ni, 18.2%id,  0.0%wa,  0.0%hi,  2.3%si,  0.3%st
+Mem:  6952.082M total, 5552.801M used, 1399.281M free,   82.047M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.625M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8545m 4.4g  23m S 639.9 65.2   8:35.29 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:01.26 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.84 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.85 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.72 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.47 wrapper-linux-x    
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.29 top                
+ 7359 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.10 sadc               
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.11 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.12 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.11 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.46 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+--
+top - 00:57:08 up 2 days,  2:01,  1 user,  load average: 7.24, 2.32, 1.53
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 72.1%us,  9.7%sy,  0.0%ni, 16.7%id,  0.0%wa,  0.0%hi,  1.1%si,  0.4%st
+Mem:  6952.082M total, 5590.441M used, 1361.641M free,   82.047M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.688M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8609m 4.5g  23m S 654.3 65.8   8:48.48 java              
+ 7345 ec2-user  20   0 15040 1224  888 R  1.0  0.0   0:00.31 top                
+ 7369 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:01.28 sh                 
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.86 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.87 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.74 python             
+ 7117 ec2-user  20   0  118m 1860 1176 S  0.5  0.0   0:00.48 wrapper-linux-x    
+ 7363 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7367 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.12 sadc               
+ 7373 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.12 sadc               
+ 7379 ec2-user  20   0  125m 4968 2000 S  0.5  0.1   0:00.47 python             
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+--
+top - 00:57:10 up 2 days,  2:01,  1 user,  load average: 7.24, 2.32, 1.53
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 65.5%us, 16.9%sy,  0.0%ni, 15.3%id,  0.0%wa,  0.0%hi,  1.9%si,  0.4%st
+Mem:  6952.082M total, 5499.273M used, 1452.809M free,   82.047M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.750M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8417m 4.4g  23m S 663.2 64.5   9:01.85 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:01.32 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.50 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.88 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.49 python             
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.89 sh                 
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.76 python             
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.11 sadc               
+ 7368 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.12 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.12 sadc               
+ 7376 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.12 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/2        
+   11 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/2:0        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:00.19 ksoftirqd/2        
+   13 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/3        
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/3:0        
+--
+top - 00:57:12 up 2 days,  2:01,  1 user,  load average: 7.94, 2.55, 1.61
+Tasks: 150 total,   1 running, 149 sleeping,   0 stopped,   0 zombie
+Cpu(s): 61.7%us, 19.5%sy,  0.0%ni, 16.3%id,  0.1%wa,  0.0%hi,  1.9%si,  0.6%st
+Mem:  6952.082M total, 5504.992M used, 1447.090M free,   82.047M buffers
+Swap:    0.000k total,    0.000k used,    0.000k free,  529.727M cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND            
+ 7119 ec2-user  20   0 8417m 4.4g  23m S 654.0 64.5   9:15.00 java              
+ 7369 ec2-user  20   0  121m  17m 1184 S  2.0  0.2   0:01.36 sh                 
+ 7382 ec2-user  20   0  121m  17m 1184 S  1.5  0.2   0:00.92 sh                 
+ 7117 ec2-user  20   0  118m 1860 1176 S  1.0  0.0   0:00.52 wrapper-linux-x    
+ 7378 ec2-user  20   0  121m  17m 1184 S  1.0  0.2   0:00.90 sh                 
+ 7379 ec2-user  20   0  125m 4968 2000 S  1.0  0.1   0:00.51 python             
+ 7383 ec2-user  20   0  125m 5000 2000 S  1.0  0.1   0:00.78 python             
+ 7345 ec2-user  20   0 15040 1224  888 R  0.5  0.0   0:00.32 top                
+ 7360 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.12 sadc               
+ 7361 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.12 sadc               
+ 7362 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.12 sadc               
+ 7364 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.13 sadc               
+ 7365 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.12 sadc               
+ 7366 ec2-user  20   0 98.6m  816  700 S  0.5  0.0   0:00.12 sadc               
+ 7375 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.13 sadc               
+ 7381 ec2-user  20   0 98.6m  820  700 S  0.5  0.0   0:00.12 sadc               
+    1 root      20   0 19360 1552 1240 S  0.0  0.0   0:01.40 init               
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd           
+    3 root      20   0     0    0    0 S  0.0  0.0   0:00.21 ksoftirqd/0        
+    5 root      20   0     0    0    0 S  0.0  0.0   0:00.06 kworker/u:0        
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.09 migration/0        
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.08 migration/1        
+    8 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kworker/1:0        
+    9 root      20   0     0    0    0 S  0.0  0.0   0:00.22 ksoftirqd/1        

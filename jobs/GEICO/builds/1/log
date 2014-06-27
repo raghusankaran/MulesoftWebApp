@@ -1,0 +1,430 @@
+Started by user anonymous
+Building remotely on PerfClient
+[GEICO] $ /bin/sh -xe /tmp/hudson902260750822654632.sh
++ '[' '' '!=' '' ']'
++ echo COUNT=100000
+COUNT=100000
++ curl --data 'description=" perf-8c1 GEICO 8082  geico.input.json c=10 n=100000 text/xml "' http://perfhudson:8080/job/GEICO/1/submitDescription
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    76    0     0  100    76      0   6480 --:--:-- --:--:-- --:--:--  6909
++ '[' false == true ']'
++ MULE_STARTUP_WAIT=90
++ KEY=/home/ec2-user/.ssh/Perf.pem
+++ echo GEICO 8082
+++ awk '{ print $1 }'
++ TESTAPP=GEICO
++ '[' false == true ']'
++ '[' true == true ']'
+++ date
++ echo 'STARTING MULE ESB at  Sun Feb  9 00:54:15 UTC 2014'
+STARTING MULE ESB at  Sun Feb  9 00:54:15 UTC 2014
++ ssh -tt -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 '/mnt/nfsshare/SCRIPTS/restart_esb.sh '\'''\'' '
+++ date +%Y-%m-%d-%H-%M-%S
++ t=2014-02-09-00-54-16
++ /home/ec2-user/mule-esb/bin/mule stop
+MULE_HOME is set to /home/ec2-user/builds/mule-enterprise-standalone-3.5.0-M4-SNAPSHOT.20140203
+Stopping Mule Enterprise Edition...
+Mule Enterprise Edition was not running.
++ sleep 1
+++ ps -ef
+++ grep mule
+++ grep -v grep
+++ awk '{ print $2 }'
++ sleep 1
+++ pgrep java
++ kill -9
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
++ sleep 1
++ rm '/MuleLog/*'
+rm: cannot remove `/MuleLog/*': No such file or directory
++ rm /home/ec2-user/mule-esb/logs/gc.log /home/ec2-user/mule-esb/logs/mule_ee.log /home/ec2-user/mule-esb/logs/mule_ee.log.1 /home/ec2-user/mule-esb/logs/mule_ee.log.10 /home/ec2-user/mule-esb/logs/mule_ee.log.2 /home/ec2-user/mule-esb/logs/mule_ee.log.3 /home/ec2-user/mule-esb/logs/mule_ee.log.4 /home/ec2-user/mule-esb/logs/mule_ee.log.5 /home/ec2-user/mule-esb/logs/mule_ee.log.6 /home/ec2-user/mule-esb/logs/mule_ee.log.7 /home/ec2-user/mule-esb/logs/mule_ee.log.8 /home/ec2-user/mule-esb/logs/mule_ee.log.9
++ rm /home/ec2-user/mule-esb/conf/muleLicenseKey.lic
++ touch /home/ec2-user/mule-esb/conf/.lic-mule
++ sleep 1
++ '[' '' '!=' '' ']'
++ /home/ec2-user/mule-esb/bin/mule start
+MULE_HOME is set to /home/ec2-user/builds/mule-enterprise-standalone-3.5.0-M4-SNAPSHOT.20140203
+Starting Mule Enterprise Edition...
+Connection to perf-8c1 closed.
++ echo '... Start sleeping and waiting 90 seconds for mule apps to start ...'
+... Start sleeping and waiting 90 seconds for mule apps to start ...
++ sleep 90
++ echo '... Done sleeping 90 seconds ... mule SHOULD HAVE started by now ....'
+... Done sleeping 90 seconds ... mule SHOULD HAVE started by now ....
++ rm -rf /mnt/perf/.hudson/workspace/GEICO/logs/
++ mkdir /mnt/perf/.hudson/workspace/GEICO/logs/
++ LOG=/mnt/perf/.hudson/workspace/GEICO/logs/test.log
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@activemq '/home/ec2-user/mongodb/mongodb-linux-x86_64-2.4.9/bin/mongo mule-poc-data --eval "printjson(db.business_events.count())"'
++ BEGINNING_COUNT='MongoDB shell version: 2.4.9
+connecting to: mule-poc-data
+98126'
++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@activemq 'rm /home/ec2-user/mongostat.out; /home/ec2-user/mongodb/mongodb-linux-x86_64-2.4.9/bin/mongostat > /home/ec2-user/mongostat.out &'
++ /mnt/nfsshare/SCRIPTS/starttest.sh 100000 10 'GEICO 8082'
+++ '[' 100000 == '' ']'
+++ '[' 10 == '' ']'
+++ '[' 'GEICO 8082' == '' ']'
+++ COUNT=100000
+++ CONCURRENT=10
+++ ENDPOINT='GEICO 8082'
+++ PAYLOAD_FILES_DIR=/mnt/nfsshare/payload_files
+++ REMOTE_MULEDIR=/home/ec2-user/mule-esb
+++ REMOTE_LOGSDIR=/home/ec2-user/logs
++++ echo GEICO 8082
++++ awk '{ print $2 }'
+++ PORT_PATH=8082
+++ KEY=/home/ec2-user/.ssh/Perf.pem
+++ PERFSTAT_COUNT=86400
+++ PERFSTAT_INTERVAL=2
++++ date +%Y-%m-%d-%H-%M-%S
+++ t=2014-02-09-00-55-53
+++ LOGSDIR=/mnt/perf/.hudson/workspace/GEICO/logs
+++ mkdir -p /mnt/perf/.hudson/workspace/GEICO/logs
+++ echo '** SETTINGS **'
+++ echo 'COUNT 100000'
+++ echo 'export COUNT="100000"'
+++ echo 'CONCURRENTUSER 10'
+++ echo 'export CONCURRENTUSER="10"'
+++ echo 'SERVER perf-8c1'
+++ echo 'export SERVER="perf-8c1"'
+++ echo 'ENDPOINT GEICO 8082'
+++ echo 'export ENDPOINT="GEICO 8082"'
+++ echo 'QUERY_PARAM: '
+++ echo 'export QUERY_PARAM=""'
+++ echo 'DEPLOY_FRESH_MULE_APP: false'
+++ echo 'export DEPLOY_FRESH_MULE_APP="false"'
+++ echo 'POST_CONTENT_TYPE: text/xml'
+++ echo 'export POST_CONTENT_TYPE="text/xml"'
+++ echo 'PAYLOAD_FILE: geico.input.json'
+++ echo 'export PAYLOAD_FILE="geico.input.json"'
+++ echo 'NOTES: '
+++ echo 'export NOTES=""'
+++ echo 'RESTART_MULE: true'
+++ echo 'export RESTART_MULE="true"'
+++ echo 'RESTART_ACTIVEMYQ: false'
+++ echo 'export RESTART_ACTIVEMYQ=""'
+++ echo 'RERUN_NUMBER: '
+++ echo 'PAYLOAD_FILES_DIR: /mnt/nfsshare/payload_files'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'pgrep java'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'cat /proc/cpuinfo | grep processor | wc -l'
++++ date
+++ echo 'STARTING PERF STATS on perf-8c1 at  Sun Feb  9 00:55:53 UTC 2014'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'killall sar; killall sleep; killall python; killall top'
+sar: no process killed
+sleep: no process killed
+python: no process killed
+top: no process killed
+++ echo 'mule-esb build:'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'ls -altr mule-esb'
+++ sh -c 'sleep 5 && ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 '\''/home/ec2-user/stats-collector-pkg/statcollector.sh 86400 2 /home/ec2-user/logs/2014-02-09-00-55-53'\'' '
+++ echo 'mule-esb/apps directory content:'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'ls -altr mule-esb/apps'
+++ echo =========
+++ echo ''
++++ date
+++ echo 'PERF TEST START TIME Sun Feb  9 00:55:54 UTC 2014'
++++ date +%s
+++ teststarttime=1391907354
+++ warmup_done=0
++++ echo 10
++++ tr , '\n'
+++ arr=10
+++ for c in '$arr'
+++ '[' text/xml '!=' '' ']'
+++ '[' geico.input.json '!=' '' ']'
+++ '[' 0 == 0 ']'
+++ ab -k -T text/xml -p /mnt/nfsshare/payload_files/geico.input.json -n 1 -c 1 -v 2 http://perf-8c1:8082/
+++ ab -k -T text/xml -p /mnt/nfsshare/payload_files/geico.input.json -n 1000 -c 10 http://perf-8c1:8082/
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking perf-8c1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        Mule
+Server Hostname:        perf-8c1
+Server Port:            8082
+
+Document Path:          /
+Document Length:        0 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.128 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      173000 bytes
+Total POSTed:           7439850
+HTML transferred:       0 bytes
+Requests per second:    886.24 [#/sec] (mean)
+Time per request:       11.284 [ms] (mean)
+Time per request:       1.128 [ms] (mean, across all concurrent requests)
+Transfer rate:          149.73 [Kbytes/sec] received
+                        6438.98 kb/s sent
+                        6588.70 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    1   0.2      1       3
+Processing:     4   10   5.3      9      40
+Waiting:        4   10   5.2      8      38
+Total:          5   11   5.3     10      41
+
+Percentage of the requests served within a certain time (ms)
+  50%     10
+  66%     12
+  75%     13
+  80%     14
+  90%     18
+  95%     22
+  98%     28
+  99%     32
+ 100%     41 (longest request)
+++ warmup_done=1
+++ ab -k -T text/xml -p /mnt/nfsshare/payload_files/geico.input.json -n 100000 -c 10 http://perf-8c1:8082/
+++ date +%Y-%m-%d
++ t=2014-02-09
++ COUNT=86400
++ INTERVAL=2
++ RESULT=/home/ec2-user/logs/2014-02-09-00-55-53
++ '[' 86400 == '' ']'
++ '[' 2 == '' ']'
++ '[' /home/ec2-user/logs/2014-02-09-00-55-53 == '' ']'
++ mkdir -p /home/ec2-user/logs/2014-02-09-00-55-53
++ top -b -M -n 86400 -d 2
++ sar -R 2 86400
++ sar -n SOCK 2 86400
++ sar -u ALL 2 86400
++ sar -n EIP 2 86400
++ sar -n DEV 2 86400
++ sar -r 2 86400
++ sar -B 2 86400
++ sar -d -p 2 86400
++ sar -n TCP 2 86400
+++ pgrep java
++ grep -A 30 '^top'
++ sar -n ETCP 2 86400
++ sar -n EDEV 2 86400
++ pid=7119
++ sar -W 2 86400
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/ec2-user/logs/2014-02-09-00-55-53/threads.out; ps -eLf | grep 7119 | wc -l >> /home/ec2-user/logs/2014-02-09-00-55-53/threads.out; sleep 2; done'
+++ dirname /home/ec2-user/stats-collector-pkg/statcollector.sh
++ sar -m 2 86400
++ sar -w 2 86400
++ CURDIR=/home/ec2-user/stats-collector-pkg
++ mkfifo /home/ec2-user/logs/2014-02-09-00-55-53/meminfo_pipe
++ mkfifo /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_pipe
++ python /home/ec2-user/stats-collector-pkg/meminfo_tabulator.py -i /home/ec2-user/logs/2014-02-09-00-55-53/meminfo_pipe -o /home/ec2-user/logs/2014-02-09-00-55-53/meminfo_pipe.out
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/ec2-user/logs/2014-02-09-00-55-53/meminfo_pipe; cat /proc/meminfo >> /home/ec2-user/logs/2014-02-09-00-55-53/meminfo_pipe;  sleep 2; done'
+++ bc
+++ echo '2 * 10'
+++ bc
+++ bc
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_pipe; cat /proc/vmstat >> /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_pipe; sleep 2; done'
+++ echo '86400 * 2'
++ sh -c 'sleep 172800 && pkill -9 -f meminfo_tabulator.py '
++ python /home/ec2-user/stats-collector-pkg/vmstat_tabulator.py -i /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_pipe -t /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_thp.out -n /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_numa.out
+++ echo '86400 * 2'
+++ bc
+++ echo '86400 * 2'
++ sh -c 'sleep 172800 && pkill -9 -f vmstat_tabulator.py '
++ sh -c 'sleep 172800 && pkill -9 -f '\''sh -c'\'' '
++ INTERVAL1=20
+++ bc
+++ echo '86400 / 10'
++ COUNT1=8640
+Completed 10000 requests
+Completed 20000 requests
+Completed 30000 requests
+Completed 40000 requests
+Completed 50000 requests
+Completed 60000 requests
+Completed 70000 requests
+Completed 80000 requests
+Completed 90000 requests
+Completed 100000 requests
+Finished 100000 requests
++++ date +%s
+++ testendtime=1391907432
++++ date
+++ echo 'PERF TEST END TIME Sun Feb  9 00:57:12 UTC 2014'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'killall sar; killall sleep; killall python; killall top'
+++ sleep 2
+++ scp -i /home/ec2-user/.ssh/Perf.pem 'ec2-user@perf-8c1:/home/ec2-user/logs/2014-02-09-00-55-53/*' /mnt/perf/.hudson/workspace/GEICO/logs
+scp: /home/ec2-user/logs/2014-02-09-00-55-53/meminfo_pipe: not a regular file
+scp: /home/ec2-user/logs/2014-02-09-00-55-53/vmstat_pipe: not a regular file
+++ scp -i /home/ec2-user/.ssh/Perf.pem 'ec2-user@perf-8c1:/home/ec2-user/mule-esb/logs/*' /mnt/perf/.hudson/workspace/GEICO/logs
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1 'rm -rf /home/ec2-user/logs/$t'
+++ mkdir -p /mnt/perf/.hudson/workspace/GEICO/logs/confs
+++ scp -i /home/ec2-user/.ssh/Perf.pem 'ec2-user@perf-8c1:/home/ec2-user/mule-esb/apps/*/*.xml' /mnt/perf/.hudson/workspace/GEICO/logs/confs
+++ scp -i /home/ec2-user/.ssh/Perf.pem ec2-user@perf-8c1:/home/ec2-user/mule-esb/conf/wrapper.conf /mnt/perf/.hudson/workspace/GEICO/logs/confs
+++ echo Build/Version
++++ cat /mnt/perf/.hudson/workspace/GEICO/logs/pid.txt
+++ pid=7119
+++ echo 'Java pid: 7119'
+++ echo ''
+++ echo '*** SYSTEM RESOURCE METRICS ***'
++++ grep all /mnt/perf/.hudson/workspace/GEICO/logs/sar.cpuusage.out
++++ awk '{ sum+=$NF; count+=1; }END{ avgidle=sum/count; print 100-avgidle}'
+++ avg_cpu=85.3794
+++ echo 'Avg CPU% 85.3794'
++++ grep 'load average' /mnt/perf/.hudson/workspace/GEICO/logs/top.out
++++ sort -k 12 -n -r
++++ head -n 1
++++ awk '{ print $(NF-2) }'
++++ sed s/,//
+++ echo 'Max CPU load: 7.94'
++++ tail -n +4 /mnt/perf/.hudson/workspace/GEICO/logs/sar.memutil.out
++++ awk '{ mem_used+=$5; kbcached+=$7; count+=1}END{print "Avg % memory used: "mem_used/count" , system cache MB: "kbcached/count/1024}'
+++ echo 'Avg % memory used: 70.4136 , system cache MB: 528.489'
++++ grep eth0 /mnt/perf/.hudson/workspace/GEICO/logs/sar.network.DEV.out
++++ awk '{ rx_sum+=$6; tx_sum+=$7; count+=1 }END{print "Network received: "rx_sum/count" KB/s, transmitted: "tx_sum/count" KB/s"}'
+++ echo 'Network received: 10194.9 KB/s, transmitted: 1526.61 KB/s'
++++ tail -n +4 /mnt/perf/.hudson/workspace/GEICO/logs/sar.network.SOCK.out
++++ awk '{ tot_sock+=$3; tcp_sock+=$4; count+=1 }END{ print "Avg total sockets: "tot_sock/count"  Avg TCP sockets: "tcp_sock/count}'
+++ echo 'Avg total sockets: 160.833  Avg TCP sockets: 67.5278'
++++ egrep 'AM|PM' /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
++++ grep -v DEV
++++ awk '{ print $3 }'
++++ uniq
++++ head -n 10
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdap1 /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdap1 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdb /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdb 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdap1 /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdap1 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdb /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdb 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdap1 /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdap1 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdb /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdb 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdap1 /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdap1 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdb /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdb 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdap1 /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdap1 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdb /mnt/perf/.hudson/workspace/GEICO/logs/sar.device.out
+++ awk -v device=xvdb 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ echo ''
+++ echo '*** JVM METRICS ***'
++++ grep fail /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
++++ wc -l
+++ echo 'GC Failure count: 0'
++++ grep application /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ gc_pause_sec=15.512
++++ grep 'Time taken for tests' /mnt/perf/.hudson/workspace/GEICO/logs/test.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ test_duration_sec=77.214
+++ '[' 77.214 == '' ']'
++++ grep 'Requests per second' /mnt/perf/.hudson/workspace/GEICO/logs/test.log
++++ awk '{ print $4 }'
+++ throughput=1295.11
++++ echo ''
++++ awk -v a=15.512 -v b=77.214 '{ print a/(b-5) * 100 }'
+++ echo 'GC stall %: 21.4806'
++++ grep init /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
++++ wc -l
+++ echo 'GC CMS events: 0'
++++ grep real /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
++++ awk '{ if(NF==12){split($2,a,"K"); sum+=a[1]} }END{print sum}'
+++ obj_allocated=
+++ '[' '' == '' ']'
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
++++ grep -v Full
++++ awk '{ split($2,a,"K"); sum+=a[1] }END{print sum}'
+++ yg=47106262
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
++++ grep Full
++++ awk '{ split($6,a,"K"); sum+=a[1] }END{print sum}'
+++ fullgc=162880
++++ echo 1
++++ awk -v a=47106262 -v b=162880 '{ print a+b }'
+++ obj_allocated=47269142
++++ echo 1
++++ awk -v a=47269142 -v b=77.214 -v c=15.512 '{ actual_run_time=b-c; print a/(actual_run_time*1024) }'
+++ obj_allocation_rate=748.132
+++ echo 'Avg heap obj allocation rate: 748.132 MB/sec '
+++ egrep 'real|\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
+++ awk '{ if(NF==3 || NF==5){ts=$1} else if(NF==12 || 0!=index($0,"PSYoungGen")){ split($2,newgen,"->"); newclean=newgen[1]-newgen[2]; if(NF==12){split($5,heap,"->");}else{split($3,heap,"->");} heapclean=heap[1]-heap[2]; promoted=newclean-heapclean; print ts" "promoted" KB"}}'
+++ awk '{ count+=1; sum+=$2 }END{print "Avg obj promotion: "sum/count/1024" MB"}' /mnt/perf/.hudson/workspace/GEICO/logs/gc.promote.out
+++ egrep 'real|init|ParNew' /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
+++ awk '{ if( NF == 12 ){split($5,a,"->"); print ts" "a[2];}else if(0 != index($0, "init")){ print $1" "$7 } else if(NF == 5 && 0 != index($0, "ParNew")){ ts=$1 }  }'
++++ wc -l /mnt/perf/.hudson/workspace/GEICO/logs/gc.heap.out
++++ awk '{ print $1 }'
+++ '[' 0 == 0 ']'
+++ egrep '\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/GEICO/logs/gc.log
+++ awk '{ if(NF==3){ts=$1} else if(NF==10){split($3,o,"->"); split(o[2],h,"K"); print ts" "h[1]" KB"}}'
+++ awk '{ split($2,a,"K"); sum+=a[1];count+=1 }END{print "Avg working set in heap used: " sum/count/1024 " MB"}' /mnt/perf/.hudson/workspace/GEICO/logs/gc.heap.out
+++ awk 'BEGIN{h1=-1;h2=-1}{ split($2,a,"K"); if(h1!=-1){h2=a[1];print $1" "h2-h1; h1=h2;} else {h1=a[1]} }' /mnt/perf/.hudson/workspace/GEICO/logs/gc.heap.out
+++ awk '{ sum+=$2; count+=1 }END{print "Avg heap changes (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak) " sum/count/1024 " MB"}' /mnt/perf/.hudson/workspace/GEICO/logs/gc.heap.diff.out
+++ grep -v : /mnt/perf/.hudson/workspace/GEICO/logs/threads.out
+++ awk '{ count+=1; sum+=$1 }END{print "Avg thread count in java process: "sum/count}'
+++ grep 'Non-2xx responses' /mnt/perf/.hudson/workspace/GEICO/logs/test.log
+++ awk '{ if($3>0) print "WARNING! SOME REQUEST RETURN NON-2xx! Please check!!!! "$3 }'
+++ echo ''
+++ echo '*** Cost to serve ( per request ) ***'
++++ echo 1
++++ awk -v a=748.132 -v b=1295.11 '{ print a*1024/b }'
+++ echo 'Avg objects created per request: 591.523 KB'
++++ cat /mnt/perf/.hudson/workspace/GEICO/logs/core.txt
+++ num_of_cpu=8
++++ echo 1
++++ awk -v c=8 -v a=85.3794 -v t=1295.11 '{ print c*a/t }'
+++ cpu_per_request=0.527396
+++ echo 'Avg CPU% (1 core) per request: 0.527396'
+++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@activemq '/home/ec2-user/mongodb/mongodb-linux-x86_64-2.4.9/bin/mongo mule-poc-data --eval "printjson(db.business_events.count())"'
++ END_COUNT='MongoDB shell version: 2.4.9
+connecting to: mule-poc-data
+105347'
+++ echo 'MongoDB shell version: 2.4.9
+connecting to: mule-poc-data
+105347 - MongoDB shell version: 2.4.9
+connecting to: mule-poc-data
+98126'
+++ bc
+(standard_in) 1: illegal character: M
+(standard_in) 1: syntax error
+(standard_in) 1: illegal character: :
+(standard_in) 2: syntax error
+(standard_in) 2: illegal character: :
+(standard_in) 3: illegal character: M
+(standard_in) 3: syntax error
+(standard_in) 3: illegal character: :
+(standard_in) 4: syntax error
+(standard_in) 4: illegal character: :
++ ROW_INSERTED=98126
++ echo 'MongoDB mule-poc-data inserted 98126 row'
++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@activemq '/home/ec2-user/mongodb/mongodb-linux-x86_64-2.4.9/bin/mongo mule-poc-data --eval "printjson(db.business_events.count())"'
++ ssh -i /home/ec2-user/.ssh/Perf.pem ec2-user@activemq 'killall mongostat'
++ scp -i /home/ec2-user/.ssh/Perf.pem ec2-user@activemq:/home/ec2-user/mongostat.out /mnt/perf/.hudson/workspace/GEICO/logs/
++ stop
+/tmp/hudson902260750822654632.sh: line 68: stop: command not found
+Archiving artifacts
+Finished: FAILURE

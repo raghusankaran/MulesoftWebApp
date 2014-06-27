@@ -1,0 +1,374 @@
+Started by user wai.ip
+Building remotely on PerfClient
+[CH_Production] $ /bin/sh -xe /tmp/hudson6670152587726313585.sh
++ KEY=/home/ec2-user/.ssh/production-ion-mule.pem
++ USER=ubuntu
++ export KEY
++ export USER
++ HUDSON_PERFTEST_PWD='muleftw!'
++ export HUDSON_PERFTEST_PWD
++ export REMOTE_MULEDIR=/opt/mule/mule-3.5.0-R34
++ REMOTE_MULEDIR=/opt/mule/mule-3.5.0-R34
++ export SERVER_SCRIPTS=/home/ubuntu
++ SERVER_SCRIPTS=/home/ubuntu
++ '[' '' '!=' '' ']'
++ echo COUNT=10000000
+COUNT=10000000
++ curl --user 'perftest:muleftw!' --data 'description="https1 (worker directly) 54.87.2.150 mule-worker-https1.stg.cloudhub.io:8082   c=1,2,4,8,10,20,30,40,50,60,100,200 n=10000000  "' http://mule-perflab06.managed.contegix.com:8080/job/CH_Production/41/submitDescription
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   141    0     0  100   141      0   2428 --:--:-- --:--:-- --:--:--  2473
++ export warmup_done=1
++ warmup_done=1
++ rm -rf /mnt/perf/.hudson/workspace/CH_Production/logs/
++ /mnt/nfsshare/CLIENT/starttest.cloudhub.sh 10000000 1,2,4,8,10,20,30,40,50,60,100,200 mule-worker-https1.stg.cloudhub.io:8082
+++ '[' 10000000 == '' ']'
+++ '[' 1,2,4,8,10,20,30,40,50,60,100,200 == '' ']'
+++ '[' mule-worker-https1.stg.cloudhub.io:8082 == '' ']'
+++ COUNT=10000000
+++ CONCURRENT=1,2,4,8,10,20,30,40,50,60,100,200
+++ ENDPOINT=mule-worker-https1.stg.cloudhub.io:8082
+++ NFS=/mnt/nfsshare
+++ '[' -z /home/ubuntu ']'
+++ PAYLOAD_FILES_DIR=/mnt/nfsshare/PAYLOAD_FILES
+++ '[' -z /opt/mule/mule-3.5.0-R34 ']'
+++ REMOTE_LOGSDIR=/home/ubuntu/logs
++++ echo mule-worker-https1.stg.cloudhub.io:8082
++++ awk '{ print $2 }'
+++ PORT_PATH=
+++ PERFSTAT_COUNT=86400
+++ PERFSTAT_INTERVAL=2
++++ date +%Y-%m-%d-%H-%M-%S
+++ t=2014-06-17-00-20-45
+++ LOGSDIR=/mnt/perf/.hudson/workspace/CH_Production/logs
+++ mkdir -p /mnt/perf/.hudson/workspace/CH_Production/logs
+++ echo '** SETTINGS **'
+++ echo 'USER ubuntu'
+++ echo 'export USER="ubuntu"'
+++ echo 'KEY /home/ec2-user/.ssh/production-ion-mule.pem'
+++ echo 'export KEY="/home/ec2-user/.ssh/production-ion-mule.pem"'
+++ echo 'COUNT 10000000'
+++ echo 'export COUNT="10000000"'
+++ echo 'CONCURRENTUSER 1,2,4,8,10,20,30,40,50,60,100,200'
+++ echo 'export CONCURRENTUSER="1,2,4,8,10,20,30,40,50,60,100,200"'
+++ echo 'SERVER 54.87.2.150'
+++ echo 'export SERVER="54.87.2.150"'
+++ echo 'ENDPOINT mule-worker-https1.stg.cloudhub.io:8082'
+++ echo 'export ENDPOINT="mule-worker-https1.stg.cloudhub.io:8082"'
+++ echo 'QUERY_PARAM: '
+++ echo 'export QUERY_PARAM=""'
+++ echo 'POST_CONTENT_TYPE: '
+++ echo 'export POST_CONTENT_TYPE=""'
+++ echo 'PAYLOAD_FILE: '
+++ echo 'export PAYLOAD_FILE=""'
+++ echo 'NOTES: https1 (worker directly)'
+++ echo 'export NOTES="https1 (worker directly)"'
+++ echo 'EXTRA_PARAMS: -t 120'
+++ echo 'export EXTRA_PARAMS="-t 120"'
+++ '[' -z https ']'
+++ echo 'HTTP: https'
+++ echo 'export HTTP="https"'
+++ echo 'RERUN_NUMBER: '
+++ echo 'PAYLOAD_FILES_DIR: /mnt/nfsshare/PAYLOAD_FILES'
+++ for host in '$SERVER'
+++ mkdir -p /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150
+++ ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 'pgrep java'
+++ ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 'cat /proc/cpuinfo | grep processor | wc -l'
++++ date
+++ echo 'STARTING PERF STATS on 54.87.2.150 at  Tue Jun 17 00:20:46 UTC 2014'
+++ ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 'killall sar; killall tail; killall sleep; killall top'
+sar: no process found
+tail: no process found
+sleep: no process found
+top: no process found
+++ echo -e '=========\n'
+++ sh -c 'sleep 5 && ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 '\''/home/ubuntu/SERVER/stats-collector-pkg/statcollector.sh 86400 2 /home/ubuntu/logs/2014-06-17-00-20-45'\'' '
+++ ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 'tail -f /home/ec2-user/mule-esb/logs/gc.log'
++++ date
+++ echo 'PERF TEST START TIME Tue Jun 17 00:20:46 UTC 2014'
++++ date +%s
+++ teststarttime=1402964446
++++ echo 1,2,4,8,10,20,30,40,50,60,100,200
++++ tr , '\n'
+++ arr='1
+2
+4
+8
+10
+20
+30
+40
+50
+60
+100
+200'
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 1 https://mule-worker-https1.stg.cloudhub.io:8082/
+tail: cannot open `/home/ec2-user/mule-esb/logs/gc.log' for reading: No such file or directory
+++ date +%Y-%m-%d
++ t=2014-06-17
++ COUNT=86400
++ INTERVAL=2
++ RESULT=/home/ubuntu/logs/2014-06-17-00-20-45
++ '[' 86400 == '' ']'
++ '[' 2 == '' ']'
++ '[' /home/ubuntu/logs/2014-06-17-00-20-45 == '' ']'
++ mkdir -p /home/ubuntu/logs/2014-06-17-00-20-45
++ top -b -n 86400 -d 2
++ sar -n EIP 2 86400
++ sar -n DEV 2 86400
++ sar -R 2 86400
+++ pgrep java
++ sar -B 2 86400
++ sar -n EDEV 2 86400
++ sar -n ETCP 2 86400
++ sar -n SOCK 2 86400
++ sar -n TCP 2 86400
++ sar -u ALL 2 86400
++ sar -r 2 86400
++ sar -d -p 2 86400
++ grep -A 30 '^top'
++ pid=1062
++ sar -W 2 86400
++ sar -m 2 86400
+++ dirname /home/ubuntu/SERVER/stats-collector-pkg/statcollector.sh
+Usage: sar [ options ] [ <interval> [ <count> ] ]
+Options are:
+[ -A ] [ -b ] [ -B ] [ -C ] [ -d ] [ -h ] [ -H ] [ -p ] [ -q ] [ -r ]
+[ -R ] [ -S ] [ -t ] [ -u [ ALL ] ] [ -v ] [ -V ] [ -w ] [ -W ] [ -y ]
+[ -I { <int> [,...] | SUM | ALL | XALL } ] [ -P { <cpu> [,...] | ALL } ]
+[ -m { <keyword> [,...] | ALL } ] [ -n { <keyword> [,...] | ALL } ]
+[ -o [ <filename> ] | -f [ <filename> ] ]
+[ -i <interval> ] [ -s [ <hh:mm:ss> ] ] [ -e [ <hh:mm:ss> ] ]
++ sar -w 2 86400
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/ubuntu/logs/2014-06-17-00-20-45/threads.out; ps -eLf | grep 1062 | wc -l >> /home/ubuntu/logs/2014-06-17-00-20-45/threads.out; sleep 2; done'
++ CURDIR=/home/ubuntu/SERVER/stats-collector-pkg
+Finished 2960 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 2 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 5837 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 4 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 11760 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 8 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 23287 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 10 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 29080 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 20 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 57615 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 30 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 85725 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 40 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 114277 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 50 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 141470 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 60 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 168587 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 100 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 272819 requests
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 1 == '' ']'
+++ '[' '' == '' ']'
+++ ab -t 120 -k -n 10000000 -c 200 https://mule-worker-https1.stg.cloudhub.io:8082/
+Finished 376762 requests
++++ date +%s
+++ testendtime=1402965888
++++ date
+++ echo 'PERF TEST END TIME Tue Jun 17 00:44:48 UTC 2014'
+++ mkdir -p /mnt/perf/.hudson/workspace/CH_Production/logs/confs
+++ for host in '$SERVER'
+++ ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 'killall tail; killall sar; killall sleep; killall top'
+tail: no process found
+sleep: no process found
+++ sleep 2
+++ scp -i /home/ec2-user/.ssh/production-ion-mule.pem 'ubuntu@54.87.2.150:/home/ubuntu/logs/2014-06-17-00-20-45/*' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150
+++ scp -i /home/ec2-user/.ssh/production-ion-mule.pem 'ubuntu@54.87.2.150:/opt/mule/mule-3.5.0-R34/logs/*' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150
+scp: /opt/mule/mule-3.5.0-R34/logs/*: No such file or directory
+++ ssh -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150 'rm -rf /home/$USER/logs/$t'
+++ scp -i /home/ec2-user/.ssh/production-ion-mule.pem 'ubuntu@54.87.2.150:/opt/mule/mule-3.5.0-R34/apps/*/*.xml' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/confs
+scp: /opt/mule/mule-3.5.0-R34/apps/*/*.xml: No such file or directory
+++ scp -i /home/ec2-user/.ssh/production-ion-mule.pem ubuntu@54.87.2.150:/opt/mule/mule-3.5.0-R34/conf/wrapper.conf /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/confs
+scp: /opt/mule/mule-3.5.0-R34/conf/wrapper.conf: No such file or directory
+++ echo -e '\n *** SYSTEM RESOURCE METRICS ***'
++++ grep all /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.cpuusage.out
++++ awk '{ sum+=$4+$6+$8; count+=1; }END{ avg=sum/count; print avg}'
+++ avg_cpu=21.1263
+++ echo 'Avg CPU% 21.1263'
++++ grep all /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.cpuusage.out
++++ awk '{ sum+=$8; count+=1; }END{ avg=sum/count; print avg}'
+++ avg_steal=3.0485
+++ echo 'Avg STEAL% 3.0485'
++++ grep all /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.cpuusage.out
++++ awk '{ sum+=$7; count+=1; }END{ avg=sum/count; print avg}'
+++ avg_iowait=0.044429
+++ echo 'Avg IOWAIT% 0.044429'
++++ grep 'load average' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/top.out
++++ sort -k 12 -n -r
++++ head -n 1
++++ awk '{ print $(NF-2) }'
++++ sed s/,//
+++ echo 'Max CPU load: 19.07'
++++ tail -n +4 /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.memutil.out
++++ awk '{ mem_used+=$5; kbcached+=$7; count+=1}END{print "Avg % memory used: "mem_used/count" , system cache MB: "kbcached/count/1024}'
+++ echo 'Avg % memory used: 27.8877 , system cache MB: 340.354'
++++ grep eth0 /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.network.DEV.out
++++ awk '{ rx_sum+=$6; tx_sum+=$7; count+=1 }END{print "Network received: "rx_sum/count" KB/s, transmitted: "tx_sum/count" KB/s"}'
+++ echo 'Network received: 281.78 KB/s, transmitted: 472.243 KB/s'
++++ tail -n +4 /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.network.SOCK.out
++++ awk '{ tot_sock+=$3; tcp_sock+=$4; count+=1 }END{ print "Avg total sockets: "tot_sock/count"  Avg TCP sockets: "tcp_sock/count}'
+++ echo 'Avg total sockets: 111.862  Avg TCP sockets: 52.929'
++++ egrep 'AM|PM' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.device.out
++++ grep -v DEV
++++ awk '{ print $3 }'
++++ uniq
++++ head -n 10
+++ for i in '$( egrep "AM|PM" $LOGSDIR/$host/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep xvdap1 /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/sar.device.out
+++ awk -v device=xvdap1 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ '[' -f /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log ']'
+++ echo -e '\n *** JVM METRICS ***'
++++ grep fail /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
++++ wc -l
+++ echo 'GC Failure count: 0'
++++ grep application /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ gc_pause_sec=
++++ grep 'Time taken for tests' /mnt/perf/.hudson/workspace/CH_Production/logs/test.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ test_duration_sec=1440.14
+++ '[' 1440.14 == '' ']'
++++ grep 'Requests per second' /mnt/perf/.hudson/workspace/CH_Production/logs/test.log
++++ awk '{ print $4 }'
+++ throughput='24.66
+48.63
+97.98
+194.05
+242.31
+480.06
+714.36
+952.30
+1178.73
+1404.86
+2273.49
+3139.48'
++++ echo ''
++++ awk -v a= -v b=1440.14 '{ print a/(b-5) * 100 }'
+++ echo 'GC stall %: 0'
++++ grep init /mnt/perf/.hudson/workspace/CH_Production/logs/gc.log
++++ wc -l
+grep: /mnt/perf/.hudson/workspace/CH_Production/logs/gc.log: No such file or directory
+++ echo 'GC CMS events: 0'
++++ grep real /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
++++ awk '{ if(NF==12){split($2,a,"K"); sum+=a[1]} }END{print sum}'
+++ obj_allocated=
+++ '[' '' == '' ']'
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
++++ grep -v Full
++++ awk '{ split($2,a,"K"); sum+=a[1] }END{print sum}'
+++ yg=
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
++++ grep Full
++++ awk '{ split($6,a,"K"); sum+=a[1] }END{print sum}'
+++ fullgc=
++++ echo 1
++++ awk -v a= -v b= '{ print a+b }'
+++ obj_allocated=0
++++ echo 1
++++ awk -v a=0 -v b=1440.14 -v c= '{ actual_run_time=b-c; print a/(actual_run_time*1024) }'
+++ obj_allocation_rate=0
+++ echo 'Avg heap obj allocation rate: 0 MB/sec '
+++ egrep 'real|\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
+++ awk '{ if(NF==3 || NF==5){ts=$1} else if(NF==12 || 0!=index($0,"PSYoungGen")){ split($2,newgen,"->"); newclean=newgen[1]-newgen[2]; if(NF==12){split($5,heap,"->");}else{split($3,heap,"->");} heapclean=heap[1]-heap[2]; promoted=newclean-heapclean; print ts" "promoted" KB"}}'
+++ awk '{ count+=1; sum+=$2 }END{print "Avg obj promotion: "sum/count/1024" MB"}' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.promote.out
+awk: fatal: division by zero attempted
+++ egrep 'real|init|ParNew' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
+++ awk '{ if( NF == 12 ){split($5,a,"->"); print ts" "a[2];}else if(0 != index($0, "init")){ print $1" "$7 } else if(NF == 5 && 0 != index($0, "ParNew")){ ts=$1 }  }'
++++ wc -l /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.heap.out
++++ awk '{ print $1 }'
+++ '[' 0 == 0 ']'
+++ egrep '\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.log
+++ awk '{ if(NF==3){ts=$1} else if(NF==10){split($3,o,"->"); split(o[2],h,"K"); print ts" "h[1]" KB"}}'
+++ awk '{ split($2,a,"K"); sum+=a[1];count+=1 }END{print "Avg working set in heap used: " sum/count/1024 " MB"}' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.heap.out
+awk: fatal: division by zero attempted
+++ awk 'BEGIN{h1=-1;h2=-1}{ split($2,a,"K"); if(h1!=-1){h2=a[1];print $1" "h2-h1; h1=h2;} else {h1=a[1]} }' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.heap.out
++++ awk '{ sum+=$2; count+=1 }END{print sum/count/1024}' /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.heap.diff.out
+awk: fatal: division by zero attempted
+++ avg_heap_change=
+++ echo 'Avg heap changes per GC eventi:  MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)'
++++ wc -l /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/gc.heap.out
++++ awk '{ print $1 }'
+++ gc_event_count=0
++++ echo ''
++++ awk -v c=0 -v d=1440.14 -v a= '{ print a*c/d }'
+++ heapchange_per_sec=0
+++ echo 'Avg heap change per second: 0 MB/sec'
+++ grep -v : /mnt/perf/.hudson/workspace/CH_Production/logs/54.87.2.150/threads.out
+++ awk '{ count+=1; sum+=$1 }END{print "Avg thread count in java process: "sum/count}'
+Archiving artifacts
+Finished: SUCCESS

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>COUNT</name>
+          <description></description>
+          <value>100000</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>CONCURRENTUSER</name>
+          <description></description>
+          <value>10</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SERVER</name>
+          <description></description>
+          <value>perf-8c1</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ENDPOINT</name>
+          <description>app_name server:port optional_description
+</description>
+          <value>GEICO 8082</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>QUERY_PARAM</name>
+          <description>For echo service it is empty because it just uses a path (i.e. http://perf-8c:8084/hellohello ).  For Hello example, it uses query param &quot;name&quot; such as ( http://perf-8c:8888/?name=hellohello )</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>DEPLOY_FRESH_MULE_APP</name>
+          <description>If true, it will do a fresh deploy the app you specified. If false, the test will run only if the app under test is already deployed.</description>
+          <value>false</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>RESTART_MULE</name>
+          <description>Start or Restart mule server before test ( additional 90 seconds )</description>
+          <value>true</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>RESTART_ACTIVEMQ</name>
+          <description></description>
+          <value>false</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>NOTES</name>
+          <description></description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>POST_CONTENT_TYPE</name>
+          <description>For POST request only.</description>
+          <value>text/xml</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>PAYLOAD_FILE</name>
+          <description>For POST request only.</description>
+          <value>geico.input.json</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>RERUN_NUMBER</name>
+          <description>Rerun an earlier run you made.  e.g. 333</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causes>
+        <hudson.model.Cause_-UserCause>
+          <authenticationName>anonymous</authenticationName>
+        </hudson.model.Cause_-UserCause>
+      </causes>
+    </hudson.model.CauseAction>
+  </actions>
+  <number>1</number>
+  <result>FAILURE</result>
+  <description>&quot; perf-8c1 GEICO 8082  geico.input.json c=10 n=100000 text/xml &quot;</description>
+  <duration>181448</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn>PerfClient</builtOn>
+  <workspace>/mnt/perf/.hudson/workspace/GEICO</workspace>
+  <hudsonVersion>1.392.LI22</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits/>
+</build>

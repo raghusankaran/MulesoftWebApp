@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <project-properties class="java.util.concurrent.ConcurrentHashMap">
+    <entry>
+      <string>parametersDefinitionProperties</string>
+      <copy-write-list-property>
+        <originalValue class="hudson.util.CopyOnWriteList">
+          <hudson.model.ParametersDefinitionProperty>
+            <parameterDefinitions>
+              <hudson.model.StringParameterDefinition>
+                <name>COUNT</name>
+                <description></description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>CONCURRENTUSER</name>
+                <description></description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>ENDPOINT</name>
+                <description>the cloudhub application domain</description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string>stg-mcdonald.stg.cloudhub.io</string>
+                    <string>rupesh-mcdonald-poc.cloudhub.io</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>QUERY_PARAM</name>
+                <description></description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string>api/b2bshipping/1.0/shipment/22121</string>
+                    <string>api/b2bshipping/1.0/quote?object=Box&amp;volume=232&amp;weight=23&amp;origin=ORD&amp;destination=LAX&amp;service=Air</string>
+                    <string>api/b2bshipping/1.0/shipment</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>NOTES</name>
+                <description></description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>POST_CONTENT_TYPE</name>
+                <description>For POST request only.</description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string></string>
+                    <string></string>
+                    <string>application/json</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.ChoiceParameterDefinition>
+                <name>PAYLOAD_FILE</name>
+                <description>For POST request only.</description>
+                <choices class="java.util.Arrays$ArrayList">
+                  <a class="string-array">
+                    <string></string>
+                    <string></string>
+                    <string>mcdonald.json</string>
+                  </a>
+                </choices>
+              </hudson.model.ChoiceParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>SERVER</name>
+                <description></description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+              <hudson.model.StringParameterDefinition>
+                <name>RERUN_NUMBER</name>
+                <description>Rerun an earlier run you made.  e.g. 333</description>
+                <defaultValue></defaultValue>
+              </hudson.model.StringParameterDefinition>
+            </parameterDefinitions>
+          </hudson.model.ParametersDefinitionProperty>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+      </copy-write-list-property>
+    </entry>
+    <entry>
+      <string>builders</string>
+      <describable-list-property>
+        <originalValue class="hudson.util.DescribableList">
+          <hudson.tasks.Shell>
+            <command>KEY=$HOME/.ssh/Perf.pem
+USER=ec2-user
+export KEY
+export USER
+HUDSON_PERFTEST_PWD=muleftw!
+export HUDSON_PERFTEST_PWD
+
+if [ &quot;$RERUN_NUMBER&quot; != &quot;&quot; ]; then
+  if [ -f &quot;$WORKSPACE/input.sh&quot; ]; then
+    rm input.sh
+  fi
+  curl --user perftest:$HUDSON_PERFTEST_PWD &quot;http://mule-perflab06.managed.contegix.com:8080/job/$JOB_NAME/$RERUN_NUMBER/artifact/logs/input.sh&quot; -o $WORKSPACE/input.sh
+  . $WORKSPACE/input.sh
+fi
+
+echo &quot;COUNT=$COUNT&quot;
+
+curl --user perftest:$HUDSON_PERFTEST_PWD --data &quot;description=\&quot;$NOTES $ENDPOINT$QUERY_PARAM $PAYLOAD_FILE c=$CONCURRENTUSER n=$COUNT $POST_CONTENT_TYPE \&quot;&quot; http://mule-perflab06.managed.contegix.com:8080/job/$JOB_NAME/$BUILD_NUMBER/submitDescription
+
+rm -rf $WORKSPACE/logs/
+/mnt/nfsshare/CLIENT/starttest.cloudhub.sh $COUNT $CONCURRENTUSER &quot;$ENDPOINT&quot;</command>
+          </hudson.tasks.Shell>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+      </describable-list-property>
+    </entry>
+    <entry>
+      <string>hudson-tasks-ArtifactArchiver</string>
+      <external-property>
+        <originalValue class="hudson.tasks.ArtifactArchiver">
+          <artifacts>logs/**</artifacts>
+          <latestOnly>false</latestOnly>
+          <autoValidateFileMask>false</autoValidateFileMask>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+        <modified>false</modified>
+      </external-property>
+    </entry>
+    <entry>
+      <string>appointedNode</string>
+      <base-property>
+        <originalValue class="appointed-node-property">
+          <nodeName>PerfClient</nodeName>
+          <advancedAffinityChooser>false</advancedAffinityChooser>
+          <canRoam>false</canRoam>
+        </originalValue>
+        <propertyOverridden>false</propertyOverridden>
+      </base-property>
+    </entry>
+    <entry>
+      <string>scm</string>
+      <scm-property>
+        <originalValue class="hudson.scm.NullSCM"/>
+        <propertyOverridden>false</propertyOverridden>
+      </scm-property>
+    </entry>
+  </project-properties>
+  <keepDependencies>false</keepDependencies>
+  <creationTime>0</creationTime>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.StringParameterDefinition"/>
+        <hudson.model.StringParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.StringParameterDefinition[2]"/>
+        <hudson.model.ChoiceParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.ChoiceParameterDefinition"/>
+        <hudson.model.ChoiceParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.ChoiceParameterDefinition[2]"/>
+        <hudson.model.StringParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.StringParameterDefinition[3]"/>
+        <hudson.model.ChoiceParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.ChoiceParameterDefinition[3]"/>
+        <hudson.model.ChoiceParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.ChoiceParameterDefinition[4]"/>
+        <hudson.model.StringParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.StringParameterDefinition[4]"/>
+        <hudson.model.StringParameterDefinition reference="../../../../project-properties/entry/copy-write-list-property/originalValue/hudson.model.ParametersDefinitionProperty/parameterDefinitions/hudson.model.StringParameterDefinition[5]"/>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <cascadingChildrenNames class="java.util.concurrent.CopyOnWriteArraySet"/>
+  <cascading-job-properties class="java.util.concurrent.CopyOnWriteArraySet"/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <concurrentBuild>false</concurrentBuild>
+  <cleanWorkspaceRequired>false</cleanWorkspaceRequired>
+</project>

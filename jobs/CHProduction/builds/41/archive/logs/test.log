@@ -1,0 +1,22 @@
+STARTING PERF STATS on 54.87.2.150 at  Tue Jun 17 00:20:46 UTC 2014
+=========
+
+
+ *** SYSTEM RESOURCE METRICS ***
+Avg CPU% 21.1263
+Avg STEAL% 3.0485
+Avg IOWAIT% 0.044429
+Max CPU load: 19.07
+Avg % memory used: 27.8877 , system cache MB: 340.354
+Network received: 281.78 KB/s, transmitted: 472.243 KB/s
+Avg total sockets: 111.862  Avg TCP sockets: 52.929
+Avg disk xvdap1 utilization 0.147618 %, max IO latency 153.43 ms
+
+ *** JVM METRICS ***
+GC Failure count: 0
+GC stall %: 0
+GC CMS events: 0
+Avg heap obj allocation rate: 0 MB/sec 
+Avg heap changes per GC eventi:  MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)
+Avg heap change per second: 0 MB/sec
+Avg thread count in java process: 664

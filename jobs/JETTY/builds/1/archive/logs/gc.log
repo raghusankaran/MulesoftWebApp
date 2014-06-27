@@ -1,0 +1,803 @@
+2014-03-20T17:05:19.176-0500: 23.054: Total time for which application threads were stopped: 0.0000970 seconds
+2014-03-20T17:05:19.176-0500: 23.054: Total time for which application threads were stopped: 0.0000900 seconds
+2014-03-20T17:05:19.179-0500: 23.056: Total time for which application threads were stopped: 0.0000890 seconds
+2014-03-20T17:05:19.180-0500: 23.058: Total time for which application threads were stopped: 0.0000850 seconds
+2014-03-20T17:05:19.181-0500: 23.059: Total time for which application threads were stopped: 0.0000780 seconds
+2014-03-20T17:05:19.181-0500: 23.059: Total time for which application threads were stopped: 0.0000820 seconds
+2014-03-20T17:05:19.182-0500: 23.060: Total time for which application threads were stopped: 0.0001220 seconds
+2014-03-20T17:05:19.182-0500: 23.060: Total time for which application threads were stopped: 0.0000500 seconds
+2014-03-20T17:05:19.182-0500: 23.060: Total time for which application threads were stopped: 0.0000800 seconds
+2014-03-20T17:05:19.182-0500: 23.060: Total time for which application threads were stopped: 0.0000910 seconds
+2014-03-20T17:05:19.183-0500: 23.060: Total time for which application threads were stopped: 0.0000790 seconds
+2014-03-20T17:05:19.183-0500: 23.061: Total time for which application threads were stopped: 0.0000760 seconds
+2014-03-20T17:05:19.183-0500: 23.061: Total time for which application threads were stopped: 0.0000740 seconds
+2014-03-20T17:05:19.183-0500: 23.061: Total time for which application threads were stopped: 0.0000920 seconds
+2014-03-20T17:05:19.184-0500: 23.061: Total time for which application threads were stopped: 0.0000900 seconds
+2014-03-20T17:05:19.185-0500: 23.062: Total time for which application threads were stopped: 0.0000990 seconds
+2014-03-20T17:05:19.185-0500: 23.063: Total time for which application threads were stopped: 0.0001090 seconds
+2014-03-20T17:05:19.185-0500: 23.063: Total time for which application threads were stopped: 0.0001150 seconds
+2014-03-20T17:05:19.185-0500: 23.063: Total time for which application threads were stopped: 0.0000940 seconds
+2014-03-20T17:05:19.186-0500: 23.063: Total time for which application threads were stopped: 0.0000950 seconds
+2014-03-20T17:05:19.186-0500: 23.063: Total time for which application threads were stopped: 0.0000890 seconds
+2014-03-20T17:05:19.186-0500: 23.063: Total time for which application threads were stopped: 0.0000590 seconds
+2014-03-20T17:05:19.186-0500: 23.064: Total time for which application threads were stopped: 0.0000720 seconds
+2014-03-20T17:05:19.186-0500: 23.064: Total time for which application threads were stopped: 0.0000850 seconds
+2014-03-20T17:05:19.434-0500: 23.311: Total time for which application threads were stopped: 0.0004330 seconds
+2014-03-20T17:05:19.434-0500: 23.312: Total time for which application threads were stopped: 0.0004560 seconds
+2014-03-20T17:05:19.435-0500: 23.312: Total time for which application threads were stopped: 0.0001700 seconds
+2014-03-20T17:05:19.474-0500: 23.351: Total time for which application threads were stopped: 0.0002670 seconds
+2014-03-20T17:05:19.506-0500: 23.384: Total time for which application threads were stopped: 0.0001910 seconds
+2014-03-20T17:05:19.507-0500: 23.384: Total time for which application threads were stopped: 0.0001550 seconds
+2014-03-20T17:05:19.507-0500: 23.385: Total time for which application threads were stopped: 0.0005490 seconds
+2014-03-20T17:05:19.508-0500: 23.386: Total time for which application threads were stopped: 0.0000910 seconds
+2014-03-20T17:05:19.520-0500: 23.398: Total time for which application threads were stopped: 0.0002650 seconds
+2014-03-20T17:05:19.550-0500: 23.427: Total time for which application threads were stopped: 0.0002540 seconds
+2014-03-20T17:05:19.550-0500: 23.428: Total time for which application threads were stopped: 0.0001230 seconds
+2014-03-20T17:05:27.196-0500: 31.073: Total time for which application threads were stopped: 0.0007710 seconds
+2014-03-20T17:05:27.222-0500: 31.100: Total time for which application threads were stopped: 0.0001320 seconds
+2014-03-20T17:05:27.238-0500: 31.116: Total time for which application threads were stopped: 0.0001260 seconds
+2014-03-20T17:05:27.238-0500: 31.116: Total time for which application threads were stopped: 0.0001170 seconds
+2014-03-20T17:05:27.287-0500: 31.165: Total time for which application threads were stopped: 0.0001400 seconds
+2014-03-20T17:05:27.295-0500: 31.173: Total time for which application threads were stopped: 0.0000800 seconds
+2014-03-20T17:05:27.299-0500: 31.177: Total time for which application threads were stopped: 0.0001870 seconds
+2014-03-20T17:05:27.307-0500: 31.185: Total time for which application threads were stopped: 0.0001370 seconds
+2014-03-20T17:05:27.328-0500: 31.206: Total time for which application threads were stopped: 0.0001230 seconds
+2014-03-20T17:05:27.331-0500: 31.209: Total time for which application threads were stopped: 0.0000890 seconds
+2014-03-20T17:05:27.493-0500: 31.370: Total time for which application threads were stopped: 0.0001800 seconds
+2014-03-20T17:05:27.493-0500: 31.371: Total time for which application threads were stopped: 0.0001190 seconds
+2014-03-20T17:05:27.500-0500: 31.378: Total time for which application threads were stopped: 0.0004490 seconds
+2014-03-20T17:05:27.515-0500: 31.393: Total time for which application threads were stopped: 0.0002920 seconds
+2014-03-20T17:05:27.516-0500: 31.393: Total time for which application threads were stopped: 0.0003480 seconds
+2014-03-20T17:05:27.517-0500: 31.395: Total time for which application threads were stopped: 0.0004250 seconds
+2014-03-20T17:05:27.518-0500: 31.396: Total time for which application threads were stopped: 0.0005190 seconds
+2014-03-20T17:05:27.519-0500: 31.397: Total time for which application threads were stopped: 0.0004850 seconds
+2014-03-20T17:05:27.525-0500: 31.403: Total time for which application threads were stopped: 0.0003110 seconds
+2014-03-20T17:05:27.527-0500: 31.404: Total time for which application threads were stopped: 0.0005790 seconds
+2014-03-20T17:05:27.528-0500: 31.405: Total time for which application threads were stopped: 0.0004300 seconds
+2014-03-20T17:05:27.534-0500: 31.411: Total time for which application threads were stopped: 0.0003450 seconds
+2014-03-20T17:05:27.535-0500: 31.412: Total time for which application threads were stopped: 0.0003930 seconds
+2014-03-20T17:05:27.535-0500: 31.413: Total time for which application threads were stopped: 0.0004070 seconds
+2014-03-20T17:05:27.536-0500: 31.414: Total time for which application threads were stopped: 0.0002810 seconds
+2014-03-20T17:05:27.537-0500: 31.415: Total time for which application threads were stopped: 0.0002510 seconds
+2014-03-20T17:05:27.539-0500: 31.416: Total time for which application threads were stopped: 0.0002690 seconds
+2014-03-20T17:05:27.540-0500: 31.417: Total time for which application threads were stopped: 0.0003130 seconds
+2014-03-20T17:05:27.542-0500: 31.420: Total time for which application threads were stopped: 0.0003280 seconds
+2014-03-20T17:05:27.546-0500: 31.424: Total time for which application threads were stopped: 0.0003310 seconds
+2014-03-20T17:05:27.547-0500: 31.424: Total time for which application threads were stopped: 0.0002640 seconds
+2014-03-20T17:05:27.550-0500: 31.427: Total time for which application threads were stopped: 0.0003430 seconds
+2014-03-20T17:05:27.550-0500: 31.428: Total time for which application threads were stopped: 0.0002470 seconds
+2014-03-20T17:05:27.553-0500: 31.431: Total time for which application threads were stopped: 0.0003630 seconds
+2014-03-20T17:05:27.560-0500: 31.438: Total time for which application threads were stopped: 0.0015150 seconds
+2014-03-20T17:05:27.584-0500: 31.461: Total time for which application threads were stopped: 0.0011190 seconds
+2014-03-20T17:05:28.194-0500: 32.072: Total time for which application threads were stopped: 0.0007970 seconds
+2014-03-20T17:05:28.195-0500: 32.073: Total time for which application threads were stopped: 0.0004330 seconds
+2014-03-20T17:05:28.195-0500: 32.073: Total time for which application threads were stopped: 0.0001720 seconds
+2014-03-20T17:05:28.196-0500: 32.074: Total time for which application threads were stopped: 0.0002760 seconds
+2014-03-20T17:05:28.197-0500: 32.074: Total time for which application threads were stopped: 0.0002510 seconds
+2014-03-20T17:05:28.197-0500: 32.075: Total time for which application threads were stopped: 0.0004220 seconds
+2014-03-20T17:05:28.198-0500: 32.075: Total time for which application threads were stopped: 0.0002770 seconds
+2014-03-20T17:05:28.198-0500: 32.076: Total time for which application threads were stopped: 0.0004230 seconds
+2014-03-20T17:05:28.200-0500: 32.078: Total time for which application threads were stopped: 0.0011210 seconds
+2014-03-20T17:05:28.201-0500: 32.079: Total time for which application threads were stopped: 0.0004150 seconds
+2014-03-20T17:05:28.202-0500: 32.080: Total time for which application threads were stopped: 0.0003430 seconds
+2014-03-20T17:05:28.204-0500: 32.081: Total time for which application threads were stopped: 0.0003990 seconds
+2014-03-20T17:05:28.204-0500: 32.082: Total time for which application threads were stopped: 0.0004490 seconds
+2014-03-20T17:05:28.206-0500: 32.083: Total time for which application threads were stopped: 0.0004800 seconds
+2014-03-20T17:05:28.207-0500: 32.084: Total time for which application threads were stopped: 0.0004780 seconds
+2014-03-20T17:05:28.215-0500: 32.093: Total time for which application threads were stopped: 0.0005710 seconds
+2014-03-20T17:05:28.216-0500: 32.094: Total time for which application threads were stopped: 0.0003760 seconds
+2014-03-20T17:05:28.217-0500: 32.094: Total time for which application threads were stopped: 0.0003480 seconds
+2014-03-20T17:05:28.217-0500: 32.095: Total time for which application threads were stopped: 0.0002090 seconds
+2014-03-20T17:05:28.217-0500: 32.095: Total time for which application threads were stopped: 0.0003550 seconds
+2014-03-20T17:05:28.218-0500: 32.096: Total time for which application threads were stopped: 0.0004230 seconds
+2014-03-20T17:05:28.219-0500: 32.097: Total time for which application threads were stopped: 0.0003910 seconds
+2014-03-20T17:05:28.220-0500: 32.097: Total time for which application threads were stopped: 0.0003540 seconds
+2014-03-20T17:05:28.220-0500: 32.098: Total time for which application threads were stopped: 0.0003560 seconds
+2014-03-20T17:05:28.221-0500: 32.099: Total time for which application threads were stopped: 0.0003590 seconds
+2014-03-20T17:05:28.222-0500: 32.099: Total time for which application threads were stopped: 0.0003630 seconds
+2014-03-20T17:05:28.225-0500: 32.102: Total time for which application threads were stopped: 0.0004010 seconds
+2014-03-20T17:05:28.227-0500: 32.105: Total time for which application threads were stopped: 0.0003760 seconds
+2014-03-20T17:05:28.229-0500: 32.107: Total time for which application threads were stopped: 0.0015570 seconds
+2014-03-20T17:05:28.233-0500: 32.111: Total time for which application threads were stopped: 0.0003390 seconds
+2014-03-20T17:05:28.237-0500: 32.114: Total time for which application threads were stopped: 0.0002250 seconds
+2014-03-20T17:05:28.237-0500: 32.115: Total time for which application threads were stopped: 0.0003340 seconds
+2014-03-20T17:05:28.241-0500: 32.119: Total time for which application threads were stopped: 0.0009460 seconds
+2014-03-20T17:05:28.247-0500: 32.124: Total time for which application threads were stopped: 0.0004250 seconds
+2014-03-20T17:05:28.250-0500: 32.128: Total time for which application threads were stopped: 0.0004370 seconds
+2014-03-20T17:05:28.262-0500: 32.140: Total time for which application threads were stopped: 0.0004190 seconds
+2014-03-20T17:05:28.281-0500: 32.158: Total time for which application threads were stopped: 0.0006360 seconds
+2014-03-20T17:05:28.284-0500: 32.161: Total time for which application threads were stopped: 0.0006420 seconds
+2014-03-20T17:05:28.292-0500: 32.170: Total time for which application threads were stopped: 0.0008400 seconds
+2014-03-20T17:05:28.294-0500: 32.172: Total time for which application threads were stopped: 0.0003580 seconds
+2014-03-20T17:05:28.295-0500: 32.173: Total time for which application threads were stopped: 0.0003210 seconds
+2014-03-20T17:05:28.295-0500: 32.173: Total time for which application threads were stopped: 0.0002880 seconds
+2014-03-20T17:05:28.296-0500: 32.174: Total time for which application threads were stopped: 0.0003670 seconds
+2014-03-20T17:05:28.300-0500: 32.178: Total time for which application threads were stopped: 0.0005060 seconds
+2014-03-20T17:05:28.301-0500: 32.179: Total time for which application threads were stopped: 0.0004840 seconds
+2014-03-20T17:05:28.304-0500: 32.181: Total time for which application threads were stopped: 0.0006100 seconds
+2014-03-20T17:05:28.317-0500: 32.195: Total time for which application threads were stopped: 0.0017150 seconds
+2014-03-20T17:05:28.567-0500: 32.445: [GC
+Desired survivor size 89128960 bytes, new threshold 7 (max 15)
+ [PSYoungGen: 550739K->22911K(612352K)] 550819K->22999K(2010624K), 0.0326630 secs] [Times: user=0.46 sys=0.00, real=0.04 secs] 
+2014-03-20T17:05:28.600-0500: 32.477: Total time for which application threads were stopped: 0.0337040 seconds
+2014-03-20T17:05:28.607-0500: 32.485: Total time for which application threads were stopped: 0.0006650 seconds
+2014-03-20T17:05:29.452-0500: 33.329: [GC
+Desired survivor size 89128960 bytes, new threshold 7 (max 15)
+ [PSYoungGen: 548223K->21731K(612352K)] 548311K->21827K(2010624K), 0.0272130 secs] [Times: user=0.36 sys=0.00, real=0.03 secs] 
+2014-03-20T17:05:29.479-0500: 33.357: Total time for which application threads were stopped: 0.0283090 seconds
+2014-03-20T17:05:29.480-0500: 33.357: Total time for which application threads were stopped: 0.0002140 seconds
+2014-03-20T17:05:29.480-0500: 33.357: Total time for which application threads were stopped: 0.0000940 seconds
+2014-03-20T17:05:29.480-0500: 33.358: Total time for which application threads were stopped: 0.0000840 seconds
+2014-03-20T17:05:29.480-0500: 33.358: Total time for which application threads were stopped: 0.0000690 seconds
+2014-03-20T17:05:29.480-0500: 33.358: Total time for which application threads were stopped: 0.0000890 seconds
+2014-03-20T17:05:29.480-0500: 33.358: Total time for which application threads were stopped: 0.0001120 seconds
+2014-03-20T17:05:30.335-0500: 34.212: [GC
+Desired survivor size 27787264 bytes, new threshold 6 (max 15)
+ [PSYoungGen: 547043K->22324K(612352K)] 547139K->22428K(2010624K), 0.0258480 secs] [Times: user=0.37 sys=0.00, real=0.03 secs] 
+2014-03-20T17:05:30.361-0500: 34.238: Total time for which application threads were stopped: 0.0269580 seconds
+2014-03-20T17:05:31.073-0500: 34.951: [GC
+Desired survivor size 27262976 bytes, new threshold 5 (max 15)
+ [PSYoungGen: 547636K->23288K(672768K)] 547740K->23400K(2071040K), 0.0242680 secs] [Times: user=0.34 sys=0.00, real=0.02 secs] 
+2014-03-20T17:05:31.098-0500: 34.976: Total time for which application threads were stopped: 0.0254610 seconds
+2014-03-20T17:05:31.805-0500: 35.683: [GC
+Desired survivor size 30932992 bytes, new threshold 4 (max 15)
+ [PSYoungGen: 668920K->6656K(652288K)] 669032K->22700K(2050560K), 0.0291790 secs] [Times: user=0.44 sys=0.01, real=0.03 secs] 
+2014-03-20T17:05:31.835-0500: 35.712: Total time for which application threads were stopped: 0.0303600 seconds
+2014-03-20T17:05:32.485-0500: 36.363: [GC
+Desired survivor size 33554432 bytes, new threshold 3 (max 15)
+ [PSYoungGen: 652288K->3360K(664064K)] 668332K->21878K(2062336K), 0.0058550 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:32.491-0500: 36.369: Total time for which application threads were stopped: 0.0070390 seconds
+2014-03-20T17:05:33.025-0500: 36.902: [GC
+Desired survivor size 35127296 bytes, new threshold 2 (max 15)
+ [PSYoungGen: 637216K->2400K(636416K)] 655734K->21014K(2034688K), 0.0047300 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:33.029-0500: 36.907: Total time for which application threads were stopped: 0.0058320 seconds
+2014-03-20T17:05:33.524-0500: 37.402: [GC
+Desired survivor size 35651584 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 636256K->5248K(664064K)] 654870K->23966K(2062336K), 0.0049120 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:33.529-0500: 37.407: Total time for which application threads were stopped: 0.0054860 seconds
+2014-03-20T17:05:33.992-0500: 37.870: [GC
+Desired survivor size 35651584 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 635008K->4256K(664576K)] 653726K->23156K(2062848K), 0.0044980 secs] [Times: user=0.04 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:33.997-0500: 37.874: Total time for which application threads were stopped: 0.0051660 seconds
+2014-03-20T17:05:34.420-0500: 38.298: [GC
+Desired survivor size 35651584 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 634016K->3232K(664576K)] 652916K->22276K(2062848K), 0.0050340 secs] [Times: user=0.04 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:34.426-0500: 38.303: Total time for which application threads were stopped: 0.0058130 seconds
+2014-03-20T17:05:34.798-0500: 38.676: [GC
+Desired survivor size 35651584 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 632992K->2144K(664576K)] 652036K->21348K(2062848K), 0.0047570 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:05:34.803-0500: 38.681: Total time for which application threads were stopped: 0.0054920 seconds
+2014-03-20T17:05:35.141-0500: 39.019: [GC
+Desired survivor size 34603008 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 631904K->4928K(665600K)] 651108K->24364K(2063872K), 0.0053620 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:35.147-0500: 39.024: Total time for which application threads were stopped: 0.0065480 seconds
+2014-03-20T17:05:35.475-0500: 39.353: [GC
+Desired survivor size 33554432 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 635712K->3744K(664576K)] 655148K->23440K(2062848K), 0.0051290 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:35.480-0500: 39.358: Total time for which application threads were stopped: 0.0065160 seconds
+2014-03-20T17:05:35.817-0500: 39.694: [GC
+Desired survivor size 33030144 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 634528K->2848K(667136K)] 654224K->22740K(2065408K), 0.0052620 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:35.822-0500: 39.700: Total time for which application threads were stopped: 0.0065940 seconds
+2014-03-20T17:05:36.165-0500: 40.043: [GC
+Desired survivor size 31457280 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 637216K->5568K(666624K)] 657108K->25688K(2064896K), 0.0055880 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:36.171-0500: 40.048: Total time for which application threads were stopped: 0.0065630 seconds
+2014-03-20T17:05:36.514-0500: 40.391: [GC
+Desired survivor size 30408704 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 639936K->4544K(669696K)] 660056K->24829K(2067968K), 0.0056670 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:36.519-0500: 40.397: Total time for which application threads were stopped: 0.0068140 seconds
+2014-03-20T17:05:36.875-0500: 40.752: [GC
+Desired survivor size 29360128 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 643520K->3680K(668672K)] 663805K->24217K(2066944K), 0.0058030 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:36.881-0500: 40.758: Total time for which application threads were stopped: 0.0072600 seconds
+2014-03-20T17:05:37.244-0500: 41.121: [GC
+Desired survivor size 28311552 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 642656K->3072K(671744K)] 663193K->23773K(2070016K), 0.0056790 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:37.250-0500: 41.127: Total time for which application threads were stopped: 0.0069470 seconds
+2014-03-20T17:05:37.617-0500: 41.495: [GC
+Desired survivor size 27262976 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 646144K->2272K(670720K)] 666845K->23157K(2068992K), 0.0058340 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:37.623-0500: 41.501: Total time for which application threads were stopped: 0.0068470 seconds
+2014-03-20T17:05:38.004-0500: 41.881: [GC
+Desired survivor size 25690112 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 645344K->5344K(674304K)] 666229K->26349K(2072576K), 0.0068400 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:38.011-0500: 41.888: Total time for which application threads were stopped: 0.0078490 seconds
+2014-03-20T17:05:38.411-0500: 42.289: [GC
+Desired survivor size 24117248 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 653024K->4736K(672768K)] 674029K->25921K(2071040K), 0.0065680 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:38.418-0500: 42.296: Total time for which application threads were stopped: 0.0076240 seconds
+2014-03-20T17:05:38.805-0500: 42.682: [GC
+Desired survivor size 23068672 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 652416K->4224K(676864K)] 673601K->25537K(2075136K), 0.0066270 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:38.811-0500: 42.689: Total time for which application threads were stopped: 0.0075310 seconds
+2014-03-20T17:05:39.199-0500: 43.076: [GC
+Desired survivor size 22020096 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 657536K->3648K(675840K)] 678849K->25105K(2074112K), 0.0066710 secs] [Times: user=0.07 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:39.206-0500: 43.083: Total time for which application threads were stopped: 0.0077380 seconds
+2014-03-20T17:05:39.634-0500: 43.512: [GC
+Desired survivor size 20971520 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 656960K->3232K(678912K)] 678417K->24737K(2077184K), 0.0085650 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:39.643-0500: 43.520: Total time for which application threads were stopped: 0.0096810 seconds
+2014-03-20T17:05:40.041-0500: 43.919: [GC
+Desired survivor size 20447232 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 660640K->2880K(677888K)] 682145K->24457K(2076160K), 0.0093110 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:40.051-0500: 43.928: Total time for which application threads were stopped: 0.0105230 seconds
+2014-03-20T17:05:40.395-0500: 44.273: [GC
+Desired survivor size 19398656 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 660288K->2336K(680448K)] 681865K->24057K(2078720K), 0.0073540 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:40.403-0500: 44.281: Total time for which application threads were stopped: 0.0084030 seconds
+2014-03-20T17:05:40.735-0500: 44.612: [GC
+Desired survivor size 18874368 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 662816K->1984K(679424K)] 684537K->23817K(2077696K), 0.0070090 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:40.742-0500: 44.619: Total time for which application threads were stopped: 0.0083190 seconds
+2014-03-20T17:05:41.051-0500: 44.929: [GC
+Desired survivor size 17301504 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 662464K->5632K(682496K)] 684297K->27601K(2080768K), 0.0072760 secs] [Times: user=0.07 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:41.059-0500: 44.936: Total time for which application threads were stopped: 0.0082400 seconds
+2014-03-20T17:05:41.367-0500: 45.245: [GC
+Desired survivor size 16252928 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 669696K->5376K(680960K)] 691665K->27489K(2079232K), 0.0071290 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:41.374-0500: 45.252: Total time for which application threads were stopped: 0.0083910 seconds
+2014-03-20T17:05:41.689-0500: 45.566: [GC
+Desired survivor size 15204352 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 669440K->5184K(684544K)] 691553K->27433K(2082816K), 0.0073030 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:41.696-0500: 45.574: Total time for which application threads were stopped: 0.0082320 seconds
+2014-03-20T17:05:42.000-0500: 45.878: [GC
+Desired survivor size 14155776 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 673856K->4896K(683520K)] 696105K->27281K(2081792K), 0.0074330 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:42.008-0500: 45.885: Total time for which application threads were stopped: 0.0086870 seconds
+2014-03-20T17:05:42.324-0500: 46.202: [GC
+Desired survivor size 13631488 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 673568K->4672K(686080K)] 695953K->27161K(2084352K), 0.0086620 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:42.333-0500: 46.210: Total time for which application threads were stopped: 0.0095330 seconds
+2014-03-20T17:05:42.641-0500: 46.519: [GC
+Desired survivor size 13107200 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 676928K->4640K(685568K)] 699417K->27273K(2083840K), 0.0073040 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:42.649-0500: 46.526: Total time for which application threads were stopped: 0.0085270 seconds
+2014-03-20T17:05:42.950-0500: 46.827: [GC
+Desired survivor size 12058624 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 676896K->4512K(687616K)] 699529K->27281K(2085888K), 0.0073320 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:05:42.957-0500: 46.835: Total time for which application threads were stopped: 0.0083500 seconds
+2014-03-20T17:05:43.257-0500: 47.135: [GC
+Desired survivor size 11534336 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 679328K->4352K(686592K)] 702097K->27265K(2084864K), 0.0071030 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:43.264-0500: 47.142: Total time for which application threads were stopped: 0.0084110 seconds
+2014-03-20T17:05:43.577-0500: 47.455: [GC
+Desired survivor size 11010048 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 679168K->4352K(688640K)] 702081K->27409K(2086912K), 0.0066930 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:43.584-0500: 47.462: Total time for which application threads were stopped: 0.0077650 seconds
+2014-03-20T17:05:43.902-0500: 47.780: [GC
+Desired survivor size 10485760 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 681728K->4288K(688128K)] 704785K->27489K(2086400K), 0.0073940 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:43.910-0500: 47.788: Total time for which application threads were stopped: 0.0086480 seconds
+2014-03-20T17:05:44.244-0500: 48.122: [GC
+Desired survivor size 9961472 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 681664K->4160K(689664K)] 704865K->27489K(2087936K), 0.0071260 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:44.251-0500: 48.129: Total time for which application threads were stopped: 0.0080640 seconds
+2014-03-20T17:05:44.580-0500: 48.458: [GC
+Desired survivor size 9961472 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 683584K->4160K(689152K)] 706913K->27593K(2087424K), 0.0089490 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:44.589-0500: 48.467: Total time for which application threads were stopped: 0.0101370 seconds
+2014-03-20T17:05:44.917-0500: 48.795: [GC
+Desired survivor size 9437184 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 683584K->4224K(690176K)] 707017K->27793K(2088448K), 0.0070340 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:44.924-0500: 48.802: Total time for which application threads were stopped: 0.0079500 seconds
+2014-03-20T17:05:45.249-0500: 49.126: [GC
+Desired survivor size 8912896 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 684672K->4192K(689664K)] 708241K->27897K(2087936K), 0.0072180 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:45.256-0500: 49.134: Total time for which application threads were stopped: 0.0083050 seconds
+2014-03-20T17:05:45.580-0500: 49.457: [GC
+Desired survivor size 8912896 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 684640K->4256K(690688K)] 708345K->28105K(2088960K), 0.0069960 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:45.587-0500: 49.465: Total time for which application threads were stopped: 0.0078640 seconds
+2014-03-20T17:05:45.897-0500: 49.775: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686240K->4288K(690688K)] 710089K->28281K(2088960K), 0.0071100 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:45.904-0500: 49.782: Total time for which application threads were stopped: 0.0082910 seconds
+2014-03-20T17:05:46.229-0500: 50.107: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686272K->4160K(691712K)] 710265K->28321K(2089984K), 0.0090130 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:46.239-0500: 50.116: Total time for which application threads were stopped: 0.0102480 seconds
+2014-03-20T17:05:46.551-0500: 50.429: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687680K->4288K(691200K)] 711841K->28577K(2089472K), 0.0073170 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:46.559-0500: 50.437: Total time for which application threads were stopped: 0.0084930 seconds
+2014-03-20T17:05:46.882-0500: 50.759: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687808K->4384K(692224K)] 712097K->28857K(2090496K), 0.0073270 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:05:46.889-0500: 50.767: Total time for which application threads were stopped: 0.0083620 seconds
+2014-03-20T17:05:47.199-0500: 51.077: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688928K->4416K(691712K)] 713401K->29281K(2089984K), 0.0069550 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:47.207-0500: 51.084: Total time for which application threads were stopped: 0.0080440 seconds
+2014-03-20T17:05:47.524-0500: 51.401: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688960K->4576K(692736K)] 713825K->29585K(2091008K), 0.0070760 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:47.531-0500: 51.408: Total time for which application threads were stopped: 0.0080430 seconds
+2014-03-20T17:05:47.851-0500: 51.729: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690144K->4512K(692224K)] 715153K->29825K(2090496K), 0.0077120 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:47.859-0500: 51.737: Total time for which application threads were stopped: 0.0088970 seconds
+2014-03-20T17:05:48.183-0500: 52.061: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690080K->4608K(692736K)] 715393K->30041K(2091008K), 0.0072520 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:48.190-0500: 52.068: Total time for which application threads were stopped: 0.0082660 seconds
+2014-03-20T17:05:48.498-0500: 52.376: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690688K->4704K(692736K)] 716121K->30313K(2091008K), 0.0074320 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:48.506-0500: 52.383: Total time for which application threads were stopped: 0.0086200 seconds
+2014-03-20T17:05:48.812-0500: 52.690: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690784K->4736K(693248K)] 716393K->30481K(2091520K), 0.0070100 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:48.819-0500: 52.697: Total time for which application threads were stopped: 0.0080110 seconds
+2014-03-20T17:05:49.131-0500: 53.009: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691328K->4992K(692736K)] 717073K->30873K(2091008K), 0.0068420 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:49.138-0500: 53.016: Total time for which application threads were stopped: 0.0080080 seconds
+2014-03-20T17:05:49.450-0500: 53.327: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691584K->4896K(693248K)] 717465K->30913K(2091520K), 0.0072900 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:49.457-0500: 53.335: Total time for which application threads were stopped: 0.0091840 seconds
+2014-03-20T17:05:49.776-0500: 53.654: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692000K->5024K(693248K)] 718017K->31177K(2091520K), 0.0072910 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:49.784-0500: 53.662: Total time for which application threads were stopped: 0.0083810 seconds
+2014-03-20T17:05:50.109-0500: 53.987: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692128K->5248K(692224K)] 718281K->31505K(2090496K), 0.0078680 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:50.117-0500: 53.995: Total time for which application threads were stopped: 0.0088880 seconds
+2014-03-20T17:05:50.437-0500: 54.314: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691328K->5344K(692736K)] 717585K->31745K(2091008K), 0.0073420 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:50.444-0500: 54.322: Total time for which application threads were stopped: 0.0085690 seconds
+2014-03-20T17:05:50.762-0500: 54.640: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691424K->5344K(692736K)] 717825K->31881K(2091008K), 0.0074260 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:50.770-0500: 54.647: Total time for which application threads were stopped: 0.0084250 seconds
+2014-03-20T17:05:51.080-0500: 54.958: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691424K->5504K(692736K)] 717961K->32177K(2091008K), 0.0069330 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:51.087-0500: 54.965: Total time for which application threads were stopped: 0.0082030 seconds
+2014-03-20T17:05:51.405-0500: 55.283: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691584K->5536K(692736K)] 718257K->32337K(2091008K), 0.0074860 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:51.413-0500: 55.291: Total time for which application threads were stopped: 0.0085200 seconds
+2014-03-20T17:05:51.732-0500: 55.609: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691616K->5760K(692736K)] 718417K->32681K(2091008K), 0.0073400 secs] [Times: user=0.07 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:51.739-0500: 55.617: Total time for which application threads were stopped: 0.0086200 seconds
+2014-03-20T17:05:52.064-0500: 55.942: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691840K->5760K(691712K)] 718761K->32785K(2089984K), 0.0075690 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:05:52.072-0500: 55.950: Total time for which application threads were stopped: 0.0085870 seconds
+2014-03-20T17:05:52.398-0500: 56.276: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690816K->5856K(692224K)] 717841K->33009K(2090496K), 0.0074560 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:52.406-0500: 56.283: Total time for which application threads were stopped: 0.0086660 seconds
+2014-03-20T17:05:52.723-0500: 56.601: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690912K->2016K(691200K)] 718065K->29297K(2089472K), 0.0066550 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:52.730-0500: 56.608: Total time for which application threads were stopped: 0.0078020 seconds
+2014-03-20T17:05:53.045-0500: 56.922: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686048K->2208K(691712K)] 713329K->29609K(2089984K), 0.0064470 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:53.051-0500: 56.929: Total time for which application threads were stopped: 0.0075420 seconds
+2014-03-20T17:05:53.372-0500: 57.250: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686240K->2240K(691712K)] 713641K->29777K(2089984K), 0.0070750 secs] [Times: user=0.06 sys=0.01, real=0.00 secs] 
+2014-03-20T17:05:53.380-0500: 57.257: Total time for which application threads were stopped: 0.0081630 seconds
+2014-03-20T17:05:53.701-0500: 57.579: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686272K->2336K(691712K)] 713809K->30001K(2089984K), 0.0074290 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:53.709-0500: 57.587: Total time for which application threads were stopped: 0.0086530 seconds
+2014-03-20T17:05:54.024-0500: 57.902: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686368K->2368K(691712K)] 714033K->30145K(2089984K), 0.0105200 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:54.035-0500: 57.912: Total time for which application threads were stopped: 0.0115390 seconds
+2014-03-20T17:05:54.363-0500: 58.241: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686400K->2528K(691712K)] 714177K->30409K(2089984K), 0.0071980 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:54.370-0500: 58.248: Total time for which application threads were stopped: 0.0082700 seconds
+2014-03-20T17:05:54.683-0500: 58.561: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686560K->2528K(691712K)] 714441K->30545K(2089984K), 0.0067970 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:54.690-0500: 58.568: Total time for which application threads were stopped: 0.0077680 seconds
+2014-03-20T17:05:55.001-0500: 58.879: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686560K->2656K(691712K)] 714577K->30801K(2089984K), 0.0069490 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:55.008-0500: 58.886: Total time for which application threads were stopped: 0.0080650 seconds
+2014-03-20T17:05:55.332-0500: 59.209: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686688K->2720K(692224K)] 714833K->30985K(2090496K), 0.0069230 secs] [Times: user=0.06 sys=0.01, real=0.00 secs] 
+2014-03-20T17:05:55.339-0500: 59.216: Total time for which application threads were stopped: 0.0078860 seconds
+2014-03-20T17:05:55.649-0500: 59.526: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687776K->2784K(692224K)] 716041K->31137K(2090496K), 0.0071550 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:55.656-0500: 59.534: Total time for which application threads were stopped: 0.0083230 seconds
+2014-03-20T17:05:55.968-0500: 59.846: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687840K->2880K(692736K)] 716193K->31377K(2091008K), 0.0068840 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:55.975-0500: 59.853: Total time for which application threads were stopped: 0.0080000 seconds
+2014-03-20T17:05:56.306-0500: 60.183: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688448K->2976K(692224K)] 716945K->31513K(2090496K), 0.0101600 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:56.316-0500: 60.194: Total time for which application threads were stopped: 0.0113680 seconds
+2014-03-20T17:05:56.636-0500: 60.513: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688544K->3072K(693248K)] 717081K->31713K(2091520K), 0.0080470 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:56.644-0500: 60.522: Total time for which application threads were stopped: 0.0093180 seconds
+2014-03-20T17:05:56.966-0500: 60.844: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689664K->3264K(692736K)] 718305K->32025K(2091008K), 0.0064610 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:56.973-0500: 60.851: Total time for which application threads were stopped: 0.0075900 seconds
+2014-03-20T17:05:57.288-0500: 61.165: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689856K->3392K(693760K)] 718617K->32281K(2092032K), 0.0067680 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:57.295-0500: 61.172: Total time for which application threads were stopped: 0.0077800 seconds
+2014-03-20T17:05:57.606-0500: 61.484: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691008K->3488K(693248K)] 719897K->32465K(2091520K), 0.0077420 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:57.614-0500: 61.492: Total time for which application threads were stopped: 0.0090490 seconds
+2014-03-20T17:05:57.929-0500: 61.806: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691104K->3552K(693760K)] 720081K->32657K(2092032K), 0.0070470 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:57.936-0500: 61.814: Total time for which application threads were stopped: 0.0080210 seconds
+2014-03-20T17:05:58.262-0500: 62.140: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691680K->3808K(693760K)] 720785K->33041K(2092032K), 0.0070200 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:05:58.269-0500: 62.147: Total time for which application threads were stopped: 0.0082110 seconds
+2014-03-20T17:05:58.586-0500: 62.463: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691936K->3840K(693760K)] 721169K->33209K(2092032K), 0.0067820 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:58.593-0500: 62.470: Total time for which application threads were stopped: 0.0079150 seconds
+2014-03-20T17:05:58.913-0500: 62.790: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691968K->4096K(693760K)] 721337K->33593K(2092032K), 0.0068260 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:05:58.920-0500: 62.797: Total time for which application threads were stopped: 0.0079570 seconds
+2014-03-20T17:05:59.015-0500: 62.892: Total time for which application threads were stopped: 0.0005530 seconds
+2014-03-20T17:05:59.025-0500: 62.902: Total time for which application threads were stopped: 0.0007530 seconds
+2014-03-20T17:05:59.245-0500: 63.123: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692224K->4160K(693760K)] 721721K->33801K(2092032K), 0.0072640 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:59.253-0500: 63.130: Total time for which application threads were stopped: 0.0085340 seconds
+2014-03-20T17:05:59.560-0500: 63.438: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692288K->4128K(693760K)] 721929K->33945K(2092032K), 0.0064170 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:59.567-0500: 63.445: Total time for which application threads were stopped: 0.0074280 seconds
+2014-03-20T17:05:59.880-0500: 63.758: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692256K->4320K(693760K)] 722073K->34273K(2092032K), 0.0068600 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:05:59.887-0500: 63.765: Total time for which application threads were stopped: 0.0078980 seconds
+2014-03-20T17:06:00.217-0500: 64.095: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692448K->4320K(693760K)] 722401K->34417K(2092032K), 0.0067170 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:00.224-0500: 64.102: Total time for which application threads were stopped: 0.0078730 seconds
+2014-03-20T17:06:00.538-0500: 64.416: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692448K->4320K(693760K)] 722545K->34561K(2092032K), 0.0065370 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:00.545-0500: 64.423: Total time for which application threads were stopped: 0.0076540 seconds
+2014-03-20T17:06:00.867-0500: 64.745: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692448K->4544K(693760K)] 722689K->34921K(2092032K), 0.0069340 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:00.874-0500: 64.752: Total time for which application threads were stopped: 0.0080770 seconds
+2014-03-20T17:06:01.200-0500: 65.078: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692672K->4512K(692736K)] 723049K->35025K(2091008K), 0.0068970 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:01.207-0500: 65.085: Total time for which application threads were stopped: 0.0078780 seconds
+2014-03-20T17:06:01.517-0500: 65.394: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691616K->4864K(693248K)] 722129K->35489K(2091520K), 0.0070140 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:01.524-0500: 65.402: Total time for which application threads were stopped: 0.0081710 seconds
+2014-03-20T17:06:01.847-0500: 65.724: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691968K->4896K(693248K)] 722593K->35665K(2091520K), 0.0073340 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:01.854-0500: 65.732: Total time for which application threads were stopped: 0.0084500 seconds
+2014-03-20T17:06:02.188-0500: 66.066: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692000K->5056K(693248K)] 722769K->35953K(2091520K), 0.0076660 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:02.196-0500: 66.074: Total time for which application threads were stopped: 0.0087920 seconds
+2014-03-20T17:06:02.510-0500: 66.388: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692160K->5216K(692224K)] 723057K->36257K(2090496K), 0.0072770 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:02.518-0500: 66.395: Total time for which application threads were stopped: 0.0082950 seconds
+2014-03-20T17:06:02.830-0500: 66.707: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691296K->5216K(692736K)] 722337K->36393K(2091008K), 0.0069590 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:02.837-0500: 66.715: Total time for which application threads were stopped: 0.0082620 seconds
+2014-03-20T17:06:03.144-0500: 67.021: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691296K->5344K(692736K)] 722473K->36649K(2091008K), 0.0066140 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:03.151-0500: 67.028: Total time for which application threads were stopped: 0.0076950 seconds
+2014-03-20T17:06:03.478-0500: 67.355: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691424K->5568K(691712K)] 722729K->36993K(2089984K), 0.0068800 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:03.485-0500: 67.363: Total time for which application threads were stopped: 0.0080630 seconds
+2014-03-20T17:06:03.793-0500: 67.671: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691648K->5632K(692224K)] 723073K->37193K(2090496K), 0.0070270 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:03.800-0500: 67.678: Total time for which application threads were stopped: 0.0080680 seconds
+2014-03-20T17:06:04.136-0500: 68.014: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690688K->5728K(692224K)] 722249K->37425K(2090496K), 0.0074040 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:04.144-0500: 68.021: Total time for which application threads were stopped: 0.0087880 seconds
+2014-03-20T17:06:04.448-0500: 68.325: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690784K->5824K(691200K)] 722481K->37657K(2089472K), 0.0071210 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:04.455-0500: 68.333: Total time for which application threads were stopped: 0.0080620 seconds
+2014-03-20T17:06:04.781-0500: 68.659: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689856K->5888K(691712K)] 721689K->37857K(2089984K), 0.0074720 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:04.789-0500: 68.666: Total time for which application threads were stopped: 0.0087800 seconds
+2014-03-20T17:06:05.105-0500: 68.983: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689920K->2080K(691712K)] 721889K->34169K(2089984K), 0.0081620 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:05.114-0500: 68.992: Total time for which application threads were stopped: 0.0091240 seconds
+2014-03-20T17:06:05.423-0500: 69.301: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686112K->2176K(686592K)] 718201K->34401K(2084864K), 0.0073530 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:05.431-0500: 69.309: Total time for which application threads were stopped: 0.0085510 seconds
+2014-03-20T17:06:05.747-0500: 69.625: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686208K->2240K(691200K)] 718433K->34601K(2089472K), 0.0072760 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:05.755-0500: 69.633: Total time for which application threads were stopped: 0.0083820 seconds
+2014-03-20T17:06:06.085-0500: 69.962: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685248K->2336K(691200K)] 717609K->34809K(2089472K), 0.0070900 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:06.092-0500: 69.970: Total time for which application threads were stopped: 0.0084060 seconds
+2014-03-20T17:06:06.399-0500: 70.277: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685344K->2336K(691200K)] 717817K->34937K(2089472K), 0.0073380 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:06.407-0500: 70.285: Total time for which application threads were stopped: 0.0082770 seconds
+2014-03-20T17:06:06.722-0500: 70.600: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685344K->2384K(691200K)] 717945K->35105K(2089472K), 0.0069170 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:06.729-0500: 70.607: Total time for which application threads were stopped: 0.0080540 seconds
+2014-03-20T17:06:07.040-0500: 70.917: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685392K->2560K(691712K)] 718113K->35473K(2089984K), 0.0074510 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:07.047-0500: 70.925: Total time for which application threads were stopped: 0.0084790 seconds
+2014-03-20T17:06:07.364-0500: 71.241: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686592K->2592K(691712K)] 719505K->35625K(2089984K), 0.0069990 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:07.371-0500: 71.248: Total time for which application threads were stopped: 0.0081830 seconds
+2014-03-20T17:06:07.672-0500: 71.550: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686624K->2640K(692224K)] 719657K->35761K(2090496K), 0.0075380 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:07.680-0500: 71.558: Total time for which application threads were stopped: 0.0085770 seconds
+2014-03-20T17:06:08.011-0500: 71.888: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687184K->2720K(691712K)] 720305K->36025K(2089984K), 0.0066520 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:08.018-0500: 71.895: Total time for which application threads were stopped: 0.0077530 seconds
+2014-03-20T17:06:08.345-0500: 72.223: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687264K->2864K(692736K)] 720569K->36281K(2091008K), 0.0078890 secs] [Times: user=0.06 sys=0.01, real=0.00 secs] 
+2014-03-20T17:06:08.353-0500: 72.231: Total time for which application threads were stopped: 0.0089050 seconds
+2014-03-20T17:06:08.668-0500: 72.545: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688432K->2944K(692224K)] 721849K->36561K(2090496K), 0.0072270 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:08.675-0500: 72.553: Total time for which application threads were stopped: 0.0083640 seconds
+2014-03-20T17:06:08.992-0500: 72.870: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688512K->2928K(693248K)] 722129K->36761K(2091520K), 0.0076310 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:09.000-0500: 72.877: Total time for which application threads were stopped: 0.0086040 seconds
+2014-03-20T17:06:09.312-0500: 73.189: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689520K->3040K(692736K)] 723353K->37073K(2091008K), 0.0068850 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:09.319-0500: 73.196: Total time for which application threads were stopped: 0.0079780 seconds
+2014-03-20T17:06:09.628-0500: 73.505: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689632K->3424K(693760K)] 723665K->37681K(2092032K), 0.0071720 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:09.635-0500: 73.513: Total time for which application threads were stopped: 0.0081680 seconds
+2014-03-20T17:06:09.951-0500: 73.829: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691040K->3296K(693248K)] 725297K->37857K(2091520K), 0.0070060 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:09.958-0500: 73.836: Total time for which application threads were stopped: 0.0082990 seconds
+2014-03-20T17:06:10.294-0500: 74.172: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690912K->3520K(693760K)] 725473K->38185K(2092032K), 0.0080650 secs] [Times: user=0.05 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:10.302-0500: 74.180: Total time for which application threads were stopped: 0.0090440 seconds
+2014-03-20T17:06:10.621-0500: 74.498: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691648K->3696K(693760K)] 726313K->38481K(2092032K), 0.0066600 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:10.627-0500: 74.505: Total time for which application threads were stopped: 0.0078640 seconds
+2014-03-20T17:06:10.936-0500: 74.814: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691824K->3824K(693760K)] 726609K->38841K(2092032K), 0.0069910 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:10.944-0500: 74.821: Total time for which application threads were stopped: 0.0081730 seconds
+2014-03-20T17:06:11.257-0500: 75.134: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691952K->3904K(693760K)] 726969K->39161K(2092032K), 0.0067100 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:11.264-0500: 75.141: Total time for which application threads were stopped: 0.0078930 seconds
+2014-03-20T17:06:11.573-0500: 75.451: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692032K->4064K(693760K)] 727289K->39441K(2092032K), 0.0068480 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:11.580-0500: 75.458: Total time for which application threads were stopped: 0.0079440 seconds
+2014-03-20T17:06:11.892-0500: 75.770: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692192K->4288K(693760K)] 727569K->39753K(2092032K), 0.0070550 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:11.899-0500: 75.777: Total time for which application threads were stopped: 0.0081800 seconds
+2014-03-20T17:06:12.226-0500: 76.104: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692416K->4416K(693760K)] 727881K->40001K(2092032K), 0.0069290 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:12.233-0500: 76.111: Total time for which application threads were stopped: 0.0079980 seconds
+2014-03-20T17:06:12.554-0500: 76.431: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692544K->4544K(692736K)] 728129K->40225K(2091008K), 0.0074410 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:12.561-0500: 76.439: Total time for which application threads were stopped: 0.0088090 seconds
+2014-03-20T17:06:12.868-0500: 76.745: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692672K->4704K(693248K)] 728353K->40521K(2091520K), 0.0069180 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:12.875-0500: 76.753: Total time for which application threads were stopped: 0.0080790 seconds
+2014-03-20T17:06:13.183-0500: 77.061: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691808K->4768K(693248K)] 727625K->40689K(2091520K), 0.0070640 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:13.191-0500: 77.068: Total time for which application threads were stopped: 0.0082720 seconds
+2014-03-20T17:06:13.498-0500: 77.376: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691872K->4928K(692224K)] 727793K->40977K(2090496K), 0.0067670 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:13.505-0500: 77.383: Total time for which application threads were stopped: 0.0078680 seconds
+2014-03-20T17:06:13.819-0500: 77.696: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691008K->5024K(692736K)] 727057K->41161K(2091008K), 0.0073390 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:13.826-0500: 77.704: Total time for which application threads were stopped: 0.0085240 seconds
+2014-03-20T17:06:14.160-0500: 78.037: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691104K->5248K(692736K)] 727241K->41521K(2091008K), 0.0067530 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:14.167-0500: 78.044: Total time for which application threads were stopped: 0.0077060 seconds
+2014-03-20T17:06:14.485-0500: 78.363: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691328K->5280K(691712K)] 727601K->41657K(2089984K), 0.0067490 secs] [Times: user=0.05 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:14.492-0500: 78.370: Total time for which application threads were stopped: 0.0077860 seconds
+2014-03-20T17:06:14.810-0500: 78.688: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691360K->5376K(692224K)] 727737K->41881K(2090496K), 0.0065990 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:14.817-0500: 78.695: Total time for which application threads were stopped: 0.0076310 seconds
+2014-03-20T17:06:15.139-0500: 79.016: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690432K->5504K(692224K)] 726937K->42137K(2090496K), 0.0077320 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:15.147-0500: 79.024: Total time for which application threads were stopped: 0.0090540 seconds
+2014-03-20T17:06:15.456-0500: 79.334: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690560K->5600K(692224K)] 727193K->42361K(2090496K), 0.0075510 secs] [Times: user=0.06 sys=0.01, real=0.00 secs] 
+2014-03-20T17:06:15.464-0500: 79.342: Total time for which application threads were stopped: 0.0085090 seconds
+2014-03-20T17:06:15.772-0500: 79.650: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690656K->5600K(690688K)] 727417K->42489K(2088960K), 0.0068090 secs] [Times: user=0.04 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:15.779-0500: 79.657: Total time for which application threads were stopped: 0.0080600 seconds
+2014-03-20T17:06:16.111-0500: 79.989: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690656K->5760K(691712K)] 727545K->42769K(2089984K), 0.0072700 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:16.119-0500: 79.996: Total time for which application threads were stopped: 0.0084630 seconds
+2014-03-20T17:06:16.435-0500: 80.313: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689792K->5792K(691712K)] 726801K->42937K(2089984K), 0.0077830 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:06:16.443-0500: 80.321: Total time for which application threads were stopped: 0.0090350 seconds
+2014-03-20T17:06:16.757-0500: 80.635: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689824K->5952K(691712K)] 726969K->43209K(2089984K), 0.0072830 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:16.764-0500: 80.642: Total time for which application threads were stopped: 0.0083870 seconds
+2014-03-20T17:06:17.077-0500: 80.955: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689984K->2144K(686592K)] 727241K->39537K(2084864K), 0.0067700 secs] [Times: user=0.04 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:17.084-0500: 80.962: Total time for which application threads were stopped: 0.0079710 seconds
+2014-03-20T17:06:17.407-0500: 81.285: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686176K->2176K(691200K)] 723569K->39689K(2089472K), 0.0074370 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:06:17.415-0500: 81.292: Total time for which application threads were stopped: 0.0084830 seconds
+2014-03-20T17:06:17.723-0500: 81.601: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685184K->2240K(691200K)] 722697K->39889K(2089472K), 0.0072290 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:17.730-0500: 81.608: Total time for which application threads were stopped: 0.0084260 seconds
+2014-03-20T17:06:18.054-0500: 81.932: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685248K->2336K(691200K)] 722897K->40089K(2089472K), 0.0079830 secs] [Times: user=0.04 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:18.062-0500: 81.940: Total time for which application threads were stopped: 0.0092050 seconds
+2014-03-20T17:06:18.382-0500: 82.260: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685344K->2304K(691200K)] 723097K->40185K(2089472K), 0.0063430 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:18.389-0500: 82.266: Total time for which application threads were stopped: 0.0075260 seconds
+2014-03-20T17:06:18.704-0500: 82.582: [GC
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685312K->2464K(691200K)] 723193K->40481K(2089472K), 0.0064210 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:18.711-0500: 82.589: Total time for which application threads were stopped: 0.0074730 seconds
+2014-03-20T17:06:18.884-0500: 82.762: Total time for which application threads were stopped: 0.0011380 seconds
+2014-03-20T17:06:19.034-0500: 82.912: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685472K->2400K(691200K)] 723489K->40561K(2089472K), 0.0066640 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:19.041-0500: 82.918: Total time for which application threads were stopped: 0.0075450 seconds
+2014-03-20T17:06:19.352-0500: 83.230: [GC
+Desired survivor size 7864320 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 685408K->2400K(691712K)] 723569K->40689K(2089984K), 0.0072710 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:19.359-0500: 83.237: Total time for which application threads were stopped: 0.0082450 seconds
+2014-03-20T17:06:19.665-0500: 83.543: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686432K->2592K(691712K)] 724721K->40985K(2089984K), 0.0074950 secs] [Times: user=0.06 sys=0.01, real=0.01 secs] 
+2014-03-20T17:06:19.673-0500: 83.550: Total time for which application threads were stopped: 0.0086270 seconds
+2014-03-20T17:06:19.981-0500: 83.859: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 686624K->2688K(692224K)] 725017K->41201K(2090496K), 0.0071170 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:19.989-0500: 83.866: Total time for which application threads were stopped: 0.0082050 seconds
+2014-03-20T17:06:20.316-0500: 84.193: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687744K->2848K(692224K)] 726257K->41497K(2090496K), 0.0070810 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:20.323-0500: 84.201: Total time for which application threads were stopped: 0.0081250 seconds
+2014-03-20T17:06:20.636-0500: 84.514: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 687904K->2848K(692736K)] 726553K->41625K(2091008K), 0.0067130 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:06:20.643-0500: 84.521: Total time for which application threads were stopped: 0.0077000 seconds
+2014-03-20T17:06:20.947-0500: 84.825: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 688928K->3040K(692736K)] 727705K->41937K(2091008K), 0.0073590 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:20.954-0500: 84.832: Total time for which application threads were stopped: 0.0083860 seconds
+2014-03-20T17:06:21.282-0500: 85.160: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 689120K->3072K(693248K)] 728017K->42113K(2091520K), 0.0065780 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:21.289-0500: 85.167: Total time for which application threads were stopped: 0.0076430 seconds
+2014-03-20T17:06:21.600-0500: 85.477: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690176K->3200K(693248K)] 729217K->42321K(2091520K), 0.0073230 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:21.607-0500: 85.485: Total time for which application threads were stopped: 0.0084190 seconds
+2014-03-20T17:06:21.927-0500: 85.804: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 690304K->3328K(693760K)] 729425K->42593K(2092032K), 0.0072860 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:21.934-0500: 85.812: Total time for which application threads were stopped: 0.0084050 seconds
+2014-03-20T17:06:22.280-0500: 86.157: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691456K->3488K(693760K)] 730721K->42889K(2092032K), 0.0078060 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:22.288-0500: 86.165: Total time for which application threads were stopped: 0.0090920 seconds
+2014-03-20T17:06:22.602-0500: 86.479: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691616K->3648K(693760K)] 731017K->43177K(2092032K), 0.0077700 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:22.610-0500: 86.487: Total time for which application threads were stopped: 0.0088090 seconds
+2014-03-20T17:06:22.919-0500: 86.797: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691776K->3744K(693760K)] 731305K->43377K(2092032K), 0.0076250 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:22.927-0500: 86.805: Total time for which application threads were stopped: 0.0088890 seconds
+2014-03-20T17:06:23.261-0500: 87.138: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691872K->3904K(693760K)] 731505K->43681K(2092032K), 0.0069630 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:23.268-0500: 87.146: Total time for which application threads were stopped: 0.0080380 seconds
+2014-03-20T17:06:23.584-0500: 87.461: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692032K->4096K(693760K)] 731809K->44001K(2092032K), 0.0076930 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:23.592-0500: 87.469: Total time for which application threads were stopped: 0.0090200 seconds
+2014-03-20T17:06:23.899-0500: 87.777: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692224K->4192K(693760K)] 732129K->44177K(2092032K), 0.0086540 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:23.908-0500: 87.786: Total time for which application threads were stopped: 0.0098140 seconds
+2014-03-20T17:06:24.247-0500: 88.125: [GC
+Desired survivor size 5767168 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692320K->4480K(693760K)] 732305K->44609K(2092032K), 0.0068980 secs] [Times: user=0.05 sys=0.01, real=0.00 secs] 
+2014-03-20T17:06:24.254-0500: 88.132: Total time for which application threads were stopped: 0.0083670 seconds
+2014-03-20T17:06:24.579-0500: 88.457: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692608K->4480K(692736K)] 732737K->44729K(2091008K), 0.0077030 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:24.587-0500: 88.465: Total time for which application threads were stopped: 0.0089720 seconds
+2014-03-20T17:06:24.906-0500: 88.783: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691584K->4608K(693248K)] 731833K->44977K(2091520K), 0.0068060 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:24.913-0500: 88.790: Total time for which application threads were stopped: 0.0079890 seconds
+2014-03-20T17:06:25.226-0500: 89.104: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691712K->4768K(693248K)] 732081K->45281K(2091520K), 0.0073760 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2014-03-20T17:06:25.234-0500: 89.112: Total time for which application threads were stopped: 0.0084210 seconds
+2014-03-20T17:06:25.550-0500: 89.428: [GC
+Desired survivor size 6291456 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691872K->4928K(693248K)] 732385K->45577K(2091520K), 0.0076080 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:25.558-0500: 89.435: Total time for which application threads were stopped: 0.0088740 seconds
+2014-03-20T17:06:25.894-0500: 89.772: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 692032K->4992K(692224K)] 732681K->45769K(2090496K), 0.0076970 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:25.902-0500: 89.779: Total time for which application threads were stopped: 0.0088100 seconds
+2014-03-20T17:06:26.232-0500: 90.110: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691072K->5152K(692736K)] 731849K->46073K(2091008K), 0.0074920 secs] [Times: user=0.06 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:26.240-0500: 90.118: Total time for which application threads were stopped: 0.0088390 seconds
+2014-03-20T17:06:26.565-0500: 90.443: [GC
+Desired survivor size 6815744 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691232K->5280K(692736K)] 732153K->46289K(2091008K), 0.0074600 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2014-03-20T17:06:26.573-0500: 90.451: Total time for which application threads were stopped: 0.0085390 seconds
+2014-03-20T17:06:26.900-0500: 90.778: [GC
+Desired survivor size 7340032 bytes, new threshold 1 (max 15)
+ [PSYoungGen: 691360K->5344K(691712K)] 732369K->46497K(2089984K), 0.0075490 secs] [Times: user=0.07 sys=0.00, real=0.01 secs] 

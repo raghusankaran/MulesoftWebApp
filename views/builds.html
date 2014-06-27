@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+		<script>
+			var buildPath = window.location.search.substring(8);
+			var buildName = buildPath.substring(5);
+			buildName = getQueryVariable('build');
+			var baseSelect = '';
+			var chosenBase = false;
+			var buildSelect = [], buildNames = [];
+			var dest = '';
+			
+			function updateBuildSelect(i){
+				buildSelect[i] = !buildSelect[i];
+			}
+			function updateBaseSelect(buildName){
+				baseSelect = buildName;
+			}
+			function getQueryVariable(variable) {
+			    var query = window.location.search.substring(1);
+			    var vars = query.split('&');
+			    for (var i = 0; i < vars.length; i++) {
+			        var pair = vars[i].split('=');
+			        if (decodeURIComponent(pair[0]) == variable) {
+			            return decodeURIComponent(pair[1]);
+			        }
+			    }
+			    return '-1';
+			}
+			function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
+			}
+			function getBuilds(path){
+				
+				var str = getRequest(path);
+				
+				var results = str.split(',');
+				var builds = [];
+				var list = document.getElementById("list");				
+				for(var i = 0; i < results.length; i++)
+				{
+					if(results[i].length >0 && results[i].charAt(0) != '.')// && results[i].search('.').length <1)
+					{
+						var url = 'href=\"//localhost:3000/graph?job=' +buildName;
+						url += '&id='+results[i]+',';
+						var compareCheckID = 'comp'+results[i];
+						var baseCheckID = 'base'+results[i];
+						var description = 'Build: ' + results[i] + '<br>';
+						list.innerHTML += '<li> <a ' + url+ '">'+'Build: '+results[i]+'</a>'+ '</li>';
+						clist.innerHTML += '&nbsp;&nbsp;&nbsp;<input type="checkbox" id="'+compareCheckID+'" onclick="updateBuildSelect('+buildSelect.length+')" checked>';
+						clist.innerHTML += '<label for="'+compareCheckID+'">'+description+'</label>';   
+
+						base.innerHTML += '&nbsp;&nbsp;&nbsp;<input type="radio" id="'+baseCheckID+'"name="coolguys" onclick="updateBaseSelect('+results[i]+')">';
+						base.innerHTML += '<label for="'+baseCheckID+'">'+description+'</label>';   
+						buildNames[buildNames.length] = results[i];
+						buildSelect[buildSelect.length] = true;
+						
+					}
+				}
+				
+				secondHeader.innerHTML+= buildName;
+				
+			}
+			
+			function updateURL(){
+				dest = '//localhost:3000/graph?job=' +buildName +'&id=';
+				for(var i= 0; i < buildSelect.length; i++){
+					if(buildSelect[i]){	
+						dest += buildNames[i] +',';
+					}
+				}
+				if(chosenBase == true){
+					dest+= '&base=' + baseSelect;
+				}
+				
+				window.location.href=dest;
+			}
+		</script>
+		
+	</head>
+	<body>	
+		<title> Performance Runs</title>
+		
+			<div id= "pagewrapper">
+	<div id="heading" class="mule">
+		<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+
+		<p id="logo"> Performance Analyzer</p>
+	</div>
+	<div id="menu" class="mule">
+		<p id='menuHeading'><u><b>Menu</b></u></p><br>
+		<p class = 'menuItems'> <a href="/">Home</a></p>
+		<p class = 'menuItems'> <a href="/about">About</a></p>
+
+	</div>
+	<div id='content'>
+		<p id = 'contentTitle'>Builds List:</p>
+		<div id="jobs">	
+			<ul id="list">
+			</ul>
+				<form>
+				<div id='compareList'>
+
+					<div id="clist" >
+						
+					</div>
+					
+					
+				</div>
+				<div id="baseList" >
+					
+					<div id="base" >
+						
+					</div>
+					
+					
+				</div>
+				<div id="selectionInterface">
+				<input type="BUTTON" id="clicker" class="coolbutton" value="Compare!" onclick="updateURL();">
+				
+					<input type="BUTTON" class="coolbutton" id="based" value="Create Base Line!" onclick="chosenBase = true;updateURL()">
+				</div>
+				</form>
+
+				
+				
+		</div>	
+		<p id='directions'>
+		<br>
+			To view the metrics of individual builds, click on one of the links on the lefthand column. <br><br>
+			To <em>compare</em> the metrics of multiple builds, select the builds in question from the center column, and click "Compare!".<br><br>
+			To compare builds to a <em>base line</em>, select the base line test from the righthand column and the select the runs you are comparing it to from the center column. Afterwards, push "Create Base Line!";
+		</p>
+	</div>
+	
+		
+	<div id="footer" class="mule">
+		<p>Copyright &#169; MuleSoft.com</p>
+	</div>
+
+			
+				
+		<script>
+			getBuilds('//localhost:3000/retrieveBuilds/?build='+ buildName);
+		</script>
+	
+	</body>
+	
+</html>

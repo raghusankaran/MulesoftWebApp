@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>COUNT</name>
+          <description></description>
+          <value>18000000</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>CONCURRENTUSER</name>
+          <description></description>
+          <value>60</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SERVER</name>
+          <description>hostnames to hit</description>
+          <value>mule-perflab02.managed.contegix.com</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>ENDPOINT</name>
+          <description>app_name server:port optional_description
+</description>
+          <value>Jetty 8081</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>QUERY_PARAM</name>
+          <description>For echo service it is empty because it just uses a path (i.e. http://perf-8c:8084/hellohello ).  For Hello example, it uses query param &quot;name&quot; such as ( http://perf-8c:8888/?name=hellohello )</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>MULE_BUILD</name>
+          <description></description>
+          <value>mule-enterprise-standalone-3.5.0-M5-SNAPSHOT</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>DEPLOY_FRESH_MULE_APP</name>
+          <description>If true, it will do a (re)deploy the app you specified. If false, the test will run only if the app under test is already deployed.</description>
+          <value>true</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>RESTART_MULE</name>
+          <description>Start or Restart mule server before test ( will add an additional 90 seconds for the app restart )</description>
+          <value>true</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.BooleanParameterValue>
+          <name>RESTART_ACTIVEMQ</name>
+          <description>restart the activemq server prior to test start</description>
+          <value>false</value>
+        </hudson.model.BooleanParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>NOTES</name>
+          <description>Notes to annotate your run. e.g &quot;Quick test from Wai&quot;</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>POST_CONTENT_TYPE</name>
+          <description>For POST request only.</description>
+          <value>text/plain</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>PAYLOAD_FILE</name>
+          <description>For POST request only.</description>
+          <value>1KB.payload</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>RERUN_NUMBER</name>
+          <description>Rerun an earlier run you made.  e.g. 333</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causes>
+        <hudson.model.Cause_-UserCause>
+          <authenticationName>wai.ip</authenticationName>
+        </hudson.model.Cause_-UserCause>
+      </causes>
+    </hudson.model.CauseAction>
+  </actions>
+  <number>2</number>
+  <result>SUCCESS</result>
+  <description>&quot; mule-perflab02.managed.contegix.com Jetty 8081  1KB.payload c=60 n=18000000 text/plain &quot;</description>
+  <duration>1133394</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn>perflab05</builtOn>
+  <workspace>/mnt/perf/.hudson/workspace/JETTY</workspace>
+  <hudsonVersion>1.392.LI22</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits/>
+</build>

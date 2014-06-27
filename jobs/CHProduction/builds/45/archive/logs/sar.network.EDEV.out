@@ -1,0 +1,465 @@
+Linux 3.2.0-31-virtual (ip-10-124-138-93) 	06/23/2014 	_x86_64_	(2 CPU)
+
+07:56:32 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:34 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:34 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:34 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:36 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:36 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:36 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:38 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:38 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:38 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:40 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:40 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:40 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:42 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:42 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:42 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:44 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:44 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:44 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:46 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:46 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:46 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:48 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:48 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:48 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:50 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:50 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:50 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:52 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:52 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:52 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:54 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:54 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:54 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:56 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:56 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:56 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:56:58 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:56:58 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:56:58 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:00 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:00 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:00 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:02 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:02 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:02 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:04 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:04 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:04 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:06 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:06 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:06 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:08 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:08 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:08 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:10 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:10 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:10 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:12 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:12 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:12 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:14 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:14 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:14 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:16 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:16 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:16 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:18 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:18 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:18 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:20 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:20 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:20 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:22 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:22 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:22 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:24 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:24 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:24 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:26 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:26 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:26 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:28 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:28 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:28 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:30 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:30 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:30 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:32 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:32 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:32 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:34 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:34 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:34 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:36 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:36 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:36 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:38 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:38 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:38 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:40 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:40 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:40 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:42 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:42 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:42 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:44 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:44 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:44 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:46 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:46 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:46 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:48 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:48 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:48 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:50 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:50 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:50 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:52 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:52 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:52 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:54 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:54 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:54 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:56 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:56 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:56 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:57:58 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:57:58 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:57:58 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:00 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:00 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:00 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:02 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:02 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:02 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:04 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:04 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:04 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:06 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:06 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:06 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:08 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:08 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:08 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:10 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:10 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:10 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:12 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:12 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:12 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:14 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:14 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:14 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:16 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:16 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:16 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:18 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:18 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:18 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:20 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:20 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:20 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:22 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:22 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:22 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:24 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:24 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:24 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:26 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:26 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:26 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:28 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:28 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:28 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:30 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:30 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:30 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:32 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:32 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:32 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:34 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:34 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:34 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:36 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:36 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:36 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:38 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:38 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:38 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:40 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:40 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:40 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:42 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:42 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:42 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:44 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:44 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:44 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:46 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:46 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:46 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:48 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:48 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:48 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:50 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:50 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:50 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:52 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:52 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:52 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:54 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:54 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:54 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:56 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:56 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:56 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:58:58 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:58:58 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:58:58 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:00 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:00 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:00 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:02 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:02 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:02 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:04 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:04 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:04 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:06 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:06 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:06 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:08 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:08 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:08 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:10 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:10 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:10 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:12 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:12 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:12 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:14 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:14 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:14 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:16 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:16 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:16 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:18 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:18 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:18 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:20 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:20 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:20 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:22 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:22 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:22 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:24 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:24 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:24 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:26 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:26 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:26 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:28 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:28 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:28 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:30 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:30 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:30 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:32 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:32 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:32 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:34 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:34 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:34 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:36 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:36 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:36 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:38 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:38 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:38 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:40 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:40 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:40 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:42 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:42 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:42 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:44 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:44 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:44 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:46 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:46 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:46 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:48 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:48 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:48 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:50 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:50 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:50 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:52 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:52 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:52 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:54 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:54 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:54 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:56 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:56 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:56 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+07:59:58 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+07:59:58 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+07:59:58 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:00 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:00 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:00 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:03 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:03 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:03 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:05 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:05 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:05 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:07 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:07 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:07 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:09 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:09 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:09 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:11 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:11 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:11 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:13 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:13 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:13 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:15 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:15 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:15 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:17 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:17 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:17 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:19 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:19 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:19 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:21 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:21 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:21 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:23 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:23 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+08:00:23 PM     IFACE   rxerr/s   txerr/s    coll/s  rxdrop/s  txdrop/s  txcarr/s  rxfram/s  rxfifo/s  txfifo/s
+08:00:25 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+08:00:25 PM      eth0      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00

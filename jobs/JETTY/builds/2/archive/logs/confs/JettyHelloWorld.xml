@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jetty="http://www.mulesoft.org/schema/mule/jetty" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core"
+	version="EE-3.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/jetty http://www.mulesoft.org/schema/mule/jetty/current/mule-jetty.xsd">
+         <jetty:connector name="Jetty" doc:name="Jetty" configFile="/mnt/nfsshare/APPS/Jetty/jetty-config.xml" />
+	<flow name="JettyHelloWorldFlow1" doc:name="JettyHelloWorldFlow1">
+        <jetty:inbound-endpoint exchange-pattern="request-response" address="http://0.0.0.0:8081" doc:name="Jetty"/>
+
+        <echo-component doc:name="Echo"/>         
+<!-- <set-payload value="#[message.inboundProperties['http.request.path']]" />
+     --> 
+		<!--  <set-payload value="#['Hello World']" doc:name="Set Payload"
+			doc:description="This processor sets the payload of the message to the string 'Hello World'." /> -->
+	</flow>
+</mule>

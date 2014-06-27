@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+
+<html style="overflow-y: auto, height=1600px">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+
+		<script>
+
+			var numOfLines = 0;
+			
+			var buildPath = getQueryVariable('job');
+			var graphIds = getQueryVariable('id').split(',');
+			var baseID = getQueryVariable('base');
+			var drawBase = false;
+			var jobName = getQueryVariable('job');
+			if(baseID != '-1'){
+				drawBase = true;
+			}
+			graphIds.pop();
+			var logsPath = "/archive/logs";
+			var secondsPerPage = 120;
+			var moveDis = 50;
+			var currentStart = 0;
+			var updated = [];
+			var zoom = 1;
+			var canvases = ['canvas', 'otherMetrics'];
+			var graphYAxis = [];
+
+			for(var i = 0; i < canvases.length; i++){
+				graphYAxis[graphYAxis.length] = [0, 100];
+				updated[updated.length] = true;
+			}
+			var colors = [];
+			for(var i = 0; i < graphIds.length; i++)
+			{
+				if(i == 0)
+					colors[colors.length] = 'red';
+				else if(i ==1)
+					colors[colors.length] = 'blue';
+				else if( i ==2)
+					colors[colors.length] = 'green';
+				else{
+					colors[colors.length] = getRandomColor();
+				}
+			}
+			
+			/*
+			 * 0: CPU Usage
+			 * 1: Mem Usage
+			 */
+			var metrics = [true, true, true, false, false, false, false, true, false, false ];
+			var metricNames = ["CPU%: Usage",
+								 "Memory%: Used",
+								  "Disk%: Util",
+								  "Disk: Await",
+								  "Disk: TPS",
+								  "Disk: WR_Sec/s",
+								  "Disk: RD_Sec/s",
+								  "Network%: Used",
+								  "Network: txkB/s",
+								  "Network: rxkB/s"];
+			function updateMetrics(metricID){
+				if(metrics[metricID] == false)
+					metrics[metricID] = true;
+				else
+					metrics[metricID] = false;
+			}
+			function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
+			}
+			
+			function getRandomColor(){
+				return "#" + Math.random().toString(16).slice(2, 8);
+			}
+			
+			function moveRight(num){
+				currentStart+=num;
+			}
+			
+			function checkKey(e) {
+			    e = e || window.event;
+			    e.preventDefault();
+			    if (e.keyCode == 38) {
+			        // up arrow
+			        zoomIn();
+			        clearCanvas(canvases);
+			        updateGraph(canvases);
+			    }
+			    else if (e.keyCode == 40) {
+			        // down arrow
+			        zoomOut();
+			        clearCanvas(canvases);
+			        updateGraph(canvases);
+			    }
+			    else if (e.keyCode == 39) {
+			        // RIGHT arrow
+			        moveRight(50);
+			        clearCanvas(canvases);
+			        updateGraph(canvases);
+			    }
+			    else if (e.keyCode == 37) {
+			        // LEFT arrow
+			        moveLeft(50);
+			        clearCanvas(canvases);
+			        updateGraph(canvases);
+			    }
+			}
+			
+			function moveLeft(num){
+				if(currentStart-num >=0)
+					currentStart-=num;
+			}
+			
+			function getQueryVariable(variable) {
+			    var query = window.location.search.substring(1);
+			    var vars = query.split('&');
+			    for (var i = 0; i < vars.length; i++) {
+			        var pair = vars[i].split('=');
+			        if (decodeURIComponent(pair[0]) == variable) {
+			            return decodeURIComponent(pair[1]);
+			        }
+			    }
+			    return '-1';
+			}
+			
+			function zoomOut(){
+				zoom *= .75;
+				moveDis = secondsPerPage/2;
+			}
+			
+			function zoomIn(){
+				zoom *= 1.5;				
+				moveDis = secondsPerPage/2;
+			}
+				
+			function createCheckBoxes(){
+				
+				for(var i =0; i < metrics.length; i++){
+					var checked = '';
+					if(metrics[i])
+						checked ='checked';
+					else
+						checked = '';
+					if(metricNames[i].indexOf('CPU') >= 0){
+						CPU.innerHTML += '<input  type="checkbox" onclick="updateMetrics('+i+')" '+checked+'>' + metricNames[i].substring(metricNames[i].indexOf(':') +2) +"<br>";					
+					}
+					else if(metricNames[i].indexOf('Memory') >= 0){
+						Memory.innerHTML += '<input type="checkbox" onclick="updateMetrics('+i+')"'+checked+'>' + metricNames[i].substring(metricNames[i].indexOf(':') +2)+"<br>";					
+					}
+					else if(metricNames[i].indexOf('Network') >= 0){
+						Network.innerHTML += '<input type="checkbox" onclick="updateMetrics('+i+')"'+checked+'>' + metricNames[i].substring(metricNames[i].indexOf(':') +2)+"<br>";					
+					}
+					else if(metricNames[i].indexOf('Disk') >= 0){
+						Disk.innerHTML += '<input type="checkbox" onclick="updateMetrics('+i+')"'+checked+'>' + metricNames[i].substring(metricNames[i].indexOf(':') +2)+"<br>";
+					}
+				}
+			
+			}
+			
+			function clearCanvas(cans){
+				
+				for(var i =0; i < cans.length; i++){
+					nameOfCanvas = cans[i];
+					var canvas = document.getElementById(nameOfCanvas);
+					var ctx = canvas.getContext('2d');
+			        var x = canvas.width;
+			        var y = canvas.height;
+			        ctx.clearRect(0, 0, x, y);	
+			        numOfLines = 0;
+			      }
+			    
+			}
+
+			function makeGraph(nameOfCanvas){
+				var canvasID = 0;
+				for(var i = 0; i < canvases.length; i++){
+					if(nameOfCanvas == canvases[i]){
+						canvasID = i;
+					}
+				}
+				
+				var canvas = document.getElementById(nameOfCanvas);
+				var ctx = canvas.getContext('2d');
+		        var x = canvas.width-5;
+		        var y = canvas.height;
+		        var startX = .05 * x;
+		        var startY = y*.9;
+		        ctx.strokeStyle = 'black';
+		        
+		        ctx.beginPath();
+				ctx.moveTo(startX,startY);
+				ctx.lineTo(startX,5);
+				ctx.moveTo(startX,startY);
+				ctx.lineTo(x, startY);
+				ctx.lineWidth = 4;
+				ctx.stroke();				
+				ctx.lineWidth = 1;
+		       
+		        var samples = 10;
+		        var width = (x-startX) / samples;
+		        var count = currentStart;
+		        for(var i = 0; i < samples; i++){
+		        	
+		        	ctx.fillText(('' + count).substring(0,7) ,  startX + width*i , startY + 20);
+					count += secondsPerPage/samples;
+		        }
+		        ctx.font="30px Courier New";
+		        ctx.fillText("Time (in Seconds)" ,  startX + width*(samples/2-1) , startY + 50);
+		       	ctx.font="bold 10px Courier New";
+
+				count =0;
+				if(canvasID==0){
+					for(var i=graphYAxis[canvasID][0]; i <= graphYAxis[canvasID][1]; i+= (graphYAxis[canvasID][1]-graphYAxis[canvasID][0])/samples){
+						ctx.fillStyle = 'black';
+						var text = '' + i;
+						ctx.fillText(text.substring(0,5) + '%',startX/4,startY - (startY/samples) * count);
+						ctx.stroke();
+						count++;
+					}
+				}
+				else{
+					for(var i=graphYAxis[canvasID][0]; i <= graphYAxis[canvasID][1]; i+= (graphYAxis[canvasID][1]-graphYAxis[canvasID][0])/samples){
+						ctx.fillStyle = 'black';
+						var text = '' + i;
+						ctx.fillText(text.substring(0,5),startX/4,startY - (startY/samples) * count);
+						ctx.stroke();
+						count++;
+					}
+				}
+				count =0;
+				ctx.save();
+
+			}
+			
+			function updateGraph(cans){
+				var data =[];
+				var nameOfCanvas = cans[0];
+				//GET DATA
+				var canvasID;
+				for(var i =0; i <metrics.length; i++)
+				{
+					//percentage based
+					if(metricNames[i].indexOf('%') >= 0){
+						canvasID =0;
+				        if(metrics[i] && metricNames[i].indexOf('CPU') >=0){
+				        	for(var j = 0; j < graphIds.length; j++){
+				        		data = getData('cpu', '' + graphIds[j]);
+				        		for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+				        	}
+				        	if(drawBase == true)
+				        		data = getData('cpu', '' + baseID);
+				        	for(var k =0; k<data.length; k++){
+			        			if(updated[canvasID]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        				updated[canvasID] = false;
+			        				secondsPerPage = data.length * 2/ zoom;
+			        			}
+			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        			}
+			        			if(data.length* 2 > secondsPerPage){
+			        				secondsPerPage = data.length* 2 / zoom;
+			        			}
+			        		}
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
+				        	for(var j = 0; j < graphIds.length; j++){
+				        		data = getData('memutil', '' + graphIds[j]);
+				        		for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2/ zoom;
+				        			}
+				        		}			        		
+				        	
+				        	}
+				        	if(drawBase == true)
+				        		data = getData('memutil', '' + baseID);
+				        	for(var k =0; k<data.length; k++){
+			        			if(updated[canvasID]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        				updated[canvasID] = false;
+			        				secondsPerPage = data.length * 2/ zoom;
+			        			}
+			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        			}
+			        			if(data.length* 2 > secondsPerPage){
+			        				secondsPerPage = data.length* 2 / zoom;
+			        			}
+			        		}
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Network') >=0 ){
+			        		if(metricNames[i].indexOf('Used') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('network used', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+			        	 		if(drawBase == true)
+				        		data = getData('network used', '' + baseID);
+				        	for(var k =0; k<data.length; k++){
+			        			if(updated[canvasID]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        				updated[canvasID] = false;
+			        				secondsPerPage = data.length * 2/ zoom;
+			        			}
+			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        			}
+			        			if(data.length* 2 > secondsPerPage){
+			        				secondsPerPage = data.length* 2 / zoom;
+			        			}
+			        		}
+			        		}
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Disk') >=0){
+				        	if( metricNames[i].indexOf('Util') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('disk util', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+					        		}			        		
+					        	}
+					        	if(drawBase == true)
+				        		data = getData('disk util', '' + baseID);
+				        	for(var k =0; k<data.length; k++){
+			        			if(updated[canvasID]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        				updated[canvasID] = false;
+			        				secondsPerPage = data.length * 2/ zoom;
+			        			}
+			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        			}
+			        			if(data.length* 2 > secondsPerPage){
+			        				secondsPerPage = data.length* 2 / zoom;
+			        			}
+			        		}
+				        	}
+				        }
+					}
+					//NON percentage graph
+					else{
+						canvasID = 1;
+						if(metrics[i] && metricNames[i].indexOf('CPU') >=0){
+				        	for(var j = 0; j < graphIds.length; j++){
+				        		data = getData('cpu', '' + graphIds[j]);
+				        		for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+				        	}
+				        	if(drawBase == true)
+				        		data = getData('cpu', '' + baseID);
+				        	for(var k =0; k<data.length; k++){
+			        			if(updated[canvasID]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        				updated[canvasID] = false;
+			        				secondsPerPage = data.length * 2/ zoom;
+			        			}
+			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        			}
+			        			if(data.length* 2 > secondsPerPage){
+			        				secondsPerPage = data.length* 2 / zoom;
+			        			}
+			        		}
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
+				        	for(var j = 0; j < graphIds.length; j++){
+				        		data = getData('memutil', '' + graphIds[j]);
+				        		for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2/ zoom;
+				        			}
+				        		}			        		
+				        	}
+				        	if(drawBase == true)
+				        		data = getData('memutil', '' + baseID);
+				        	for(var k =0; k<data.length; k++){
+			        			if(updated[canvasID]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        				updated[canvasID] = false;
+			        				secondsPerPage = data.length * 2/ zoom;
+			        			}
+			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+			        			}
+			        			if(data.length* 2 > secondsPerPage){
+			        				secondsPerPage = data.length* 2 / zoom;
+			        			}
+			        		}
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Network') >=0 ){
+				        	if(metricNames[i].indexOf('tx') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('network txkB', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+			        	 		if(drawBase == true)
+				        		data = getData('network txkB', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+					        }
+					        else if(metricNames[i].indexOf('rx') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('network rxkB', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+			        	 		if(drawBase == true)
+				        		data = getData('network rxkB', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+					        }
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Disk') >=0 ){
+					        if(metricNames[i].indexOf("Await") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('disk await', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+			        	 		if(drawBase == true)
+				        		data = getData('disk await', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+					        }
+					        else if(metricNames[i].indexOf("TPS") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('disk tps', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+			        	 		if(drawBase == true)
+				        		data = getData('disk tps', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+					        }
+					        else if(metricNames[i].indexOf("RD") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('disk rd_sec', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+					        	if(drawBase == true)
+				        		data = getData('disk rd_sec', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+					        }
+					        else if(metricNames[i].indexOf("WR") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('disk wr_sec', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+			        				}			        		
+			        	 		}
+					        	if(drawBase == true)
+				        		data = getData('disk wr_sec', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+					        }
+				        }
+					}     
+				}
+				
+				//extreme forms of data..
+				for(var i = 0; i < cans.length; i++){
+					canvasID = i;
+					if(updated[canvasID] == false){	
+						//extreme forms of data..
+						if( graphYAxis[canvasID][1] == 0){
+							graphYAxis[canvasID][1] = 10;
+						}
+						else if(Math.abs(graphYAxis[canvasID][1]-graphYAxis[canvasID][0]) < 10){
+							graphYAxis[canvasID][1] *= 1.5;
+							graphYAxis[canvasID][0] *= .5;
+						}
+						
+						else{
+						graphYAxis[canvasID][1] *= 1.1;
+						graphYAxis[canvasID][0] *= .9;
+						}
+					}
+				}
+				
+				//ADD LINE
+				for(var i =0; i <metrics.length; i++)
+				{
+					//percentage based
+					if(metricNames[i].indexOf('%') >= 0){
+						nameOfCanvas = cans[0];
+				        if(metrics[i] && metricNames[i].indexOf('CPU') >=0){
+				        	for(var j = 0; j < graphIds.length; j++){
+				        		addLine('cpu', '' + graphIds[j], colors[j], nameOfCanvas);
+				        		
+				        	}
+				        	if(drawBase == true)				        		
+				        		addLine('cpu', '' + baseID, 'black', nameOfCanvas);
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
+				        	for(var j = 0; j < graphIds.length; j++){
+				        		addLine('memutil', '' + graphIds[j], colors[j],nameOfCanvas);
+				        					        		
+				        	}
+				      		if(drawBase == true)				        		
+				        		addLine('memutil', '' + baseID, 'black', nameOfCanvas);
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Network') >=0 ){
+				        	if(metricNames[i].indexOf('Used') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		addLine('network used', '' + graphIds[j],colors[j], nameOfCanvas);
+					        					        		
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('network used', '' + baseID, 'black', nameOfCanvas);
+				        	}
+					        	
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Disk') >=0 ){
+				        	if(metricNames[i].indexOf('Util') >=0){
+
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		addLine('disk util', '' + graphIds[j], colors[j],nameOfCanvas);
+					        	}
+				       		 	if(drawBase == true)				        		
+				        		addLine('disk util', '' + baseID, 'black', nameOfCanvas);
+				       		 }
+				       }
+					}
+					//NON percentage based
+					else{
+						nameOfCanvas = cans[1];
+						if(metrics[i] && metricNames[i].indexOf('CPU') >=0){
+				        	
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
+				        	
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Network') >=0 ){
+				        	if(metricNames[i].indexOf('tx') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		addLine('network txkB', '' + graphIds[j],colors[j], nameOfCanvas);
+					        					        		
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('network txkB', '' + baseID, 'black', nameOfCanvas);
+					        }
+					        else if(metricNames[i].indexOf('rx') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		addLine('network rxkB', '' + graphIds[j],colors[j], nameOfCanvas);
+					        					        		
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('network rxkB', '' + baseID, 'black', nameOfCanvas);
+					        }
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Disk') >=0 ){
+					        if(metricNames[i].indexOf("Await") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		addLine('disk await', '' + graphIds[j], colors[j],nameOfCanvas);
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('disk await', '' + baseID, 'black', nameOfCanvas);
+					        }
+					        else if(metricNames[i].indexOf("TPS") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		addLine('disk tps', '' + graphIds[j], colors[j],nameOfCanvas);
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('disk tps', '' + baseID, 'black', nameOfCanvas);
+					        }
+					        else if(metricNames[i].indexOf("RD") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		addLine('disk rd_sec', '' + graphIds[j], colors[j],nameOfCanvas);
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('disk rd_sec', '' + baseID, 'black', nameOfCanvas);
+					        }
+					        else if(metricNames[i].indexOf("WR") >= 0){
+					        	for(var j = 0; j < graphIds.length; j++){
+					        		addLine('disk wr_sec', '' + graphIds[j], colors[j],nameOfCanvas);
+					        	}
+					        	if(drawBase == true)				        		
+				        		addLine('disk wr_sec', '' + baseID, 'black', nameOfCanvas);
+					        }
+				        }
+					}
+				}
+				
+				for(var i =0; i <cans.length; i++){
+					makeGraph(cans[i]);
+					updated[i] = true; 
+				}
+			}	
+	
+			/*
+			 * To access data files:
+			 * TYPES: cpu
+			 * 		  memutil
+			 *        disk
+			 * 			-util
+			 * 	        -await
+			 * 		    -tps
+			 * 			-rd_sec
+			 * 			-wr_sec
+			 * 		  network
+			 * 		  	-used [max of ( txkB/s, rxkB/s )  * 8 / 1024 ) / 102.4] 
+			 * 			-txkB
+			 * 			-rxkB
+			 * 		  paging
+			 *           pgpgin ( from sar.paging.out )
+			 *           pgpgout
+			 *           fault
+			 *           majflt
+			 *           pgpgin
+			 *           pgfree
+			 *           pgscank
+			 *           pgscand
+			 *           pgsteal
+			 *           vmef
+			 * 		  swap
+			 * 			in
+			 * 			out
+			 * 
+			 */
+					
+			function getData(type, id){
+				var job = jobName;
+				
+				var query = '?job='+job+'&id='+id+'&type='+type;
+				var url = '//localhost:3000/data/'+query
+					
+				var str = getRequest(url);
+				var data = str.split(',');
+				data.pop();
+				return data;				
+				
+				// else if(type.indexOf('paging') >= 0){
+				// 	var request = new XMLHttpRequest();
+				// 	request.open("GET",  path + id + logsPath +'/sar.memutil.out', false);
+				// 	request.send(null);
+				// 	var str = request.responseText;
+				// 	var temp  = str.match(/\s\s\d+\.\d+/g);
+				//     var data = [];
+				// 	var jump = 9;
+					
+				// 	if(type.indexOf('pgpgout') >= 0){
+				// 		for(var i = 1; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('fault') >= 0){
+				// 		for(var i = 2; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('majflt') >= 0){
+				// 		for(var i = 3; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('pgpgin') >= 0){
+				// 		for(var i = 0; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('pgfree') >= 0){
+				// 		for(var i = 4; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('pgscank') >= 0){
+				// 		for(var i = 5; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('pgscand') >= 0){
+				// 		for(var i = 6; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('pgsteal') >= 0){
+				// 		for(var i = 7; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+				// 	else if(type.indexOf('vmef') >= 0){
+				// 		for(var i = 8; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+				// 	}
+					
+				// }
+				
+				// else if(type.indexOf('swap') >= 0){
+				// 	var request = new XMLHttpRequest();
+				// 	request.open("GET",  path + id + logsPath +'/sar.memutil.out', false);
+				// 	request.send(null);
+				// 	var str = request.responseText;
+				// 	var temp  = str.match(/\s\s\d+\.\d+/g);
+				//     var data = [];
+				//     jump = 2;
+				// 	if(type.indexOf('in') >= 0){
+				// 		for(var i = 0; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+						
+				// 	}
+				// 	else if(type.indexOf('out') >= 0){
+				// 		for(var i = 1; i<temp[i]; i+= jump){
+				// 			data[data.length] = temp[i];
+				// 		}
+				// 		return data;
+						
+				// 	}
+				// }
+			}
+			
+			function addLine(type, id, color, nameOfCanvas){
+				var canvasID = 0;
+				for(var i = 0; i < canvases.length; i++){
+					if(nameOfCanvas == canvases[i]){
+						canvasID = i;
+					}
+				}
+				var data = getData(type, id);
+				
+				var canvas = document.getElementById(nameOfCanvas);
+				var ctx = canvas.getContext('2d');
+		        var x = canvas.width;
+		        var y = canvas.height;
+		        var startX = .05 * x;
+		        var startY = y*.9;
+		        
+		        var width = x*.95/data.length;
+		        var samples = 10;
+		        ctx.beginPath();
+		        ctx.strokeStyle = color;
+		        
+		        
+				ctx.lineCap='round';	
+				
+				ctx.moveTo(startX, startY - (startY/100) * data[i]);
+				
+				
+		        var width = (x-startX) / (secondsPerPage/2);
+				
+				for(var i=0; i<secondsPerPage/2+1; i++)
+				{
+						
+					//startY - (startY/samples) * count
+					var range = graphYAxis[canvasID][1]-graphYAxis[canvasID][0];
+					if( range > 0.00001){
+						var value =  data[i+currentStart/2];
+						var yPos = startY - startY * ((value-graphYAxis[canvasID][0])/range);
+						// value / range = x/startY
+						// startY*(value/range) = x
+						ctx.lineTo(startX+ width*i, yPos);
+					}
+				}
+				ctx.stroke();
+				ctx.strokeStyle = '#000000';
+				ctx.save(); 
+				/*
+				var samples = 10;
+				var width = (x-startX)/samples;
+		        ctx.fillStyle = color;
+
+				for(var i=0; i <= samples; i++){
+					
+					var writeYPos = startY + (y-startY)/4 +numOfLines*8;
+					var writeXPos = startX + i* width + numOfLines*2;
+					var index = Math.floor(i * times.length/samples);
+					ctx.fillText(times[index],writeXPos,  writeYPos);
+
+				}
+				*/
+				ctx.save();
+				numOfLines++;
+			}
+			
+		</script>
+	</head>
+
+	<body style="height:1600px">
+
+		<div id= "pagewrapper">
+			<div id="heading" class="mule">
+				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+
+				<p id="logo">Performance Test Results</p>
+			</div>
+			<div id="options" class="mule">
+				<p id='menuHeading'><u><b>Menu</b></u></p><br>
+				<p class = 'menuItems'> <a href="/">Home</a></p>
+				<p id="jobPage" class = 'menuItems'> <a href="/builds?build=">About</a></p>
+				<form>
+					<div id="CPU" class = 'menuItems' >
+						<p class="tiny"><b>CPU Results:</b></p> 
+					</div>
+					<br>
+					<div id="Memory" class = 'menuItems'>
+						<p class="tiny"><b>Memory Results:</b> </p>
+					</div>
+					<br>
+					<div id="Disk" class = 'menuItems' >
+						<p class="tiny"><b>Disk Results:</b></p> 
+					</div>
+					<br>
+					<div id="Network" class = 'menuItems'>
+						<p class="tiny"><b>Network Results:</b> </p>
+					</div>
+									
+				</form>	
+				<button id = 'cButton' class="coolbutton" type="button"  onclick="clearCanvas(canvases), updateGraph(canvases)">
+						Compare!
+					</button>
+			</div>
+			<div id='graphContent'>
+				<p id = 'contentTitle'>Analytical Graph:</p>
+
+				<canvas id="canvas" class="graph" width="1000" height="600"></canvas>
+				<canvas id="otherMetrics" class="graph" width="1000" height="600"></canvas>
+			
+			</div>
+
+				
+		<script>
+			document.getElementById('jobPage').innerHTML = '<a href="/builds?build='+jobName+'">Job Page</a>';
+			makeGraph('canvas');
+			makeGraph('otherMetrics');
+			
+			createCheckBoxes();
+			
+			
+			document.onkeydown = checkKey;
+		</script>
+	</body>
+</html>

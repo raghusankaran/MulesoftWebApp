@@ -1,0 +1,182 @@
+--> Wrapper Started as Daemon
+Java Service Wrapper Standard Edition 64-bit 3.5.19
+  Copyright (C) 1999-2013 Tanuki Software, Ltd. All Rights Reserved.
+    http://wrapper.tanukisoftware.com
+  Licensed to mulesoft.com for Mule ESB Enterprise Edition
+
+Launching a JVM...
+
+Valid license key --> Evaluation = true, Expiration Date = Sat Apr 19 00:00:00 CDT 2014, Contact Name = MuleSource Support, Contact Email Address = support@mulesource.com, Contact Telephone = support@mulesource.com, Contact Company = MuleSource, Contact Country = US, Entitlements = 
+
+Starting the Mule Container...
+WrapperManager: Initializing...
+INFO  2014-03-20 18:05:25,117 [WrapperListener_start_runner] org.mule.module.launcher.MuleContainer: 
+**********************************************************************
+* Mule ESB and Integration Platform                                  *
+* Version: 3.5.0-M5-SNAPSHOT Build: 5e2678c0                         *
+* MuleSoft, Inc.                                                     *
+* For more information go to                                         *
+* http://www.mulesoft.com/mule-esb-enterprise                        *
+*                                                                    *
+* Server started: 3/20/14 6:05 PM                                    *
+* JDK: 1.7.0_45 (mixed mode)                                         *
+* OS: Linux (2.6.32-431.3.1.el6.x86_64, amd64)                       *
+* Host: mule-perflab03.managed.contegix.com (172.14.0.30)            *
+**********************************************************************
+INFO  2014-03-20 18:05:25,147 [WrapperListener_start_runner] org.mule.module.launcher.coreextension.DefaultMuleCoreExtensionManager: Initializing core extensions
+INFO  2014-03-20 18:05:25,167 [WrapperListener_start_runner] com.mulesoft.mule.cluster.hazelcast.config.ClusterTicketFileLoader: /home/perftest/builds/mule-enterprise-standalone-3.5.0-M5-SNAPSHOT/.mule/mule-cluster.properties (No such file or directory)
+WARN  2014-03-20 18:05:25,171 [WrapperListener_start_runner] com.mulesoft.mule.cluster.boot.ClusterCoreExtension: No cluster ID was specified -- High Availability will be disabled:
+INFO  2014-03-20 18:05:25,172 [WrapperListener_start_runner] org.mule.lifecycle.AbstractLifecycleManager: Initialising: 'Mule Agent Core Extension'. Object is: AgentCoreExtension
+INFO  2014-03-20 18:05:25,292 [WrapperListener_start_runner] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2014-03-20 18:05:25,946 [WrapperListener_start_runner] org.mule.config.processors.DecoratingAnnotatedServiceProcessor: org.mule.config.AnnotationsParserFactory implementation not found in registry, annotations not enabled
+INFO  2014-03-20 18:05:26,281 [WrapperListener_start_runner] org.mule.lifecycle.AbstractLifecycleManager: Initialising model: _muleSystemModel
+INFO  2014-03-20 18:05:26,392 [WrapperListener_start_runner] com.mulesoft.mule.plugin.manager.MulePluginManager: Registering plugin: anypoint-plugin-5.0.0-SNAPSHOT
+INFO  2014-03-20 18:05:26,400 [WrapperListener_start_runner] com.mulesoft.mule.plugin.manager.MulePluginManager: Registering plugin: mule-plugin-debugger-3.5.0-M5-20140210.202030-1
+INFO  2014-03-20 18:05:26,453 [WrapperListener_start_runner] org.mule.module.launcher.coreextension.DefaultMuleCoreExtensionManager: Starting core extensions
+INFO  2014-03-20 18:05:26,454 [WrapperListener_start_runner] com.mulesoft.habitat.agent.AnypointAgentUtils: Anypoint Service Registry Agent is DISABLED. Property anypoint.agent.token is missing or empty.
+INFO  2014-03-20 18:05:26,454 [WrapperListener_start_runner] org.mule.lifecycle.AbstractLifecycleManager: Starting: 'Mule Agent Core Extension'. Object is: AgentCoreExtension
+INFO  2014-03-20 18:05:26,455 [WrapperListener_start_runner] org.mule.util.queue.TransactionalQueueManager: Starting ResourceManager
+INFO  2014-03-20 18:05:26,462 [WrapperListener_start_runner] org.mule.util.queue.TransactionalQueueManager: Started ResourceManager
+INFO  2014-03-20 18:05:26,463 [WrapperListener_start_runner] org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2014-03-20 18:05:26,464 [WrapperListener_start_runner] org.mule.lifecycle.AbstractLifecycleManager: Starting model: _muleSystemModel
+INFO  2014-03-20 18:05:26,471 [WrapperListener_start_runner] org.mule.module.management.agent.WrapperManagerAgent: Mule is embedded in a container already launched by a wrapper.Duplicates will not be registered. Use the org.tanukisoftware.wrapper:type=WrapperManager MBean instead for control.
+INFO  2014-03-20 18:05:26,485 [WrapperListener_start_runner] org.mule.DefaultMuleContext: 
+**********************************************************************
+* Application: .agent                                                *
+* OS encoding: UTF-8, Mule encoding: UTF-8                           *
+*                                                                    *
+* Agents Running:                                                    *
+*   DevKit Extension Information                                     *
+*   Clustering Agent                                                 *
+*   JMX Agent                                                        *
+**********************************************************************
+INFO  2014-03-20 18:05:26,488 [WrapperListener_start_runner] org.eclipse.jetty.server.Server: jetty-8.1.13.v20130916
+INFO  2014-03-20 18:05:26,661 [WrapperListener_start_runner] /mmc-support: Initializing Spring root WebApplicationContext
+INFO  2014-03-20 18:05:26,661 [WrapperListener_start_runner] org.springframework.web.context.ContextLoader: Root WebApplicationContext: initialization started
+INFO  2014-03-20 18:05:26,762 [WrapperListener_start_runner] org.springframework.web.context.support.XmlWebApplicationContext: Refreshing Root WebApplicationContext: startup date [Thu Mar 20 18:05:26 CDT 2014]; root of context hierarchy
+INFO  2014-03-20 18:05:27,370 [WrapperListener_start_runner] org.springframework.web.context.support.ServletContextAttributeExporter: Exported ServletContext attribute with name 'discoveryEngine'
+Mar 20, 2014 6:05:28 PM javax.jmdns.impl.tasks.state.DNSStateTask run
+WARNING: Prober(10-50-158-12.local.).run() exception 
+java.io.IOException: Operation not permitted
+	at java.net.PlainDatagramSocketImpl.send(Native Method)
+	at java.net.DatagramSocket.send(DatagramSocket.java:676)
+	at javax.jmdns.impl.JmDNSImpl.send(JmDNSImpl.java:1536)
+	at javax.jmdns.impl.tasks.state.DNSStateTask.run(DNSStateTask.java:131)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+Mar 20, 2014 6:05:28 PM javax.jmdns.impl.JmDNSImpl __recover
+WARNING: RECOVERING
+Mar 20, 2014 6:05:28 PM javax.jmdns.impl.tasks.state.DNSStateTask run
+WARNING: Canceler(10-50-158-12.local.).run() exception 
+java.io.IOException: Operation not permitted
+	at java.net.PlainDatagramSocketImpl.send(Native Method)
+	at java.net.DatagramSocket.send(DatagramSocket.java:676)
+	at javax.jmdns.impl.JmDNSImpl.send(JmDNSImpl.java:1536)
+	at javax.jmdns.impl.tasks.state.DNSStateTask.run(DNSStateTask.java:131)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+INFO  2014-03-20 18:05:28,381 [WrapperListener_start_runner] org.quartz.core.SchedulerSignalerImpl: Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+INFO  2014-03-20 18:05:28,382 [WrapperListener_start_runner] org.quartz.core.QuartzScheduler: Quartz Scheduler v.1.8.5 created.
+INFO  2014-03-20 18:05:28,383 [WrapperListener_start_runner] org.quartz.simpl.RAMJobStore: RAMJobStore initialized.
+INFO  2014-03-20 18:05:28,384 [WrapperListener_start_runner] org.quartz.core.QuartzScheduler: Scheduler meta-data: Quartz Scheduler (v1.8.5) 'scheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+INFO  2014-03-20 18:05:28,384 [WrapperListener_start_runner] org.quartz.impl.StdSchedulerFactory: Quartz scheduler 'scheduler' initialized from an externally provided properties instance.
+INFO  2014-03-20 18:05:28,384 [WrapperListener_start_runner] org.quartz.impl.StdSchedulerFactory: Quartz scheduler version: 1.8.5
+INFO  2014-03-20 18:05:28,386 [WrapperListener_start_runner] org.quartz.core.QuartzScheduler: JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@b863f5c
+INFO  2014-03-20 18:05:28,462 [WrapperListener_start_runner] org.springframework.context.support.DefaultLifecycleProcessor: Starting beans in phase 2147483647
+INFO  2014-03-20 18:05:28,463 [WrapperListener_start_runner] org.springframework.scheduling.quartz.SchedulerFactoryBean: Starting Quartz Scheduler now
+INFO  2014-03-20 18:05:28,463 [WrapperListener_start_runner] org.quartz.core.QuartzScheduler: Scheduler scheduler_$_NON_CLUSTERED started.
+INFO  2014-03-20 18:05:28,470 [WrapperListener_start_runner] org.springframework.web.context.ContextLoader: Root WebApplicationContext: initialization completed in 1809 ms
+INFO  2014-03-20 18:05:28,482 [WrapperListener_start_runner] /mmc-support: AgentServlet: Starting MMC Agent.
+INFO  2014-03-20 18:05:28,484 [WrapperListener_start_runner] /mmc-support: AgentServlet: Initialized com.mulesoft.mmc.agent.web.AgentServlet@79ba38a0 with ID 9d60aab7-35ec-4254-9cde-c2c8eda23ec1
+Mar 20, 2014 6:05:33 PM javax.jmdns.impl.DNSStatefulObject$DefaultImplementation waitForCanceled
+WARNING: Wait for canceled timed out: DNS: 10-50-158-12.local. state: canceling 1 task: null
+Mar 20, 2014 6:05:33 PM javax.jmdns.impl.JmDNSImpl __recover
+WARNING: 10-50-158-12.local.recover() Could not recover we are Down!
+Mar 20, 2014 6:05:43 PM javax.jmdns.impl.DNSStatefulObject$DefaultImplementation waitForAnnounced
+WARNING: Wait for announced timed out: DNS: 10-50-158-12.local. state: probing 1 task: Prober(10-50-158-12.local.) state: probing 1
+Mar 20, 2014 6:05:43 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.mulesoft.mmc.agent.plugin.web
+Mar 20, 2014 6:05:44 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.mulesoft.mmc.agent.plugin.web.ApplicationAdminResource
+  class com.mulesoft.mmc.agent.plugin.web.AgentPluginManagerResource
+  class com.mulesoft.mmc.agent.plugin.web.MulePluginRestResourceLocator
+Mar 20, 2014 6:05:44 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Mar 20, 2014 6:05:44 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.6 03/25/2011 01:14 PM'
+Mar 20, 2014 6:05:45 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  com.mulesoft.mmc.agent.plugin.web
+Mar 20, 2014 6:05:45 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class com.mulesoft.mmc.agent.plugin.web.ApplicationAdminResource
+  class com.mulesoft.mmc.agent.plugin.web.AgentPluginManagerResource
+  class com.mulesoft.mmc.agent.plugin.web.MulePluginRestResourceLocator
+Mar 20, 2014 6:05:45 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Mar 20, 2014 6:05:45 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.6 03/25/2011 01:14 PM'
+INFO  2014-03-20 18:05:45,483 [WrapperListener_start_runner] /mmc-support: Initializing Spring FrameworkServlet 'api'
+INFO  2014-03-20 18:05:45,483 [WrapperListener_start_runner] org.springframework.web.servlet.DispatcherServlet: FrameworkServlet 'api': initialization started
+INFO  2014-03-20 18:05:45,487 [WrapperListener_start_runner] org.springframework.web.context.support.XmlWebApplicationContext: Refreshing WebApplicationContext for namespace 'api-servlet': startup date [Thu Mar 20 18:05:45 CDT 2014]; parent: Root WebApplicationContext
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/muleContextService] onto handler '/v3/muleContextService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/muleConfigurationService] onto handler '/v3/muleConfigurationService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/wrapperManagerService] onto handler '/v3/wrapperManagerService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/auditService] onto handler '/v3/auditService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/flowService] onto handler '/v3/flowService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3_1/clusterNodeService] onto handler '/v3_1/clusterNodeService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/trackingService] onto handler '/v3/trackingService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/systemFileService] onto handler '/v1/systemFileService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/muleFileService] onto handler '/v1/muleFileService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/threadsService] onto handler '/v1/threadsService'
+INFO  2014-03-20 18:05:45,694 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/memoryService] onto handler '/v1/memoryService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/statusService] onto handler '/v3/statusService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/jmxService] onto handler '/v1/jmxService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/poolService] onto handler '/v3/poolService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/statisticsService] onto handler '/v1/statisticsService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/statisticsService] onto handler '/v3/statisticsService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/systemService] onto handler '/v3/systemService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/alertService] onto handler '/v1/alertService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v1/slaService] onto handler '/v1/slaService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/applicationService] onto handler '/v3/applicationService'
+INFO  2014-03-20 18:05:45,695 [WrapperListener_start_runner] org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping: Mapped URL path [/v3/applicationLogService] onto handler '/v3/applicationLogService'
+INFO  2014-03-20 18:05:45,817 [WrapperListener_start_runner] org.springframework.web.servlet.DispatcherServlet: FrameworkServlet 'api': initialization completed in 334 ms
+INFO  2014-03-20 18:05:45,830 [WrapperListener_start_runner] org.eclipse.jetty.server.AbstractConnector: Started SelectChannelConnector@0.0.0.0:7777
+INFO  2014-03-20 18:05:45,831 [WrapperListener_start_runner] com.mulesoft.mmc.agent.AgentCoreExtension: Mule Agent Core Extension listening on (0.0.0.0:7777)
+INFO  2014-03-20 18:05:45,833 [WrapperListener_start_runner] org.mule.module.launcher.ArchiveDeployer: ================== New Exploded Artifact: Jetty
+INFO  2014-03-20 18:05:45,850 [WrapperListener_start_runner] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ New app 'Jetty'                                          +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2014-03-20 18:05:45,854 [WrapperListener_start_runner] org.mule.module.launcher.log4j.ArtifactAwareRepositorySelector: Found logging config for application 'Jetty' at 'file:/home/perftest/builds/mule-enterprise-standalone-3.5.0-M5-SNAPSHOT/apps/Jetty/classes/log4j.properties'
+INFO  2014-03-20 18:05:47,011 [WrapperListener_start_runner] org.mule.module.launcher.MuleDeploymentService: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Started app 'Jetty'                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2014-03-20 18:05:47,060 [WrapperListener_start_runner] org.mule.module.launcher.DeploymentDirectoryWatcher: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Mule is up and kicking (every 5000ms)                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2014-03-20 18:05:47,062 [WrapperListener_start_runner] org.mule.module.launcher.StartupSummaryDeploymentListener: 
+
+**********************************************************************
+*            - - + APPLICATION + - -            * - - + STATUS + - - *
+**********************************************************************
+* Jetty                                         * DEPLOYED           *
+**********************************************************************
+

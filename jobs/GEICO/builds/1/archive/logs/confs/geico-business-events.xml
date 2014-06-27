@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <jms:activemq-connector name="Active_MQ" specification="1.1" brokerURL="${activemq.broker.url}" validateConnections="true" doc:name="Active MQ"/>
+    <mongo:config name="Mongo_DB" doc:name="Mongo DB" database="${mongodb.database}" host="${mongodb.host}" password="${mongodb.password}" username="${mongodb.username}">
+       
+          <mongo:connection-pooling-profile initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" minEvictionMillis="120000" evictionCheckIntervalMillis="60000"/>
+    </mongo:config>
+    <data-mapper:config name="json_to_json" transformationGraphPath="json_to_json.grf" doc:name="json_to_json"/>
+    <flow name="esb-listener" doc:name="esb-listener" tracking:enable-default-events="true">
+        <composite-source doc:name="Composite Source">
+            <jms:inbound-endpoint queue="mule.RawEventsQueue" connector-ref="Active_MQ" doc:name="JMS"/>
+            <http:inbound-endpoint exchange-pattern="one-way" host="0.0.0.0" port="8082" doc:name="HTTP"/>
+        </composite-source>
+        <logger level="DEBUG" doc:name="Logger" message="INCOMING EVENT: #[payload]"/>
+        <enricher target="#[flowVars['mappedPayload']]" doc:name="Enrich with Lookup Table">
+        	<processor-chain doc:name="Processor Chain">
+        		  <json:json-to-object-transformer doc:name="JSON to Object" returnClass="java.util.HashMap"/>
+        		  <scripting:transformer doc:name="Build Lookup Table">
+            <scripting:script engine="Groovy"><![CDATA[
+            	def result = [:]
+				def businessEvents = [:]
+				def eventDetails = [:]
+				
+				def event = payload
+				
+				def businessEventAsMap = [:]
+				event['BusinessKeys'].each { bizKey ->
+					if (!businessEvents[bizKey['EventId']])
+						businessEvents[bizKey['EventId']] = [:]
+					businessEvents[bizKey['EventId']][bizKey['BusinessKeyName']] = bizKey['BusinessKeyValueText'];
+				}			
+					 
+				def eventDetailAsMap = [:]
+				event['EventDetails'].collect{eventDetailAsMap.put(it.get("EventId"),it)}
+				eventDetails = eventDetailAsMap
+				
+				def dimensionsAsMap = [:]
+				event['EventDetails'].each { eventDetail ->
+					if (!dimensionsAsMap[eventDetail['EventId']])
+						dimensionsAsMap[eventDetail['EventId']] = [:]
+					dimensionsAsMap[eventDetail['EventId']][eventDetail['DimensionName']] = eventDetail['FactText'];
+				}			
+								
+				result['businessEvents'] = businessEvents
+				result['eventDetails'] = eventDetails
+				result['dimensions'] = dimensionsAsMap
+							
+				return result;
+]]></scripting:script>
+        </scripting:transformer>
+        	</processor-chain>
+          
+        </enricher>
+        <data-mapper:transform config-ref="json_to_json" doc:name="JSON To JSON"/>
+        <byte-array-to-string-transformer doc:name="Bytes to String"/>
+        <scripting:transformer doc:name="Denormalize">
+            <scripting:script engine="Groovy"><![CDATA[
+            
+            import groovy.json.*
+            def event = new groovy.json.JsonSlurper().parseText(payload)
+            def lookupTable = message.getInvocationProperty("mappedPayload")
+        
+    def collapsedDetails = [:]        
+		
+		
+		if (lookupTable['businessEvents'][event['EventId']] != null) {
+			lookupTable['businessEvents'][event['EventId']].keySet().each { key ->
+				event[key] = lookupTable['businessEvents'][event['EventId']][key]
+			}
+		}
+			
+			
+	event['EventDetails'].each { detail ->
+					
+		detail.keySet().each { key ->
+			if (!collapsedDetails[detail['EventId']]) 
+				collapsedDetails[detail['EventId']] = [:]				
+			collapsedDetails[detail['EventId']][key] = detail[key]	
+		}			
+		
+		
+		lookupTable['dimensions'][detail['EventId']].keySet().each { key ->
+			collapsedDetails[detail['EventId']][key] = lookupTable['dimensions'][detail['EventId']][key]
+		}	
+		
+	}
+
+	event['EventDetails'] = []
+	
+	collapsedDetails.keySet().each {
+		event['EventDetails'] += collapsedDetails[it]
+	}
+	
+
+return event
+
+]]></scripting:script>
+        </scripting:transformer>
+       
+            <tracking:custom-event event-name="BusinessEvent" doc:name="BusinessEvent">
+                <tracking:meta-data key="EventId" value="#[payload['EventId']]"/>
+                <tracking:meta-data key="ApplicationId" value=" #[payload['ApplicationId']]"/>
+            <tracking:meta-data key="Server" value="#[server.host]"/>
+            </tracking:custom-event>
+       
+      
+        <!-- 
+         -->
+      
+       <all doc:name="All">
+            <processor-chain>
+                <scripting:transformer doc:name="Format JSON">
+                    <scripting:script engine="Groovy"><![CDATA[import groovy.json.*
+
+JsonOutput.prettyPrint(JsonOutput.toJson(payload))]]></scripting:script>
+                </scripting:transformer>
+                <flow-ref name="scrubIdentity" doc:name="Scrub Identity and Publish"/>
+            </processor-chain>
+            <async doc:name="Async">
+                <scripting:transformer doc:name="Format JSON">
+                    <scripting:script engine="Groovy"><![CDATA[println "SIZE: " + payload['EventDetails'].size()
+
+def eventDetails = [];
+for (detail in payload['EventDetails']) {
+	def eventDetail = [:]
+	detail.keySet().each { 
+		eventDetail[it.replaceAll('\\.','_')] = detail[it]
+	}
+	eventDetails += eventDetail
+}
+
+payload['EventDetails'] = eventDetails
+
+
+return groovy.json.JsonOutput.toJson(payload)]]></scripting:script>
+                </scripting:transformer>
+                <flow-ref name="dbWriterService" doc:name="Write to Database"/>
+            </async>
+ 
+ 
+        </all>
+    </flow>
+    <sub-flow name="dbWriterService" doc:name="dbWriterService">
+        <logger message="JSON PRE MONGO INSERT: #[payload]" level="DEBUG" doc:name="Logger"/>
+        <mongo:json-to-dbobject doc:name="Mongo DB"/>
+       
+            <mongo:insert-object config-ref="Mongo_DB" collection="business_events" doc:name="Mongo DB"/>
+       
+        
+    </sub-flow>
+    <sub-flow name="scrubIdentity" doc:name="scrubIdentity">
+        <scripting:transformer doc:name="Scrub Identity">
+            <scripting:script engine="Groovy"><![CDATA[def matcher = message.payload =~ /.*\s*"WindowsIdentityName"\s*:\s*"(.*)"\s*,/;
+return payload.replace(matcher[0][1],"SCRUBBED");]]></scripting:script>
+        </scripting:transformer>
+        <logger message="SCRUBBED PAYLOAD: #[payload]" level="DEBUG" doc:name="Logger"/>
+        <jms:outbound-endpoint doc:name="JMS" queue="mule.ScrubbedEventsQueue" connector-ref="Active_MQ" />
+ 
+    </sub-flow>
+</mule>

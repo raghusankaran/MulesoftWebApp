@@ -1,0 +1,102 @@
+** SETTINGS **
+USER perftest
+KEY /home/perftest/.ssh/id_rsa.perftest
+COUNT 1000000
+CONCURRENTUSER 50
+SERVER mule-perflab02.managed.contegix.com
+ENDPOINT Jetty 8081
+QUERY_PARAM: 
+DEPLOY_FRESH_MULE_APP: true
+POST_CONTENT_TYPE: text/plain
+PAYLOAD_FILE: 1KB.payload
+NOTES: 
+RESTART_MULE: true
+RESTART_ACTIVEMQ: false
+MULE_BUILD: mule-enterprise-standalone-3.5.0-M5-SNAPSHOT
+QUEUES: 
+RERUN_NUMBER: 
+PAYLOAD_FILES_DIR: /mnt/nfsshare/PAYLOAD_FILES
+STARTING PERF STATS on mule-perflab02.managed.contegix.com at  Thu Mar 20 17:05:26 CDT 2014
+mule-esb's build location on mule-perflab02.managed.contegix.com:
+lrwxrwxrwx 1 perftest perftest 51 Mar 20 17:04 mule-esb -> builds/mule-enterprise-standalone-3.5.0-M5-SNAPSHOT
+mule-perflab02.managed.contegix.com's mule-esb/apps directory content:
+total 16
+drwxr-xr-x 14 perftest perftest 4096 Feb 14 18:06 ..
+drwxr-xr-x  4 perftest perftest 4096 Mar 20 17:04 Jetty
+-rw-rw-r--  1 perftest perftest   88 Mar 20 17:05 Jetty-anchor.txt
+drwxrwxr-x  3 perftest perftest 4096 Mar 20 17:05 .
+=========
+
+PERF TEST START TIME Thu Mar 20 17:05:27 CDT 2014
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking mule-perflab02.managed.contegix.com (be patient)
+
+
+Server Software:        Mule
+Server Hostname:        mule-perflab02.managed.contegix.com
+Server Port:            8081
+
+Document Path:          /
+Document Length:        1201 bytes
+
+Concurrency Level:      50
+Time taken for tests:   58.758 seconds
+Complete requests:      1000000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    1000000
+Total transferred:      2020002020 bytes
+Total POSTed:           1382070482
+HTML transferred:       1201001201 bytes
+Requests per second:    17018.89 [#/sec] (mean)
+Time per request:       2.938 [ms] (mean)
+Time per request:       0.059 [ms] (mean, across all concurrent requests)
+Transfer rate:          33572.46 [Kbytes/sec] received
+                        22970.03 kb/s sent
+                        56542.49 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       2
+Processing:     1    3   1.8      3      67
+Waiting:        1    3   1.8      2      67
+Total:          1    3   1.8      3      67
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      3
+  75%      3
+  80%      3
+  90%      4
+  95%      6
+  98%      9
+  99%     11
+ 100%     67 (longest request)
+PERF TEST END TIME Thu Mar 20 17:06:28 CDT 2014
+Java pid: 44334
+
+ *** SYSTEM RESOURCE METRICS ***
+Avg CPU% 74.2268
+Max CPU load: 2.67
+Avg % memory used: 46.48 , system cache MB: 13167.6
+Network received: 26390.1 KB/s, transmitted: 37455.4 KB/s
+Avg total sockets: 369  Avg TCP sockets: 72
+Avg disk sda utilization 0.0557143 %, max IO latency 9.50 ms
+
+ *** JVM METRICS ***
+GC Failure count: 0
+GC stall %: 2.84373
+GC CMS events: 0
+Avg heap obj allocation rate: 1959.28 MB/sec 
+Avg obj promotion: 0.237339 MB
+Avg working set in heap used: 33.0844 MB
+Avg heap changes per GC eventi: 0.136591 MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)
+Avg heap change per second: 0.392864 MB/sec
+Avg thread count in java process: 253.808
+
+*** Cost to serve ( per request ) ***
+Avg objects created per request: 117.887 KB
+Avg CPU% (1 core) per request: 0.104674

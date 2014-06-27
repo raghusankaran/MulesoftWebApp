@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<build>
+  <actions>
+    <hudson.model.ParametersAction>
+      <parameters>
+        <hudson.model.StringParameterValue>
+          <name>ENDPOINT</name>
+          <description></description>
+          <value>mule-worker-https1.stg.cloudhub.io:8082</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>COUNT</name>
+          <description></description>
+          <value>10000000</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>CONCURRENTUSER</name>
+          <description></description>
+          <value>1,2,4,8,10,20,30,40,50,60,100,200</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SERVER</name>
+          <description>IP of the workers, space separated if more than 1
+e.g. 54.221.26.51</description>
+          <value>54.87.2.150</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>NOTES</name>
+          <description>Notes to annotate your run. e.g &quot;Quick test from Wai&quot;</description>
+          <value>https1 (worker directly)</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>EXTRA_PARAMS</name>
+          <description>Any extra parameters to apache bench
+e.g. -H &quot;ammount=1000&quot;
+e.g. -t 300</description>
+          <value>-t 120</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>RERUN_NUMBER</name>
+          <description>Rerun an earlier run you made.  e.g. 333</description>
+          <value></value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>SSHKEY</name>
+          <description></description>
+          <value>production-ion-mule.pem</value>
+        </hudson.model.StringParameterValue>
+        <hudson.model.StringParameterValue>
+          <name>HTTP</name>
+          <description></description>
+          <value>https</value>
+        </hudson.model.StringParameterValue>
+      </parameters>
+    </hudson.model.ParametersAction>
+    <hudson.model.CauseAction>
+      <causes>
+        <hudson.model.Cause_-UserCause>
+          <authenticationName>wai.ip</authenticationName>
+        </hudson.model.Cause_-UserCause>
+      </causes>
+    </hudson.model.CauseAction>
+  </actions>
+  <number>41</number>
+  <result>SUCCESS</result>
+  <description>&quot;https1 (worker directly) 54.87.2.150 mule-worker-https1.stg.cloudhub.io:8082   c=1,2,4,8,10,20,30,40,50,60,100,200 n=10000000  &quot;</description>
+  <duration>1448024</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <builtOn>PerfClient</builtOn>
+  <workspace>/mnt/perf/.hudson/workspace/CH_Production</workspace>
+  <hudsonVersion>3.1.2</hudsonVersion>
+  <scm class="hudson.scm.NullChangeLogParser"/>
+  <culprits/>
+</build>

@@ -1,0 +1,407 @@
+Started by user wai.ip
+Building remotely on perflab05
+[JETTY] $ /bin/sh -xe /tmp/hudson1956014441304833202.sh
++ KEY=/home/perftest/.ssh/id_rsa.perftest
++ USER=perftest
++ export KEY
++ export USER
++ HUDSON_PERFTEST_PWD='muleftw!'
++ export HUDSON_PERFTEST_PWD
++ '[' '' '!=' '' ']'
++ echo COUNT=1800000
+COUNT=1800000
++ curl --user 'perftest:muleftw!' --data 'description=" mule-perflab03.managed.contegix.com Jetty 8081  1KB.payload c=60 n=1800000 text/plain "' http://mule-perflab06.managed.contegix.com:8080/job/JETTY/3/submitDescription
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0   101      0   131k --:--:-- --:--:-- --:--:--  131k  0     0    0     0    0   101      0  13425 --:--:-- --:--:-- --:--:--     0
++ '[' false == true ']'
++ MULE_STARTUP_WAIT=30
+++ echo Jetty 8081
+++ awk '{ print $1 }'
++ TESTAPP=Jetty
++ '[' mule-enterprise-standalone-3.5.0-M5-SNAPSHOT '!=' '' ']'
++ ssh -tt -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'rm mule-esb; ln -s builds/'\''mule-enterprise-standalone-3.5.0-M5-SNAPSHOT'\'' mule-esb; sleep 1'
+tcgetattr: Invalid argument
+Connection to mule-perflab03.managed.contegix.com closed.
++ '[' true == true ']'
++ DEPLOY_APP=Jetty
++ '[' true '!=' true ']'
++ '[' true == true ']'
+++ date
++ echo 'STARTING MULE ESB at  Thu Mar 20 18:04:51 CDT 2014'
+STARTING MULE ESB at  Thu Mar 20 18:04:51 CDT 2014
++ ssh -tt -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com '/mnt/nfsshare/SERVER/restart_esb.sh '\''Jetty'\'' '
+tcgetattr: Invalid argument
+++ date +%Y-%m-%d-%H-%M-%S
++ t=2014-03-20-18-04-51
++ /home/perftest/mule-esb/bin/mule stop
+MULE_HOME is set to /home/perftest/builds/mule-enterprise-standalone-3.5.0-M5-SNAPSHOT
+Stopping Mule Enterprise Edition...
+Waiting for Mule Enterprise Edition to exit...
+Waiting for Mule Enterprise Edition to exit...
+Waiting for Mule Enterprise Edition to exit...
+Waiting for Mule Enterprise Edition to exit...
+Stopped Mule Enterprise Edition.
++ sleep 1
+++ ps -ef
+++ grep mule
+++ grep -v grep
+++ awk '{ print $2 }'
++ sleep 1
+++ pgrep java
++ kill -9
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
++ sleep 1
++ rm '/MuleLog/*'
+rm: cannot remove `/MuleLog/*': No such file or directory
++ rm /home/perftest/mule-esb/logs/gc.log /home/perftest/mule-esb/logs/mule_ee.log
++ rm /home/perftest/mule-esb/conf/muleLicenseKey.lic
++ touch /home/perftest/mule-esb/conf/.lic-mule
++ sleep 1
++ '[' Jetty '!=' '' ']'
++ rm -rf /home/perftest/mule-esb/apps/Http_Soap_Trx_Http /home/perftest/mule-esb/apps/Http_Soap_Trx_Http-anchor.txt
++ cp -r /mnt/nfsshare/APPS/Jetty /home/perftest/mule-esb/apps/
++ /home/perftest/mule-esb/bin/mule start
+MULE_HOME is set to /home/perftest/builds/mule-enterprise-standalone-3.5.0-M5-SNAPSHOT
+Starting Mule Enterprise Edition...
+Connection to mule-perflab03.managed.contegix.com closed.
++ echo '... Start sleeping and waiting 30 seconds for mule apps to start ...'
+... Start sleeping and waiting 30 seconds for mule apps to start ...
++ sleep 30
++ echo '... Done sleeping 30 seconds ... mule SHOULD HAVE started by now ....'
+... Done sleeping 30 seconds ... mule SHOULD HAVE started by now ....
++ rm -rf /mnt/perf/.hudson/workspace/JETTY/logs/
++ /mnt/nfsshare/CLIENT/starttest.sh 1800000 60 'Jetty 8081'
+++ '[' 1800000 == '' ']'
+++ '[' 60 == '' ']'
+++ '[' 'Jetty 8081' == '' ']'
+++ COUNT=1800000
+++ CONCURRENT=60
+++ ENDPOINT='Jetty 8081'
+++ NFS=/mnt/nfsshare
+++ PAYLOAD_FILES_DIR=/mnt/nfsshare/PAYLOAD_FILES
+++ REMOTE_MULEDIR=/home/perftest/mule-esb
+++ REMOTE_LOGSDIR=/home/perftest/logs
++++ echo Jetty 8081
++++ awk '{ print $2 }'
+++ PORT_PATH=8081
+++ PERFSTAT_COUNT=86400
+++ PERFSTAT_INTERVAL=2
++++ date +%Y-%m-%d-%H-%M-%S
+++ export t=2014-03-20-18-05-53
+++ t=2014-03-20-18-05-53
+++ LOGSDIR=/mnt/perf/.hudson/workspace/JETTY/logs
+++ mkdir -p /mnt/perf/.hudson/workspace/JETTY/logs
+++ echo '** SETTINGS **'
+++ echo 'USER perftest'
+++ echo 'export USER="perftest"'
+++ echo 'KEY /home/perftest/.ssh/id_rsa.perftest'
+++ echo 'export KEY="/home/perftest/.ssh/id_rsa.perftest"'
+++ echo 'COUNT 1800000'
+++ echo 'export COUNT="1800000"'
+++ echo 'CONCURRENTUSER 60'
+++ echo 'export CONCURRENTUSER="60"'
+++ echo 'SERVER mule-perflab03.managed.contegix.com'
+++ echo 'export SERVER="mule-perflab03.managed.contegix.com"'
+++ echo 'ENDPOINT Jetty 8081'
+++ echo 'export ENDPOINT="Jetty 8081"'
+++ echo 'QUERY_PARAM: '
+++ echo 'export QUERY_PARAM=""'
+++ echo 'DEPLOY_FRESH_MULE_APP: true'
+++ echo 'export DEPLOY_FRESH_MULE_APP="true"'
+++ echo 'POST_CONTENT_TYPE: text/plain'
+++ echo 'export POST_CONTENT_TYPE="text/plain"'
+++ echo 'PAYLOAD_FILE: 1KB.payload'
+++ echo 'export PAYLOAD_FILE="1KB.payload"'
+++ echo 'NOTES: '
+++ echo 'export NOTES=""'
+++ echo 'RESTART_MULE: true'
+++ echo 'export RESTART_MULE="true"'
+++ echo 'RESTART_ACTIVEMQ: false'
+++ echo 'export RESTART_ACTIVEMQ="false"'
+++ echo 'MULE_BUILD: mule-enterprise-standalone-3.5.0-M5-SNAPSHOT'
+++ echo 'export MULE_BUILD="mule-enterprise-standalone-3.5.0-M5-SNAPSHOT"'
+++ echo 'QUEUES: '
+++ echo 'export QUEUES=""'
+++ echo 'RERUN_NUMBER: '
+++ echo 'PAYLOAD_FILES_DIR: /mnt/nfsshare/PAYLOAD_FILES'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'pgrep java'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'cat /proc/cpuinfo | grep processor | wc -l'
++++ date
+++ echo 'STARTING PERF STATS on mule-perflab03.managed.contegix.com at  Thu Mar 20 18:05:53 CDT 2014'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'killall sar; killall sleep; killall python; killall top'
+sar: no process killed
+sleep(29670): Operation not permitted
+sleep: no process killed
+python: no process killed
+top: no process killed
+++ sh -c 'sleep 5 && ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com '\''/mnt/nfsshare/SERVER/stats-collector-pkg/statcollector.sh 86400 2 /home/perftest/logs/2014-03-20-18-05-53'\'' '
+++ echo 'mule-esb'\''s build location on mule-perflab03.managed.contegix.com:'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'tail -f $HOME/mule-esb/logs/gc.log'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'ls -altr mule-esb'
+++ echo 'mule-perflab03.managed.contegix.com'\''s mule-esb/apps directory content:'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'ls -altr mule-esb/apps'
+++ echo -e '=========\n'
++++ date
+++ echo 'PERF TEST START TIME Thu Mar 20 18:05:54 CDT 2014'
++++ date +%s
+++ teststarttime=1395356754
+++ warmup_done=0
++++ echo 60
++++ tr , '\n'
+++ arr=60
+++ for c in '$arr'
+++ '[' false == true ']'
+++ '[' text/plain '!=' '' ']'
+++ '[' 1KB.payload '!=' '' ']'
+++ '[' 0 == 0 ']'
+++ ab -k -T text/plain -p /mnt/nfsshare/PAYLOAD_FILES/1KB.payload -n 1 -c 1 -v 2 http://mule-perflab03.managed.contegix.com:8081/
+++ ab -k -T text/plain -p /mnt/nfsshare/PAYLOAD_FILES/1KB.payload -n 1000 -c 10 http://mule-perflab03.managed.contegix.com:8081/
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking mule-perflab03.managed.contegix.com (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        Mule
+Server Hostname:        mule-perflab03.managed.contegix.com
+Server Port:            8081
+
+Document Path:          /
+Document Length:        1201 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.721 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    1000
+Total transferred:      2020000 bytes
+Total POSTed:           1395820
+HTML transferred:       1201000 bytes
+Requests per second:    1387.53 [#/sec] (mean)
+Time per request:       7.207 [ms] (mean)
+Time per request:       0.721 [ms] (mean, across all concurrent requests)
+Transfer rate:          2737.12 [Kbytes/sec] received
+                        1891.35 kb/s sent
+                        4628.46 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     4    7   3.0      7      30
+Waiting:        4    7   3.0      7      30
+Total:          4    7   3.0      7      30
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      7
+  75%      8
+  80%      8
+  90%     10
+  95%     12
+  98%     16
+  99%     22
+ 100%     30 (longest request)
+++ warmup_done=1
+++ ab -k -T text/plain -p /mnt/nfsshare/PAYLOAD_FILES/1KB.payload -n 1800000 -c 60 http://mule-perflab03.managed.contegix.com:8081/
+++ date +%Y-%m-%d
++ t=2014-03-20
++ COUNT=86400
++ INTERVAL=2
++ RESULT=/home/perftest/logs/2014-03-20-18-05-53
++ '[' 86400 == '' ']'
++ '[' 2 == '' ']'
++ '[' /home/perftest/logs/2014-03-20-18-05-53 == '' ']'
++ mkdir -p /home/perftest/logs/2014-03-20-18-05-53
++ top -b -M -n 86400 -d 2
++ grep -A 30 '^top'
++ sar -B 2 86400
++ sar -d -p 2 86400
++ sar -R 2 86400
++ sar -r 2 86400
++ sar -u ALL 2 86400
++ sar -n DEV 2 86400
++ sar -n SOCK 2 86400
++ sar -n TCP 2 86400
++ sar -n ETCP 2 86400
++ sar -n EDEV 2 86400
++ sar -n EIP 2 86400
+++ pgrep java
++ pid=30825
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/perftest/logs/2014-03-20-18-05-53/threads.out; ps -eLf | grep 30825 | wc -l >> /home/perftest/logs/2014-03-20-18-05-53/threads.out; sleep 2; done'
++ sar -m 2 86400
+++ dirname /mnt/nfsshare/SERVER/stats-collector-pkg/statcollector.sh
++ sar -w 2 86400
++ sar -W 2 86400
++ CURDIR=/mnt/nfsshare/SERVER/stats-collector-pkg
++ mkfifo /home/perftest/logs/2014-03-20-18-05-53/meminfo_pipe
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/perftest/logs/2014-03-20-18-05-53/meminfo_pipe; cat /proc/meminfo >> /home/perftest/logs/2014-03-20-18-05-53/meminfo_pipe;  sleep 2; done'
++ mkfifo /home/perftest/logs/2014-03-20-18-05-53/vmstat_pipe
++ python /mnt/nfsshare/SERVER/stats-collector-pkg/meminfo_tabulator.py -i /home/perftest/logs/2014-03-20-18-05-53/meminfo_pipe -o /home/perftest/logs/2014-03-20-18-05-53/meminfo_pipe.out
++ sh -c 'for i in {1..86400}; do date -u +%T >> /home/perftest/logs/2014-03-20-18-05-53/vmstat_pipe; cat /proc/vmstat >> /home/perftest/logs/2014-03-20-18-05-53/vmstat_pipe; sleep 2; done'
++ python /mnt/nfsshare/SERVER/stats-collector-pkg/vmstat_tabulator.py -i /home/perftest/logs/2014-03-20-18-05-53/vmstat_pipe -t /home/perftest/logs/2014-03-20-18-05-53/vmstat_thp.out -n /home/perftest/logs/2014-03-20-18-05-53/vmstat_numa.out
+++ echo '86400 * 2'
+++ bc
+++ echo '2 * 10'
++ sh -c 'sleep 172800 && pkill -9 -f '\''sh -c'\'' '
+++ bc
++ INTERVAL1=20
+++ echo '86400 / 10'
+++ echo '86400 * 2'
+++ bc
+++ bc
+++ echo '86400 * 2'
+++ bc
++ sh -c 'sleep 172800 && pkill -9 -f vmstat_tabulator.py '
++ sh -c 'sleep 172800 && pkill -9 -f meminfo_tabulator.py '
++ COUNT1=8640
++ sh -c 'for i in {1..8640}; do date -u +%DT%T; numactl -H; sleep 20; done'
+Completed 180000 requests
+Completed 360000 requests
+Completed 540000 requests
+Completed 720000 requests
+Completed 900000 requests
+Completed 1080000 requests
+Completed 1260000 requests
+Completed 1440000 requests
+Completed 1620000 requests
+Completed 1800000 requests
+Finished 1800000 requests
+++ '[' false == true ']'
++++ date +%s
+++ testendtime=1395356860
++++ date
+++ echo 'PERF TEST END TIME Thu Mar 20 18:07:40 CDT 2014'
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'killall sar; killall sleep; killall python; killall top; killall tail'
+sleep(29670): Operation not permitted
+++ sleep 2
+++ scp -i /home/perftest/.ssh/id_rsa.perftest 'perftest@mule-perflab03.managed.contegix.com:/home/perftest/logs/2014-03-20-18-05-53/*' /mnt/perf/.hudson/workspace/JETTY/logs
+scp: /home/perftest/logs/2014-03-20-18-05-53/meminfo_pipe: not a regular file
+scp: /home/perftest/logs/2014-03-20-18-05-53/vmstat_pipe: not a regular file
+++ scp -i /home/perftest/.ssh/id_rsa.perftest 'perftest@mule-perflab03.managed.contegix.com:/home/perftest/mule-esb/logs/*' /mnt/perf/.hudson/workspace/JETTY/logs
+++ ssh -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com 'rm -rf /home/$USER/logs/$t'
+++ mkdir -p /mnt/perf/.hudson/workspace/JETTY/logs/confs
+++ scp -i /home/perftest/.ssh/id_rsa.perftest 'perftest@mule-perflab03.managed.contegix.com:/home/perftest/mule-esb/apps/*/*.xml' /mnt/perf/.hudson/workspace/JETTY/logs/confs
+++ scp -i /home/perftest/.ssh/id_rsa.perftest perftest@mule-perflab03.managed.contegix.com:/home/perftest/mule-esb/conf/wrapper.conf /mnt/perf/.hudson/workspace/JETTY/logs/confs
+++ mv /mnt/perf/.hudson/workspace/JETTY/logs/mule-perflab03.managed.contegix.com.gc.log /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
++++ cat /mnt/perf/.hudson/workspace/JETTY/logs/pid.txt
+++ pid=30825
+++ echo 'Java pid: 30825'
+++ echo -e '\n *** SYSTEM RESOURCE METRICS ***'
++++ grep all /mnt/perf/.hudson/workspace/JETTY/logs/sar.cpuusage.out
++++ awk '{ sum+=$NF; count+=1; }END{ avgidle=sum/count; print 100-avgidle}'
+++ avg_cpu=76.2784
+++ echo 'Avg CPU% 76.2784'
++++ grep 'load average' /mnt/perf/.hudson/workspace/JETTY/logs/top.out
++++ sort -k 12 -n -r
++++ head -n 1
++++ awk '{ print $(NF-2) }'
++++ sed s/,//
+++ echo 'Max CPU load: 5.18'
++++ tail -n +4 /mnt/perf/.hudson/workspace/JETTY/logs/sar.memutil.out
++++ awk '{ mem_used+=$5; kbcached+=$7; count+=1}END{print "Avg % memory used: "mem_used/count" , system cache MB: "kbcached/count/1024}'
+++ echo 'Avg % memory used: 10.4544 , system cache MB: 763.685'
++++ grep eth2 /mnt/perf/.hudson/workspace/JETTY/logs/sar.network.DEV.out
++++ awk '{ rx_sum+=$6; tx_sum+=$7; count+=1 }END{print "Network received: "rx_sum/count" KB/s, transmitted: "tx_sum/count" KB/s"}'
+++ echo 'Network received: 26996 KB/s, transmitted: 38314.7 KB/s'
++++ tail -n +4 /mnt/perf/.hudson/workspace/JETTY/logs/sar.network.SOCK.out
++++ awk '{ tot_sock+=$3; tcp_sock+=$4; count+=1 }END{ print "Avg total sockets: "tot_sock/count"  Avg TCP sockets: "tcp_sock/count}'
+++ echo 'Avg total sockets: 383  Avg TCP sockets: 83'
++++ egrep 'AM|PM' /mnt/perf/.hudson/workspace/JETTY/logs/sar.device.out
++++ grep -v DEV
++++ awk '{ print $3 }'
++++ uniq
++++ head -n 10
+++ for i in '$( egrep "AM|PM" $LOGSDIR/sar.device.out | grep -v DEV | awk '\''{ print $3 }'\'' | uniq | head -n 10 )'
+++ grep sda /mnt/perf/.hudson/workspace/JETTY/logs/sar.device.out
+++ awk -v device=sda 'BEGIN{max=0}{ sum+=$NF; count+=1; if(max<$(NF-2)){max=$(NF-2);} }END{print "Avg disk "device" utilization "sum/count" %, max IO latency "max" ms"}'
+++ echo -e '\n *** JVM METRICS ***'
++++ wc -l
++++ grep fail /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
+++ echo 'GC Failure count: 0'
++++ grep application /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ gc_pause_sec=2.8444
++++ grep 'Time taken for tests' /mnt/perf/.hudson/workspace/JETTY/logs/test.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ test_duration_sec=102.539
+++ '[' 102.539 == '' ']'
++++ grep 'Requests per second' /mnt/perf/.hudson/workspace/JETTY/logs/test.log
++++ awk '{ print $4 }'
+++ throughput=17554.23
++++ echo ''
++++ awk -v a=2.8444 -v b=102.539 '{ print a/(b-5) * 100 }'
+++ echo 'GC stall %: 2.91617'
++++ grep init /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
++++ wc -l
+++ echo 'GC CMS events: 0'
++++ grep real /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
++++ awk '{ if(NF==12){split($2,a,"K"); sum+=a[1]} }END{print sum}'
+++ obj_allocated=
+++ '[' '' == '' ']'
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
++++ grep -v Full
++++ awk '{ split($2,a,"K"); sum+=a[1] }END{print sum}'
+++ yg=205658138
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
++++ grep Full
++++ awk '{ split($6,a,"K"); sum+=a[1] }END{print sum}'
+++ fullgc=
++++ echo 1
++++ awk -v a=205658138 -v b= '{ print a+b }'
+++ obj_allocated=205658138
++++ echo 1
++++ awk -v a=205658138 -v b=102.539 -v c=2.8444 '{ actual_run_time=b-c; print a/(actual_run_time*1024) }'
+++ obj_allocation_rate=2014.53
+++ echo 'Avg heap obj allocation rate: 2014.53 MB/sec '
+++ egrep 'real|\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
+++ awk '{ if(NF==3 || NF==5){ts=$1} else if(NF==12 || 0!=index($0,"PSYoungGen")){ split($2,newgen,"->"); newclean=newgen[1]-newgen[2]; if(NF==12){split($5,heap,"->");}else{split($3,heap,"->");} heapclean=heap[1]-heap[2]; promoted=newclean-heapclean; print ts" "promoted" KB"}}'
+++ awk '{ count+=1; sum+=$2 }END{print "Avg obj promotion: "sum/count/1024" MB"}' /mnt/perf/.hudson/workspace/JETTY/logs/gc.promote.out
+++ egrep 'real|init|ParNew' /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
+++ awk '{ if( NF == 12 ){split($5,a,"->"); print ts" "a[2];}else if(0 != index($0, "init")){ print $1" "$7 } else if(NF == 5 && 0 != index($0, "ParNew")){ ts=$1 }  }'
++++ wc -l /mnt/perf/.hudson/workspace/JETTY/logs/gc.heap.out
++++ awk '{ print $1 }'
+++ '[' 0 == 0 ']'
+++ egrep '\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/JETTY/logs/gc.log
+++ awk '{ if(NF==3){ts=$1} else if(NF==10){split($3,o,"->"); split(o[2],h,"K"); print ts" "h[1]" KB"}}'
+++ awk '{ split($2,a,"K"); sum+=a[1];count+=1 }END{print "Avg working set in heap used: " sum/count/1024 " MB"}' /mnt/perf/.hudson/workspace/JETTY/logs/gc.heap.out
+++ awk 'BEGIN{h1=-1;h2=-1}{ split($2,a,"K"); if(h1!=-1){h2=a[1];print $1" "h2-h1; h1=h2;} else {h1=a[1]} }' /mnt/perf/.hudson/workspace/JETTY/logs/gc.heap.out
++++ awk '{ sum+=$2; count+=1 }END{print sum/count/1024}' /mnt/perf/.hudson/workspace/JETTY/logs/gc.heap.diff.out
+++ avg_heap_change=0.133857
+++ echo 'Avg heap changes per GC eventi: 0.133857 MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)'
++++ wc -l /mnt/perf/.hudson/workspace/JETTY/logs/gc.heap.out
++++ awk '{ print $1 }'
+++ gc_event_count=301
++++ echo ''
++++ awk -v c=301 -v d=102.539 -v a=0.133857 '{ print a*c/d }'
+++ heapchange_per_sec=0.392933
+++ echo 'Avg heap change per second: 0.392933 MB/sec'
+++ grep -v : /mnt/perf/.hudson/workspace/JETTY/logs/threads.out
+++ awk '{ count+=1; sum+=$1 }END{print "Avg thread count in java process: "sum/count}'
+++ grep 'Non-2xx responses' /mnt/perf/.hudson/workspace/JETTY/logs/test.log
+++ awk '{ if($3>0) print "WARNING! SOME REQUEST RETURN NON-2xx! Please check!!!! "$3 }'
+++ echo -e '\n*** Cost to serve ( per request ) ***'
++++ echo 1
++++ awk -v a=2014.53 -v b=17554.23 '{ print a*1024/b }'
+++ echo 'Avg objects created per request: 117.515 KB'
++++ cat /mnt/perf/.hudson/workspace/JETTY/logs/core.txt
+++ num_of_cpu=24
++++ echo 1
++++ awk -v c=24 -v a=76.2784 -v t=17554.23 '{ print c*a/t }'
+++ cpu_per_request=0.104287
+++ echo 'Avg CPU% (1 core) per request: 0.104287'
+Archiving artifacts
+Finished: SUCCESS

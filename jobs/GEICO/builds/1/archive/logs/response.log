@@ -1,0 +1,57 @@
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking perf-8c1 (be patient)...INFO: POST header == 
+---
+POST / HTTP/1.0
+Connection: Keep-Alive
+Content-length: 7273
+Content-type: text/xml
+Host: perf-8c1:8082
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+LOG: header received:
+HTTP/1.1 200 OK
+Date: Sun, 09 Feb 2014 00:55:54 +0000
+Server: Mule EE Core Extensions/3.5.0-M4-SNAPSHOT
+Content-Type: text/plain
+Content-Length: 0
+Connection: close
+
+
+..done
+
+
+Server Software:        Mule
+Server Hostname:        perf-8c1
+Server Port:            8082
+
+Document Path:          /
+Document Length:        0 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.193 seconds
+Complete requests:      1
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    0
+Total transferred:      173 bytes
+Total POSTed:           7425
+HTML transferred:       0 bytes
+Requests per second:    5.18 [#/sec] (mean)
+Time per request:       192.942 [ms] (mean)
+Time per request:       192.942 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.88 [Kbytes/sec] received
+                        37.58 kb/s sent
+                        38.46 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    1   0.0      1       1
+Processing:   192  192   0.0    192     192
+Waiting:      191  191   0.0    191     191
+Total:        193  193   0.0    193     193

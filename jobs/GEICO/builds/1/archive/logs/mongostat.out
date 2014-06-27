@@ -1,0 +1,93 @@
+connected to: 127.0.0.1
+insert  query update delete getmore command flushes mapped  vsize    res faults  locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0  test:0.0%          0       0|0     0|0    62b     3k     1   00:55:54 
+    *0      5     *0     *0       0     1|0       1   544m  1.37g   175m      0 mule-poc-data:0.0%          0       0|0     0|0    62b     3k     1   00:55:55 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:55:56 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:55:57 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:55:58 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:55:59 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:56:00 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:56:01 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:56:02 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:56:03 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:56:04 
+    *0     *0     *0     *0       0     1|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0    62b     3k     1   00:56:05 
+    *0     *0     *0     *0       0     6|0       0   544m  1.37g   175m      0          test:0.0%          0       0|0     0|0   352b     3k     7   00:56:06 
+    24     *0     *0     *0       0    80|0       0   544m  1.37g   175m      0 mule-poc-data:0.3%          0       0|0     0|0    41k    10k    13   00:56:07 
+    11     *0     *0     *0       0    24|0       0   544m  1.37g   175m      0 mule-poc-data:0.3%          0       0|0     0|0    17k     5k    19   00:56:08 
+     4     *0     *0     *0       0     5|0       0   544m  1.37g   175m      0             .:0.0%          0       0|0     0|0     5k     3k    19   00:56:09 
+    10     *0     *0     *0       0    19|0       0   544m  1.37g   175m      0 mule-poc-data:0.3%          0       0|0     0|0    15k     4k    23   00:56:10 
+    29     *0     *0     *0       0    41|0       0   544m  1.37g   175m      0             .:0.3%          0       0|0     0|0    44k     6k    29   00:56:11 
+    34     *0     *0     *0       0    40|0       0   544m  1.37g   175m      0             .:0.2%          0       0|0     0|0    50k     6k    31   00:56:12 
+    30     *0     *0     *0       0    31|0       0   544m  1.37g   175m      0 mule-poc-data:0.4%          0       0|0     0|0    44k     5k    31   00:56:13 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+    27     *0     *0     *0       0    28|0       0   544m  1.37g   175m      0             .:0.2%          0       0|0     0|0    39k     5k    31   00:56:14 
+    32     *0     *0     *0       0    33|0       0   544m  1.37g   175m      0             .:0.2%          0       0|0     0|0    47k     5k    31   00:56:15 
+    40     *0     *0     *0       0    41|0       0   544m  1.37g   175m      0 mule-poc-data:0.4%          0       0|0     0|0    59k     6k    31   00:56:16 
+    55     *0     *0     *0       0    56|0       0   544m  1.37g   175m      0             .:0.2%          0       0|0     0|0    81k     7k    31   00:56:17 
+    58     *0     *0     *0       0    59|0       0   544m  1.37g   175m      0 mule-poc-data:0.6%          0       0|0     0|0    85k     8k    31   00:56:18 
+    65     *0     *0     *0       0    66|0       0   544m  1.37g   175m      0 mule-poc-data:0.5%          0       0|0     0|0    95k     8k    31   00:56:19 
+    68     *0     *0     *0       0    69|0       0   544m  1.37g   174m      0 mule-poc-data:0.4%          0       0|0     0|0   100k     8k    31   00:56:20 
+    70     *0     *0     *0       0    71|0       0   544m  1.37g   175m      0 mule-poc-data:0.5%          0       0|0     0|0   103k     9k    31   00:56:21 
+    77     *0     *0     *0       0    78|0       0   544m  1.37g   174m      0 mule-poc-data:0.5%          0       0|0     0|0   113k     9k    31   00:56:22 
+    71     *0     *0     *0       0    72|0       0   544m  1.37g   174m      0 mule-poc-data:0.5%          0       0|0     0|0   104k     9k    31   00:56:23 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+   109     *0     *0     *0       0   135|0       0   544m  1.37g   174m      0 mule-poc-data:0.8%          0       0|0     0|0   163k    14k    42   00:56:24 
+    30     *0     *0     *0       0    33|0       0   544m  1.38g   174m      0 mule-poc-data:0.1%          0       0|0     0|0    44k     5k    43   00:56:25 
+    29     *0     *0     *0       0    30|0       0   544m  1.38g   174m      0             .:0.2%          0       0|0     0|0    42k     5k    43   00:56:26 
+   138     *0     *0     *0       0   143|0       0   544m  1.38g   174m      0 mule-poc-data:0.6%          0       0|0     0|0   204k    15k    45   00:56:27 
+   131     *0     *0     *0       0   143|0       0   544m  1.38g   174m      0 mule-poc-data:0.8%          0       0|0     0|0   194k    15k    48   00:56:28 
+   141     *0     *0     *0       0   142|0       0   544m  1.38g   174m      0 mule-poc-data:0.8%          0       0|0     0|0   208k    15k    48   00:56:29 
+   119     *0     *0     *0       0   120|0       0   544m  1.38g   174m      0 mule-poc-data:0.8%          0       0|0     0|0   175k    13k    48   00:56:30 
+    27     *0     *0     *0       0    28|0       0   544m  1.38g   174m      0 mule-poc-data:0.2%          0       0|0     0|0    39k     5k    48   00:56:31 
+   150     *0     *0     *0       0   151|0       0   544m  1.38g   174m      0 mule-poc-data:0.8%          0       0|0     0|0   221k    15k    48   00:56:32 
+   143     *0     *0     *0       0   161|0       0   544m  1.38g   175m      0 mule-poc-data:0.8%          0       0|0     0|0   212k    16k    52   00:56:33 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+   161     *0     *0     *0       0   162|0       0   544m  1.38g   174m      0 mule-poc-data:0.9%          0       0|0     0|0   237k    16k    52   00:56:34 
+   136     *0     *0     *0       0   137|0       0   544m  1.38g   175m      0 mule-poc-data:0.8%          0       0|0     0|0   200k    14k    52   00:56:35 
+    25     *0     *0     *0       0    26|0       0   544m  1.38g   175m      0 mule-poc-data:0.1%          0       0|0     0|0    36k     5k    52   00:56:36 
+   144     *0     *0     *0       0   156|0       0   544m  1.39g   175m      0 mule-poc-data:0.9%          0       0|0     0|0   213k    16k    53   00:56:37 
+   153     *0     *0     *0       0   154|0       0   544m  1.39g   175m      0 mule-poc-data:0.9%          0       0|0     0|0   225k    16k    53   00:56:38 
+   162     *0     *0     *0       0   163|0       0   544m  1.39g   175m      0 mule-poc-data:0.8%          0       0|0     0|0   239k    16k    53   00:56:39 
+   148     *0     *0     *0       0   152|0       0   544m  1.39g   175m      0 mule-poc-data:0.9%          0       0|0     0|0   218k    15k    53   00:56:40 
+    71     *0     *0     *0       0    72|0       0   544m  1.39g   175m      0 mule-poc-data:0.3%          0       0|0     0|0   104k     9k    53   00:56:41 
+    45     *0     *0     *0       0    63|0       0   544m  1.39g   175m      0 mule-poc-data:0.3%          0       0|0     0|0    68k     8k    48   00:56:42 
+   168     *0     *0     *0       0   178|0       0   544m  1.39g   175m      0 mule-poc-data:0.9%          0       0|0     0|0   248k    18k    51   00:56:43 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+   148     *0     *0     *0       0   149|0       0   544m  1.39g   176m      0 mule-poc-data:0.8%          0       0|0     0|0   218k    15k    51   00:56:44 
+   156     *0     *0     *0       0   162|0       0   544m  1.39g   176m      0 mule-poc-data:0.9%          0       0|0     0|0   230k    16k    52   00:56:45 
+    95     *0     *0     *0       0    96|0       0   544m  1.39g   176m      0 mule-poc-data:0.7%          0       0|0     0|0   140k    11k    52   00:56:46 
+    68     *0     *0     *0       0    69|0       0   544m  1.39g   176m      0 mule-poc-data:0.5%          0       0|0     0|0   100k     8k    52   00:56:47 
+   145     *0     *0     *0       0   146|0       0   544m  1.39g   176m      0 mule-poc-data:0.8%          0       0|0     0|0   213k    15k    52   00:56:48 
+   178     *0     *0     *0       0   179|0       0   544m  1.39g   176m      0 mule-poc-data:1.0%          0       0|0     0|0   262k    18k    52   00:56:49 
+   158     *0     *0     *0       0   159|0       0   544m  1.39g   176m      0 mule-poc-data:0.9%          0       0|0     0|0   233k    16k    52   00:56:50 
+   104     *0     *0     *0       0   105|0       0   544m  1.39g   176m      0 mule-poc-data:0.5%          0       0|0     0|0   153k    11k    52   00:56:51 
+    23     *0     *0     *0       0    27|0       0   544m  1.39g   176m      0 mule-poc-data:0.1%          0       0|0     1|0    34k     5k    53   00:56:52 
+   159     *0     *0     *0       0   163|0       0   544m  1.39g   176m      0 mule-poc-data:0.9%          0       0|0     0|0   235k    16k    52   00:56:53 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+   155     *0     *0     *0       0   159|0       0   544m  1.39g   176m      0 mule-poc-data:0.9%          0       0|0     0|0   228k    16k    52   00:56:54 
+   167      5     *0     *0       0   168|0       1   544m  1.39g   177m      0 mule-poc-data:0.9%          0       0|0     0|0   246k    17k    52   00:56:55 
+   121     *0     *0     *0       0   128|0       0   544m  1.39g   177m      0 mule-poc-data:0.8%          0       0|0     0|0   179k    13k    52   00:56:56 
+    46     *0     *0     *0       0    47|0       0   544m  1.39g   177m      0 mule-poc-data:0.2%          0       0|0     0|0    67k     7k    52   00:56:57 
+   170     *0     *0     *0       0   174|0       0   544m  1.39g   176m      0 mule-poc-data:0.9%          0       0|0     0|0   251k    17k    52   00:56:58 
+   147     *0     *0     *0       0   157|0       0   544m  1.39g   177m      0 mule-poc-data:0.8%          0       0|0     0|0   217k    16k    52   00:56:59 
+   172     *0     *0     *0       0   173|0       0   544m  1.39g   177m      0 mule-poc-data:1.0%          0       0|0     0|0   253k    17k    52   00:57:00 
+   130     *0     *0     *0       0   131|0       0   544m  1.39g   177m      0 mule-poc-data:0.9%          0       0|0     0|0   191k    14k    52   00:57:01 
+    43     *0     *0     *0       0    47|0       0   544m  1.39g   177m      0 mule-poc-data:0.3%          0       0|0     0|0    63k     7k    52   00:57:02 
+   104     *0     *0     *0       0   105|0       0   544m  1.39g   177m      0 mule-poc-data:0.6%          0       0|0     0|0   153k    11k    52   00:57:03 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+   176     *0     *0     *0       0   177|0       0   544m  1.39g   177m      0 mule-poc-data:1.0%          0       0|0     0|0   259k    17k    52   00:57:04 
+   152     *0     *0     *0       0   153|0       0   544m  1.39g   178m      0 mule-poc-data:0.9%          0       0|0     0|0   224k    15k    52   00:57:05 
+   130     *0     *0     *0       0   131|0       0   544m  1.39g   178m      0 mule-poc-data:0.8%          0       0|0     0|0   191k    14k    52   00:57:06 
+    55     *0     *0     *0       0    56|0       0   544m  1.39g   178m      0 mule-poc-data:0.2%          0       0|0     0|0    81k     7k    52   00:57:07 
+    12     *0     *0     *0       0    13|0       0   544m  1.39g   178m      0 mule-poc-data:0.1%          0       0|0     0|0    17k     4k    52   00:57:08 
+   169     *0     *0     *0       0   170|0       0   544m  1.39g   179m      0 mule-poc-data:0.9%          0       0|0     0|0   249k    17k    52   00:57:09 
+   133     *0     *0     *0       0   134|0       0   544m  1.39g   179m      0 mule-poc-data:0.8%          0       0|0     0|0   196k    14k    52   00:57:10 
+   122     *0     *0     *0       0   123|0       0   544m  1.39g   179m      0 mule-poc-data:0.7%          0       0|0     0|0   180k    13k    52   00:57:11 
+   168     *0     *0     *0       0   192|0       0   544m  1.39g   181m      0 mule-poc-data:1.6%          0       0|0     0|0   250k    19k    41   00:57:12 
+    95     *0     *0     *0       0   102|0       0   544m  1.39g   181m      0 mule-poc-data:0.4%          0       0|0     0|0   140k    11k    44   00:57:13 
+insert  query update delete getmore command flushes mapped  vsize    res faults          locked db idx miss %     qr|qw   ar|aw  netIn netOut  conn       time 
+    87     *0     *0     *0       0    88|0       0   544m  1.39g   181m      0 mule-poc-data:0.7%          0       0|0     0|0   128k    10k    44   00:57:14 
+   268     *0     *0     *0       0   277|0       0   544m  1.39g   182m      0 mule-poc-data:1.3%          0       0|0     0|0   396k    26k    45   00:57:15 
+   246     *0     *0     *0       0   255|0       0   544m  1.39g   182m      0 mule-poc-data:1.3%          0       0|0     0|0   363k    24k    45   00:57:16 

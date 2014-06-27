@@ -1,0 +1,211 @@
+** SETTINGS **
+USER ec2-user
+KEY /home/ec2-user/.ssh/Perf.pem
+COUNT 100000
+CONCURRENTUSER 5,10,20,30
+SERVER 
+ENDPOINT rupesh-mcdonald-poc.cloudhub.io
+QUERY_PARAM: api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+POST_CONTENT_TYPE: 
+PAYLOAD_FILE: 
+NOTES: 
+RERUN_NUMBER: 
+PAYLOAD_FILES_DIR: /mnt/nfsshare/PAYLOAD_FILES
+PERF TEST START TIME Tue Feb 25 08:18:49 UTC 2014
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+Document Length:        95 bytes
+
+Concurrency Level:      5
+Time taken for tests:   403.211 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    100000
+Total transferred:      92700000 bytes
+HTML transferred:       9500000 bytes
+Requests per second:    248.01 [#/sec] (mean)
+Time per request:       20.161 [ms] (mean)
+Time per request:       4.032 [ms] (mean, across all concurrent requests)
+Transfer rate:          224.52 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:    10   20  16.2     15    1009
+Waiting:       10   20  16.2     15    1009
+Total:         10   20  16.2     15    1009
+
+Percentage of the requests served within a certain time (ms)
+  50%     15
+  66%     18
+  75%     21
+  80%     23
+  90%     33
+  95%     46
+  98%     68
+  99%     81
+ 100%   1009 (longest request)
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+Document Length:        95 bytes
+
+Concurrency Level:      10
+Time taken for tests:   249.770 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    100000
+Total transferred:      92700000 bytes
+HTML transferred:       9500000 bytes
+Requests per second:    400.37 [#/sec] (mean)
+Time per request:       24.977 [ms] (mean)
+Time per request:       2.498 [ms] (mean, across all concurrent requests)
+Transfer rate:          362.44 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       2
+Processing:    11   25  21.4     18     505
+Waiting:       11   25  21.4     18     504
+Total:         11   25  21.4     18     505
+
+Percentage of the requests served within a certain time (ms)
+  50%     18
+  66%     22
+  75%     26
+  80%     30
+  90%     42
+  95%     60
+  98%     87
+  99%    109
+ 100%    505 (longest request)
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+Document Length:        95 bytes
+
+Concurrency Level:      20
+Time taken for tests:   192.533 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    100000
+Total transferred:      92700000 bytes
+HTML transferred:       9500000 bytes
+Requests per second:    519.39 [#/sec] (mean)
+Time per request:       38.507 [ms] (mean)
+Time per request:       1.925 [ms] (mean, across all concurrent requests)
+Transfer rate:          470.19 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       2
+Processing:    10   38  46.3     22    1138
+Waiting:       10   38  46.3     22    1138
+Total:         10   39  46.3     22    1138
+
+Percentage of the requests served within a certain time (ms)
+  50%     22
+  66%     34
+  75%     44
+  80%     53
+  90%     84
+  95%    118
+  98%    165
+  99%    199
+ 100%   1138 (longest request)
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+Document Length:        95 bytes
+
+Concurrency Level:      30
+Time taken for tests:   199.004 seconds
+Complete requests:      100000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    100000
+Total transferred:      92701854 bytes
+HTML transferred:       9500190 bytes
+Requests per second:    502.50 [#/sec] (mean)
+Time per request:       59.701 [ms] (mean)
+Time per request:       1.990 [ms] (mean, across all concurrent requests)
+Transfer rate:          454.91 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       2
+Processing:    11   60 281.8     24   60016
+Waiting:       11   60 281.8     24   60016
+Total:         11   60 281.8     24   60016
+
+Percentage of the requests served within a certain time (ms)
+  50%     24
+  66%     42
+  75%     62
+  80%     81
+  90%    152
+  95%    221
+  98%    299
+  99%    356
+ 100%  60016 (longest request)
+PERF TEST END TIME Tue Feb 25 08:36:17 UTC 2014
+Java pid: 
+
+ *** SYSTEM RESOURCE METRICS ***
+Avg CPU% 
+Max CPU load: 
+
+
+
+
+ *** JVM METRICS ***
+GC Failure count: 0
+GC stall %: 0
+GC CMS events: 0
+Avg heap obj allocation rate: 0 MB/sec 
+Avg heap changes per GC eventi:  MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)
+Avg heap change per second: 0 MB/sec
+
+*** Cost to serve ( per request ) ***
+Avg objects created per request:  KB
+Avg CPU% (1 core) per request: 

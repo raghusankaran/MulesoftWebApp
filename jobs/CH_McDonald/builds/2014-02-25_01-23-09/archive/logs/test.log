@@ -1,0 +1,79 @@
+** SETTINGS **
+USER ec2-user
+KEY /home/ec2-user/.ssh/Perf.pem
+COUNT 200000
+CONCURRENTUSER 10
+SERVER 
+ENDPOINT rupesh-mcdonald-poc.cloudhub.io
+QUERY_PARAM: api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+POST_CONTENT_TYPE: 
+PAYLOAD_FILE: 
+NOTES: 4 double workers
+RERUN_NUMBER: 
+PAYLOAD_FILES_DIR: /mnt/nfsshare/PAYLOAD_FILES
+PERF TEST START TIME Tue Feb 25 07:23:09 UTC 2014
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/quote?object=Box&volume=232&weight=23&origin=ORD&destination=LAX&service=Air
+Document Length:        95 bytes
+
+Concurrency Level:      10
+Time taken for tests:   482.613 seconds
+Complete requests:      200000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    200000
+Total transferred:      185400000 bytes
+HTML transferred:       19000000 bytes
+Requests per second:    414.41 [#/sec] (mean)
+Time per request:       24.131 [ms] (mean)
+Time per request:       2.413 [ms] (mean, across all concurrent requests)
+Transfer rate:          375.16 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       2
+Processing:    13   24  19.5     19    1330
+Waiting:       12   24  19.5     19    1330
+Total:         13   24  19.5     19    1330
+
+Percentage of the requests served within a certain time (ms)
+  50%     19
+  66%     22
+  75%     26
+  80%     28
+  90%     38
+  95%     48
+  98%     72
+  99%     87
+ 100%   1330 (longest request)
+PERF TEST END TIME Tue Feb 25 07:31:15 UTC 2014
+Java pid: 
+
+ *** SYSTEM RESOURCE METRICS ***
+Avg CPU% 
+Max CPU load: 
+
+
+
+
+ *** JVM METRICS ***
+GC Failure count: 0
+GC stall %: 0
+GC CMS events: 0
+Avg heap obj allocation rate: 0 MB/sec 
+Avg heap changes per GC eventi:  MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)
+Avg heap change per second: 0 MB/sec
+
+*** Cost to serve ( per request ) ***
+Avg objects created per request: 0 KB
+Avg CPU% (1 core) per request: 0

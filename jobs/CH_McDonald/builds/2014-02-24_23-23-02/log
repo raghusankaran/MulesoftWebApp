@@ -1,0 +1,309 @@
+Started by user wai.ip
+Building remotely on PerfClient
+[CH_McDonald] $ /bin/sh -xe /tmp/hudson4145656546487673852.sh
++ KEY=/home/ec2-user/.ssh/Perf.pem
++ USER=ec2-user
++ export KEY
++ export USER
++ HUDSON_PERFTEST_PWD='muleftw!'
++ export HUDSON_PERFTEST_PWD
++ '[' 13 '!=' '' ']'
++ '[' -f /mnt/perf/.hudson/workspace/CH_McDonald/input.sh ']'
++ rm input.sh
++ curl --user 'perftest:muleftw!' http://mule-perflab06.managed.contegix.com:8080/job/CH_McDonald/13/artifact/logs/input.sh -o /mnt/perf/.hudson/workspace/CH_McDonald/input.sh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   321  100   321    0     0   4375      0 --:--:-- --:--:-- --:--:--  4397
++ . /mnt/perf/.hudson/workspace/CH_McDonald/input.sh
+++ export USER=ec2-user
+++ USER=ec2-user
+++ export KEY=/home/ec2-user/.ssh/Perf.pem
+++ KEY=/home/ec2-user/.ssh/Perf.pem
+++ export COUNT=100000
+++ COUNT=100000
+++ export CONCURRENTUSER=10
+++ CONCURRENTUSER=10
+++ export SERVER=
+++ SERVER=
+++ export ENDPOINT=rupesh-mcdonald-poc.cloudhub.io
+++ ENDPOINT=rupesh-mcdonald-poc.cloudhub.io
+++ export QUERY_PARAM=api/b2bshipping/1.0/shipment/22121/
+++ QUERY_PARAM=api/b2bshipping/1.0/shipment/22121/
+++ export POST_CONTENT_TYPE=
+++ POST_CONTENT_TYPE=
+++ export PAYLOAD_FILE=
+++ PAYLOAD_FILE=
+++ export 'NOTES=4 double workers'
+++ NOTES='4 double workers'
++ echo COUNT=100000
+COUNT=100000
++ curl --user 'perftest:muleftw!' --data 'description="4 double workers rupesh-mcdonald-poc.cloudhub.ioapi/b2bshipping/1.0/shipment/22121/  c=10 n=100000  "' http://mule-perflab06.managed.contegix.com:8080/job/CH_McDonald/17/submitDescription
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   114    0     0  100   114      0   2100 --:--:-- --:--:-- --:--:--  2111
++ rm -rf /mnt/perf/.hudson/workspace/CH_McDonald/logs/
++ /mnt/nfsshare/CLIENT/starttest.cloudhub.sh 100000 10 rupesh-mcdonald-poc.cloudhub.io
+++ '[' 100000 == '' ']'
+++ '[' 10 == '' ']'
+++ '[' rupesh-mcdonald-poc.cloudhub.io == '' ']'
+++ COUNT=100000
+++ CONCURRENT=10
+++ ENDPOINT=rupesh-mcdonald-poc.cloudhub.io
+++ NFS=/mnt/nfsshare
+++ PAYLOAD_FILES_DIR=/mnt/nfsshare/PAYLOAD_FILES
+++ REMOTE_MULEDIR=/home/ec2-user/mule-esb
+++ REMOTE_LOGSDIR=/home/ec2-user/logs
++++ echo rupesh-mcdonald-poc.cloudhub.io
++++ awk '{ print $2 }'
+++ PORT_PATH=
+++ PERFSTAT_COUNT=86400
+++ PERFSTAT_INTERVAL=2
++++ date +%Y-%m-%d-%H-%M-%S
+++ t=2014-02-25-05-23-02
+++ LOGSDIR=/mnt/perf/.hudson/workspace/CH_McDonald/logs
+++ mkdir -p /mnt/perf/.hudson/workspace/CH_McDonald/logs
+++ echo '** SETTINGS **'
+++ echo 'USER ec2-user'
+++ echo 'export USER="ec2-user"'
+++ echo 'KEY /home/ec2-user/.ssh/Perf.pem'
+++ echo 'export KEY="/home/ec2-user/.ssh/Perf.pem"'
+++ echo 'COUNT 100000'
+++ echo 'export COUNT="100000"'
+++ echo 'CONCURRENTUSER 10'
+++ echo 'export CONCURRENTUSER="10"'
+++ echo 'SERVER '
+++ echo 'export SERVER=""'
+++ echo 'ENDPOINT rupesh-mcdonald-poc.cloudhub.io'
+++ echo 'export ENDPOINT="rupesh-mcdonald-poc.cloudhub.io"'
+++ echo 'QUERY_PARAM: api/b2bshipping/1.0/shipment/22121/'
+++ echo 'export QUERY_PARAM="api/b2bshipping/1.0/shipment/22121/"'
+++ echo 'POST_CONTENT_TYPE: '
+++ echo 'export POST_CONTENT_TYPE=""'
+++ echo 'PAYLOAD_FILE: '
+++ echo 'export PAYLOAD_FILE=""'
+++ echo 'NOTES: 4 double workers'
+++ echo 'export NOTES="4 double workers"'
+++ echo 'RERUN_NUMBER: 13'
+++ echo 'PAYLOAD_FILES_DIR: /mnt/nfsshare/PAYLOAD_FILES'
+++ '[' '' '!=' '' ']'
++++ date
+++ echo 'PERF TEST START TIME Tue Feb 25 05:23:02 UTC 2014'
++++ date +%s
+++ teststarttime=1393305782
+++ warmup_done=0
++++ echo 10
++++ tr , '\n'
+++ arr=10
+++ for c in '$arr'
+++ '[' '' '!=' '' ']'
+++ '[' '' == '' ']'
+++ PAYLOAD=
+++ '[' 0 == 0 ']'
+++ ab -k -n 1 -c 1 -v 2 http://rupesh-mcdonald-poc.cloudhub.io/api/b2bshipping/1.0/shipment/22121/
+++ ab -k -n 1000 -c 10 http://rupesh-mcdonald-poc.cloudhub.io/api/b2bshipping/1.0/shipment/22121/
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/shipment/22121/
+Document Length:        159 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.395 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    1000
+Total transferred:      992000 bytes
+HTML transferred:       159000 bytes
+Requests per second:    717.07 [#/sec] (mean)
+Time per request:       13.946 [ms] (mean)
+Time per request:       1.395 [ms] (mean, across all concurrent requests)
+Transfer rate:          694.66 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       2
+Processing:     7   14   6.9     12      57
+Waiting:        7   14   6.9     12      57
+Total:          7   14   6.9     12      57
+
+Percentage of the requests served within a certain time (ms)
+  50%     12
+  66%     15
+  75%     17
+  80%     19
+  90%     23
+  95%     28
+  98%     34
+  99%     38
+ 100%     57 (longest request)
+++ warmup_done=1
+++ '[' '' == '' ']'
+++ ab -k -n 100000 -c 10 http://rupesh-mcdonald-poc.cloudhub.io/api/b2bshipping/1.0/shipment/22121/
+Completed 10000 requests
+Completed 20000 requests
+Completed 30000 requests
+Completed 40000 requests
+Completed 50000 requests
+Completed 60000 requests
+Completed 70000 requests
+Completed 80000 requests
+Completed 90000 requests
+Completed 100000 requests
+Finished 100000 requests
++++ date +%s
+++ testendtime=1393305931
++++ date
+++ echo 'PERF TEST END TIME Tue Feb 25 05:25:31 UTC 2014'
+++ mkdir -p /mnt/perf/.hudson/workspace/CH_McDonald/logs/confs
+++ '[' '' '!=' '' ']'
++++ cat /mnt/perf/.hudson/workspace/CH_McDonald/logs/pid.txt
+cat: /mnt/perf/.hudson/workspace/CH_McDonald/logs/pid.txt: No such file or directory
+++ pid=
+++ echo 'Java pid: '
+++ echo -e '\n *** SYSTEM RESOURCE METRICS ***'
++++ grep all /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.cpuusage.out
++++ awk '{ sum+=$NF; count+=1; }END{ avgidle=sum/count; print 100-avgidle}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.cpuusage.out: No such file or directory
+awk: fatal: division by zero attempted
+++ avg_cpu=
+++ echo 'Avg CPU% '
++++ grep 'load average' /mnt/perf/.hudson/workspace/CH_McDonald/logs/top.out
++++ sort -k 12 -n -r
++++ head -n 1
++++ awk '{ print $(NF-2) }'
++++ sed s/,//
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/top.out: No such file or directory
+++ echo 'Max CPU load: '
++++ tail -n +4 /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.memutil.out
++++ awk '{ mem_used+=$5; kbcached+=$7; count+=1}END{print "Avg % memory used: "mem_used/count" , system cache MB: "kbcached/count/1024}'
+tail: cannot open `/mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.memutil.out' for reading: No such file or directory
+awk: fatal: division by zero attempted
+++ echo ''
++++ grep eth0 /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.network.DEV.out
++++ awk '{ rx_sum+=$6; tx_sum+=$7; count+=1 }END{print "Network received: "rx_sum/count" KB/s, transmitted: "tx_sum/count" KB/s"}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.network.DEV.out: No such file or directory
+awk: fatal: division by zero attempted
+++ echo ''
++++ tail -n +4 /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.network.SOCK.out
++++ awk '{ tot_sock+=$3; tcp_sock+=$4; count+=1 }END{ print "Avg total sockets: "tot_sock/count"  Avg TCP sockets: "tcp_sock/count}'
+tail: cannot open `/mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.network.SOCK.out' for reading: No such file or directory
+awk: fatal: division by zero attempted
+++ echo ''
++++ egrep 'AM|PM' /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.device.out
++++ grep -v DEV
++++ awk '{ print $3 }'
++++ uniq
++++ head -n 10
+egrep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/sar.device.out: No such file or directory
+++ echo -e '\n *** JVM METRICS ***'
++++ grep fail /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
++++ wc -l
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ echo 'GC Failure count: 0'
++++ grep application /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ gc_pause_sec=
++++ grep 'Time taken for tests' /mnt/perf/.hudson/workspace/CH_McDonald/logs/test.log
++++ awk '{ sum+=$(NF-1) }END{print sum}'
+++ test_duration_sec=147.191
+++ '[' 147.191 == '' ']'
++++ grep 'Requests per second' /mnt/perf/.hudson/workspace/CH_McDonald/logs/test.log
++++ awk '{ print $4 }'
+++ throughput=679.39
++++ echo ''
++++ awk -v a= -v b=147.191 '{ print a/(b-5) * 100 }'
+++ echo 'GC stall %: 0'
++++ grep init /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
++++ wc -l
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ echo 'GC CMS events: 0'
++++ grep real /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
++++ awk '{ if(NF==12){split($2,a,"K"); sum+=a[1]} }END{print sum}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ obj_allocated=
+++ '[' '' == '' ']'
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
++++ grep -v Full
++++ awk '{ split($2,a,"K"); sum+=a[1] }END{print sum}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ yg=
++++ grep PSYoungGen /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
++++ grep Full
++++ awk '{ split($6,a,"K"); sum+=a[1] }END{print sum}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ fullgc=
++++ echo 1
++++ awk -v a= -v b= '{ print a+b }'
+++ obj_allocated=0
++++ echo 1
++++ awk -v a=0 -v b=147.191 -v c= '{ actual_run_time=b-c; print a/(actual_run_time*1024) }'
+++ obj_allocation_rate=0
+++ echo 'Avg heap obj allocation rate: 0 MB/sec '
+++ egrep 'real|\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
+++ awk '{ if(NF==3 || NF==5){ts=$1} else if(NF==12 || 0!=index($0,"PSYoungGen")){ split($2,newgen,"->"); newclean=newgen[1]-newgen[2]; if(NF==12){split($5,heap,"->");}else{split($3,heap,"->");} heapclean=heap[1]-heap[2]; promoted=newclean-heapclean; print ts" "promoted" KB"}}'
+egrep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ awk '{ count+=1; sum+=$2 }END{print "Avg obj promotion: "sum/count/1024" MB"}' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.promote.out
+awk: fatal: division by zero attempted
+++ egrep 'real|init|ParNew' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
+++ awk '{ if( NF == 12 ){split($5,a,"->"); print ts" "a[2];}else if(0 != index($0, "init")){ print $1" "$7 } else if(NF == 5 && 0 != index($0, "ParNew")){ ts=$1 }  }'
+egrep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
++++ wc -l /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.heap.out
++++ awk '{ print $1 }'
+++ '[' 0 == 0 ']'
+++ egrep '\[GC|PSYoungGen' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log
+++ awk '{ if(NF==3){ts=$1} else if(NF==10){split($3,o,"->"); split(o[2],h,"K"); print ts" "h[1]" KB"}}'
+egrep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.log: No such file or directory
+++ awk '{ split($2,a,"K"); sum+=a[1];count+=1 }END{print "Avg working set in heap used: " sum/count/1024 " MB"}' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.heap.out
+awk: fatal: division by zero attempted
+++ awk 'BEGIN{h1=-1;h2=-1}{ split($2,a,"K"); if(h1!=-1){h2=a[1];print $1" "h2-h1; h1=h2;} else {h1=a[1]} }' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.heap.out
++++ awk '{ sum+=$2; count+=1 }END{print sum/count/1024}' /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.heap.diff.out
+awk: fatal: division by zero attempted
+++ avg_heap_change=
+++ echo 'Avg heap changes per GC eventi:  MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)'
++++ wc -l /mnt/perf/.hudson/workspace/CH_McDonald/logs/gc.heap.out
++++ awk '{ print $1 }'
+++ gc_event_count=0
++++ echo ''
++++ awk -v c=0 -v d=147.191 -v a= '{ print a*c/d }'
+++ heapchange_per_sec=0
+++ echo 'Avg heap change per second: 0 MB/sec'
+++ grep -v : /mnt/perf/.hudson/workspace/CH_McDonald/logs/threads.out
+++ awk '{ count+=1; sum+=$1 }END{print "Avg thread count in java process: "sum/count}'
+grep: /mnt/perf/.hudson/workspace/CH_McDonald/logs/threads.out: No such file or directory
+awk: fatal: division by zero attempted
+++ grep 'Non-2xx responses' /mnt/perf/.hudson/workspace/CH_McDonald/logs/test.log
+++ awk '{ if($3>0) print "WARNING! SOME REQUEST RETURN NON-2xx! Please check!!!! "$3 }'
+++ echo -e '\n*** Cost to serve ( per request ) ***'
++++ echo 1
++++ awk -v a=0 -v b=679.39 '{ print a*1024/b }'
+++ echo 'Avg objects created per request: 0 KB'
++++ cat /mnt/perf/.hudson/workspace/CH_McDonald/logs/core.txt
+cat: /mnt/perf/.hudson/workspace/CH_McDonald/logs/core.txt: No such file or directory
+++ num_of_cpu=
++++ echo 1
++++ awk -v c= -v a= -v t=679.39 '{ print c*a/t }'
+++ cpu_per_request=0
+++ echo 'Avg CPU% (1 core) per request: 0'
+Archiving artifacts
+Finished: SUCCESS

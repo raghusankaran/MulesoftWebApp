@@ -1,0 +1,67 @@
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking rupesh-mcdonald-poc.cloudhub.io (be patient)...INFO: POST header == 
+---
+POST /api/b2bshipping/1.0/shipment HTTP/1.0
+Connection: Keep-Alive
+Content-length: 325
+Content-type: application/json
+Host: rupesh-mcdonald-poc.cloudhub.io
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+LOG: header received:
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Tue, 25 Feb 2014 07:48:05 GMT
+http.status: 200
+Server: nginx
+X-Frame-Options: SAMEORIGIN
+X-MULE_ENCODING: UTF-8
+X-MULE_SESSION: rO0ABXNyACNvcmcubXVsZS5zZXNzaW9uLkRlZmF1bHRNdWxlU2Vzc2lvbi7rdtEW7GGKAwAFWgAFdmFsaWRMAA1mbG93Q29uc3RydWN0dAAmTG9yZy9tdWxlL2FwaS9jb25zdHJ1Y3QvRmxvd0NvbnN0cnVjdDtMAAJpZHQAEkxqYXZhL2xhbmcvU3RyaW5nO0wACnByb3BlcnRpZXN0AA9MamF2YS91dGlsL01hcDtMAA9zZWN1cml0eUNvbnRleHR0ACdMb3JnL211bGUvYXBpL3NlY3VyaXR5L1NlY3VyaXR5Q29udGV4dDt4cAFwdAAkMjkwMGJjYWUtOWRmMS0xMWUzLWFjNTMtZTdlZGJlMGVlNTYyc3IAJWphdmEudXRpbC5Db2xsZWN0aW9ucyRTeW5jaHJvbml6ZWRNYXAbc/kJS0s5ewMAAkwAAW1xAH4AA0wABW11dGV4dAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgAkb3JnLm11bGUudXRpbC5DYXNlSW5zZW5zaXRpdmVIYXNoTWFwndHZ72dFzgADAAB4cHcMP0AAAAAAABAAAAAAeHEAfgAJeHB4
+Content-Length: 187
+Connection: keep-alive
+
+{
+  "shipment_id": "prclWDv2VzHp",
+  "tracking_number": "34183941734713048",
+  "created_at": "2013-04-22T05:40:57Z",
+  "pickup_time": "2013-04-23T09:30:00Z"
+  "scan_form": "sf_m4WmYiew"
+}
+..done
+
+
+Server Software:        nginx
+Server Hostname:        rupesh-mcdonald-poc.cloudhub.io
+Server Port:            80
+
+Document Path:          /api/b2bshipping/1.0/shipment
+Document Length:        187 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.020 seconds
+Complete requests:      1
+Failed requests:        0
+Write errors:           0
+Keep-Alive requests:    1
+Total transferred:      1020 bytes
+Total POSTed:           1060
+HTML transferred:       187 bytes
+Requests per second:    49.34 [#/sec] (mean)
+Time per request:       20.267 [ms] (mean)
+Time per request:       20.267 [ms] (mean, across all concurrent requests)
+Transfer rate:          49.15 [Kbytes/sec] received
+                        51.08 kb/s sent
+                        100.22 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        2    2   0.0      2       2
+Processing:    19   19   0.0     19      19
+Waiting:       18   18   0.0     18      18
+Total:         20   20   0.0     20      20

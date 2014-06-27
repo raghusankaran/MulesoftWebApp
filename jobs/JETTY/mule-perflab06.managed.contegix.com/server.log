@@ -1,0 +1,26 @@
+INFO: test_duration_sec=4359
+INFO: throughput=1376.4
+
+ *** SYSTEM RESOURCE METRICS ***
+Avg CPU% 7.58382
+Avg STEAL% 0
+Avg IOWAIT% 0.000297892
+Avg GUEST% 0
+Max CPU load: 2.96
+Avg % memory used: 63.1733 , system cache MB: 8127.76
+Network received: 5682.38 KB/s, transmitted: 4739.15 KB/s
+Avg total sockets: 531.676  Avg TCP sockets: 22.9533
+Avg disk sda utilization 0.0289688 %, max IO latency 22.12 ms
+
+ *** JVM METRICS ***
+GC Failure count: 0
+GC stall %: 0
+GC CMS events: 0
+Avg heap obj allocation rate: 0 MB/sec 
+Avg heap changes per GC eventi:  MB (i.e. if it is a big positve number when there is Full GC or CMS events,it could indicate possible memory leak)
+Avg heap change per second: 0 MB/sec
+Avg thread count in java process: 0
+
+*** Cost to serve ( per request ) ***
+Avg objects created per request: 0 KB
+Avg CPU% (1 core) per request: 0.132237
