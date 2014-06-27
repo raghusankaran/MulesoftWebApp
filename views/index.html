@@ -6,7 +6,7 @@
 		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
 		
 		<script>
-			
+			var config = require('../config');
 			var pattern = /<a href="job\/\w+\/">/g;
 			var jobs = [];
 			
@@ -69,7 +69,7 @@
 	</body>
 	
 	<script>
-		getJobs('http://mule-perflab06.managed.contegix.com:8880/retrieveJobs/');
+		getJobs(config.retrieveJobs);
 	</script>
 	
 </html>

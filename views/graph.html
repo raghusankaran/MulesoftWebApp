@@ -6,6 +6,8 @@
 		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
 
 		<script>
+			var config = require('../config');
+
 
 			var numOfLines = 0;
 			
@@ -895,7 +897,7 @@
 				var job = jobName;
 				
 				var query = '?job='+job+'&id='+id+'&type='+type;
-				var url = 'http://mule-perflab06.managed.contegix.com:8880/data/'+query
+				var url = config.retrieveData+query
 					
 				var str = getRequest(url);
 				var data = str.split(',');
