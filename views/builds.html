@@ -47,7 +47,7 @@
 				{
 					if(results[i].length >0 && results[i].charAt(0) != '.')// && results[i].search('.').length <1)
 					{
-						var url = 'href=\"//localhost:3000/graph?job=' +buildName;
+						var url = 'href=\"http://mule-perflab06.managed.contegix.com:8880/graph?job=' +buildName;
 						url += '&id='+results[i]+',';
 						var compareCheckID = 'comp'+results[i];
 						var baseCheckID = 'base'+results[i];
@@ -69,7 +69,7 @@
 			}
 			
 			function updateURL(){
-				dest = '//localhost:3000/graph?job=' +buildName +'&id=';
+				dest = 'http://mule-perflab06.managed.contegix.com:8880/graph?job=' +buildName +'&id=';
 				for(var i= 0; i < buildSelect.length; i++){
 					if(buildSelect[i]){	
 						dest += buildNames[i] +',';
@@ -147,7 +147,7 @@
 			
 				
 		<script>
-			getBuilds('//localhost:3000/retrieveBuilds/?build='+ buildName);
+			getBuilds('http://mule-perflab06.managed.contegix.com:8880/etrieveBuilds/?build='+ buildName);
 		</script>
 	
 	</body>
