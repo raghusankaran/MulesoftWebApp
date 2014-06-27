@@ -4,9 +4,9 @@
 	<title> Performance Runs</title>
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
-		
+		<script src="../config.js"></script>
 		<script>
-			var config = require('../config');
+			
 			var pattern = /<a href="job\/\w+\/">/g;
 			var jobs = [];
 			
@@ -29,7 +29,7 @@
 				{
 					if(results[i].length >0 && results[i].charAt(0) != '.')// && results[i].search('.').length <1)
 					{
-						var url = 'href=\"http://mule-perflab06.managed.contegix.com:8880/builds?build=' + results[i];
+						var url = config.retrieveJobs + results[i];
 						
 						
 						list.innerHTML += '<li> <a ' + url+ '">'+results[i]+'</a>'+ '</li>';
