@@ -138,8 +138,9 @@ body{
 		position: relative;
 		top: -35px;	
 		max-height:705px;
-		width: 400px;
-		overflow:auto;
+		max-width: 400px;
+		overflow-x: hidden; 
+	    overflow-y: auto;
 		background-color: black;
 		border-radius: 25px;
 		border: 2px #FFF solid;
