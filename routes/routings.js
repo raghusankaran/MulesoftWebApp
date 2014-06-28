@@ -1,10 +1,10 @@
 var fs = require('fs');
- 
-
+var paths = require('../config');
+var config = paths.config;
 //GET all the job names
 exports.getJobNames = function(req, res){
 	var dList = "";
-	var path = 'jobs/';
+	var path = config.hudsonPath;
 	fs.readdir(path, function(err, files){
 		if(err){
 			throw err;
@@ -29,7 +29,7 @@ exports.getBuildNames = function(req, res){
 	var buildName = req.query.build;
 
 	var dList = "";
-	var path = 'jobs/'+ buildName+'/builds/';
+	var path = config.hudsonPath+ buildName+'/builds/';
 	fs.readdir(path, function(err, files){
 		if(err){
 			throw err;
@@ -57,7 +57,7 @@ exports.getData = function(req, res){
 	var job = req.query.job;
 	var type = req.query.type;
 
-	var path = 'jobs/'+job+'/builds/'+id+'/archive/logs/';
+	var path = config.hudsonPath+job+'/builds/'+id+'/archive/logs/';
 	if(type == 'cpu')
 	{	
 		var nameOfFile = 'sar.cpuusage.out';
