@@ -137,7 +137,7 @@ body{
 	#list{
 		position: relative;
 		top: -35px;	
-		max-height:800px;
+		max-height:705px;
 		width: 400px;
 		overflow:auto;
 		background-color: black;
