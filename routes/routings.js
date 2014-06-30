@@ -1,26 +1,47 @@
 var fs = require('fs');
 var paths = require('../config');
 var config = paths.config;
+var request = require('request');
+
+
+var jobHost = 'http://mule-perflab06.managed.contegix.com:8080/api/json';
+
+
+
+
 //GET all the job names
 exports.getJobNames = function(req, res){
 	var dList = "";
 	var path = config.hudsonPath;
-	fs.readdir(path, function(err, files){
-		if(err){
-			throw err;
-		}
-
-		for(var i=0; i < files.length; i++){
-			if(fs.lstatSync(path+files[i]).isDirectory()){
-				
-				dList += files[i] + ",";
+	
+	request(jobHost, function (error, response, body) {
+ 		 if (!error && response.statusCode == 200) {
+  			for(var i=0; i < body.jobs.length; i++){
+				dList += body.jobs[i].name +',';
 			}
-		}
-
-		console.log(dList);
-		res.send(dList);
-
+			console.log(dList);
+			res.send(dList);
+		  }
 	});
+
+	
+
+	// fs.readdir(path, function(err, files){
+	// 	if(err){
+	// 		throw err;
+	// 	}
+
+	// 	for(var i=0; i < files.length; i++){
+	// 		if(fs.lstatSync(path+files[i]).isDirectory()){
+				
+	// 			dList += files[i] + ",";
+	// 		}
+	// 	}
+
+	// 	console.log(dList);
+	// 	res.send(dList);
+
+	// });
 	
 };
 
