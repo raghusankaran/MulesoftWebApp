@@ -934,7 +934,7 @@
 				var id = idReference[idNum]
 
 				if(cache[type][id].length == 0){
-					var query = '?job='+job+'&id='+id+'&type='+type;
+					var query = '?job='+job+'&id='+idNum+'&type='+type;
 					var url = config.retrieveData+query
 						
 					var str = getRequest(url);
