@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+
+		<script src="../config.js"></script>
+		<script>
+			var jobName = getQueryVariable('jobName');
+			var allBuildIds = [];
+
+			function showHide(index){
+				var divToChange;
+				if(index == 0){
+					divToChange = document.getElementById('slaResults');
+				}
+				else if(index == 1){
+					divToChange = document.getElementById('prevResults');			
+				}
+				else if(index == 2){
+					divToChange = document.getElementById('baseResults');
+				}
+
+				if(divToChange.style.display == 'none' || divToChange.style.display == ''){
+					divToChange.style.display = 'block';
+					document.getElementById('plus'+index).innerHTML = '-';
+				}
+				else{
+					divToChange.style.display = 'none';
+					document.getElementById('plus'+index).innerHTML = '+';
+				}
+			}
+			function getQueryVariable(variable) {
+			    var query = window.location.search.substring(1);
+			    var vars = query.split('&');
+			    for (var i = 0; i < vars.length; i++) {
+			        var pair = vars[i].split('=');
+			        if (decodeURIComponent(pair[0]) == variable) {
+			            return decodeURIComponent(pair[1]);
+			        }
+			    }
+			    return 'UNDEFINED';
+			}
+			function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
+			}
+
+			function getBuilds(path){
+				if(allBuildIds.length == 0){
+					var str = getRequest(path);				
+					var results = str.split(',');
+					allBuildIds = results;
+					return results;
+				}
+				else{
+					return allBuildIds;
+				}
+			}
+
+			function buildDropDown(){
+				var buildIds = getBuilds(config.retrieveBuilds+ jobName);
+				var dropDown = document.getElementById('buildNumber');
+
+				for(var i=0; i < buildIds.length; i++){
+					if(i == buildIds.length-1)
+						dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
+					else
+						dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
+				}
+			}
+
+			function getAvgTPS(){
+
+			}
+			function getAvgResponseTime(){
+
+			}
+			function getFailedRequests(){
+
+			}
+			function getErrorRequests(){
+
+			}
+			function initializePage(){
+				document.getElementById('jobTitle').innerHTML = jobName;
+				buildDropDown();				
+			}
+			function updatePage(){
+				var dropDown = document.getElementById('buildNumber');
+
+				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
+
+			}
+		</script>
+	</head>
+	<body>
+		<div id= "pagewrapper">
+			<div id="heading" class="mule">
+				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+
+				<p id="logo"> Performance Analyzer</p>
+			</div>
+			<div id="menu" class="mule">
+				<p id='menuHeading'><u><b>Menu</b></u></p><br>
+				<p class = 'menuItems'> <a href="/">Home</a></p>
+				<p class = 'menuItems'> <a href="/about">About</a></p>
+			</div>
+			<div id='content'>
+				<div id='contentDisplay'>
+					<p><b>Hudson Job:</b> <span id='jobTitle'></span></p>
+					<div id='jobInfo' class='mule'>
+						<p id='buildDropDownTitle'>Build:</p>
+						<form id='buildDropDown'action="">
+							<select id="buildNumber">
+								
+							</select>
+						</form>
+
+						<p id='testDurationTitle'>Test Duration: INSERT seconds</p>
+					</div>
+				</div>
+				<div id='keyMetrics'>
+					<p>Key Metrics</p>
+					<div id='cpuBox' class="infoMule">
+						<p class='keyTitle'>Test Results</p>
+						<p id='cpuMetrics'>
+							Average TPS: <span id='' class='keyMetricResults'>12990</span><br>
+							Average response time:  <span id='' class='keyMetricResults'>3 ms</span><br>
+							90th-pctile response time:  <span id='' class='keyMetricResults'>3 ms</span><br>
+							Failed requests:  <span id='' class='keyMetricResults'>0</span> <br>
+							Error rate:  <span id='' class='keyMetricResults'>0</span><br>
+						</p>
+						
+					</div>
+					<div id='systemBox'class="infoMule">
+						<p class='keyTitle'>System Resources</p>
+						<p id='sysMetrics'>
+							Avg CPU Use:  <span id='' class='keyMetricResults'>76.3%</span><br>
+							Avg Memory Use:  <span id='' class='keyMetricResults'>6 %</span><br>
+							Avg Disk Use:  <span id='' class='keyMetricResults'>INSERT</span><br>
+							Avg Network Use:   <span id='' class='keyMetricResults'>22.3 %</span><br>
+						</p>
+						
+					</div>
+					<div id='jvmBox'class="infoMule">
+						<p class='keyTitle'>JVM </p>
+						<p id='jvmMetrics'>
+							Avg CPU Use:  <span id='' class='keyMetricResults'>76.3</span><br>
+							Avg Memory Use:  <span id='' class='keyMetricResults'>6 %</span><br>
+						</p>
+						
+					</div>
+				</div>
+				<div id='compareMetrics'>
+					<p><b>Comparisons</b></p>
+					<div id='compareBlock' class="mule">
+						<div id='slaSection'>
+							<p class='keyTitle' onclick="showHide(0)"><span id='plus0'>+</span> SLA Check: <span id='slaPass' class='greenText'> Passed</span></p>
+							<div id='slaResults'>
+								<p class='dataResults'>
+									Previous run: <span class='greenText'># 22</span><br>
+									Avg TPS: <span class='greenText'>- 4%</span><br>
+									Avg response time: <span class='greenText'>+ 4.5%</span><br>
+								</p>
+								
+							</div>
+						</div>
+						<div id='prevSection'>
+							<p class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Compared to previous run:  <span id='prevPass' class='redText'> Failed</span></p>
+							<div id='prevResults'>
+								<p class='dataResults' >
+									Previous run: <span class='redText'># 22</span><br>
+									Avg TPS: <span class='redText'>- 4%</span><br>
+									Avg response time: <span class='redText'>+ 4.5%</span><br>
+								</p>
+							</div> 
+						</div>
+						<div id='baseSection'>
+							<p class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to baseline:  <span id='basePass' class='grayText'> Not Configured</span> </p>
+							<div id='baseResults'>
+								<p class='dataResults' >
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			initializePage();
+			updatePage();
+		</script>
+	</body>
+
+</html>
