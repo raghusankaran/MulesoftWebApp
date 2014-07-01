@@ -16,6 +16,9 @@ app.use(express.static(__dirname));
 app.get('/', function(req, res){
 	res.render('index');
 });
+app.gt('/report' function(req, res){
+	res.render(report);
+});
 
 app.get('/builds', function(req, res){
 	res.render('builds');
