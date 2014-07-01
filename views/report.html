@@ -39,6 +39,8 @@
 			  			'swap out': []
 			};
 
+			var avgCPU, avgDisk, avgTPS, avgNet, avgGCStall, avgHeap, avgRespT;
+
 			function showHide(index){
 				var divToChange;
 				if(index == 0){
@@ -122,10 +124,23 @@
 				cache['network used'] = getData('network used', chosenID);
 				cache['disk tps'] = getData('disk tps', chosenID);
 			}
-			/*
-			function getAvgTPS(){
+			function getAvg(data){
+				var avg = 0;
+				for(var i=0; i<data.length; i++){
+					avg += floatParse(data[i]);
+				}
+				avg = avg/data.length;
+				return avg;
 
+			}		
+			
+			function calculateAllAverages(){
+				avgCPU = getAvg(cache['cpu']);
+				avgDisk = getAvg(cache['disk util']);
+				avgTPS = getAvg(cache['disk tps']);
+				avgNet = getAvg(cache['network used']);
 			}
+
 			function getAvgResponseTime(){
 
 			}
@@ -134,7 +149,7 @@
 			}
 			function getErrorRequests(){
 
-			}*/
+			}
 
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
