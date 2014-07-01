@@ -8,7 +8,7 @@
 		<script>
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
-
+			var chosenID = -1;
 			function showHide(index){
 				var divToChange;
 				if(index == 0){
@@ -87,11 +87,12 @@
 			}
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
-				buildDropDown();				
+				buildDropDown();
+				var dropDown = document.getElementById('buildNumber');
+				chosenID = dropDown.options[dropDown.selectedIndex].text;
 			}
 			function updatePage(){
 				var dropDown = document.getElementById('buildNumber');
-
 				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
 
 			}
