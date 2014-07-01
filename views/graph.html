@@ -13,6 +13,12 @@
 			
 			var buildPath = getQueryVariable('job');
 			var graphIds = getQueryVariable('id').split(',');
+			var idReference = {};
+
+			for(var i = 0; i < graphIds.length; i++){
+				idReference[''+graphIds[i]] = ''+i;
+			}
+
 			var baseID = getQueryVariable('base');
 			var drawBase = false;
 			var jobName = getQueryVariable('job');
@@ -923,8 +929,10 @@
 			 * 
 			 */
 					
-			function getData(type, id){
+			function getData(type, idNum){
 				var job = jobName;
+				var id = idReference[idNum]
+
 				if(cache[type][id].length == 0){
 					var query = '?job='+job+'&id='+id+'&type='+type;
 					var url = config.retrieveData+query
