@@ -52,6 +52,7 @@
 				if(allBuildIds.length == 0){
 					var str = getRequest(path);				
 					var results = str.split(',');
+					results.pop();
 					allBuildIds = results;
 					return results;
 				}
@@ -65,7 +66,7 @@
 				var dropDown = document.getElementById('buildNumber');
 
 				for(var i=0; i < buildIds.length; i++){
-					if(i == buildIds.length-1)
+					if(i == 0)
 						dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
 					else
 						dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
@@ -115,7 +116,6 @@
 						<p id='buildDropDownTitle'>Build:</p>
 						<form id='buildDropDown'action="">
 							<select id="buildNumber">
-								
 							</select>
 						</form>
 
