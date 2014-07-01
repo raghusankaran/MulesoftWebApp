@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 	res.render('index');
 });
 app.get('/report', function(req, res){
-	res.render(report);
+	res.render('report');
 });
 
 app.get('/builds', function(req, res){
