@@ -127,7 +127,7 @@
 			function getAvg(data){
 				var avg = 0;
 				for(var i=0; i<data.length; i++){
-					avg += floatParse(data[i]);
+					avg += parseFloat(data[i]);
 				}
 				avg = avg/data.length;
 				return avg;
