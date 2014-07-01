@@ -9,6 +9,36 @@
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
 			var chosenID = -1;
+
+			var cache = {
+				        'cpu': [],
+			 		    'memutil': [],
+			         
+			  			'disk util': [],
+			  	        'disk await': [],
+			  		    'disk tps': [],
+			  			'disk rd_sec': [],
+			  			'disk wr_sec': [],
+			  		  
+			  		  	'network used': [],
+			  			'network txkB': [],
+			  			'network rxkB': [],
+			  		  
+			            'paging pgpgin': [],
+			            'paging pgpgout': [],
+			            'paging fault': [],
+			            'paging majflt': [],
+			            'paging pgpgin': [],
+			            'paging pgfree': [],
+			            'paging pgscank': [],
+			            'paging pgscand': [],
+			            'paging pgsteal': [],
+			            'paging vmef': [],
+			  		  
+			  			'swap in': [],
+			  			'swap out': []
+			};
+
 			function showHide(index){
 				var divToChange;
 				if(index == 0){
@@ -73,6 +103,26 @@
 				}
 			}
 
+			function getData(type, idNum){
+				var job = jobName;				
+				var query = '?job='+job+'&id='+idNum+'&type='+type;
+				var url = config.retrieveData+query
+					
+				var str = getRequest(url);
+				var data = str.split(',');
+				data.pop();
+				return data;				
+			}
+			//tps, responsetime, failed requests, error rate
+			//cpu, memory, disk use, net use
+			function fillCache(){
+				cache["cpu"] = getData('cpu', chosenID);
+				cache['memutil'] = getData('memutil', chosenID);
+				cache['disk util'] = getData('disk util', chosenID);
+				cache['network used'] = getData('network used', chosenID);
+				cache['disk tps'] = getData('disk tps', chosenID);
+			}
+			/*
 			function getAvgTPS(){
 
 			}
@@ -84,12 +134,14 @@
 			}
 			function getErrorRequests(){
 
-			}
+			}*/
+
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown();
 				var dropDown = document.getElementById('buildNumber');
 				chosenID = dropDown.options[dropDown.selectedIndex].text;
+				fillCache();
 			}
 			function updatePage(){
 				var dropDown = document.getElementById('buildNumber');
