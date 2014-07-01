@@ -29,6 +29,36 @@
 			var canvases = ['canvas', 'otherMetrics'];
 			var graphYAxis = [];
 
+			var cache = {
+				        
+				        'cpu': [[],[],[],[],[],[]],
+			 		    'memutil': [[],[],[],[],[],[]],
+			         
+			  			'disk util': [[],[],[],[],[],[]],
+			  	        'disk await': [[],[],[],[],[],[]],
+			  		    'disk tps': [[],[],[],[],[],[]],
+			  			'disk rd_sec': [[],[],[],[],[],[]],
+			  			'disk wr_sec': [[],[],[],[],[],[]],
+			  		  
+			  		  	'network used': [[],[],[],[],[],[]],
+			  			'network txkB': [[],[],[],[],[],[]],
+			  			'network rxkB': [[],[],[],[],[],[]],
+			  		  
+			            'paging pgpgin': [[],[],[],[],[],[]],
+			            'paging pgpgout': [[],[],[],[],[],[]],
+			            'paging fault': [[],[],[],[],[],[]],
+			            'paging majflt': [[],[],[],[],[],[]],
+			            'paging pgpgin': [[],[],[],[],[],[]],
+			            'paging pgfree': [[],[],[],[],[],[]],
+			            'paging pgscank': [[],[],[],[],[],[]],
+			            'paging pgscand': [[],[],[],[],[],[]],
+			            'paging pgsteal': [[],[],[],[],[],[]],
+			            'paging vmef': [[],[],[],[],[],[]],
+			  		  
+			  			'swap in': [[],[],[],[],[],[]],
+			  			'swap out': [[],[],[],[],[],[]]
+			};
+
 			for(var i = 0; i < canvases.length; i++){
 				graphYAxis[graphYAxis.length] = [0, 100];
 				updated[updated.length] = true;
@@ -895,104 +925,20 @@
 					
 			function getData(type, id){
 				var job = jobName;
-				
-				var query = '?job='+job+'&id='+id+'&type='+type;
-				var url = config.retrieveData+query
-					
-				var str = getRequest(url);
-				var data = str.split(',');
-				data.pop();
-				return data;				
-				
-				// else if(type.indexOf('paging') >= 0){
-				// 	var request = new XMLHttpRequest();
-				// 	request.open("GET",  path + id + logsPath +'/sar.memutil.out', false);
-				// 	request.send(null);
-				// 	var str = request.responseText;
-				// 	var temp  = str.match(/\s\s\d+\.\d+/g);
-				//     var data = [];
-				// 	var jump = 9;
-					
-				// 	if(type.indexOf('pgpgout') >= 0){
-				// 		for(var i = 1; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('fault') >= 0){
-				// 		for(var i = 2; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('majflt') >= 0){
-				// 		for(var i = 3; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('pgpgin') >= 0){
-				// 		for(var i = 0; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('pgfree') >= 0){
-				// 		for(var i = 4; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('pgscank') >= 0){
-				// 		for(var i = 5; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('pgscand') >= 0){
-				// 		for(var i = 6; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('pgsteal') >= 0){
-				// 		for(var i = 7; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-				// 	else if(type.indexOf('vmef') >= 0){
-				// 		for(var i = 8; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-				// 	}
-					
-				// }
-				
-				// else if(type.indexOf('swap') >= 0){
-				// 	var request = new XMLHttpRequest();
-				// 	request.open("GET",  path + id + logsPath +'/sar.memutil.out', false);
-				// 	request.send(null);
-				// 	var str = request.responseText;
-				// 	var temp  = str.match(/\s\s\d+\.\d+/g);
-				//     var data = [];
-				//     jump = 2;
-				// 	if(type.indexOf('in') >= 0){
-				// 		for(var i = 0; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
+				if(cache[type][id].length == 0){
+					var query = '?job='+job+'&id='+id+'&type='+type;
+					var url = config.retrieveData+query
 						
-				// 	}
-				// 	else if(type.indexOf('out') >= 0){
-				// 		for(var i = 1; i<temp[i]; i+= jump){
-				// 			data[data.length] = temp[i];
-				// 		}
-				// 		return data;
-						
-				// 	}
-				// }
+					var str = getRequest(url);
+					var data = str.split(',');
+					data.pop();
+					cache[type][id] = data;
+					return data;			
+				}
+				else{
+					return cache[type][id]; 
+				}
+				
 			}
 			
 			function addLine(type, id, color, nameOfCanvas){
