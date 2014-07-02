@@ -55,26 +55,6 @@ exports.getRecentJobs = function(req, res){
 	  			
 	  			var data = [];
 
-	  			/*
-	  			while(info.jobs.length != 0){
-	  				var timestamp = info.jobs[0].lastBuild.timestamp;
-	  				var id = info.jobs[0].lastBuild.number;
-	  				var name = info.jobs[0].name;
-	  				var index = 0;
-		  			for(var i=0; i < info.jobs.length; i++){	
-		  				if(info.jobs[i].lastBuild != null && timestamp < info.jobs[i].lastBuild.timestamp)
-		  				{
-		  					timestamp = info.jobs[i].lastBuild.timestamp;
-			  				id = info.jobs[i].lastBuild.number;
-			  				name = info.jobs[i].name;
-			  				index = i;
-		  				}
-		  			}
-		  			data[data.length] = {'timestamp': timestamp, 'id': id,'name': name};
-		  			info.jobs.splice(index,index);
-		  		}*/
-	  			
-
 				res.send(info);
 			}
 	    }
