@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<link href='muleStyle.css' rel='stylesheet'type='text/css'>
+
+		<script src="../config.js"></script>
+		<script>
+			
+		</script>
+	</head>
+	<body>
+		<div id= "pagewrapper">
+			<div id="heading" class="mule">
+				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+
+				<p id="logo"> Performance Analyzer</p>
+			</div>
+			<div id="menu" class="mule">
+				<p id='menuHeading'><u><b>Menu</b></u></p><br>
+				<p class = 'menuItems'> <a href="/">Home</a></p>
+				<p class = 'menuItems'> <a href="/about">About</a></p>
+			</div>
+			<div id='content'>
+				<div id='nightlyTest' class = 'homeMule'>
+					<div class='homeBoxTitle'>
+						Nightly Continuous Integration
+						
+
+					</div>
+					<div class='mainPreview'>
+						<span class='jobNameHome'>PerfCI</span>
+						<div class='jobInfoPreview'>
+							<ul>
+								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Status Report</li>
+									<ul>
+										<li>SLA Check: <span class='greenText'>Passed</span></li>
+										<li>Compared to Previous: <span class='redText'>Failed</span></li>
+										<li>Compared to Baseline: <span class='grayText'>Not Configured</span></li>
+									</ul>
+							</ul>
+						</div>
+						<a class='detailsLink' href="">See details</a><br>
+	
+					</div>
+				</div>	
+				<div id='recentRuns' class='homeMule'>
+					<div class='homeBoxTitle'>
+						Recent Runs
+					</div>
+					<div class='mainPreview'>
+						<span class='jobNameHome'>Jetty</span>
+						<div class='jobInfoPreview'>
+							<ul>
+								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Status Report</li>
+									<ul>
+										<li>SLA Check: <span class='greenText'>Passed</span></li>
+										<li>Compared to Previous: <span class='redText'>Failed</span></li>
+										<li>Compared to Baseline: <span class='grayText'>Not Configured</span></li>
+									</ul>
+							</ul>
+						</div>
+						<a class='detailsLink' href="">See details</a><br>
+						<span class='jobNameHome'>CH_Production</span>
+						<div class='jobInfoPreview'>
+							<ul>
+								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Status Report</li>
+									<ul>
+										<li>SLA Check: <span class='greenText'>Passed</span></li>
+										<li>Compared to Previous: <span class='redText'>Failed</span></li>
+										<li>Compared to Baseline: <span class='grayText'>Not Configured</span></li>
+									</ul>
+							</ul>
+						</div>
+						<a class='detailsLink' href="">See details</a>	<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			initializePage();
+		</script>
+	</body>
+
+</html>
