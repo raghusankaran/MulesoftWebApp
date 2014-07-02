@@ -61,6 +61,7 @@ exports.getRecentJobs = function(req, res){
 	  				var id = info.jobs[0].lastSuccessfulBuild.number;
 	  				var name = info.jobs[0].name;
 	  				var index = 0;
+	  				console.log(''+ timestamp + ', name: ' + name);
 		  			for(var i=0; i < info.jobs.length; i++){		  				
 		  				if(timestamp < info.jobs[i].lastSuccessfulBuild.timestamp)
 		  				{
