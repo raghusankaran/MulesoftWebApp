@@ -11,6 +11,8 @@
 			var chosenID = -1;
 
 			var cache = {
+						'duration': '',
+
 				        'cpu': [],
 			 		    'memutil': [],
 			         
@@ -39,7 +41,7 @@
 			  			'swap out': []
 			};
 
-			var avgCPU, avgDisk, avgTPS, avgNet, avgGCStall, avgHeap, avgRespT;
+			var avgCPU, avgDisk, avgMem, avgTPS, avgNet, avgGCStall, avgHeap, avgRespT;
 
 			function showHide(index){
 				var divToChange;
@@ -111,6 +113,9 @@
 				var url = config.retrieveData+query
 					
 				var str = getRequest(url);
+				if(type.indexOf('duration') >=0){
+					return str;
+				}
 				var data = str.split(',');
 				data.pop();
 				return data;				
@@ -118,6 +123,7 @@
 			//tps, responsetime, failed requests, error rate
 			//cpu, memory, disk use, net use
 			function fillCache(){
+				cache['duration'] =  getData('duration', chosenID);
 				cache["cpu"] = getData('cpu', chosenID);
 				cache['memutil'] = getData('memutil', chosenID);
 				cache['disk util'] = getData('disk util', chosenID);
@@ -139,6 +145,7 @@
 				avgDisk = getAvg(cache['disk util']);
 				avgTPS = getAvg(cache['disk tps']);
 				avgNet = getAvg(cache['network used']);
+				avgMem = getAvg(cache['memutil']);
 			}
 
 			function getAvgResponseTime(){
@@ -151,18 +158,21 @@
 
 			}
 
+			function fillPage(){
+				document.getElementById('durationInsert').innerHTML = cache['duration'];
+			}
+
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown();
-				var dropDown = document.getElementById('buildNumber');
-				chosenID = dropDown.options[dropDown.selectedIndex].text;
-				fillCache();
-				calculateAllAverages();
+				updatePage();
 			}
 			function updatePage(){
 				var dropDown = document.getElementById('buildNumber');
 				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
-
+				chosenID = dropDown.options[dropDown.selectedIndex].text;
+				fillCache();
+				calculateAllAverages();
 			}
 		</script>
 	</head>
@@ -184,11 +194,11 @@
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
 						<form id='buildDropDown'action="">
-							<select id="buildNumber">
+							<select id="buildNumber" onchange="updatePage()">
 							</select>
 						</form>
 
-						<p id='testDurationTitle'>Test Duration: INSERT seconds</p>
+						<p id='testDurationTitle'>Test Duration: <span id='durationInsert' class='keyMetricResults'></span> seconds</p>
 					</div>
 				</div>
 				<div id='keyMetrics'>

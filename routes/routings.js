@@ -291,6 +291,10 @@ exports.getData = function(req, res){
 					});
 					
 				}
+
+				else if(type.indexOf('duration') >=0){
+					res.send(info.duration);
+				}
 			}
 	});
 
