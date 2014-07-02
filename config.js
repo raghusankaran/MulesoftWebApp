@@ -8,7 +8,7 @@ var config = {
 	retrieveJobs: urlPath+ 'retrieveJobs/',
 	retrieveBuilds: urlPath + 'retrieveBuilds/?build=',
 	retrieveData: urlPath + 'data/',
-	retrieveRecentJobs: urlPath + 'getRecentJobs/'
+	retrieveRecentJobs: urlPath + 'getRecentJobs/',
 	jobHost: 'http://mule-perflab06.managed.contegix.com:8080'
 
 };
