@@ -143,7 +143,7 @@
 			function calculateAllAverages(){
 				avgCPU = (''+ getAvg(cache['cpu'])).substring(0,5);
 				avgDisk = (''+ getAvg(cache['disk util'])).substring(0,5);
-				avgTPS = (''+ getAvg(cache['disk tps'])).substring(0,5);
+				avgTPS = (''+ getAvg(cache['disk tps'])).substring(0,7);
 				avgNet = (''+ getAvg(cache['network used'])).substring(0,5);
 				avgMem = (''+ getAvg(cache['memutil'])).substring(0,5);
 			}
@@ -160,10 +160,11 @@
 
 			function fillPage(){
 				document.getElementById('durationInsert').innerHTML = cache['duration'];
-				document.getElementById('avgCpu').innerHTML = avgCPU;
-				document.getElementById('avgDisk').innerHTML = avgDisk;
-				document.getElementById('avgMem').innerHTML = avgMem;
-				document.getElementById('avgNet').innerHTML = avgNet;
+				document.getElementById('avgCpu').innerHTML = avgCPU+ ' %'; 
+				document.getElementById('avgDisk').innerHTML = avgDisk+ ' %';
+				document.getElementById('avgMem').innerHTML = avgMem+ ' %';
+				document.getElementById('avgNet').innerHTML = avgNet+ ' %';
+				document.getElementById('avgTPS').innerHTML = avgTPS;
 			}
 
 			function initializePage(){
@@ -211,7 +212,7 @@
 					<div id='cpuBox' class="infoMule">
 						<p class='keyTitle'>Test Results</p>
 						<p id='cpuMetrics'>
-							Average TPS: <span id='' class='keyMetricResults'>12990</span><br>
+							Average TPS: <span id='avgTPS' class='keyMetricResults'></span><br>
 							Average response time:  <span id='' class='keyMetricResults'>3 ms</span><br>
 							90th-pctile response time:  <span id='' class='keyMetricResults'>3 ms</span><br>
 							Failed requests:  <span id='' class='keyMetricResults'>0</span> <br>
