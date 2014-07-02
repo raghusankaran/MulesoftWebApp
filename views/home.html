@@ -6,7 +6,15 @@
 
 		<script src="../config.js"></script>
 		<script>
-			
+			function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
+			}
+			function initialize(){
+				var get = getRequest(config.retrieveRecentJobs);
+			}
 		</script>
 	</head>
 	<body>
@@ -81,7 +89,6 @@
 			</div>
 		</div>
 		<script>
-			initializePage();
 		</script>
 	</body>
 

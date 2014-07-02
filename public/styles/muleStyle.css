@@ -307,7 +307,74 @@ body{
 	.greenText{color:#00FF00;}
 	.redText{color:#FF0000;}
 	.grayText{color:#4F4F4F;}
+	.whiteText{color:white;}
 	.dataResults{
 		position: relative;
 		left: 50px;
 	}
+
+	.homeMule{
+		background-color: black;
+		border-radius: 25px;
+		border: 2px #FFF solid;
+		box-shadow: 5px 5px 5px #5F5F5F;
+
+		width:500px;
+		height: 600px;
+
+		position: relative;
+		top:50px;
+	}
+
+	#recentRuns{
+		position: relative;
+		left:550px;
+		top:-554px;
+	}
+	.homeBoxTitle{
+		color: white;
+		font-weight: bold;
+		font-size: 30px;
+		position: relative;
+		left: 20px;
+		top:40px;
+	}
+
+	.mainPreview{
+		position: relative;
+		top:50px;
+		left: 40px;
+	}
+
+	.jobInfoPreview{
+		color:white;
+		font-size: 20px
+	}
+	.homeBoxTitle{
+
+	}
+	.detailsLink{
+		font-size: 18px;
+		position: relative;
+		left:300px;
+		top: -20px;
+	}
+	.jobNameHome{
+		font-size: 25px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
