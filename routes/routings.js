@@ -293,7 +293,13 @@ exports.getData = function(req, res){
 				}
 
 				else if(type.indexOf('duration') >=0){
+					console.log(info);
 					res.send(info.duration);
+					console.log('sent back ' + info.duration);
+				}
+				else{
+					res.send('');
+					console.log('NO DATA TO SEND?');
 				}
 			}
 	});
