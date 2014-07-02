@@ -55,7 +55,7 @@ exports.getRecentJobs = function(req, res){
 	  			
 	  			var data = [];
 
-
+	  			/*
 	  			while(info.jobs.length != 0){
 	  				var timestamp = info.jobs[0].lastBuild.timestamp;
 	  				var id = info.jobs[0].lastBuild.number;
@@ -72,11 +72,10 @@ exports.getRecentJobs = function(req, res){
 		  			}
 		  			data[data.length] = {'timestamp': timestamp, 'id': id,'name': name};
 		  			info.jobs.splice(index,index);
-		  		}
+		  		}*/
 	  			
 
-				console.log(data);
-				res.send(data);
+				res.send(info);
 			}
 	    }
 	);	
