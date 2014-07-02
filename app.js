@@ -23,7 +23,9 @@ app.get('/report', function(req, res){
 app.get('/builds', function(req, res){
 	res.render('builds');
 });
-
+app.get('/home', function(req, res){
+	res.render('home');
+});
 app.get('/graph', function(req, res){
 	res.render('graph');
 });
