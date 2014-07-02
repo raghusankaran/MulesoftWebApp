@@ -293,9 +293,7 @@ exports.getData = function(req, res){
 				}
 
 				else if(type.indexOf('duration') >=0){
-					console.log(info);
-					res.send(info.duration);
-					console.log('sent back ' + info.duration);
+					res.send(''+ info.duration);
 				}
 				else{
 					res.send('');
