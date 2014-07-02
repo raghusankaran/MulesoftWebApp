@@ -35,6 +35,53 @@ exports.getJobNames = function(req, res){
 	);	
 };
 
+//GET builds in order of timestamp
+exports.getRecentJobs = function(req, res){
+	var dList = "";
+
+	console.log('trying to connect to Hudson: ' + config.jobHost);
+	var urlToHudson = config.jobHost + '/api/json?tree=jobs[name,lastSuccessfulBuild[number,timestamp]]';
+
+	request(
+    {
+        url : urlToHudson,
+        headers : {
+            "Authorization" : auth
+        }
+    },
+	    function (error, response, body) {
+	        if (!error && response.statusCode == 200) {
+	        	var info = JSON.parse(body);
+	  			
+	  			var data = [];
+
+
+	  			while(info.jobs.length != 0){
+	  				var timestamp = info.jobs[0].lastSuccessfulBuild.timestamp;
+	  				var id = info.jobs[0].lastSuccessfulBuild.number;
+	  				var name = info.jobs[0].name;
+	  				var index = 0;
+		  			for(var i=0; i < info.jobs.length; i++){		  				
+		  				if(timestamp < info.jobs[i].lastSuccessfulBuild.timestamp)
+		  				{
+		  					timestamp = info.jobs[i].lastSuccessfulBuild.timestamp;
+			  				id = info.jobs[i].lastSuccessfulBuild.number;
+			  				name = info.jobs[i].name;
+			  				index = i;
+		  				}
+		  			}
+		  			data[data.length] = {'timestamp': timestamp, 'id': id,'name': name};
+		  			info.jobs.splice(index,index);
+		  		}
+	  			
+
+				console.log(data);
+				res.send(data);
+			}
+	    }
+	);	
+};
+
 //GET all the build names
 exports.getBuildNames = function(req, res){ 
 	var buildName = req.query.build;

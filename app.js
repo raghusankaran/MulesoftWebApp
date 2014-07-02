@@ -40,6 +40,9 @@ app.get('/retrieveBuilds/', routings.getBuildNames);
 //  -type = type of data
 app.get('/data/', routings.getData);
 
+//GET ordered list of job names
+app.get('/getRecentJobs/', routings.getRecentJobs);
+
 
 
 
