@@ -141,11 +141,11 @@
 			}		
 			
 			function calculateAllAverages(){
-				avgCPU = getAvg(cache['cpu']);
-				avgDisk = getAvg(cache['disk util']);
-				avgTPS = getAvg(cache['disk tps']);
-				avgNet = getAvg(cache['network used']);
-				avgMem = getAvg(cache['memutil']);
+				avgCPU = (''+ getAvg(cache['cpu'])).substring(0,5);
+				avgDisk = (''+ getAvg(cache['disk util'])).substring(0,5);
+				avgTPS = (''+ getAvg(cache['disk tps'])).substring(0,5);
+				avgNet = (''+ getAvg(cache['network used'])).substring(0,5);
+				avgMem = (''+ getAvg(cache['memutil'])).substring(0,5);
 			}
 
 			function getAvgResponseTime(){
@@ -160,6 +160,10 @@
 
 			function fillPage(){
 				document.getElementById('durationInsert').innerHTML = cache['duration'];
+				document.getElementById('avgCpu').innerHTML = avgCPU;
+				document.getElementById('avgDisk').innerHTML = avgDisk;
+				document.getElementById('avgMem').innerHTML = avgMem;
+				document.getElementById('avgNet').innerHTML = avgNet;
 			}
 
 			function initializePage(){
@@ -218,10 +222,10 @@
 					<div id='systemBox'class="infoMule">
 						<p class='keyTitle'>System Resources</p>
 						<p id='sysMetrics'>
-							Avg CPU Use:  <span id='' class='keyMetricResults'>76.3%</span><br>
-							Avg Memory Use:  <span id='' class='keyMetricResults'>6 %</span><br>
-							Avg Disk Use:  <span id='' class='keyMetricResults'>INSERT</span><br>
-							Avg Network Use:   <span id='' class='keyMetricResults'>22.3 %</span><br>
+							Avg CPU Use:  <span id='avgCpu' class='keyMetricResults'>76.3%</span><br>
+							Avg Memory Use:  <span id='avgMem' class='keyMetricResults'>6 %</span><br>
+							Avg Disk Use:  <span id='avgDisk' class='keyMetricResults'>INSERT</span><br>
+							Avg Network Use:   <span id='avgNet' class='keyMetricResults'>22.3 %</span><br>
 						</p>
 						
 					</div>
