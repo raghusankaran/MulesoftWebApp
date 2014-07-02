@@ -15,6 +15,8 @@
 			function initialize(){
 				var get = getRequest(config.retrieveRecentJobs);
 				var info = JSON.parse(get);
+				var data = [];
+				
 				while(info.jobs.length != 0){
 	  				var timestamp = info.jobs[0].lastBuild.timestamp;
 	  				var id = info.jobs[0].lastBuild.number;
