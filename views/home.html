@@ -6,16 +6,16 @@
 
 		<script src="../config.js"></script>
 		<script>
+		var data = [];
 			function getRequest(url){
 				var request = new XMLHttpRequest();
 				request.open("GET", url, false);
 				request.send(null);
 				return request.responseText;
 			}
-			function initialize(){
+			function getJobs(){
 				var get = getRequest(config.retrieveRecentJobs);
 				var info = JSON.parse(get);
-				var data = [];
 
 				for(var i = 0; i <  info.jobs.length; i++){
 					if(info.jobs[i].lastBuild != null){
@@ -23,10 +23,45 @@
 											 'id': info.jobs[i].lastBuild.number,
 											 'time': info.jobs[i].lastBuild.timestamp};
 					}
-				}
-				
-		  		return data;
+				}				
 			}
+
+			function getMostRecentJobs(size){
+				var times = [];
+				for(var i=0; i<size; size++){
+					times[i] = {'name': '', 
+							 'id': 0,
+							 'time': 0};
+				}
+				var seen = false
+				for(var i=0; i<size; i++){
+					for(var j =0; j<data.length; j++){
+						for(var k=0; k<i; k++){
+							if(data[j].time == times[k].time)
+								seen = true
+						}						
+						if(data[j].time > times[i].time && !seen){
+							times[i].time = data[j].time;
+							times[i].name = data[j].name;
+							times[i].id = data[j].id;
+						}
+						else if(seen){
+							seen = false;
+						}
+					}
+				}
+				return times;	
+			}
+
+
+			function initialize(){
+				getJobs();
+				var recents = getMostRecentJobs(2);
+			}
+
+			
+
+
 		</script>
 	</head>
 	<body>
