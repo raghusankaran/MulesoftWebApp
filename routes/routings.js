@@ -40,7 +40,7 @@ exports.getRecentJobs = function(req, res){
 	var dList = "";
 
 	console.log('trying to connect to Hudson: ' + config.jobHost);
-	var urlToHudson = config.jobHost + '/api/json?tree=jobs[name,lastSuccessfulBuild[number,timestamp]]';
+	var urlToHudson = config.jobHost + '/api/json?tree=jobs[name,lastBuild[number,timestamp]]';
 
 	request(
     {
@@ -57,17 +57,17 @@ exports.getRecentJobs = function(req, res){
 
 
 	  			while(info.jobs.length != 0){
-	  				var timestamp = info.jobs[0].lastSuccessfulBuild.timestamp;
-	  				var id = info.jobs[0].lastSuccessfulBuild.number;
+	  				var timestamp = info.jobs[0].lastBuild.timestamp;
+	  				var id = info.jobs[0].lastBuild.number;
 	  				var name = info.jobs[0].name;
 	  				var index = 0;
 	  				console.log(''+ timestamp + ', name: ' + name);
 		  			for(var i=0; i < info.jobs.length; i++){	
 		  				console.log(info.jobs[i]);
-		  				if(timestamp < info.jobs[i].lastSuccessfulBuild.timestamp)
+		  				if(info.jobs[i].lastBuild != null && timestamp < info.jobs[i].lastBuild.timestamp)
 		  				{
-		  					timestamp = info.jobs[i].lastSuccessfulBuild.timestamp;
-			  				id = info.jobs[i].lastSuccessfulBuild.number;
+		  					timestamp = info.jobs[i].lastBuild.timestamp;
+			  				id = info.jobs[i].lastBuild.number;
 			  				name = info.jobs[i].name;
 			  				index = i;
 		  				}
