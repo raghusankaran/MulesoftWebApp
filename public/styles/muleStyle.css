@@ -1,26 +1,11 @@
 html{
-	position: relative;
-	width: 1500px;
-	margin: 0px 0px;
-	height: 1000px;
-	overflow-x: hidden;
-	overflow-y: auto;
+	
 }
 
 body{
-		position: relative;
-		margin: 0 auto;
-		overflow-x: hidden;
-		overflow-y: auto;
-		max-height: 100%;
+		
 		background-color: #4F4F4F;
-		background-image: none;
-		background-repeat: repeat;
-		background-attachment: scroll;
-		background-position: 0% 0%;
-		background-clip: border-box;
-		background-origin: padding-box;
-		background-size: auto auto;
+		
 
 	}
 	canvas{
@@ -31,7 +16,6 @@ body{
 	#pagewrapper{
 		font: 20px/1.4 sans-serif;
 		width: 1500px;
-		max-height: 1000px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		font-family: 'Josefin Sans', sans-serif;
