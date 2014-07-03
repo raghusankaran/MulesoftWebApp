@@ -57,6 +57,12 @@
 			function initialize(){
 				getJobs();
 				var recents = getMostRecentJobs(2);
+				for(var i=0; i<recents.length; i++){
+					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
+					document.getElementById('jobNum'+ (i+1)).innerHTML = recents[i].id;
+				}
+				
+
 			}
 
 			
@@ -105,10 +111,10 @@
 						Recent Runs
 					</div>
 					<div class='mainPreview'>
-						<span class='jobNameHome'>Jetty</span> 
+						<span id='jobName1' class='jobNameHome'>Jetty</span> 
 						<div class='jobInfoPreview'>
 							<ul>
-								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Latest run <span id='jobNum1' class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report</li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
@@ -118,10 +124,10 @@
 							</ul>
 						</div>
 						<a class='detailsLink' href="">See details</a><br>
-						<span class='jobNameHome'>CH_Production</span> 
+						<span  id= 'jobName2'class='jobNameHome'>CH_Production</span> 
 						<div class='jobInfoPreview'>
 							<ul>
-								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Latest run <span id='jobNum2' class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report</li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
