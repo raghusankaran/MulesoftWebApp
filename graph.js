@@ -133,7 +133,7 @@ function addLine(nameOfCanvas, data, yBounds, color){
     var y = canvas.height;
     var startX = .05 * x;
     var startY = y*.9;
-    
+    var currentStart = 0;
     var secondsPerPage = 120;
 
     var width = x*.95/data.length;
@@ -163,6 +163,5 @@ function addLine(nameOfCanvas, data, yBounds, color){
 	ctx.strokeStyle = '#000000';
 	
 	ctx.save();
-	numOfLines++;
 }
 
