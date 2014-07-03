@@ -81,7 +81,7 @@ exports.getBuildNames = function(req, res){
 	    function (error, response, body) 
 	    {
 	        if (!error && response.statusCode == 200) {
-	        	console.log(body);
+	        	//console.log(body);
 	        	var info = JSON.parse(body);
 
 	  			for(var i=0; i < info.builds.length; i++){
@@ -141,11 +141,10 @@ exports.getData = function(req, res){
 	    	
 				var path = config.hudsonPath+job+'/builds/'+fileID+'/archive/';
 				var relative = 'ERROR';
-
+				console.log(info.artifacts.length);
 				for(var i=0; i < info.artifacts.length; i++){
 					console.log(info.artifacts[i].fileName);
 					if(info.artifacts[i].fileName.indexOf('sar.cpuusage') >= 0){
-
 						relative = info.artifacts[i].relativePath.substring(0,info.artifacts[i].relativePath.length-16);
 						break;
 					}
