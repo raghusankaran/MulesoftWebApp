@@ -59,9 +59,11 @@
 				var recents = getMostRecentJobs(2);
 				for(var i=0; i<recents.length; i++){
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
-					document.getElementById('jobNum'+ (i+1)).innerHTML = recents[i].id;
+					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
+					var date = new Date(recents[i].time * 1000);
+					document.getElementById('jobDate1' + (i+1)).innerHTML = date.getMonth()+'/'date.getDay()+'/'date.getYear();
 				}
-				
+
 
 			}
 
@@ -114,7 +116,7 @@
 						<span id='jobName1' class='jobNameHome'>Jetty</span> 
 						<div class='jobInfoPreview'>
 							<ul>
-								<li>Latest run <span id='jobNum1' class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Latest run <span id='jobNum1' class='keyMetricResults'>#48</span> on <span id='jobDate1' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report</li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
@@ -127,7 +129,7 @@
 						<span  id= 'jobName2'class='jobNameHome'>CH_Production</span> 
 						<div class='jobInfoPreview'>
 							<ul>
-								<li>Latest run <span id='jobNum2' class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li>Latest run is <span id='jobNum2' class='keyMetricResults'>#48</span> on <span id='jobDate1' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report</li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
