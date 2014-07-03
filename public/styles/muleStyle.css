@@ -363,7 +363,23 @@ body{
 		font-size: 25px;
 	}
 
-
+	#otherBuilds{
+		width:1050px;
+		height:100px;
+		position: relative;
+		top:-510px;
+		color:white;
+		font-size: 22px;
+	}
+	#dropDownHome{
+		position: relative;
+		top:30px;
+		left:40px;
+	}
+	#searchForBuilds{
+		position: relative;
+		left:600px;
+	}
 
 
 
