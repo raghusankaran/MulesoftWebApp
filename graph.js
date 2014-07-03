@@ -44,7 +44,7 @@ function makeGraph(nameOfCanvas, percentage, yBounds){
 		for(var i=graphYAxis[0]; i <= graphYAxis[1]; i+= (graphYAxis[1]-graphYAxis[0])/samples){
 			ctx.fillStyle = 'black';
 			var text = '' + i;
-			ctx.fillText(text.substring(0,5) + '%',startX/4,startY - (startY/samples) * count);
+			ctx.fillText(text.substring(0,5) + '%',startX/5,startY - (startY/samples) * count);
 			ctx.stroke();
 			count++;
 		}
@@ -53,7 +53,7 @@ function makeGraph(nameOfCanvas, percentage, yBounds){
 		for(var i=graphYAxis[0]; i <= graphYAxis[1]; i+= (graphYAxis[1]-graphYAxis[0])/samples){
 			ctx.fillStyle = 'black';
 			var text = '' + i;
-			ctx.fillText(text.substring(0,5),startX/4,startY - (startY/samples) * count);
+			ctx.fillText(text.substring(0,5),startX/5,startY - (startY/samples) * count);
 			ctx.stroke();
 			count++;
 		}
@@ -116,6 +116,53 @@ function updateGraph(nameOfCanvas, options){
 	var bounds = getBounds(options.data);
 
 	makeGraph(nameOfCanvas, options.percentage, bounds);
+
+	for each (line in options.data)
+	{
+		addLine(nameOfCanvas, line, bounds, 'blue');
+	}
 	
+}
+
+function addLine(nameOfCanvas, data, yBounds, color){
+	
+	
+	var canvas = document.getElementById(nameOfCanvas);
+	var ctx = canvas.getContext('2d');
+    var x = canvas.width;
+    var y = canvas.height;
+    var startX = .05 * x;
+    var startY = y*.9;
+    
+    var secondsPerPage = 120;
+
+    var width = x*.95/data.length;
+    var samples = 10;
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    
+	ctx.lineCap='round';	
+	
+	ctx.moveTo(startX, startY - (startY/100) * data[i]);
+	
+	
+    var width = (x-startX) / (secondsPerPage/2);
+	
+	for(var i=0; i<secondsPerPage/2+1; i++)
+	{						
+		
+		var range = yBounds[1]-yBounds[0];
+		if( range > 0.00001){
+			var value =  data[i+currentStart/2];
+			var yPos = startY - startY * ((value-yBounds[0])/range);
+			
+			ctx.lineTo(startX+ width*i, yPos);
+		}
+	}
+	ctx.stroke();
+	ctx.strokeStyle = '#000000';
+	
+	ctx.save();
+	numOfLines++;
 }
 
