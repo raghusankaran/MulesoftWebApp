@@ -63,14 +63,14 @@ function makeGraph(nameOfCanvas, percentage, yBounds){
 
 }
 
-function getMaxAndMin(data){
+function getMinAndMax(data){
 	var result = [data[0], data[1]];
 
 	for(var i=0; i < data.length; i++){
-		if(data[i] > result[0]){
+		if(data[i] < result[0]){
 			result[0] = data[i];
 		}
-		else if(data[i] < result[1]){
+		else if(data[i] > result[1]){
 			result[1] = data[i];
 		}
 	}
@@ -91,14 +91,14 @@ function getMaxAndMin(data){
 }
 
 function getBounds(data){
-	var allMaxMins = [];
+	var allMinMax = [];
 
 	for(var line=0; line<data.length; line++){
-		allMaxMins[allMaxMins.length] = getMaxAndMin(data[line])[0];
-		allMaxMins[allMaxMins.length] = getMaxAndMin(data[line])[1];
+		allMinMax[allMinMax.length] = getMinAndMax(data[line])[0];
+		allMinMax[allMinMax.length] = getMinAndMax(data[line])[1];
 	}
 
-	var bounds = getMaxAndMin(allMaxMins);
+	var bounds = getMinAndMax(allMinMax);
 	return bounds;
 }
 
