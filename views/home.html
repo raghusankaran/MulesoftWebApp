@@ -81,6 +81,10 @@
 					document.getElementById('jobRes'+ (i+1)).innerHTML = recents[i].result;
 					if(recents[i].result == 'SUCCESS')
 						document.getElementById('jobRes'+ (i+1)).className = 'greenText';
+					else if(recents[i].result == null){
+						document.getElementById('jobRes'+ (i+1)).className = 'grayText';
+						document.getElementById('jobRes'+ (i+1)).innerHTML = 'In progress...'
+					}
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
 
