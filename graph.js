@@ -74,6 +74,9 @@ function getMinAndMax(data){
 			result[1] = parseFloat(data[i]);
 		}
 	}
+	if(data.length < 5){
+		return result;
+	}
 
 	if( result[1] == 0){
 		result[1] = 10;
