@@ -64,7 +64,7 @@ function makeGraph(nameOfCanvas, percentage, bounds){
 }
 
 function getMinAndMax(data){
-	var result = [parseFloat(data[0]), parseFloat(data[1])];
+	var result = [parseFloat(data[0]), parseFloat(data[0])];
 
 	for(var i=0; i < data.length; i++){
 		if(parseFloat(data[i]) < result[0]){
