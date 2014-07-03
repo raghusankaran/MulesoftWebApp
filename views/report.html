@@ -13,8 +13,13 @@
 			var cache = {
 						'duration': '',
 
-				        'cpu': [],
-			 		    'memutil': [],
+				        'cpu use': [],
+				        'cpu iowait': [],
+				        'cpu steal': [],
+
+			 		    'mem use': [],
+			 		    'mem kbcache': [],
+			 		    'mem kbbuffers': [],
 			         
 			  			'disk util': [],
 			  	        'disk await': [],
@@ -125,8 +130,15 @@
 			//cpu, memory, disk use, net use
 			function fillCache(){
 				cache['duration'] =  getData('duration', chosenID);
-				cache["cpu"] = getData('cpu', chosenID);
-				cache['memutil'] = getData('memutil', chosenID);
+
+				cache["cpu use"] = getData('cpu use', chosenID);
+				cache["cpu iowait"] = getData('cpu iowait', chosenID);
+				cache["cpu steal"] = getData('cpu steal', chosenID);
+
+				cache['mem use'] = getData('mem use', chosenID);				
+				cache['mem kbcache'] = getData('mem kbcache', chosenID);
+				cache['mem kbbuffers'] = getData('mem kbbuffers', chosenID);
+
 				cache['disk util'] = getData('disk util', chosenID);
 				cache['network used'] = getData('network used', chosenID);
 				cache['disk tps'] = getData('disk tps', chosenID);
@@ -142,7 +154,7 @@
 			}		
 			
 			function calculateAllAverages(){
-				avgCPU = (''+ getAvg(cache['cpu'])).substring(0,5);
+				avgCPU = (''+ getAvg(cache['cpu use'])).substring(0,5);
 				avgDisk = (''+ getAvg(cache['disk util'])).substring(0,5);
 				avgTPS = (''+ getAvg(cache['disk tps'])).substring(0,7);
 				avgNet = (''+ getAvg(cache['network used'])).substring(0,5);
