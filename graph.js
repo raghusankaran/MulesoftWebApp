@@ -133,7 +133,7 @@ function updateGraph(nameOfCanvas, options){
 	
 }
 
-function addLine(nameOfCanvas, data, yBounds, color){
+function addLine(nameOfCanvas, data, bounds, color){
 	
 	
 	var canvas = document.getElementById(nameOfCanvas);
@@ -143,7 +143,7 @@ function addLine(nameOfCanvas, data, yBounds, color){
     var startX = .05 * x;
     var startY = y*.85;
     var currentStart = 0;
-    var secondsPerPage = 120;
+    var secondsPerPage = bounds[2];
 
     var width = x*.95/data.length;
     var samples = 10;
@@ -160,10 +160,10 @@ function addLine(nameOfCanvas, data, yBounds, color){
 	for(var i=0; i<secondsPerPage/2+1; i++)
 	{						
 		
-		var range = yBounds[1]-yBounds[0];
+		var range = bounds[1]-bounds[0];
 		if( range > 0.00001){
 			var value =  data[i+currentStart/2];
-			var yPos = startY - startY * ((value-yBounds[0])/range);
+			var yPos = startY - startY * ((value-bounds[0])/range);
 			
 			ctx.lineTo(startX+ width*i, yPos);
 		}
