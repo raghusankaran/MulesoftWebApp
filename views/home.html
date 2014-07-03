@@ -60,7 +60,7 @@
 				for(var i=0; i<recents.length; i++){
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
 					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
-					var date = new Date(parseFloat(recents[i].time));
+					var date = new Date(parseFloat(recents[i].time) * 10);
 					
 					document.getElementById('jobDate' + (i+1)).innerHTML = date.getMonth()+'/'+date.getDay()+'/'+date.getYear();
 				}
