@@ -14,7 +14,7 @@ app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 app.use(express.static(__dirname));
 app.get('/', function(req, res){
-	res.render('index');
+	res.render('home');
 });
 app.get('/report', function(req, res){
 	res.render('report');
