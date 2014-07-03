@@ -179,8 +179,22 @@
 				document.getElementById('avgMem').innerHTML = avgMem+ ' %';
 				document.getElementById('avgNet').innerHTML = avgNet+ ' %';
 				document.getElementById('avgTPS').innerHTML = avgTPS;
+				/*
+					options = {
+						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
+							'data': [[line1...],[line2...],[line3...]]
+							'baseline': [line...]
+							'percentage': true/false
+							}
 
-				makeGraph('graph1', true);
+				*/
+				var options = {
+							'description': 'CPU Graph',
+							'data':[[cache['cpu use']]],
+							'baseline': null,
+							'percentage': true
+				};
+				updateGraph('graph1', options);
 			}
 
 			function initializePage(){
