@@ -202,9 +202,9 @@ exports.getData = function(req, res){
 				}
 				else if(type.indexOf('mem') >=0)
 				{	
-					
+					var nameOfFile = 'sar.memutil.out';
 					if(type.indexOf('use') >=0){
-						var nameOfFile = 'sar.memutil.out';
+						
 						//console.log(path + nameOfFile);
 						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
 						{
