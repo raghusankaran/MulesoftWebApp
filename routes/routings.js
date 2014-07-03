@@ -140,45 +140,125 @@ exports.getData = function(req, res){
 
 				path+=relative;
 				//console.log(path);
-				if(type == 'cpu')
+				if(type.indexOf('cpu') >=0)
 				{	
 					var nameOfFile = 'sar.cpuusage.out';
 					//console.log(path+nameOfFile);
-					fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-					{
-						
-						var locateStart = str.indexOf('%idle');
-						str = str.substring(locateStart+5);
-						var dataSet = str.match(/\s\s\d+\.\d+/g);
-						//usr + nice + sys + irq 
-						var data = '';
-						
-						var jump = 9;
-						for(var i = 0; i < dataSet.length; i+= jump)
+					if(type.indexOf('use') >=0){	
+						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
 						{
-							data += (parseFloat(dataSet[i]) + parseFloat(dataSet[i+1]) + parseFloat(dataSet[i+2]) + parseFloat(dataSet[i+5]))+',';
-						}
-						res.send(data);
-					});					
 							
-						
-					
+							var locateStart = str.indexOf('%idle');
+							str = str.substring(locateStart+5);
+							var dataSet = str.match(/\s\s\d+\.\d+/g);
+							//usr + nice + sys + irq 
+							var data = '';
+							
+							var jump = 9;
+							for(var i = 0; i < dataSet.length; i+= jump)
+							{
+								data += (parseFloat(dataSet[i]) + parseFloat(dataSet[i+1]) + parseFloat(dataSet[i+2]) + parseFloat(dataSet[i+5]))+',';
+							}
+							res.send(data);
+						});					
+					}
+					else if(type.indexOf('iowait') >=0){
+						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
+						{
+							
+							var locateStart = str.indexOf('%idle');
+							str = str.substring(locateStart+5);
+							var dataSet = str.match(/\s\s\d+\.\d+/g);
+							//usr + nice + sys + irq 
+							var data = '';
+							
+							var jump = 9;
+							for(var i = 0; i < dataSet.length; i+= jump)
+							{
+								data += dataSet[i+3]+',';
+							}
+							res.send(data);
+						});	
+
+					}
+					else if(type.indexOf('steal') >=0){
+						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
+						{
+							
+							var locateStart = str.indexOf('%idle');
+							str = str.substring(locateStart+5);
+							var dataSet = str.match(/\s\s\d+\.\d+/g);
+							//usr + nice + sys + irq 
+							var data = '';
+							
+							var jump = 9;
+							for(var i = 0; i < dataSet.length; i+= jump)
+							{
+								data += dataSet[i+4]+',';
+							}
+							res.send(data);
+						});	
+					}
 				}
-				else if(type == 'memutil')
+				else if(type.indexOf('mem') >=0)
 				{	
-					var nameOfFile = 'sar.memutil.out';
-					//console.log(path + nameOfFile);
-					fs.readFile(path + nameOfFile, {encoding: 'utf-8'}, function(err, str)
-					{			
-						var temp  = str.match(/\s\d{1,}\.\d{2}/g);
-					    var data = '';
-						for(var i = 0; i < temp.length; i+=2){
+					
+					if(type.indexOf('use') >=0){
+						var nameOfFile = 'sar.memutil.out';
+						//console.log(path + nameOfFile);
+						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
+						{
 							
-							data += temp[i]+',';
+							var locateStart = str.indexOf('%commit');
+							str = str.substring(locateStart+7);
+							var dataSet = str.match(/\s\s\d+(\.)?\d+/g);
+							//usr + nice + sys + irq 
+							var data = '';
 							
-						}
-						res.send(data);
-					});
+							var jump = 7;
+							for(var i = 0; i < dataSet.length; i+= jump)
+							{
+								data += dataSet[i+2]+',';
+							}
+							res.send(data);
+						});	
+					}
+					else if(type.indexOf('kbcache') >=0){
+						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
+						{
+							
+							var locateStart = str.indexOf('%commit');
+							str = str.substring(locateStart+7);
+							var dataSet = str.match(/\s\s\d+(\.)?\d+/g);
+							//usr + nice + sys + irq 
+							var data = '';
+							
+							var jump = 7;
+							for(var i = 0; i < dataSet.length; i+= jump)
+							{
+								data += dataSet[i+4]+',';
+							}
+							res.send(data);
+						});
+					}
+					else if(type.indexOf('kbbuffers') >=0){
+						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
+						{
+							
+							var locateStart = str.indexOf('%commit');
+							str = str.substring(locateStart+7);
+							var dataSet = str.match(/\s\s\d+(\.)?\d+/g);
+							//usr + nice + sys + irq 
+							var data = '';
+							
+							var jump = 7;
+							for(var i = 0; i < dataSet.length; i+= jump)
+							{
+								data += dataSet[i+3]+',';
+							}
+							res.send(data);
+						});
+					}						
 				}
 
 				else if(type.indexOf('disk') >=0){
