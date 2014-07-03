@@ -87,6 +87,7 @@ function getMaxAndMin(data){
 		result[1] *= 1.1;
 		result[0] *= .9;
 	}
+	return result;
 }
 
 function getBounds(data){
