@@ -64,14 +64,14 @@ function makeGraph(nameOfCanvas, percentage, yBounds){
 }
 
 function getMinAndMax(data){
-	var result = [data[0], data[1]];
+	var result = [float.parse(data[0]), float.parse(data[1])];
 
 	for(var i=0; i < data.length; i++){
-		if(data[i] < result[0]){
-			result[0] = data[i];
+		if(float.parse(data[i]) < result[0]){
+			result[0] = float.parse(data[i]);
 		}
 		else if(data[i] > result[1]){
-			result[1] = data[i];
+			result[1] = float.parse(data[i]);
 		}
 	}
 
