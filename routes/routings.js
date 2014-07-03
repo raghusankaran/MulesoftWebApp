@@ -149,7 +149,7 @@ exports.getData = function(req, res){
 						break;
 					}
 				}
-				if(relative = 'ERROR'){
+				if(relative == 'ERROR'){
 					res.send('Bad build');
 				}
 
