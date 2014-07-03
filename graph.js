@@ -13,7 +13,7 @@ function makeGraph(nameOfCanvas, percentage){
     var x = canvas.width-5;
     var y = canvas.height;
     var startX = .05 * x;
-    var startY = y*.9;
+    var startY = y*.75;
     ctx.strokeStyle = 'black';
     var graphYAxis = [0,100];
 
@@ -35,7 +35,7 @@ function makeGraph(nameOfCanvas, percentage){
     	ctx.fillText(('' + count).substring(0,7) ,  startX + width*i , startY + 20);
 		count += secondsPerPage/samples;
     }
-    ctx.font="10px Courier New";
+    ctx.font="20px Courier New";
     ctx.fillText("Time (in Seconds)" ,  startX + width*(samples/2-1) , startY + 50);
    	ctx.font="bold 10px Courier New";
 
