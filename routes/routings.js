@@ -139,9 +139,19 @@ exports.getData = function(req, res){
 				fileID = info.id;		
 			
 	    	
-				var path = config.hudsonPath+job+'/builds/'+fileID+'/archive/logs/';
+				var path = config.hudsonPath+job+'/builds/'+fileID+'/archive/';
+				var relative = 'ERROR';
+				for(var i=0; i < info.artifacts.length; i++){
+					if(info.artifacts[i].fileName.indexOf('sar.cpuusage') >= 0){
+						relative= info.artifacts[i].relativePath.substring(0,info.artifacts[i].relativePath.length-16);
+						break;
+					}
+				}
+				if(relative = 'ERROR'){
+					res.send('Bad build');
+				}
 
-
+				path+=relative;
 				if(type == 'cpu')
 				{	
 					var nameOfFile = 'sar.cpuusage.out';
