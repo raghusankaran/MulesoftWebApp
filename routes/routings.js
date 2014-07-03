@@ -141,9 +141,12 @@ exports.getData = function(req, res){
 	    	
 				var path = config.hudsonPath+job+'/builds/'+fileID+'/archive/';
 				var relative = 'ERROR';
+
 				for(var i=0; i < info.artifacts.length; i++){
+					console.log(info.artifacts[i].fileName);
 					if(info.artifacts[i].fileName.indexOf('sar.cpuusage') >= 0){
-						relative= info.artifacts[i].relativePath.substring(0,info.artifacts[i].relativePath.length-16);
+
+						relative = info.artifacts[i].relativePath.substring(0,info.artifacts[i].relativePath.length-16);
 						break;
 					}
 				}
