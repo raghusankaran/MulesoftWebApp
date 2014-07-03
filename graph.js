@@ -104,10 +104,10 @@ function getBounds(data){
 	//Find x-axis range
 	var xaxis = [];
 	for(var line=0; line<data.length; line++){
-		xaxis[xaxis.length] = data[line].length * 2;
+		xaxis[xaxis.length] = data[line].length;
 	}
 
-	bounds[bounds.length] = getMinAndMax(xaxis)[1] * 1.1;
+	bounds[bounds.length] = getMinAndMax(xaxis)[1] * 2;
 	return bounds;
 }
 
