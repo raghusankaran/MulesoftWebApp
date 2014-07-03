@@ -132,7 +132,7 @@ function addLine(nameOfCanvas, data, yBounds, color){
     var x = canvas.width;
     var y = canvas.height;
     var startX = .05 * x;
-    var startY = y*.9;
+    var startY = y*.85;
     var currentStart = 0;
     var secondsPerPage = 120;
 
