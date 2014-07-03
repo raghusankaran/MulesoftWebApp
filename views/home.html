@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+		<link href='muleStyle.css' rel='stylesheet'type='text/css'>
 
 		<script src="../config.js"></script>
 		<script>
@@ -65,8 +65,6 @@
 					document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
 					document.getElementById('jobLink' + (i+1)).href = config.report + recents[i].name;
 				}
-
-
 			}
 
 			
@@ -141,6 +139,20 @@
 							</ul>
 						</div>
 						<a id='jobLink2' class='detailsLink' href="">See details</a>	<br>
+					</div>
+				</div>
+				<div id='otherBuilds' class='homeMule'>
+					<div id='dropDownHome'>						
+						<form action='' method='get'>
+							Select a Build: 
+							<select id='jobDropDown'></select>
+						</form>
+					</div>
+					<div id='searchForBuilds'>
+						<form action='' method='get'>
+							Search for a Build: <input type="text" name="user">
+							<input type='submit' value='Submit'>
+						</form>
 					</div>
 				</div>
 			</div>
