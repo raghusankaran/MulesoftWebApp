@@ -7,7 +7,7 @@ function clearCanvas(nameOfCanvas){
 }
 
 
-function makeGraph(nameOfCanvas, percentage, yBounds){	
+function makeGraph(nameOfCanvas, percentage, bounds){	
 	var canvas = document.getElementById(nameOfCanvas);
 	var ctx = canvas.getContext('2d');
     var x = canvas.width-5;
@@ -15,7 +15,7 @@ function makeGraph(nameOfCanvas, percentage, yBounds){
     var startX = .05 * x;
     var startY = y*.85;
     ctx.strokeStyle = 'black';
-    var graphYAxis = yBounds;
+    var graphYAxis = [bounds[0], bounds[1]];
 
     ctx.beginPath();
 	ctx.moveTo(startX,startY);
@@ -29,7 +29,7 @@ function makeGraph(nameOfCanvas, percentage, yBounds){
     var samples = 10;
     var width = (x-startX) / samples;
     var count = 0; //XXX: UPDATE SOON
-    var secondsPerPage = 120;
+    var secondsPerPage = bounds[2];
     for(var i = 0; i < samples; i++){
     	
     	ctx.fillText(('' + count).substring(0,7) ,  startX + width*i , startY + 20);
@@ -93,12 +93,21 @@ function getMinAndMax(data){
 function getBounds(data){
 	var allMinMax = [];
 
+	//Find y-bounds
 	for(var line=0; line<data.length; line++){
 		allMinMax[allMinMax.length] = getMinAndMax(data[line])[0];
 		allMinMax[allMinMax.length] = getMinAndMax(data[line])[1];
 	}
 
 	var bounds = getMinAndMax(allMinMax);
+
+	//Find x-axis range
+	var xaxis = [];
+	for(var line=0; line<data.length; line++){
+		xaxis[xaxis.length] = data[line].length * 2;
+	}
+
+	bounds[bounds.length] = getMinAndMax(xaxis)[1] * 1.1;
 	return bounds;
 }
 
