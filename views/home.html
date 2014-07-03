@@ -25,8 +25,8 @@
 											 'time': info.jobs[i].lastBuild.timestamp,
 											 'result': info.jobs[i].lastBuild.result};
 
-						if(data[i].name == 'PerfCI'){
-							main = data[i];
+						if(data[data.length-1].name == 'PerfCI'){
+							main = data[data.length-1];
 						}
 					}
 					
