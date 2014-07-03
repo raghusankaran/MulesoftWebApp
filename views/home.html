@@ -77,22 +77,22 @@
 				getJobs();
 				var recents = getMostRecentJobs(2);
 
-				document.getElementById('jobName'+ (i+1)).innerHTML = main.name;
-				document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+main.id;
+				document.getElementById('mainName').innerHTML = main.name;
+				document.getElementById('mainNum').innerHTML = '#'+main.id;
 				var date = new Date(parseFloat(main.time)-28800000);
 				
-				document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
-				document.getElementById('jobLink' + (i+1)).href = config.report + main.name;
+				document.getElementById('mainDate').innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
+				document.getElementById('mainLink' ).href = config.report + main.name;
 				
-				document.getElementById('jobRes'+ (i+1)).innerHTML = main.result;
+				document.getElementById('mainRes').innerHTML = main.result;
 				if(main.result == 'SUCCESS')
-					document.getElementById('jobRes'+ (i+1)).className = 'greenText';
+					document.getElementById('mainRes' ).className = 'greenText';
 				else if(main.result == null){
-					document.getElementById('jobRes'+ (i+1)).className = 'grayText';
-					document.getElementById('jobRes'+ (i+1)).innerHTML = 'In progress...'
+					document.getElementById('mainRes').className = 'grayText';
+					document.getElementById('mainRes').innerHTML = 'In progress...'
 				}
 				else
-					document.getElementById('jobRes'+ (i+1)).className = 'redText';
+					document.getElementById('mainRes').className = 'redText';
 
 				for(var i=0; i<recents.length; i++){
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
@@ -140,11 +140,11 @@
 
 					</div>
 					<div class='mainPreview'>
-						<span class='jobNameHome'>PerfCI</span>
+						<span id='mainName' class='jobNameHome'>PerfCI</span>
 						<div class='jobInfoPreview'>
 							<ul>
-								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
-								<li>Status Report - </li>
+								<li>Latest run <span id='mainNum' class='keyMetricResults'>#48</span> on <span id='mainDate' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
+								<li id='mainRes'>Status Report - </li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
 										<li>Compared to Previous: <span class='redText'>Failed</span></li>
@@ -152,7 +152,7 @@
 									</ul>
 							</ul>
 						</div>
-						<a class='detailsLink' id='mainDLink' href="">See details</a><br>
+						<a class='detailsLink' id='mainLink' href="">See details</a><br>
 	
 					</div>
 				</div>	
