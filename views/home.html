@@ -62,7 +62,7 @@
 					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
 					var date = new Date(parseFloat(recents[i].time)-28800000);
 					
-					document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-2);
+					document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
 				}
 
 
