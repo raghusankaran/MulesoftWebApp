@@ -117,10 +117,10 @@ function updateGraph(nameOfCanvas, options){
 
 	makeGraph(nameOfCanvas, options.percentage, bounds);
 
-	/*for each (var line in options.data)
-	{
-		addLine(nameOfCanvas, line, bounds, 'blue');
-	}*/
+	for(var line=0; line<data.length; line++){
+		addLine(nameOfCanvas, data[line], bounds, 'blue');
+	}
+	
 	
 }
 
