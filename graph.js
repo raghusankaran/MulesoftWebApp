@@ -8,6 +8,7 @@ function clearCanvas(nameOfCanvas){
 
 
 function makeGraph(nameOfCanvas, percentage, bounds){	
+	clearCanvas(nameOfCanvas);
 	var canvas = document.getElementById(nameOfCanvas);
 	var ctx = canvas.getContext('2d');
     var x = canvas.width-5;
