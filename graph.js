@@ -7,7 +7,7 @@ function clearCanvas(nameOfCanvas){
 }
 
 
-function makeGraph(nameOfCanvas, percentage){	
+function makeGraph(nameOfCanvas, percentage, yBounds){	
 	var canvas = document.getElementById(nameOfCanvas);
 	var ctx = canvas.getContext('2d');
     var x = canvas.width-5;
@@ -15,7 +15,7 @@ function makeGraph(nameOfCanvas, percentage){
     var startX = .05 * x;
     var startY = y*.85;
     ctx.strokeStyle = 'black';
-    var graphYAxis = [0,100];
+    var graphYAxis = yBounds;
 
     ctx.beginPath();
 	ctx.moveTo(startX,startY);
@@ -62,3 +62,59 @@ function makeGraph(nameOfCanvas, percentage){
 	ctx.save();
 
 }
+
+function getMaxAndMin(data){
+	var result = [data[0], data[1]];
+
+	for(var i=0; i < data.length; i++){
+		if(data[i] > result[0]){
+			result[0] = data[i];
+		}
+		else if(data[i] < result[1]){
+			result[1] = data[i];
+		}
+	}
+
+	if( result[1] == 0){
+		result[1] = 10;
+	}
+	else if(Math.abs(result[1]-result[0]) < 10){
+		result[1] *= 1.5;
+		result[0] *= .5;
+	}
+	
+	else{
+		result[1] *= 1.1;
+		result[0] *= .9;
+	}
+}
+
+function getBounds(data){
+	var allMaxMins = [];
+
+	for(var line=0; line<data.length; line++){
+		allMaxMins[allMaxMins.length] = getMaxAndMin(data[line])[0];
+		allMaxMins[allMaxMins.length] = getMaxAndMin(data[line])[1];
+	}
+
+	var bounds = getMaxAndMin(allMaxMins);
+	return bounds;
+}
+
+/*
+	options = {
+		    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
+			'data': [[line1...],[line2...],[line3...]]
+			'baseline': [line...]
+			'percentage': true/false
+			}
+
+*/
+function updateGraph(nameOfCanvas, options){
+	//get bounds
+	var bounds = getBounds(options.data);
+
+	makeGraph(nameOfCanvas, options.percentage, bounds);
+	
+}
+
