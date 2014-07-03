@@ -1,13 +1,14 @@
 html{
+	position: relative;
 	width:1500px;
-	min-height: 1500px;
+	margin: 0 auto;
 	overflow-x: hidden; 
 	
 }
 
 body{
-		height:2000px;
-
+		position: relative;
+		margin: 0 auto;
 	    overflow-x: hidden; 
 	    overflow-y: hidden;
 
