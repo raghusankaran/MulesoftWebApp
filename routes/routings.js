@@ -12,7 +12,7 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 exports.getJobNames = function(req, res){
 	var dList = "";
 
-	console.log('trying to connect to Hudson: ' + config.jobHost);
+	
 	var urlToHudson = config.jobHost + '/api/json';
 
 	request(
@@ -28,7 +28,7 @@ exports.getJobNames = function(req, res){
 	  			for(var i=0; i < info.jobs.length; i++){
 					dList += info.jobs[i].name +',';
 				}
-				console.log(dList);
+				
 				res.send(dList);
 			}
 	    }
@@ -39,7 +39,7 @@ exports.getJobNames = function(req, res){
 exports.getRecentJobs = function(req, res){
 	var dList = "";
 
-	console.log('trying to connect to Hudson: ' + config.jobHost);
+	
 	var urlToHudson = config.jobHost + '/api/json?tree=jobs[name,lastBuild[number,timestamp,result]]';
 
 	request(
@@ -68,7 +68,7 @@ exports.getBuildNames = function(req, res){
 	var dList = "";
 	var urlToHudson = config.jobHost + '/job/'+ buildName + '/api/json'
 
-	console.log('trying to connect to Hudson: ' + urlToHudson);
+	
 
 
 	request(
@@ -81,13 +81,13 @@ exports.getBuildNames = function(req, res){
 	    function (error, response, body) 
 	    {
 	        if (!error && response.statusCode == 200) {
-	        	//console.log(body);
+	        	//
 	        	var info = JSON.parse(body);
 
 	  			for(var i=0; i < info.builds.length; i++){
 					dList += info.builds[i].number +',';
 				}
-				console.log(dList);
+				
 				res.send(dList);
 			}
 	    }
@@ -118,7 +118,7 @@ exports.getData = function(req, res){
         }
     },
 	    function (error, response, body) {
-	    	console.log('woihfqwf');
+	    	
 	        if (!error && response.statusCode == 200) {
 	        	var info = JSON.parse(body);	  			
 				fileID = info.id;		
@@ -126,9 +126,9 @@ exports.getData = function(req, res){
 	    	
 				var path = config.hudsonPath+job+'/builds/'+fileID+'/archive/';
 				var relative = 'ERROR';
-				//console.log(info.artifacts.length);
+				//
 				for(var i=0; i < info.artifacts.length; i++){
-					//console.log(info.artifacts[i].fileName);
+					//
 					if(info.artifacts[i].fileName.indexOf('sar.cpuusage') >= 0){
 						relative = info.artifacts[i].relativePath.substring(0,info.artifacts[i].relativePath.length-16);
 						break;
@@ -139,11 +139,11 @@ exports.getData = function(req, res){
 				}
 
 				path+=relative;
-				//console.log(path);
+				//
 				if(type.indexOf('cpu') >=0)
 				{	
 					var nameOfFile = 'sar.cpuusage.out';
-					//console.log(path+nameOfFile);
+					//
 					if(type.indexOf('use') >=0){	
 						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
 						{
@@ -205,7 +205,7 @@ exports.getData = function(req, res){
 					var nameOfFile = 'sar.memutil.out';
 					if(type.indexOf('use') >=0){
 						
-						//console.log(path + nameOfFile);
+						//
 						fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
 						{
 							
@@ -400,7 +400,7 @@ exports.getData = function(req, res){
 
 				else{
 					res.send('');
-					console.log('NO DATA TO SEND?');
+					
 				}
 			}
 	});
