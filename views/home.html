@@ -88,7 +88,7 @@
 				if(main.result == 'SUCCESS')
 					document.getElementById('mainRes' ).className = 'greenText';
 				else if(main.result == null){
-					document.getElementById('mainRes').className = 'grayText';
+					document.getElementById('mainRes').className = 'yellowText';
 					document.getElementById('mainRes').innerHTML = 'In progress...'
 				}
 				else
@@ -106,7 +106,7 @@
 					if(recents[i].result == 'SUCCESS')
 						document.getElementById('jobRes'+ (i+1)).className = 'greenText';
 					else if(recents[i].result == null){
-						document.getElementById('jobRes'+ (i+1)).className = 'grayText';
+						document.getElementById('jobRes'+ (i+1)).className = 'yellowText';
 						document.getElementById('jobRes'+ (i+1)).innerHTML = 'In progress...'
 					}
 					else
