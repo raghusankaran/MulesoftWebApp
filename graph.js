@@ -7,7 +7,7 @@ function clearCanvas(nameOfCanvas){
 }
 
 
-function makeGraph(nameOfCanvas){	
+function makeGraph(nameOfCanvas, percentage){	
 	var canvas = document.getElementById(nameOfCanvas);
 	var ctx = canvas.getContext('2d');
     var x = canvas.width-5;
@@ -40,7 +40,7 @@ function makeGraph(nameOfCanvas){
    	ctx.font="bold 10px Courier New";
 
 	count =0;
-	if(canvasID==0){
+	if(percentage){
 		for(var i=graphYAxis[0]; i <= graphYAxis[1]; i+= (graphYAxis[1]-graphYAxis[0])/samples){
 			ctx.fillStyle = 'black';
 			var text = '' + i;
