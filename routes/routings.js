@@ -152,6 +152,7 @@ exports.getData = function(req, res){
 				}
 
 				path+=relative;
+				console.log(path);
 				if(type == 'cpu')
 				{	
 					var nameOfFile = 'sar.cpuusage.out';
