@@ -7,6 +7,7 @@
 		<script src="../config.js"></script>
 		<script>
 		var data = [];
+		var main;
 			function getRequest(url){
 				var request = new XMLHttpRequest();
 				request.open("GET", url, false);
@@ -23,6 +24,9 @@
 											 'id': info.jobs[i].lastBuild.number,
 											 'time': info.jobs[i].lastBuild.timestamp,
 											 'result': info.jobs[i].lastBuild.result};
+					}
+					if(data[i].name == 'PerfCI'){
+						main = data[i];
 					}
 				}				
 			}
@@ -70,6 +74,24 @@
 			function initialize(){
 				getJobs();
 				var recents = getMostRecentJobs(2);
+
+				document.getElementById('jobName'+ (i+1)).innerHTML = main.name;
+				document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+main.id;
+				var date = new Date(parseFloat(main.time)-28800000);
+				
+				document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
+				document.getElementById('jobLink' + (i+1)).href = config.report + main.name;
+				
+				document.getElementById('jobRes'+ (i+1)).innerHTML = main.result;
+				if(main.result == 'SUCCESS')
+					document.getElementById('jobRes'+ (i+1)).className = 'greenText';
+				else if(main.result == null){
+					document.getElementById('jobRes'+ (i+1)).className = 'grayText';
+					document.getElementById('jobRes'+ (i+1)).innerHTML = 'In progress...'
+				}
+				else
+					document.getElementById('jobRes'+ (i+1)).className = 'redText';
+
 				for(var i=0; i<recents.length; i++){
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
 					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
@@ -87,8 +109,6 @@
 					}
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
-
-
 				}
 				document.getElementById('searchBar').action = config.report;
 				buildDropDown();
