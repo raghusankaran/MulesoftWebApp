@@ -24,10 +24,12 @@
 											 'id': info.jobs[i].lastBuild.number,
 											 'time': info.jobs[i].lastBuild.timestamp,
 											 'result': info.jobs[i].lastBuild.result};
+
+						if(data[i].name == 'PerfCI'){
+							main = data[i];
+						}
 					}
-					if(data[i].name == 'PerfCI'){
-						main = data[i];
-					}
+					
 				}				
 			}
 
