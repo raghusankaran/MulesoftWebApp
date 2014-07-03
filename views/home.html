@@ -79,7 +79,7 @@
 					document.getElementById('jobLink' + (i+1)).href = config.report + recents[i].name;
 					
 					document.getElementById('jobRes'+ (i+1)).innerHTML = recents[i].result;
-					if(recents[i].result = 'SUCCESS')
+					if(recents[i].result == 'SUCCESS')
 						document.getElementById('jobRes'+ (i+1)).className = 'greenText';
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
