@@ -22,7 +22,7 @@ function makeGraph(nameOfCanvas){
 	ctx.lineTo(startX,5);
 	ctx.moveTo(startX,startY);
 	ctx.lineTo(x, startY);
-	ctx.lineWidth = 4;
+	ctx.lineWidth = 2;
 	ctx.stroke();				
 	ctx.lineWidth = 1;
    
@@ -35,7 +35,7 @@ function makeGraph(nameOfCanvas){
     	ctx.fillText(('' + count).substring(0,7) ,  startX + width*i , startY + 20);
 		count += secondsPerPage/samples;
     }
-    ctx.font="30px Courier New";
+    ctx.font="10px Courier New";
     ctx.fillText("Time (in Seconds)" ,  startX + width*(samples/2-1) , startY + 50);
    	ctx.font="bold 10px Courier New";
 
