@@ -1,9 +1,16 @@
+html{
+	position: relative;
+	width:1500px;
+	margin: 50px 0px;
+	overflow-x: hidden; 
+	
+}
 
 body{
 		position: relative;
 		margin: 0 auto;
 	    overflow-x: hidden; 
-	    overflow-y: auto;
+	    overflow-y: hidden;
 	    max-height: 1000px;
 		
 		background-color: #4F4F4F ;
@@ -24,6 +31,8 @@ body{
 	#pagewrapper{
 		font: 20px/1.4 sans-serif;
 		width: 1400px;
+		max-height: 1000px;
+		overflow-x: hidden;
 		overflow-y: auto;
 		font-family: 'Josefin Sans', sans-serif;
 		margin-left: auto;
