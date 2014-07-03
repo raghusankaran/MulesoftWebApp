@@ -22,7 +22,7 @@ function makeGraph(nameOfCanvas){
 	ctx.lineTo(startX,5);
 	ctx.moveTo(startX,startY);
 	ctx.lineTo(x, startY);
-	ctx.lineWidth = 2;
+	ctx.lineWidth = 4;
 	ctx.stroke();				
 	ctx.lineWidth = 1;
    
