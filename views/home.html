@@ -21,7 +21,8 @@
 					if(info.jobs[i].lastBuild != null){
 						data[data.length] = {'name': info.jobs[i].name, 
 											 'id': info.jobs[i].lastBuild.number,
-											 'time': info.jobs[i].lastBuild.timestamp};
+											 'time': info.jobs[i].lastBuild.timestamp,
+											 'result': info.jobs[i].lastBuild.result};
 					}
 				}				
 			}
@@ -31,7 +32,8 @@
 				for(var i=0; i<size; i++){
 					times[i] = {'name': '', 
 							 'id': 0,
-							 'time': 0};
+							 'time': 0,
+							 'result':'unknown'};
 				}
 				var seen = false
 				for(var i=0; i<size; i++){
@@ -44,6 +46,7 @@
 							times[i].time = data[j].time;
 							times[i].name = data[j].name;
 							times[i].id = data[j].id;
+							times[i].result = data[j].result;
 						}
 						else if(seen){
 							seen = false;
@@ -74,6 +77,9 @@
 					
 					document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
 					document.getElementById('jobLink' + (i+1)).href = config.report + recents[i].name;
+					document.getElementById('jobRes'+ (i+1)).innerHTML = recents[i].result;
+
+
 				}
 				document.getElementById('searchBar').action = config.report;
 				buildDropDown();
@@ -110,7 +116,7 @@
 						<div class='jobInfoPreview'>
 							<ul>
 								<li>Latest run <span class='keyMetricResults'>#48</span> on <span class='keyMetricResults'>6/29/2014 11:22:22</span></li>
-								<li>Status Report</li>
+								<li>Status Report - </li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
 										<li>Compared to Previous: <span class='redText'>Failed</span></li>
@@ -131,7 +137,7 @@
 						<div class='jobInfoPreview'>
 							<ul>
 								<li>Latest run <span id='jobNum1' class='keyMetricResults'>#48</span> on <span id='jobDate1' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
-								<li>Status Report</li>
+								<li>Status Report - <span id='jobRes1'></span></li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
 										<li>Compared to Previous: <span class='redText'>Failed</span></li>
@@ -144,7 +150,7 @@
 						<div class='jobInfoPreview'>
 							<ul>
 								<li>Latest run is <span id='jobNum2' class='keyMetricResults'>#48</span> on <span id='jobDate2' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
-								<li>Status Report</li>
+								<li>Status Report - <span id='jobRes2'></span></li>
 									<ul>
 										<li>SLA Check: <span class='greenText'>Passed</span></li>
 										<li>Compared to Previous: <span class='redText'>Failed</span></li>
