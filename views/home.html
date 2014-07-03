@@ -61,7 +61,7 @@
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
 					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
 					var date = new Date(recents[i].time * 1000);
-					document.getElementById('jobDate1' + (i+1)).innerHTML = date.getMonth()+'/'date.getDay()+'/'date.getYear();
+					document.getElementById('jobDate1' + (i+1)).innerHTML = date.getMonth()+'/'+date.getDay()+'/'+date.getYear();
 				}
 
 
