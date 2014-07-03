@@ -65,6 +65,7 @@
 					document.getElementById('jobDate' + (i+1)).innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
 					document.getElementById('jobLink' + (i+1)).href = config.report + recents[i].name;
 				}
+				document.getElementById('searchBar').action = config.report;
 			}
 
 			
@@ -149,8 +150,8 @@
 						</form>
 					</div>
 					<div id='searchForBuilds'>
-						<form action='' method='get'>
-							Search for a Build: <input type="text" name="user">
+						<form id='searchBar' action='' method='get'>
+							Search for a Build: <input type="text" name="jobName">
 							<input type='submit' value='Submit'>
 						</form>
 					</div>
