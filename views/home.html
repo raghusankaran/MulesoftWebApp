@@ -6,7 +6,7 @@
 
 		<script src="../config.js"></script>
 		<script>
-		var data = [];
+		var data = [{'poop',0,1},{'ass',0,1}];
 			function getRequest(url){
 				var request = new XMLHttpRequest();
 				request.open("GET", url, false);
@@ -52,7 +52,17 @@
 				}
 				return times;	
 			}
+			
+			function buildDropDown(){
+				var dropDown = document.getElementById('jobDropDown');
 
+				for(var i=0; i < data.length; i++){
+					if(i == 0)
+						dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+data[i].name+'</option>';
+					else
+						dropDown.innerHTML += '<option>'+data[i].name+'</option>';
+				}
+			}
 
 			function initialize(){
 				getJobs();
@@ -66,6 +76,7 @@
 					document.getElementById('jobLink' + (i+1)).href = config.report + recents[i].name;
 				}
 				document.getElementById('searchBar').action = config.report;
+				buildDropDown();
 			}
 
 			
