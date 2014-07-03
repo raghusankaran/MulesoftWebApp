@@ -40,7 +40,7 @@ exports.getRecentJobs = function(req, res){
 	var dList = "";
 
 	console.log('trying to connect to Hudson: ' + config.jobHost);
-	var urlToHudson = config.jobHost + '/api/json?tree=jobs[name,lastBuild[number,timestamp]]';
+	var urlToHudson = config.jobHost + '/api/json?tree=jobs[name,lastBuild[number,timestamp,result]]';
 
 	request(
     {
@@ -93,22 +93,7 @@ exports.getBuildNames = function(req, res){
 	    }
 	);
 
-	// var path = config.hudsonPath+ buildName+'/builds/';
-	// fs.readdir(path, function(err, files){
-	// 	if(err){
-	// 		throw err;
-	// 	}
-
-	// 	for(var i=0; i < files.length; i++){
-	// 		if(fs.lstatSync(path+files[i]).isDirectory()){
-				
-	// 			dList += files[i] + ",";
-	// 		}
-	// 	}
-
-	// 	res.send(dList);
-
-	// });
+	
 	
 };
 
@@ -332,6 +317,7 @@ exports.getData = function(req, res){
 				else if(type.indexOf('duration') >=0){
 					res.send(''+ info.duration);
 				}
+
 				else{
 					res.send('');
 					console.log('NO DATA TO SEND?');
