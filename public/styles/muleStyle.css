@@ -1,6 +1,6 @@
 html{
 	width:1500px;
-	height: 2000px;
+	min-height: 1500px;
 	overflow-x: hidden; 
 	
 }
