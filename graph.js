@@ -13,7 +13,7 @@ function makeGraph(nameOfCanvas, percentage){
     var x = canvas.width-5;
     var y = canvas.height;
     var startX = .05 * x;
-    var startY = y*.75;
+    var startY = y*.85;
     ctx.strokeStyle = 'black';
     var graphYAxis = [0,100];
 
