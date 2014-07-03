@@ -154,16 +154,14 @@ exports.getData = function(req, res){
 				}
 
 				path+=relative;
-				console.log(path);
+				//console.log(path);
 				if(type == 'cpu')
 				{	
 					var nameOfFile = 'sar.cpuusage.out';
-					console.log(path+nameOfFile);
+					//console.log(path+nameOfFile);
 					fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
 					{
-						console.log(path + nameOfFile);
-						console.log(str);
-						console.log(err);
+						
 						var locateStart = str.indexOf('%idle');
 						str = str.substring(locateStart+5);
 						var dataSet = str.match(/\s\s\d+\.\d+/g);
@@ -184,7 +182,7 @@ exports.getData = function(req, res){
 				else if(type == 'memutil')
 				{	
 					var nameOfFile = 'sar.memutil.out';
-					console.log(path + nameOfFile);
+					//console.log(path + nameOfFile);
 					fs.readFile(path + nameOfFile, {encoding: 'utf-8'}, function(err, str)
 					{			
 						var temp  = str.match(/\s\d{1,}\.\d{2}/g);
