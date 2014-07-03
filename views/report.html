@@ -5,6 +5,7 @@
 		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
 
 		<script src="../config.js"></script>
+		<script src="../graph.js"></script>
 		<script>
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
@@ -178,6 +179,8 @@
 				document.getElementById('avgMem').innerHTML = avgMem+ ' %';
 				document.getElementById('avgNet').innerHTML = avgNet+ ' %';
 				document.getElementById('avgTPS').innerHTML = avgTPS;
+
+				makeGraph('graph1');
 			}
 
 			function initializePage(){
