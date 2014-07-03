@@ -37,8 +37,13 @@
 
 			var cache = {
 				        
-				        'cpu': [[],[],[],[],[],[]],
-			 		    'memutil': [[],[],[],[],[],[]],
+				        'cpu use': [[],[],[],[],[],[]],
+				        'cpu iowait': [[],[],[],[],[],[]],
+				        'cpu steal': [[],[],[],[],[],[]],
+
+			 		    'mem use': [[],[],[],[],[],[]],
+			 		    'mem kbcache': [[],[],[],[],[],[]],
+			 		    'mem kbbuffers': [[],[],[],[],[],[]],
 			         
 			  			'disk util': [[],[],[],[],[],[]],
 			  	        'disk await': [[],[],[],[],[],[]],
@@ -87,9 +92,13 @@
 			 * 0: CPU Usage
 			 * 1: Mem Usage
 			 */
-			var metrics = [true, true, true, false, false, false, false, true, false, false ];
+			var metrics = [true, false, false, true, false, false, true, false, false, false, false, true, false, false ];
 			var metricNames = ["CPU%: Usage",
-								 "Memory%: Used",
+								"CPU%: IOWait",
+								"CPU%: Steal",
+								 "Memory%: Usage",
+								 "Memory%: KBCache",
+								 "Memory%: KBBuffers",
 								  "Disk%: Util",
 								  "Disk: Await",
 								  "Disk: TPS",
@@ -285,9 +294,30 @@
 					if(metricNames[i].indexOf('%') >= 0){
 						canvasID =0;
 				        if(metrics[i] && metricNames[i].indexOf('CPU') >=0){
-				        	for(var j = 0; j < graphIds.length; j++){
-				        		data = getData('cpu', '' + graphIds[j]);
-				        		for(var k =0; k<data.length; k++){
+				        	if(metricNames[i].indexOf('Usage') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('cpu use', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2 / zoom;
+					        			}
+					        		}
+					        	}
+					        	if(drawBase == true)
+					        		data = getData('cpu use', '' + baseID);
+					        	
+					        	for(var k =0; k<data.length; k++){
 				        			if(updated[canvasID]){
 				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
 				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
@@ -304,29 +334,30 @@
 				        			}
 				        		}
 				        	}
-				        	if(drawBase == true)
-				        		data = getData('cpu', '' + baseID);
-				        	for(var k =0; k<data.length; k++){
-			        			if(updated[canvasID]){
-			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
-			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
-			        				updated[canvasID] = false;
-			        				secondsPerPage = data.length * 2/ zoom;
-			        			}
-			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
-			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
-			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
-			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
-			        			}
-			        			if(data.length* 2 > secondsPerPage){
-			        				secondsPerPage = data.length* 2 / zoom;
-			        			}
-			        		}
-				        }
-				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
-				        	for(var j = 0; j < graphIds.length; j++){
-				        		data = getData('memutil', '' + graphIds[j]);
-				        		for(var k =0; k<data.length; k++){
+							if(metricNames[i].indexOf('IOWait') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('cpu iowait', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2 / zoom;
+					        			}
+					        		}
+					        	}
+					        	if(drawBase == true)
+					        		data = getData('cpu iowait', '' + baseID);
+					        	
+					        	for(var k =0; k<data.length; k++){
 				        			if(updated[canvasID]){
 				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
 				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
@@ -339,29 +370,176 @@
 				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
 				        			}
 				        			if(data.length* 2 > secondsPerPage){
-				        				secondsPerPage = data.length* 2/ zoom;
+				        				secondsPerPage = data.length* 2 / zoom;
 				        			}
-				        		}			        		
+				        		}
+							}
+							if(metricNames[i].indexOf('Steal') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('cpu steal', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2 / zoom;
+					        			}
+					        		}
+					        	}
+					        	if(drawBase == true)
+					        		data = getData('cpu steal', '' + baseID);
+					        	
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+							}
+
 				        	
+				        }
+				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
+				        	if(metricNames[i].indexOf('Usage') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('mem use', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+					        		}			        		
+					        	
+					        	}
+					        	if(drawBase == true)
+					        		data = getData('mem use', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
 				        	}
-				        	if(drawBase == true)
-				        		data = getData('memutil', '' + baseID);
-				        	for(var k =0; k<data.length; k++){
-			        			if(updated[canvasID]){
-			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
-			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
-			        				updated[canvasID] = false;
-			        				secondsPerPage = data.length * 2/ zoom;
-			        			}
-			        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
-			        				graphYAxis[canvasID][1] = parseFloat(data[k]);
-			        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
-			        				graphYAxis[canvasID][0] = parseFloat(data[k]);
-			        			}
-			        			if(data.length* 2 > secondsPerPage){
-			        				secondsPerPage = data.length* 2 / zoom;
-			        			}
+			        		else if(metricNames[i].indexOf('KBCache') >=0){
+			        			for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('mem kbcache', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+					        		}			        		
+					        	
+					        	}
+					        	if(drawBase == true)
+					        		data = getData('mem kbcache', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
 			        		}
+				        	else if(metricNames[i].indexOf('KBBuffers') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		data = getData('mem kbbuffers', '' + graphIds[j]);
+					        		for(var k =0; k<data.length; k++){
+					        			if(updated[canvasID]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        				updated[canvasID] = false;
+					        				secondsPerPage = data.length * 2/ zoom;
+					        			}
+					        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+					        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+					        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+					        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+					        			}
+					        			if(data.length* 2 > secondsPerPage){
+					        				secondsPerPage = data.length* 2/ zoom;
+					        			}
+					        		}			        		
+					        	
+					        	}
+					        	if(drawBase == true)
+					        		data = getData('mem kbbuffers', '' + baseID);
+					        	for(var k =0; k<data.length; k++){
+				        			if(updated[canvasID]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        				updated[canvasID] = false;
+				        				secondsPerPage = data.length * 2/ zoom;
+				        			}
+				        			else if(parseFloat(data[k]) > graphYAxis[canvasID][1])
+				        				graphYAxis[canvasID][1] = parseFloat(data[k]);
+				        			else if(parseFloat(data[k]) < graphYAxis[canvasID][0]){
+				        				graphYAxis[canvasID][0] = parseFloat(data[k]);
+				        			}
+				        			if(data.length* 2 > secondsPerPage){
+				        				secondsPerPage = data.length* 2 / zoom;
+				        			}
+				        		}
+				        	}
+
+				        	
 				        }
 				        else if(metrics[i] && metricNames[i].indexOf('Network') >=0 ){
 			        		if(metricNames[i].indexOf('Used') >=0){
@@ -795,20 +973,57 @@
 					if(metricNames[i].indexOf('%') >= 0){
 						nameOfCanvas = cans[0];
 				        if(metrics[i] && metricNames[i].indexOf('CPU') >=0){
-				        	for(var j = 0; j < graphIds.length; j++){
-				        		addLine('cpu', '' + graphIds[j], colors[j], nameOfCanvas);
-				        		
+				        	if(metricNames[i].indexOf('Usage') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		addLine('cpu use ', '' + graphIds[j], colors[j], nameOfCanvas);
+					        		
+					        	}
+					        	if(drawBase == true)				        		
+					        		addLine('cpu use ', '' + baseID, 'black', nameOfCanvas);
 				        	}
-				        	if(drawBase == true)				        		
-				        		addLine('cpu', '' + baseID, 'black', nameOfCanvas);
+							if(metricNames[i].indexOf('IOWait') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		addLine('cpu iowait', '' + graphIds[j], colors[j], nameOfCanvas);
+					        		
+					        	}
+					        	if(drawBase == true)				        		
+					        		addLine('cpu iowait', '' + baseID, 'black', nameOfCanvas);
+							}
+							if(metricNames[i].indexOf('Steal') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		addLine('cpu steal', '' + graphIds[j], colors[j], nameOfCanvas);
+					        		
+					        	}
+					        	if(drawBase == true)				        		
+					        		addLine('cpu steal', '' + baseID, 'black', nameOfCanvas);
+							}
+				        	
 				        }
 				        else if(metrics[i] && metricNames[i].indexOf('Memory') >=0){
-				        	for(var j = 0; j < graphIds.length; j++){
-				        		addLine('memutil', '' + graphIds[j], colors[j],nameOfCanvas);
-				        					        		
+				        	if(metricNames[i].indexOf('Usage') >=0){
+				        		for(var j = 0; j < graphIds.length; j++){
+					        		addLine('mem use ', '' + graphIds[j], colors[j], nameOfCanvas);
+					        		
+					        	}
+					        	if(drawBase == true)				        		
+					        		addLine('mem use ', '' + baseID, 'black', nameOfCanvas);
 				        	}
-				      		if(drawBase == true)				        		
-				        		addLine('memutil', '' + baseID, 'black', nameOfCanvas);
+							if(metricNames[i].indexOf('KBCache') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		addLine('mem kbcache', '' + graphIds[j], colors[j], nameOfCanvas);
+					        		
+					        	}
+					        	if(drawBase == true)				        		
+					        		addLine('mem kbcache', '' + baseID, 'black', nameOfCanvas);
+							}
+							if(metricNames[i].indexOf('KBBuffers') >=0){
+								for(var j = 0; j < graphIds.length; j++){
+					        		addLine('mem kbbuffers', '' + graphIds[j], colors[j], nameOfCanvas);
+					        		
+					        	}
+					        	if(drawBase == true)				        		
+					        		addLine('mem kbbuffers', '' + baseID, 'black', nameOfCanvas);
+							}
 				        }
 				        else if(metrics[i] && metricNames[i].indexOf('Network') >=0 ){
 				        	if(metricNames[i].indexOf('Used') >=0){
