@@ -396,7 +396,7 @@ body{
 		width: 800px;
 		height:500px;
 	}
-	.clearFix:before{
+	.clearFix{
 		clear:both;
 	}
 
