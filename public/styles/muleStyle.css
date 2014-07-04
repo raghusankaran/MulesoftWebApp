@@ -396,13 +396,11 @@ body{
 		width: 800px;
 		height:500px;
 	}
+	.clearFix:before{
+		clear:both;
+	}
 
-	.clearfix::after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+
 }
 
 
