@@ -15,12 +15,11 @@ body{
 	}
 	#pagewrapper{
 		font: 20px/1.4 sans-serif;
-		width: 1500px;
+		width: 1400px;
 		overflow-x: hidden;
 		overflow-y: auto;
 		font-family: 'Josefin Sans', sans-serif;
-		margin-left: auto;
-		margin-right: auto;
+		
 	}
 	p,pre{
 		font-family: 'Josefin Sans', sans-serif;
@@ -48,19 +47,23 @@ body{
 	#heading{
 		position: relative;
 		height: 150px;
-		width:1300;
+		width:1000;
 		
 	}
 
 	#menu{
 		width:220px;
 		height:800px;
-		position: relative;
-		top:10px;
+	
+		float: left;
+		margin-top: 10px;
 	}
 	#ml{
 		position: relative;
 		left: 10px;
+		float:left;
+		margin-left: 20px;
+		margin-top: 15px;
 
 	}
 	#menuHeading{
@@ -74,9 +77,11 @@ body{
 	#logo{
 		font-size: 40px;
 		position: relative;
-		left: 490px;
-		top: -90px;
-		width: 700px;
+		text-align: center;
+		margin-left: 400px;
+		margin-top: 70px;
+		
+		
 	}
 	
 	#compareList{
@@ -147,8 +152,8 @@ body{
 
 	#content{
 		position: relative;
-		left:300px;
-		top: -800px;
+		margin-left:240px;
+		
 		color:cyan;
 	}
 	#contentTitle{
@@ -209,19 +214,22 @@ body{
 	}
 	#buildDropDown{
 		position: relative;
-		left:60px;
-		top:-50px;
+		
+		margin-top: 18px;
+		
 	}
 
 	#buildDropDownTitle{
 		position: relative;
-		left:10px;
-		
+		margin-left: 20px;
+		float: left;
+		width:50px;
 	}
 	#testDurationTitle{
-		position: relative;
-		left:10px;
-		top: -60px;
+		position: absolute;
+		
+		margin-left: 20px;
+
 	}
 	.infoMule{
 		background-color: black;
@@ -230,19 +238,21 @@ body{
 		box-shadow: 5px 5px 5px #5F5F5F;
 		width:350px;
 		height:300px;
+		margin-bottom: 30px;
 		color:white;
 	}
-	#cpuBox{}
+	#cpuBox{
+		float: left;
+		margin-right: 20px;
+
+	}
 	#systemBox{
-		position: relative;
-		left:370px;
-		top: -304px;
+		float:	left;
+		margin-right: 20px;
 	}
 	#jvmBox{
-		position: relative;
-		left:740px;
-		top: -608px;
-
+		float: left;
+		margin-right: 20px;
 	}
 	.keyTitle{
 		position: relative;
@@ -250,8 +260,8 @@ body{
 	}
 	#cpuMetrics{
 		font:14px;
-		position: relative;
-		left: 40px;
+		
+		margin-left: 40px;
 		width:300px;
 	}
 	
@@ -274,11 +284,13 @@ body{
 	
 	#compareMetrics{
 		position: relative;
-		top:-600px;
+		
 	}
 	#compareBlock{
 		max-height:500px;
 		width: 1100px;
+		margin-bottom: 30px;
+
 		
 	}
 	#slaResults{
@@ -311,67 +323,77 @@ body{
 		width:500px;
 		height: 600px;
 
-		position: relative;
-		top:50px;
+		margin: 20px;
+		margin-top: 50px;
+	}
+	#nightlyTest{
+		float: left;
 	}
 
 	#recentRuns{
-		position: relative;
-		left:550px;
-		top:-554px;
+		float: left;
+		
 	}
 	.homeBoxTitle{
 		color: white;
 		font-weight: bold;
 		font-size: 30px;
-		position: relative;
-		left: 20px;
-		top:40px;
+		margin-top: 20px; 
+		margin-left:30px;
 	}
 
 	.mainPreview{
-		position: relative;
-		top:50px;
-		left: 40px;
+		
 	}
 
 	.jobInfoPreview{
 		color:white;
-		font-size: 20px
+		font-size: 20px;
+		margin-left: 50px;
+		margin-top: 30px;
+		
 	}
-	.homeBoxTitle{
-
-	}
+	
 	.detailsLink{
 		font-size: 18px;
 		position: relative;
-		left:300px;
-		top: -20px;
+		float: right;
+		margin-right: 20px;
+		
 	}
 	.jobNameHome{
 		font-size: 25px;
+		position: relative;
+		top:15px;
+		margin-left: 60px;
 	}
 
 	#otherBuilds{
-		width:1050px;
+		width:1000px;
 		height:100px;
-		position: relative;
-		top:-510px;
+		clear:left;
 		color:white;
 		font-size: 22px;
+		margin: 0px;
+		margin-left: 50px;
+		position: relative;
+		top:-100px;
 	}
 	#dropDownHome{
-		position: relative;
-		top:30px;
-		left:40px;
+		float: left;
+		margin-top: 30px;
+		margin-left: 20px; 
+
 	}
 	#searchForBuilds{
 		position: relative;
-		left:600px;
+		float:right;
+		margin-top: 30px;
+		margin-right: 20px; 
 	}
 	#graphArea{
 		position: relative;
-		top:-570px;
+		
 	}
 	.graphs{
 		position: relative;
@@ -397,7 +419,7 @@ body{
 		height:500px;
 	}
 	.clearFix{
-		clear:both;
+		clear: both;
 	}
 
 
