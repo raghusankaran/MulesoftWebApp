@@ -421,16 +421,30 @@ body{
 	.clearFix{
 		clear: both;
 	}
-
-
+	.updateBox{
+		width: 1000px;
+		background-color: black;
+		border-radius: 25px;
+		border: 2px #FFF solid;
+		box-shadow: 5px 5px 5px #5F5F5F;
+		min-height: 100px;
+	}
+	.currTitle{
+		margin-left: 35px;
+		margin-bottom: -5px;
+	}
+	hr{
+		width: 950px;
+		align: left;
+	}
+	.updateItems{
+		color:white;
+		margin-left: 50px;
+	}
+	.updateCheckForm{
+		margin-left: 35px;
+		margin-bottom: 20px;
+	}
 }
-
-
-
-
-
-
-
-
 
 
