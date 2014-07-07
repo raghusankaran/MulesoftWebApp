@@ -2,15 +2,101 @@
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+		<link href='muleStyle.css' rel='stylesheet'type='text/css'>
 
 		<script src="../config.js"></script>
-		
+		<script type="text/javascript">
+			var dropDownOptions = {
+										 'CPU: Used': 'cpu use ',
+										 'CPU: IO Wait': 'cpu iowait ',
+										 'CPU: Steal': 'cpu steal ',
+
+										 'Memory: Used':'mem use ',
+							 		     'Memory: KB Cache':'mem kbcache ',
+										 'Memory: KB Buffers': 'mem kbbuffers ',
+							         							  	      
+										 'Disk: Used': 'disk util ',
+										 'Disk: Await': 'disk await ',
+										 'Disk: TPS':'disk tps ',
+										 'Disk: RD_Sec': 'disk rd_sec ',
+										 'Disk: WR_Sec':'disk wr_sec ',
+							  		  
+										 'Network: Used':'network used ',
+							  			 'Network: TxkB':'network txkB ', 
+										 'Network: RxkB':'network rxkB ',
+							  		  
+										 'Paging: Pgpgin': 'paging pgpgin ',
+										 'Paging: Pgpgout':'paging pgpgout ',
+										 'Paging: Fault':'paging fault ',
+										 'Paging: Maj. Fault':'paging majflt ',				            
+										 'Paging: PG Free':'paging pgfree ',
+										 'Paging: PG Scank':'paging pgscank ',
+										 'Paging: PG Scand':'paging pgscand ',
+										 'Paging: PG Steal':'paging pgsteal ',
+										 'Paging: VMEF':'paging vmef ',
+							  		  
+										 'Swap: In':'swap in ',
+										 'Swap: Out':'swap out '
+			};
+
+			Object.prototype.getKeyByValue = function( value ) {
+			    for( var prop in this ) {
+			        if( this.hasOwnProperty( prop ) ) {
+			             if( this[ prop ] === value )
+			                 return prop;
+			        }
+			    }
+			}
+
+
+			function updateDropDowns(){
+				var dropDown = document.getElementsByName('checkList');
+
+				for(var i=0; i < dropDown.length; i++){
+					for(var key in dropDownOptions){	
+						if(dropDownOptions.hasOwnProperty(key)){
+							dropDown[i].innerHTML += '<option value="'+dropDownOptions[key]+'">'+key+'</option>';
+						}
+					}
+				}
+			}
+
+			function showItems(section, jsonObj){
+				var sectionDiv = document.getElementById(section+'ItemValues');
+				sectionDiv.innerHTML = '';
+				for(var key in jsonObj){
+					if(key != 'getKeyByValue'){
+						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ dropDownOptions.getKeyByValue(key) + '</span>'+ 
+												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
+												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span><br>';
+					}
+				}
+			}
+
+			function postRequest(section){
+				var action = '';
+				var form = document.getElementById(section+ 'Form');
+
+				var min = form.min.value;
+				var max = form.max.value;
+
+				var metricID = form.checkList.options[form.checkList.selectedIndex].value;
+
+				for(var key in dropDownOptions){
+					if (dropDownOptions[key] == metricID) {
+						test0[metricID] = [parseFloat(min), parseFloat(max)];
+					}
+				}
+
+				showItems('sla', test0);
+			}
+
+		</script>
 	</head>
 	<body>
 		<div id= "pagewrapper">
 			<div id="heading" class="mule">
-				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+				<img src="sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
 
 				<p id="logo"> Performance Analyzer</p>
 			</div>
@@ -25,21 +111,18 @@
 					<div class='updateBox'>
 						<p class='currTitle'>Current Metrics</p>
 						<hr>
-						<div class='updateItems'>
-							<span id='slaItem'> Item 1</span><br>
-							<span id='slaItem'> Item 1</span><br>
-							<span id='slaItem'> Item 1</span><br>
-							<span id='slaItem'> Item 1</span><br>
-							<span id='slaItem'> Item 1</span><br>
-
+						<div id='slaItems' class='updateItems'>
+							<div class='metricDescriptions'>
+							<span class="nameCurrMetric">Name</span>
+							<span class="minCurrMetric">Minimum</span>
+							<span class="maxCurrMetric">Maximum</span><br>
+							</div>
+							<div id='slaItemValues'>
+							</div>
 						</div>
 						<hr>
-						<form id='slaForm' class='updateCheckForm' method='post' onsubmit=''>
-							<select id="cars">
-								<option value="volvo">Volvo</option>
-								<option value="saab">Saab</option>
-								<option value="fiat">Fiat</option>
-								<option value="audi">Audi</option>								
+						<form id='slaForm' class='updateCheckForm' method='post' onsubmit='postRequest("sla")'>
+							<select name="checkList">							
 							</select>
 							<input type="text" name="min">
 							<input type="text" name="max">
@@ -52,21 +135,18 @@
 					<div class='updateBox'>
 						<p class='currTitle'>Current Metrics</p>
 						<hr>
-						<div class='updateItems'>
-							<span id='prevItem'> Item 1</span><br>
-							<span id='prevItem'> Item 1</span><br>
-							<span id='prevItem'> Item 1</span><br>
-							<span id='prevItem'> Item 1</span><br>
-							<span id='prevItem'> Item 1</span><br>
-
+						<div id='prevItems' class='updateItems'>
+							<div class='metricDescriptions'>
+							<span class="nameCurrMetric">Name</span>
+							<span class="minCurrMetric">Minimum</span>
+							<span class="maxCurrMetric">Maximum</span><br>
+							</div>
+							<div id='prevItemValues'>
+							</div>
 						</div>
 						<hr>
-						<form id='slaForm' class='updateCheckForm'  method='post' onsubmit=''>
-							<select id="cars">
-								<option value="volvo">Volvo</option>
-								<option value="saab">Saab</option>
-								<option value="fiat">Fiat</option>
-								<option value="audi">Audi</option>								
+						<form id='prevForm' class='updateCheckForm'  method='post' onsubmit='postRequest("prev")'>
+							<select name="checkList">
 							</select>
 							<input type="text" name="min">
 							<input type="text" name="max">
@@ -80,21 +160,18 @@
 					<div class='updateBox'>
 						<p class='currTitle'>Current Metrics</p>
 						<hr>
-						<div class='updateItems'>
-							<span id='baseItem'> Item 1</span><br>
-							<span id='baseItem'> Item 1</span><br>
-							<span id='baseItem'> Item 1</span><br>
-							<span id='baseItem'> Item 1</span><br>
-							<span id='baseItem'> Item 1</span><br>
-
+						<div id='baseItems' class='updateItems'>
+							<div class='metricDescriptions'>
+							<span class="nameCurrMetric">Name</span>
+							<span class="minCurrMetric">Minimum</span>
+							<span class="maxCurrMetric">Maximum</span><br>
+							</div>
+							<div id='baseItemValues'>
+							</div>
 						</div>
 						<hr>
-						<form id='slaForm' class='updateCheckForm'  method='post' onsubmit=''>
-							<select id="cars">
-								<option value="volvo">Volvo</option>
-								<option value="saab">Saab</option>
-								<option value="fiat">Fiat</option>
-								<option value="audi">Audi</option>								
+						<form id='baseForm' class='updateCheckForm' method='post' onsubmit='postRequest("base")'>
+							<select name="checkList">							
 							</select>
 							<input type="text" name="min">
 							<input type="text" name="max">
@@ -105,7 +182,12 @@
 				</div>
 			</div>
 		</div>
-		
+		<script type="text/javascript">
+			updateDropDowns();
+			showItems('sla', test0);
+			showItems('prev', test1);
+			showItems('base', test2);
+		</script>
 	</body>
 
 </html>
