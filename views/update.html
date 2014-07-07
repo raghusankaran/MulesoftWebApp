@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+
+		<script src="../config.js"></script>
+		
+	</head>
+	<body>
+		<div id= "pagewrapper">
+			<div id="heading" class="mule">
+				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+
+				<p id="logo"> Performance Analyzer</p>
+			</div>
+			<div id="menu" class="mule">
+				<p id='menuHeading'><u><b>Menu</b></u></p><br>
+				<p class = 'menuItems'> <a href="/">Home</a></p>
+				<p class = 'menuItems'> <a href="/about">About</a></p>
+			</div>
+			<div id='content'>
+				<div id='slaBox'>
+					<p>Update "SLA" Check</p>
+					<div class='updateBox'>
+						<p class='currTitle'>Current Metrics</p>
+						<hr>
+						<div class='updateItems'>
+							<span id='slaItem'> Item 1</span><br>
+							<span id='slaItem'> Item 1</span><br>
+							<span id='slaItem'> Item 1</span><br>
+							<span id='slaItem'> Item 1</span><br>
+							<span id='slaItem'> Item 1</span><br>
+
+						</div>
+						<hr>
+						<form id='slaForm' class='updateCheckForm' method='post' onsubmit=''>
+							<select id="cars">
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="fiat">Fiat</option>
+								<option value="audi">Audi</option>								
+							</select>
+							<input type="text" name="min">
+							<input type="text" name="max">
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+				</div>
+				<div id='prevBox'>
+					<p>Update "Previous" Check</p>
+					<div class='updateBox'>
+						<p class='currTitle'>Current Metrics</p>
+						<hr>
+						<div class='updateItems'>
+							<span id='prevItem'> Item 1</span><br>
+							<span id='prevItem'> Item 1</span><br>
+							<span id='prevItem'> Item 1</span><br>
+							<span id='prevItem'> Item 1</span><br>
+							<span id='prevItem'> Item 1</span><br>
+
+						</div>
+						<hr>
+						<form id='slaForm' class='updateCheckForm'  method='post' onsubmit=''>
+							<select id="cars">
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="fiat">Fiat</option>
+								<option value="audi">Audi</option>								
+							</select>
+							<input type="text" name="min">
+							<input type="text" name="max">
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+
+				</div>
+				<div id='baseBox'>
+					<p>Update "Baseline" Check</p>
+					<div class='updateBox'>
+						<p class='currTitle'>Current Metrics</p>
+						<hr>
+						<div class='updateItems'>
+							<span id='baseItem'> Item 1</span><br>
+							<span id='baseItem'> Item 1</span><br>
+							<span id='baseItem'> Item 1</span><br>
+							<span id='baseItem'> Item 1</span><br>
+							<span id='baseItem'> Item 1</span><br>
+
+						</div>
+						<hr>
+						<form id='slaForm' class='updateCheckForm'  method='post' onsubmit=''>
+							<select id="cars">
+								<option value="volvo">Volvo</option>
+								<option value="saab">Saab</option>
+								<option value="fiat">Fiat</option>
+								<option value="audi">Audi</option>								
+							</select>
+							<input type="text" name="min">
+							<input type="text" name="max">
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>
