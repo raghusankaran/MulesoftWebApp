@@ -35,6 +35,22 @@ exports.getJobNames = function(req, res){
 	);	
 };
 
+//GET all the job names
+exports.getTestMetrics = function(req, res){
+	var job = req.query.job;
+	var filename = job+'.sla';
+	var path = config.testFilesPath + filename;
+	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
+	{
+		if(str == null){
+			res.send(null);
+		}
+
+		res.send(str);
+	});	
+	
+};
+
 //GET builds in order of timestamp
 exports.getRecentJobs = function(req, res){
 	var dList = "";

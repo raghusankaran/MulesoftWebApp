@@ -30,8 +30,15 @@ app.get('/graph', function(req, res){
 	res.render('graph');
 });
 
+app.get('/update', function(req, res){
+	res.render('update');
+});
+
 //GET all the job names
 app.get('/retrieveJobs', routings.getJobNames);
+
+//GET the test metrics for a job
+app.get('/getTestMetrics', routings.getTestMetrics);
 
 //GET all the build names
 app.get('/retrieveBuilds/', routings.getBuildNames);
