@@ -84,7 +84,7 @@
 			function getItems(){
 				var url = config.getTestMetrics + jobName;
 				var resp = getRequest(url);
-				items = JSON.stringify(resp);
+				items = JSON.parse(resp);
 			}
 
 			function showItems(section, jsonObj){
