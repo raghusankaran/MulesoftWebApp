@@ -94,7 +94,7 @@
 				sectionDiv.innerHTML = '';
 				for(var key in jsonObj){
 					if(key != 'getKeyByValue'){
-						var metricModifier = key.substring(key.length-4).toUpperCase();
+						var metricModifier = key.substring(key.length-4, key.length-1).toUpperCase();
 						var metric =dropDownOptions.getKeyByValue(key.substring(0, key.length-4)) + ' (' + metricModifier +')';
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
