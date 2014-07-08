@@ -84,6 +84,13 @@
 				document.getElementById('mainDate').innerHTML = (date.toUTCString()).substring(0,date.toUTCString().length-3);
 				document.getElementById('mainLink' ).href = config.report + main.name;
 				
+				var editLinksMain = document.getElementsByName('editSLAMain');
+
+				for(var j=0; j < editLinks.length; j++){
+					editLinksMain[j].href = config.update + recents[i].name;
+					editLinksMain[j].innerHTML = 'Edit';
+				}
+
 				document.getElementById('mainRes').innerHTML = main.result;
 				if(main.result == 'SUCCESS')
 					document.getElementById('mainRes' ).className = 'greenText';
@@ -95,6 +102,13 @@
 					document.getElementById('mainRes').className = 'redText';
 
 				for(var i=0; i<recents.length; i++){
+					var editLinks = document.getElementsByName('editSLA' +(i+1));
+
+					for(var j=0; j < editLinks.length; j++){
+						editLinks[j].href = config.update + recents[i].name;
+						editLinks[j].innerHTML = 'Edit';
+					}
+
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
 					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
 					var date = new Date(parseFloat(recents[i].time)-28800000);
@@ -146,9 +160,9 @@
 								<li>Latest run <span id='mainNum' class='keyMetricResults'>#48</span> on <span id='mainDate' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li >Status Report - <span id='mainRes'></span> </li>
 									<ul>
-										<li>SLA Check: <span class='grayText'>Not Configured</span></li>
-										<li>Compared to Previous: <span class='grayText'>Not Configured</span></li>
-										<li>Compared to Baseline: <span class='grayText'>Not Configured</span></li>
+										<li>SLA Check: <span class='grayText'>Not Configured</span> <a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>Compared to Previous: <span class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>Compared to Baseline: <span class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
@@ -167,9 +181,9 @@
 								<li>Latest run <span id='jobNum1' class='keyMetricResults'>#48</span> on <span id='jobDate1' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report - <span id='jobRes1'></span></li>
 									<ul>
-										<li>SLA Check: <span class='grayText'>Not Configured</span></li>
-										<li>Compared to Previous: <span class='grayText'>Not Configured</span></li>
-										<li>Compared to Baseline: <span class='grayText'>Not Configured</span></li>
+										<li>SLA Check: <span class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
+										<li>Compared to Previous: <span class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
+										<li>Compared to Baseline: <span class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
@@ -180,9 +194,9 @@
 								<li>Latest run is <span id='jobNum2' class='keyMetricResults'>#48</span> on <span id='jobDate2' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report - <span id='jobRes2'></span></li>
 									<ul>
-										<li>SLA Check: <span class='grayText'>Not Configured</span></li>
-										<li>Compared to Previous: <span class='grayText'>Not Configured</span></li>
-										<li>Compared to Baseline: <span class='grayText'>Not Configured</span></li>
+										<li>SLA Check: <span class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
+										<li>Compared to Previous: <span class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
+										<li>Compared to Baseline: <span class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
