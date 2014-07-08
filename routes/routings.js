@@ -35,6 +35,48 @@ exports.getJobNames = function(req, res){
 	);	
 };
 
+//Add to test file
+exports.addJobTest = function(req, res){
+	var metricID = req.body.checklist;
+	var min = req.body.min;
+	var max = req.body.max;
+	var filename = req.query.job + '.sla';
+	var type = req.query.type;
+	path = config.testFilesPath + filename;
+	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
+	{
+		if(str == null){
+			var jsonObj = {
+				"sla":{},
+				"prev":{},
+				"base":{}
+			};
+			jsonObj[type][metricID] = [min,max];
+			var data = JSON.stringify(jsonObj);
+			fs.writeFile(path, data, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+		else{
+			var data = JSON.parse(str);
+			data[type][metricID] = [min, max];
+			var newdata = JSON.stringify(data);
+			fs.writeFile(path, newdata, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+	});	
+};
+
+
 //GET all the job names
 exports.getTestMetrics = function(req, res){
 	var job = req.query.job;
