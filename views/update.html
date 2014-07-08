@@ -94,13 +94,12 @@
 				sectionDiv.innerHTML = '';
 				for(var key in jsonObj){
 					if(key != 'getKeyByValue'){
-						var deleteLink = key.replace(' ', +);
 						var metricModifier = key.substring(key.length-4, key.length-1).toUpperCase();
 						var metric =dropDownOptions.getKeyByValue(key.substring(0, key.length-4)) + ' (' + metricModifier +')';
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
 												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span>'+
-												'<a class="deleteMetric" href="'+config.deleteJobTest +jobName+'&type='+section+'&metric='+deleteLink+'">Delete</a><br>';
+												'<a class="deleteMetric" href="'+config.deleteJobTest +jobName+'&type='+section+'&metric='+key.replace(' ','+')+'">Delete</a><br>';
 					}
 				}
 			}
