@@ -14,6 +14,7 @@ var config = {
 	testFilesPath: "/mnt/nfsshare/SLAS/",
 	getTestMetrics: urlPath+ 'getTestMetrics/?job=',
 	putJobTest: urlPath+ "putTestFile/?job=",
+	deleteJobTest: urlPath+"deleteJobTest?job=",
 	jobHost: 'http://mule-perflab06.managed.contegix.com:8080'
 
 };
