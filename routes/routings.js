@@ -35,6 +35,53 @@ exports.getJobNames = function(req, res){
 	);	
 };
 
+
+//Add to test file
+exports.deleteJobTest = function(req, res){
+	var metricID = req.query.metric;
+	
+	var filename = req.query.job + '.sla';
+	var type = req.query.type;
+	path = config.testFilesPath + filename;
+	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
+	{
+		if(str == null){
+			var jsonObj = {
+				"sla":{},
+				"prev":{},
+				"base":{}
+			};
+			
+			var data = JSON.stringify(jsonObj);
+			fs.writeFile(path, data, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+		else{
+			var data = JSON.parse(str);
+			delete data[type][metricID];
+			var newdata = JSON.stringify(data);
+			fs.writeFile(path, newdata, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+
+	});	
+	res.redirect('/update?job=' + req.query.job);
+};
+
+
+
+
+
 //Add to test file
 exports.addJobTest = function(req, res){
 	console.log(req.body.min + '');
