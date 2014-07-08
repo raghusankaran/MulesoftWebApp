@@ -135,7 +135,7 @@
 						var max = parseFloat(jsonObj[key][1]);
 						var data = cache[dataID];
 						if(key.indexOf('avg') >= 0){
-							var result = parseFloat(getAvg(data);
+							var result = parseFloat(getAvg(data));
 							if(min > result || max < result){
 								passed='Failed';
 							}
