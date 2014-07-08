@@ -145,13 +145,12 @@
 							</div>
 						</div>
 						<hr>
-						<form id='slaForm' class='updateCheckForm' method='post' onsubmit='postRequest("sla")'>
+						<form id='slaForm' class='updateCheckForm' method='post' onsubmit='postRequest("sla"), return false'>
 							<select name="checkList">							
 							</select>
 							<input type="text" name="min">
 							<input type="text" name="max">
 							<input type="submit" value="Submit">
-							<INPUT TYPE="hidden" NAME="redirect" VALUE="http://mule-perflab06.managed.contegix.com:8880/">
 						</form>
 					</div>
 				</div>
@@ -170,7 +169,7 @@
 							</div>
 						</div>
 						<hr>
-						<form id='prevForm' class='updateCheckForm'  method='post' onsubmit='postRequest("prev")'>
+						<form id='prevForm' class='updateCheckForm'  method='post' onsubmit='postRequest("prev"), return false '>
 							<select name="checkList">
 							</select>
 							<input type="text" name="min">
@@ -195,7 +194,7 @@
 							</div>
 						</div>
 						<hr>
-						<form id='baseForm' class='updateCheckForm' method='post' onsubmit='postRequest("base")'>
+						<form id='baseForm' class='updateCheckForm' method='post' onsubmit='postRequest("base"), return false'>
 							<select name="checkList">							
 							</select>
 							<input type="text" name="min">
