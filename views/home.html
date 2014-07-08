@@ -86,7 +86,7 @@
 				
 				var editLinksMain = document.getElementsByName('editSLAMain');
 
-				for(var j=0; j < editLinks.length; j++){
+				for(var j=0; j < editLinksMain.length; j++){
 					editLinksMain[j].href = config.update + recents[i].name;
 					editLinksMain[j].innerHTML = 'Edit';
 				}
@@ -101,6 +101,9 @@
 				else
 					document.getElementById('mainRes').className = 'redText';
 
+				//******************************************************************
+				//RECENTS!!!!
+				//******************************************************************
 				for(var i=0; i<recents.length; i++){
 					var editLinks = document.getElementsByName('editSLA' +(i+1));
 
