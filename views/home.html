@@ -88,7 +88,7 @@
 
 				for(var j=0; j < editLinksMain.length; j++){
 					editLinksMain[j].href = config.update + main.name;
-					editLinksMain[j].innerHTML = 'Edit';
+					editLinksMain[j].innerHTML = '&nbsp;&nbsp;&nbsp;Edit';
 				}
 
 				document.getElementById('mainRes').innerHTML = main.result;
@@ -109,7 +109,7 @@
 
 					for(var j=0; j < editLinks.length; j++){
 						editLinks[j].href = config.update + recents[i].name;
-						editLinks[j].innerHTML = 'Edit';
+						editLinks[j].innerHTML = '&nbsp;&nbsp;&nbsp;Edit';
 					}
 
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
