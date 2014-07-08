@@ -6,6 +6,8 @@
 
 		<script src="../config.js"></script>
 		<script type="text/javascript">
+			var jobName = getQueryVariable('job');
+			var items;
 			var dropDownOptions = {
 										 'CPU: Used': 'cpu use ',
 										 'CPU: IO Wait': 'cpu iowait ',
@@ -60,6 +62,30 @@
 					}
 				}
 			}
+			function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
+			}
+
+			function getQueryVariable(variable) {
+			    var query = window.location.search.substring(1);
+			    var vars = query.split('&');
+			    for (var i = 0; i < vars.length; i++) {
+			        var pair = vars[i].split('=');
+			        if (decodeURIComponent(pair[0]) == variable) {
+			            return decodeURIComponent(pair[1]);
+			        }
+			    }
+			    return 'UNDEFINED';
+			}
+
+			function getItems(){
+				var url = config.getTestMetrics + jobName;
+				var resp = getRequest(url);
+				items = JSON.stringify(resp);
+			}
 
 			function showItems(section, jsonObj){
 				var sectionDiv = document.getElementById(section+'ItemValues');
@@ -74,21 +100,19 @@
 			}
 
 			function postRequest(section){
-				var action = '';
+				var action = config.putJobTest+jobName+'&type='+section;
 				var form = document.getElementById(section+ 'Form');
+				form.action = action;
 
-				var min = form.min.value;
-				var max = form.max.value;
+				
+			}
 
-				var metricID = form.checkList.options[form.checkList.selectedIndex].value;
-
-				for(var key in dropDownOptions){
-					if (dropDownOptions[key] == metricID) {
-						test0[metricID] = [parseFloat(min), parseFloat(max)];
-					}
-				}
-
-				showItems('sla', test0);
+			function initialize(){
+				updateDropDowns();
+				getItems();
+				showItems('sla', items['sla']);
+				showItems('prev', items['prev']);
+				showItems('base', items['base']);
 			}
 
 		</script>
@@ -183,10 +207,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			updateDropDowns();
-			showItems('sla', test0);
-			showItems('prev', test1);
-			showItems('base', test2);
+			initialize();
 		</script>
 	</body>
 
