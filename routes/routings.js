@@ -37,6 +37,7 @@ exports.getJobNames = function(req, res){
 
 //Add to test file
 exports.addJobTest = function(req, res){
+	console.log(req.body + '');
 	var metricID = req.body.checkList;
 	console.log(metricID+'');
 	var min = req.body.min;
