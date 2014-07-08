@@ -12,6 +12,8 @@ var config = {
 	report: urlPath +'report?jobName=',
 	update: urlPath +'update?job=',
 	testFilesPath: "/mnt/nfsshare/SLAS/",
+	getTestMetrics: urlPath+ 'getTestMetrics/?job=',
+	putJobTest: urlPath+ "putTestFile/?job=",
 	jobHost: 'http://mule-perflab06.managed.contegix.com:8080'
 
 };

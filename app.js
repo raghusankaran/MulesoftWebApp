@@ -34,6 +34,9 @@ app.get('/update', function(req, res){
 	res.render('update');
 });
 
+//put test file
+app.post('/putTestFile', routings.addJobTest);
+
 //GET all the job names
 app.get('/retrieveJobs', routings.getJobNames);
 
