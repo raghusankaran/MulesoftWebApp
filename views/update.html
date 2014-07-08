@@ -9,7 +9,7 @@
 			var jobName = getQueryVariable('job');
 			var items;
 			var dropDownOptions = {
-										 'CPU: Used': 'cpu use ',
+										 'CPU: Used': 'cpu use ',										
 										 'CPU: IO Wait': 'cpu iowait ',
 										 'CPU: Steal': 'cpu steal ',
 
@@ -94,7 +94,7 @@
 				sectionDiv.innerHTML = '';
 				for(var key in jsonObj){
 					if(key != 'getKeyByValue'){
-						var metric =dropDownOptions.getKeyByValue(key);
+						var metric =dropDownOptions.getKeyByValue(key.substring(key.length-3));
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
 												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span>'+
