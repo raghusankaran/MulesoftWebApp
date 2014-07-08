@@ -468,6 +468,11 @@ body{
 		font-size: 12px;
 		margin-left: 10px;
 	}
+	.deleteMetric{
+		color:#FF0000;
+		font-size: 12px;
+		margin-left: 10px;
+	}
 }
 
 
