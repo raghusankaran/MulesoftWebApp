@@ -79,7 +79,7 @@ exports.addJobTest = function(req, res){
 		}
 
 	});	
-	res.send(config.update + req.query.job);
+	res.redirect('/update?job=' + req.query.job);
 };
 
 
