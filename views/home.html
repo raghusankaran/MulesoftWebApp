@@ -157,7 +157,7 @@
 			}
 			function fetchData(jobName, jsonObj, buildID){
 				for(var section in jsonObj){
-					for(var key in section){
+					for(var key in jsonObj[section]){
 						var metricName = key.substring(0,key.length-5);
 						if(cache[metricName] == null){
 							cache[metricName] = getData(jobName, metricName, buildID);
