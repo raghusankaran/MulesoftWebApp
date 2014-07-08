@@ -131,11 +131,11 @@
 				else{
 					for(var key in jsonObj){
 						var dataID = key.substring(0,key.length-5);
-						var min = float.parse(jsonObj[key][0]);
-						var max = float.parse(jsonObj[key][1]);
+						var min = parseFloat(jsonObj[key][0]);
+						var max = parseFloat(jsonObj[key][1]);
 						var data = cache[dataID];
 						if(key.indexOf('avg') >= 0){
-							var result = float.parse(getAvg(data);
+							var result = parseFloat(getAvg(data);
 							if(min > result || max < result){
 								passed='Failed';
 							}
