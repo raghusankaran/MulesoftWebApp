@@ -77,7 +77,9 @@ exports.addJobTest = function(req, res){
 			    }
 			});
 		}
+
 	});	
+	res.send(null);
 };
 
 
