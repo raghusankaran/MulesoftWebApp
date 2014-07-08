@@ -37,9 +37,12 @@ exports.getJobNames = function(req, res){
 
 //Add to test file
 exports.addJobTest = function(req, res){
-	var metricID = req.body.checklist;
+	var metricID = req.body.checkList;
+	console.log(metricID+'');
 	var min = req.body.min;
+	console.log(min+'');
 	var max = req.body.max;
+	console.log(max+'');
 	var filename = req.query.job + '.sla';
 	var type = req.query.type;
 	path = config.testFilesPath + filename;
