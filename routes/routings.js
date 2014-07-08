@@ -39,7 +39,7 @@ exports.getJobNames = function(req, res){
 //Add to test file
 exports.deleteJobTest = function(req, res){
 	var metricID = req.query.metric + ' ';
-	
+	metricID = metricID.replace('%20', '+');
 	var filename = req.query.job + '.sla';
 	var type = req.query.type;
 	path = config.testFilesPath + filename;
