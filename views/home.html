@@ -109,7 +109,7 @@
 			}
 
 			function getResultPreviews(){
-				for(var i=0; i<buildIds; i++){
+				for(var i=0; i<buildIds.length; i++){
 					evaluateJob(buildIds[i][0],buildIds[i][1]);
 				}
 			}
@@ -200,6 +200,7 @@
 
 						if(data[data.length-1].name == 'PERF_CI'){
 							main = data[data.length-1];
+							buildIds[buildIds.length] = [main.name, main.id];
 						}
 					}
 					
