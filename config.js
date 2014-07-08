@@ -10,6 +10,7 @@ var config = {
 	retrieveData: urlPath + 'data/',
 	retrieveRecentJobs: urlPath + 'getRecentJobs/',
 	report: urlPath +'report?jobName=',
+	update: urlPath +'update?job=',
 	testFilesPath: "/mnt/nfsshare/SLAS/",
 	jobHost: 'http://mule-perflab06.managed.contegix.com:8080'
 
