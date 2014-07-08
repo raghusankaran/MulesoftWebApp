@@ -38,6 +38,9 @@ app.get('/update', function(req, res){
 	res.render('update');
 });
 
+//delete test metric
+app.get('/deleteJobTest', routings.deleteJobTest);
+
 //put test file
 app.post('/putTestFile', routings.addJobTest);
 
