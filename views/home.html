@@ -159,7 +159,7 @@
 				for(var section in jsonObj){
 					for(var key in jsonObj[section]){
 						var metricName = key.substring(0,key.length-5);
-						if(cache[metricName] == null){
+						if(cache[metricName].length == 0){
 							cache[metricName] = getData(jobName, metricName, buildID);
 						}
 					}
