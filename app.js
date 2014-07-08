@@ -13,6 +13,10 @@ app.listen(8880);
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 app.use(express.static(__dirname));
+
+app.use(express.bodyParser());
+app.use(app.router);
+
 app.get('/', function(req, res){
 	res.render('home');
 });
