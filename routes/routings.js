@@ -63,7 +63,9 @@ exports.deleteJobTest = function(req, res){
 		}
 		else{
 			var data = JSON.parse(str);
+			console.log(data);
 			delete data[type][metricID];
+			console.log(data);
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
