@@ -51,6 +51,8 @@
 			function getItems(jobName){
 				var url = config.getTestMetrics + jobName;
 				var resp = getRequest(url);
+				if(resp == '')
+					resp = '{"sla":{},"prev":{},"base":{}}';
 				return JSON.parse(resp);
 			}
 			function clearCache(){
@@ -202,8 +204,7 @@
 							main = data[data.length-1];
 							buildIds[buildIds.length] = [main.name, main.id];
 						}
-					}
-					
+					}					 
 				}				
 			}
 
@@ -283,22 +284,22 @@
 				var baseResult = document.getElementById('baseMain');
 				getResultPreviews();
 				//SLA
-				slaResult.innerHTML = slaResults[0];
-				if(slaResults[0] == 'Failed')
+				slaResult.innerHTML = slaResults[2];
+				if(slaResults[2] == 'Failed')
 					slaResult.className = 'redText';
-				else if(slaResults[0] == 'Passed')
+				else if(slaResults[2] == 'Passed')
 					slaResult.className = 'greenText';
 				//PREV
-				prevResult.innerHTML = prevResults[0];
-				if(prevResults[0] == 'Failed')
+				prevResult.innerHTML = prevResults[2];
+				if(prevResults[2] == 'Failed')
 					prevResult.className = 'redText';
-				else if(prevResults[0] == 'Passed')
+				else if(prevResults[2] == 'Passed')
 					prevResult.className = 'greenText';
 				//BASE
-				baseResult.innerHTML = baseResults[0];
-				if(baseResults[0] == 'Failed')
+				baseResult.innerHTML = baseResults[2];
+				if(baseResults[2] == 'Failed')
 					baseResult.className = 'redText';
-				else if(baseResults[0] == 'Passed')
+				else if(baseResults[2] == 'Passed')
 					baseResult.className = 'greenText';
 
 
@@ -341,22 +342,22 @@
 					var baseResult = document.getElementById('base'+ (i+1));
 					getResultPreviews();
 					//SLA
-					slaResult.innerHTML = slaResults[i+1];
-					if(slaResults[i+1] == 'Failed')
+					slaResult.innerHTML = slaResults[i];
+					if(slaResults[i] == 'Failed')
 						slaResult.className = 'redText';
-					else if(slaResults[i+1] == 'Passed')
+					else if(slaResults[i] == 'Passed')
 						slaResult.className = 'greenText';
 					//PREV
-					prevResult.innerHTML = prevResults[i+1];
-					if(prevResults[i+1] == 'Failed')
+					prevResult.innerHTML = prevResults[i];
+					if(prevResults[i] == 'Failed')
 						prevResult.className = 'redText';
-					else if(prevResults[i+1] == 'Passed')
+					else if(prevResults[i] == 'Passed')
 						prevResult.className = 'greenText';
 					//BASE
-					baseResult.innerHTML = baseResults[i+1];
-					if(baseResults[i+1] == 'Failed')
+					baseResult.innerHTML = baseResults[i];
+					if(baseResults[i] == 'Failed')
 						baseResult.className = 'redText';
-					else if(baseResults[i+1] == 'Passed')
+					else if(baseResults[i] == 'Passed')
 						baseResult.className = 'greenText';
 				}
 				document.getElementById('searchBar').action = config.report;
