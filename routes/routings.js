@@ -45,8 +45,8 @@ exports.getTestMetrics = function(req, res){
 		if(str == null){
 			res.send(null);
 		}
-
-		res.send(str);
+		else
+			res.send(str);
 	});	
 	
 };
