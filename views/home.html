@@ -8,18 +8,191 @@
 		<script>
 		var data = [];
 		var main;
+		var buildIds= [,,];
+		var slaResults = [];
+		var prevResults = [];
+		var baseResults =[];
+		var cache = {
+						'duration': '',
+
+				        'cpu use': [],
+				        'cpu iowait': [],
+				        'cpu steal': [],
+
+			 		    'mem use': [],
+			 		    'mem kbcache': [],
+			 		    'mem kbbuffers': [],
+			         
+			  			'disk util': [],
+			  	        'disk await': [],
+			  		    'disk tps': [],
+			  			'disk rd_sec': [],
+			  			'disk wr_sec': [],
+			  		  
+			  		  	'network used': [],
+			  			'network txkB': [],
+			  			'network rxkB': [],
+			  		  
+			            'paging pgpgin': [],
+			            'paging pgpgout': [],
+			            'paging fault': [],
+			            'paging majflt': [],
+			            'paging pgpgin': [],
+			            'paging pgfree': [],
+			            'paging pgscank': [],
+			            'paging pgscand': [],
+			            'paging pgsteal': [],
+			            'paging vmef': [],
+			  		  
+			  			'swap in': [],
+			  			'swap out': []
+			};
+
+			function getItems(jobName){
+				var url = config.getTestMetrics + jobName;
+				var resp = getRequest(url);
+				return JSON.parse(resp);
+			}
+			function clearCache(){
+				cache = {
+						'duration': '',
+
+				        'cpu use': [],
+				        'cpu iowait': [],
+				        'cpu steal': [],
+
+			 		    'mem use': [],
+			 		    'mem kbcache': [],
+			 		    'mem kbbuffers': [],
+			         
+			  			'disk util': [],
+			  	        'disk await': [],
+			  		    'disk tps': [],
+			  			'disk rd_sec': [],
+			  			'disk wr_sec': [],
+			  		  
+			  		  	'network used': [],
+			  			'network txkB': [],
+			  			'network rxkB': [],
+			  		  
+			            'paging pgpgin': [],
+			            'paging pgpgout': [],
+			            'paging fault': [],
+			            'paging majflt': [],
+			            'paging pgpgin': [],
+			            'paging pgfree': [],
+			            'paging pgscank': [],
+			            'paging pgscand': [],
+			            'paging pgsteal': [],
+			            'paging vmef': [],
+			  		  
+			  			'swap in': [],
+			  			'swap out': []
+				};
+			}
+			function getAvg(data){
+				var avg = 0;
+				for(var i=0; i<data.length; i++){
+					avg += parseFloat(data[i]);
+				}
+				avg = avg/data.length;
+				return avg;
+
+			}	
+			function evaluateJob(jobName,buildID){
+				var test = getItems(jobName);
+				clearCache();
+				fetchData(jobName, test, buildID);
+				compareData('sla', test.sla);
+				compareData('prev', test.prev);
+				compareData('base', test.base);
+			}
+
+			function getResultPreviews(){
+				for(var i=0; i<buildIds; i++){
+					evaluateJob(buildIds[i][0],buildIds[i][1]);
+				}
+			}
+			function isEmpty(obj) {
+			    for(var prop in obj) {
+			        if(obj.hasOwnProperty(prop))
+			            return false;
+			    }
+
+			    return true;
+			}
+
+			function compareData(type,jsonObj){
+
+				var passed = 'Passed';
+				if(isEmpty(jsonObj)){
+					passed = 'Not Configured';
+				}
+				else{
+					for(var key in jsonObj){
+						var dataID = key.substring(0,key.length-5);
+						var min = float.parse(jsonObj[key][0]);
+						var max = float.parse(jsonObj[key][1]);
+						var data = cache[dataID];
+						if(key.indexOf('avg') >= 0){
+							var result = float.parse(getAvg(data);
+							if(min > result || max < result){
+								passed='Failed';
+							}
+						}
+					}
+				}
+				if(type == 'sla'){
+					slaResults[slaResults.length] = passed;
+				}
+				else if(type == 'prev'){
+					prevResults[prevResults.length] = passed;
+				}
+				else if(type == 'base'){
+					baseResults[baseResults.length] = passed;
+				}
+
+			}
+			function fetchData(jobName, jsonObj, buildID){
+				for(var section in jsonObj){
+					for(var key in section){
+						var metricName = key.substring(0,key.length-5);
+						if(cache[metricName] == null){
+							cache[metricName] = getData(jobName, metricName, buildID);
+						}
+					}
+				}						
+			}
+
+			function getData(jobName, type, idNum){
+				var job = jobName;				
+				var query = '?job='+job+'&id='+idNum+'&type='+type;
+				var url = config.retrieveData+query
+					
+				var str = getRequest(url);
+				if(type.indexOf('duration') >=0){
+					return str;
+				}
+				var data = str.split(',');
+				data.pop();
+				return data;				
+			}
+
 			function getRequest(url){
 				var request = new XMLHttpRequest();
 				request.open("GET", url, false);
 				request.send(null);
 				return request.responseText;
 			}
+
 			function getJobs(){
 				var get = getRequest(config.retrieveRecentJobs);
 				var info = JSON.parse(get);
 
 				for(var i = 0; i <  info.jobs.length; i++){
+
 					if(info.jobs[i].lastBuild != null){
+
 						data[data.length] = {'name': info.jobs[i].name, 
 											 'id': info.jobs[i].lastBuild.number,
 											 'time': info.jobs[i].lastBuild.timestamp,
@@ -58,6 +231,9 @@
 							seen = false;
 						}
 					}
+				}
+				for(var i=0; i<times.length; i++){
+					buildIds[i] = [times[i].name, times[i].id];
 				}
 				return times;	
 			}
@@ -101,6 +277,30 @@
 				else
 					document.getElementById('mainRes').className = 'redText';
 
+				var slaResult = document.getElementById('slaMain');
+				var prevResult = document.getElementById('prevMain');
+				var baseResult = document.getElementById('baseMain');
+				getResultPreviews();
+				//SLA
+				slaResult.innerHTML = slaResults[0];
+				if(slaResults[0] == 'Failed')
+					slaResult.className = 'redText';
+				else if(slaResults[0] == 'Passed')
+					slaResult.className = 'greenText';
+				//PREV
+				prevResult.innerHTML = prevResults[0];
+				if(prevResults[0] == 'Failed')
+					prevResult.className = 'redText';
+				else if(prevResults[0] == 'Passed')
+					prevResult.className = 'greenText';
+				//BASE
+				baseResult.innerHTML = baseResults[0];
+				if(baseResults[0] == 'Failed')
+					baseResult.className = 'redText';
+				else if(baseResults[0] == 'Passed')
+					baseResult.className = 'greenText';
+
+
 				//******************************************************************
 				//RECENTS!!!!
 				//******************************************************************
@@ -128,6 +328,35 @@
 					}
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
+
+					slaResult.innerHTML = slaResults[0];
+					if(slaResults[0] == 'Failed')
+						slaResult.className = 'redText';
+					else if(slaResults[0] == 'Passed')
+						slaResult.className = 'greenText';
+
+					var slaResult = document.getElementById('sla'+ (i+1));
+					var prevResult = document.getElementById('prev'+ (i+1));
+					var baseResult = document.getElementById('base'+ (i+1));
+					getResultPreviews();
+					//SLA
+					slaResult.innerHTML = slaResults[i+1];
+					if(slaResults[i+1] == 'Failed')
+						slaResult.className = 'redText';
+					else if(slaResults[i+1] == 'Passed')
+						slaResult.className = 'greenText';
+					//PREV
+					prevResult.innerHTML = prevResults[i+1];
+					if(prevResults[i+1] == 'Failed')
+						prevResult.className = 'redText';
+					else if(prevResults[i+1] == 'Passed')
+						prevResult.className = 'greenText';
+					//BASE
+					baseResult.innerHTML = baseResults[i+1];
+					if(baseResults[i+1] == 'Failed')
+						baseResult.className = 'redText';
+					else if(baseResults[i+1] == 'Passed')
+						baseResult.className = 'greenText';
 				}
 				document.getElementById('searchBar').action = config.report;
 				buildDropDown();
@@ -163,9 +392,9 @@
 								<li>Latest run <span id='mainNum' class='keyMetricResults'>#48</span> on <span id='mainDate' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li >Status Report - <span id='mainRes'></span> </li>
 									<ul>
-										<li>SLA Check: <span class='grayText'>Not Configured</span> <a name= 'editSLAMain' class='editSLA' href=''></a></li>
-										<li>Compared to Previous: <span class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
-										<li>Compared to Baseline: <span class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>SLA Check: <span id='slaMain' class='grayText'>Not Configured</span> <a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>Compared to Previous: <span id='prevMain' class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>Compared to Baseline: <span id='baseMain' class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
@@ -184,9 +413,9 @@
 								<li>Latest run <span id='jobNum1' class='keyMetricResults'>#48</span> on <span id='jobDate1' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report - <span id='jobRes1'></span></li>
 									<ul>
-										<li>SLA Check: <span class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
-										<li>Compared to Previous: <span class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
-										<li>Compared to Baseline: <span class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
+										<li>SLA Check: <span id='sla1' class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
+										<li>Compared to Previous: <span  id='prev1' class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
+										<li>Compared to Baseline: <span id='base1' class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
@@ -197,9 +426,9 @@
 								<li>Latest run is <span id='jobNum2' class='keyMetricResults'>#48</span> on <span id='jobDate2' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li>Status Report - <span id='jobRes2'></span></li>
 									<ul>
-										<li>SLA Check: <span class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
-										<li>Compared to Previous: <span class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
-										<li>Compared to Baseline: <span class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
+										<li>SLA Check: <span id='sla2' class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
+										<li>Compared to Previous: <span id='prev2' class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
+										<li>Compared to Baseline: <span id='base2' class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
