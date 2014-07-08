@@ -439,12 +439,48 @@ body{
 	}
 	.updateItems{
 		color:white;
+		width: 800px;
 		margin-left: 50px;
 	}
 	.updateCheckForm{
 		margin-left: 35px;
 		margin-bottom: 20px;
 	}
+	.nameCurrMetric{
+		width: 300px;
+		float: left;
+	}
+	.minCurrMetric{
+		float: left;
+		width: 200px;
+	}
+	.maxCurrMetric{
+		float: left;
+		width: 200px;
+	}
+
+	.metricDescriptions{
+		color: cyan;
+		text-decoration: underline;
+	}
+	.editSLA{
+		color: cyan;
+		font-size: 12px;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
