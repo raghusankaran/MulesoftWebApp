@@ -436,32 +436,37 @@
 
 					calculateCompAverages('prev');				
 
-					document.getElementById('compCpu').innerHTML = compCPU+ ' %'; 
-					document.getElementById('compDisk').innerHTML = compDisk+ ' %';
-					document.getElementById('compMem').innerHTML = compMem+ ' %';
-					document.getElementById('compNet').innerHTML = compNet+ ' %';
-					document.getElementById('compTPS').innerHTML = compTPS+ ' %';
-
 					if(parseFloat(compCPU) < 0)
 						document.getElementById('compCpu').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compCpu;
 						document.getElementById('compCpu').className = 'redText';
+					}
 					if(parseFloat(compDisk) < 0)
 						document.getElementById('compDisk').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compDisk;
 						document.getElementById('compDisk').className = 'redText';
+					}
 					if(parseFloat(compMem) < 0)
 						document.getElementById('compMem').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compMem;
 						document.getElementById('compMem').className = 'redText';
+					}
 					if(parseFloat(compNet) < 0)
 						document.getElementById('compNet').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compNet;
 						document.getElementById('compNet').className = 'redText';
+					}
 					if(parseFloat(compTPS) < 0)
 						document.getElementById('compTPS').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compTPS;
 						document.getElementById('compTPS').className = 'redText';
+					}
+					
 				}
 			}
 
@@ -478,32 +483,43 @@
 
 					calculateCompAverages('base');				
 
-					document.getElementById('compCpu').innerHTML = compCPU+ ' %'; 
-					document.getElementById('compDisk').innerHTML = compDisk+ ' %';
-					document.getElementById('compMem').innerHTML = compMem+ ' %';
-					document.getElementById('compNet').innerHTML = compNet+ ' %';
-					document.getElementById('compTPS').innerHTML = compTPS+ ' %';
+					
 
 					if(parseFloat(compCPU) < 0)
 						document.getElementById('compCpu').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compCpu;
 						document.getElementById('compCpu').className = 'redText';
+					}
 					if(parseFloat(compDisk) < 0)
 						document.getElementById('compDisk').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compDisk;
 						document.getElementById('compDisk').className = 'redText';
+					}
 					if(parseFloat(compMem) < 0)
 						document.getElementById('compMem').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compMem;
 						document.getElementById('compMem').className = 'redText';
+					}
 					if(parseFloat(compNet) < 0)
 						document.getElementById('compNet').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compNet;
 						document.getElementById('compNet').className = 'redText';
+					}
 					if(parseFloat(compTPS) < 0)
 						document.getElementById('compTPS').className = 'greenText';					
-					else
+					else{
+						compCpu = ' +' + compTPS;
 						document.getElementById('compTPS').className = 'redText';
+					}
+					document.getElementById('compCpu').innerHTML = ' '+compCPU+ ' %'; 
+					document.getElementById('compDisk').innerHTML = ' '+compDisk+ ' %';
+					document.getElementById('compMem').innerHTML = ' '+compMem+ ' %';
+					document.getElementById('compNet').innerHTML = ' '+compNet+ ' %';
+					document.getElementById('compTPS').innerHTML = ' '+compTPS+ ' %';
 
 
 				}
