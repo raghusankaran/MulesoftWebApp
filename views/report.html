@@ -195,6 +195,10 @@
 							'percentage': true
 				};
 				updateGraph('graph1', options);
+				options.data[0] = cache['mem use'];
+				updateGraph('graph2',options);
+				options.data[0] = cache['disk use'];
+				updateGraph('graph3',options);
 			}
 
 			function initializePage(){
@@ -309,7 +313,12 @@
 						<div class='graphContent'>
 							CPU Graph<br>
 							<canvas id='graph1' width='950' height='500'> 
-
+							</canvas>
+							Memory Graph<br>
+							<canvas id='graph2' width='950' height='500'> 
+							</canvas>
+							Disk Graph<br>
+							<canvas id='graph3' width='950' height='500'> 
 							</canvas>
 						</div>
 					</div>
