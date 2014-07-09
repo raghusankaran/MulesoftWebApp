@@ -47,6 +47,39 @@
 			  			'swap out': []
 			};
 
+			var testOptions = {
+										 'cpu use ':'CPU: Used',
+										 'cpu iowait ':'CPU: IO Wait',
+										 'cpu steal ':'CPU: Steal',
+
+										 'mem use ':'Memory: Used',
+							 		     'mem kbcache ':'Memory: KB Cache',
+										 'mem kbbuffers ':'Memory: KB Buffers',
+							         							  	      
+										 'disk util ':'Disk: Used',
+										 'disk await ':'Disk: Await',
+										 'disk tps ':'Disk: TPS',
+										 'disk rd_sec ':'Disk: RD_Sec',
+										 'disk wr_sec ':'Disk: WR_Sec',
+							  		  
+										 'network used ':'Network: Used',
+							  			 'network txkB ': 'Network: TxkB',
+										 'network rxkB ':'Network: RxkB',
+							  		  
+										 'paging pgpgin ':'Paging: Pgpgin',
+										 'paging pgpgout ':'Paging: Pgpgout',
+										 'paging fault ':'Paging: Fault',
+										 'paging majflt ':	'Paging: Maj. Fault',
+										 'paging pgfree ':'Paging: PG Free',
+										 'paging pgscank ':'Paging: PG Scank',
+										 'paging pgscand ':'Paging: PG Scand',
+										 'paging pgsteal ':'Paging: PG Steal',
+										 'paging vmef ':'Paging: VMEF',
+							  		  
+										 'swap in ':'Swap: In',
+										 'swap out ':'Swap: Out'
+			}
+
 			var avgCPU, avgDisk, avgMem, avgTPS, avgNet, avgGCStall, avgHeap, avgRespT;
 
 			function showHide(index){
@@ -179,6 +212,7 @@
 					var min = parseFloat(slaObj[metric][0]);
 					var max = parseFloat(slaObj[metric][1]);
 					var jobResult;
+					var display = testOptions[metricName+' '] + ' (' +type.toUpperCase()+') --';
 					var type = metric.substring(metric.length-4, metric.length-1);
 					if(type == 'avg'){
 						jobResult = getAvg(cache[metricName]);						
@@ -191,10 +225,10 @@
 					}
 
 					if(min < jobResult && jobResult < max){
-						resultObj[metric] = [jobResult, true];
+						resultObj[display] = [jobResult, true];
 					}
 					else{
-						resultObj[metric] = [jobResult, false];
+						resultObj[display] = [jobResult, false];
 					}
 
 				}
@@ -233,6 +267,11 @@
 				document.getElementById('avgMem').innerHTML = avgMem+ ' %';
 				document.getElementById('avgNet').innerHTML = avgNet+ ' %';
 				document.getElementById('avgTPS').innerHTML = avgTPS;
+				
+				var sla = slaResults();
+
+
+
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
@@ -253,13 +292,14 @@
 				updateGraph('graph2',options);
 				options.data[0] = cache['disk util'];
 				updateGraph('graph3',options);
+
 			}
 
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown();
 				updatePage();
-				var sla = slaResults();
+				
 			}
 			function updatePage(){
 				var dropDown = document.getElementById('buildNumber');
