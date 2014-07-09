@@ -272,8 +272,11 @@
 				
 				var sla = slaResults();
 
-
-
+				//XXX: weiogje
+				if(sla['overall'] == false){
+					document.getElementById('slaPass').innerHTML = 'Failed';
+					document.getElementById('slaPass').className = 'redText';
+				}
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
