@@ -224,12 +224,16 @@
 					else if(type == '99%'){
 						jobResult = getPercentile(cache[metricName], 99);
 					}
+					if((jobResult+'').indexOf('.') >=0)
+						var answer = (jobResult+'').substring(0, (jobResult+'').indexOf('.') + 3);
+					else
+						var answer = jobResult + '';
 
 					if(min < jobResult && jobResult < max){
-						resultObj[display] = [jobResult, true];
+						resultObj[display] = [answer, true];
 					}
 					else{
-						resultObj[display] = [jobResult, false];
+						resultObj[display] = [answer, false];
 						resultObj['overall'] = false;
 					}
 
