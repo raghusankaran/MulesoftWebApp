@@ -190,7 +190,7 @@
 						jobResult = getPercentile(cache[metricName], 99);
 					}
 
-					if(min < jobResult || jobResult < max){
+					if(min < jobResult && jobResult < max){
 						resultObj[metric] = [jobResult, true];
 					}
 					else{
