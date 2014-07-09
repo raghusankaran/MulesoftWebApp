@@ -482,7 +482,9 @@ body{
 	#baseTitle{
 		float: left;
 	}
-	
+	#basebutton{
+		margin-left: 10px;
+	}
 }
 
 
