@@ -290,6 +290,17 @@
 				
 				//XXX
 
+				var slaData = document.getElementById('slaDataResults');
+				for(var metric in sla){
+					if(metric != 'overall'){
+						var colorOfResult = 'greenText';
+						if(sla[metric][1] == false)
+							colorOfResult = 'redText';
+						slaData.innerHTML+= metric+ ' ';
+						slaData.innerHTML+= '<span class=' + colorOfResult + '>' + slaMetric[metric][0] + '</span>';
+						slaData.innerHTML+='<br>';
+					}
+				}
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
@@ -393,7 +404,7 @@
 						<div id='slaSection'>
 							<p class='keyTitle' onclick="showHide(0)"><span id='plus0'>+</span> SLA Check: <span id='slaPass' class='greenText'> Passed</span></p>
 							<div id='slaResults'>
-								<p class='dataResults'>
+								<p id='slaDataResults' class='dataResults'>
 									Previous run: <span class='greenText'># 22</span><br>
 									Avg TPS: <span class='greenText'>- 4%</span><br>
 									Avg response time: <span class='greenText'>+ 4.5%</span><br>
@@ -404,7 +415,7 @@
 						<div id='prevSection'>
 							<p class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Compared to previous run:  <span id='prevPass' class='redText'> Failed</span></p>
 							<div id='prevResults'>
-								<p class='dataResults' >
+								<p id='prevDataResults' class='dataResults' >
 									Previous run: <span class='redText'># 22</span><br>
 									Avg TPS: <span class='redText'>- 4%</span><br>
 									Avg response time: <span class='redText'>+ 4.5%</span><br>
@@ -414,7 +425,7 @@
 						<div id='baseSection'>
 							<p class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to baseline:  <span id='basePass' class='grayText'> Not Configured</span> </p>
 							<div id='baseResults'>
-								<p class='dataResults' >
+								<p id='baseDataResults' class='dataResults' >
 								</p>
 							</div>
 						</div>
