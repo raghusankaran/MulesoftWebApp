@@ -47,6 +47,77 @@
 			  			'swap out': []
 			};
 
+			var prevCache = {
+						'duration': '',
+
+				        'cpu use': [],
+				        'cpu iowait': [],
+				        'cpu steal': [],
+
+			 		    'mem use': [],
+			 		    'mem kbcache': [],
+			 		    'mem kbbuffers': [],
+			         
+			  			'disk util': [],
+			  	        'disk await': [],
+			  		    'disk tps': [],
+			  			'disk rd_sec': [],
+			  			'disk wr_sec': [],
+			  		  
+			  		  	'network used': [],
+			  			'network txkB': [],
+			  			'network rxkB': [],
+			  		  
+			            'paging pgpgin': [],
+			            'paging pgpgout': [],
+			            'paging fault': [],
+			            'paging majflt': [],
+			            'paging pgpgin': [],
+			            'paging pgfree': [],
+			            'paging pgscank': [],
+			            'paging pgscand': [],
+			            'paging pgsteal': [],
+			            'paging vmef': [],
+			  		  
+			  			'swap in': [],
+			  			'swap out': []
+			};
+			var baseCache = {
+						'duration': '',
+
+				        'cpu use': [],
+				        'cpu iowait': [],
+				        'cpu steal': [],
+
+			 		    'mem use': [],
+			 		    'mem kbcache': [],
+			 		    'mem kbbuffers': [],
+			         
+			  			'disk util': [],
+			  	        'disk await': [],
+			  		    'disk tps': [],
+			  			'disk rd_sec': [],
+			  			'disk wr_sec': [],
+			  		  
+			  		  	'network used': [],
+			  			'network txkB': [],
+			  			'network rxkB': [],
+			  		  
+			            'paging pgpgin': [],
+			            'paging pgpgout': [],
+			            'paging fault': [],
+			            'paging majflt': [],
+			            'paging pgpgin': [],
+			            'paging pgfree': [],
+			            'paging pgscank': [],
+			            'paging pgscand': [],
+			            'paging pgsteal': [],
+			            'paging vmef': [],
+			  		  
+			  			'swap in': [],
+			  			'swap out': []
+			};
+
 			var testOptions = {
 										 'cpu use ':'CPU: Used',
 										 'cpu iowait ':'CPU: IO Wait',
@@ -135,9 +206,9 @@
 				}
 			}
 
-			function buildDropDown(){
+			function buildDropDown(dropDownName){
 				var buildIds = getBuilds(config.retrieveBuilds+ jobName);
-				var dropDown = document.getElementById('buildNumber');
+				var dropDown = document.getElementById(dropDownName);
 
 				for(var i=0; i < buildIds.length; i++){
 					if(i == 0)
@@ -330,7 +401,7 @@
 
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
-				buildDropDown();
+				buildDropDown('buildNumber');
 				updatePage();
 				
 			}
