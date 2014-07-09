@@ -212,8 +212,9 @@
 					var min = parseFloat(slaObj[metric][0]);
 					var max = parseFloat(slaObj[metric][1]);
 					var jobResult;
-					var display = testOptions[metricName+' '] + ' (' +type.toUpperCase()+') --';
 					var type = metric.substring(metric.length-4, metric.length-1);
+
+					var display = testOptions[metricName+' '] + ' (' +type.toUpperCase()+') --';
 					if(type == 'avg'){
 						jobResult = getAvg(cache[metricName]);						
 					}
