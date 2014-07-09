@@ -425,6 +425,11 @@
 			function comparePrev(){
 				if(document.getElementById('prevbutton').value == 'ON'){
 					document.getElementById('prevbutton').value = 'OFF';
+					document.getElementById('compCpu').innerHTML = ' ';
+					document.getElementById('compDisk').innerHTML = ' ';
+					document.getElementById('compMem').innerHTML = ' ';
+					document.getElementById('compNet').innerHTML = ' ';
+					document.getElementById('compTPS').innerHTML = ' ';
 				}
 				else{
 					document.getElementById('basebutton').value = 'OFF';
@@ -478,6 +483,11 @@
 			function compareBase(){
 				if(document.getElementById('basebutton').value == 'ON'){
 					document.getElementById('basebutton').value = 'OFF';
+					document.getElementById('compCpu').innerHTML = ' ';
+					document.getElementById('compDisk').innerHTML = ' ';
+					document.getElementById('compMem').innerHTML = ' ';
+					document.getElementById('compNet').innerHTML = ' ';
+					document.getElementById('compTPS').innerHTML = ' ';
 				}
 				else{
 					document.getElementById('prevbutton').value = 'OFF';
