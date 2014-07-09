@@ -402,6 +402,7 @@
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown('buildNumber');
+				buildDropDown('prevNumber');
 				updatePage();
 				
 			}
@@ -485,11 +486,11 @@
 							</div>
 						</div>
 						<div id='prevSection'>
-							<p class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Compared to previous run:  <span id='prevPass' class='greenText'> Passed</span></p>
-							<div id='prevResults'>
-								<p id='prevDataResults' class='dataResults' >
-								</p>
-							</div> 
+							<p class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Compared to previous run: </p>
+							<form id='buildPrevDropDown'action="">
+							<select id="prevNumber" onchange="updatePage()">
+							</select>
+						</form>
 						</div>
 						<div id='baseSection'>
 							<p class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to baseline:  <span id='basePass' class='greenText'> Passed</span> </p>
