@@ -10,7 +10,7 @@
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
 			var chosenID = -1;
-
+			var testObject = getItems(jobName);
 			var cache = {
 						'duration': '',
 
@@ -162,6 +162,60 @@
 				avgMem = (''+ getAvg(cache['mem use'])).substring(0,5);
 			}
 
+			//Return object
+			/*
+				obj = {
+						"metric": [jobResult, passed(true/false)]
+				}
+
+			*/
+			function slaResults(){
+				var slaObj = testObject.sla;
+
+				var resultObj = {};
+
+				for(var metric in slaObj){
+					var metricName = metric.substring(0, metric.length-5);
+					var min = parseFloat(slaObj[metric][0]);
+					var max = parseFloat(slaObj[metric][1]);
+					var jobResult;
+					var type = metric.substring(metric.length-4, metric.length-1);
+					if(type == 'avg'){
+						jobResult = getAvg(cache[metricName]);						
+					}
+					else if(type == '90%'){
+						jobResult = getPercentile(cache[metricName], 90);
+					}
+					else if(type == '99%'){
+						jobResult = getPercentile(cache[metricName], 99);
+					}
+
+					if(min < jobResult || jobResult < max){
+						resultObj[metric] = [jobResult, true];
+					}
+					else{
+						resultObj[metric] = [jobResult, false];
+					}
+
+				}
+				return resultObj;
+			}
+			function getItems(jobName){
+				var url = config.getTestMetrics + jobName;
+				var resp = getRequest(url);
+				if(resp == '')
+					resp = '{"sla":{},"prev":{},"base":{}}';
+				return JSON.parse(resp);
+			}
+
+			function getPercentile(data, p){
+				var sortedD = data.sort();
+				var index = Math.ceil((p/100)*data.length);
+
+				return sortedD[index];
+
+			}
+
 			function getAvgResponseTime(){
 
 			}
@@ -205,6 +259,7 @@
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown();
 				updatePage();
+				var sla = slaResults();
 			}
 			function updatePage(){
 				var dropDown = document.getElementById('buildNumber');
