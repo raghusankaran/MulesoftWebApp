@@ -1,3 +1,5 @@
+var colors = ['blue', 'red', 'green'];
+
 function clearCanvas(nameOfCanvas){
 		var canvas = document.getElementById(nameOfCanvas);
 		var ctx = canvas.getContext('2d');
@@ -125,13 +127,15 @@ function getBounds(data){
 
 */
 function updateGraph(nameOfCanvas, options){
+	
+
 	//get bounds
 	var bounds = getBounds(options.data);
 
 	makeGraph(nameOfCanvas, options.percentage, bounds);
 
 	for(var line=0; line<options.data.length; line++){
-		addLine(nameOfCanvas, options.data[line], bounds, 'blue');
+		addLine(nameOfCanvas, options.data[line], bounds, colors[line]);
 	}
 	
 	
