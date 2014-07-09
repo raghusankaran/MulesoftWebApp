@@ -476,9 +476,13 @@ body{
 	#prevTitle{
 		float: left;
 	}
-	#buildPrevDropDown{
+	#prevNumber{
 		margin-left: 10px;
 	}
+	#baseTitle{
+		float: left;
+	}
+	
 }
 
 

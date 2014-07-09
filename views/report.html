@@ -488,16 +488,16 @@
 						<div id='prevSection'>
 							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Compared to previous run: </span>
 							<form id='buildPrevDropDown'action="" >
-								<select id="prevNumber" onchange="updatePage()">
+								<select id="prevNumber" onchange="">
 								</select>
+								<input type='button' value='OFF' onclick=''>
 							</form>
 						</div>
 						<div id='baseSection' >
-							<p class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to baseline:  <span id='basePass' class='greenText'> Passed</span> </p>
-							<div id='baseResults'>
-								<p id='baseDataResults' class='dataResults' >
-								</p>
-							</div>
+							<span id='baseTitle' class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to basline: </span>
+							<form>								
+								<input type='button' value='OFF' onclick=''>
+							</form>
 						</div>
 					</div>
 				</div>
