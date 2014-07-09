@@ -261,7 +261,14 @@
 			function getErrorRequests(){
 
 			}
+			function isEmpty(obj) {
+			    for(var prop in obj) {
+			        if(obj.hasOwnProperty(prop))
+			            return false;
+			    }
 
+			    return true;
+			}
 			function fillPage(){
 				document.getElementById('durationInsert').innerHTML = cache['duration'];
 				document.getElementById('avgCpu').innerHTML = avgCPU+ ' %'; 
@@ -272,11 +279,17 @@
 				
 				var sla = slaResults();
 
-				//XXX: weiogje
-				if(sla['overall'] == false){
+				if(isEmpty(testObject.sla) == true){
+					document.getElementById('slaPass').innerHTML = 'Not Configured';
+					document.getElementById('slaPass').className = 'grayText';
+				}
+				else if(sla['overall'] == false){
 					document.getElementById('slaPass').innerHTML = 'Failed';
 					document.getElementById('slaPass').className = 'redText';
 				}
+				
+				//XXX
+
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
