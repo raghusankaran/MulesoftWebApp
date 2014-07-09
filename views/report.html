@@ -462,6 +462,29 @@
 					document.getElementById('compMem').innerHTML = compMem+ ' %';
 					document.getElementById('compNet').innerHTML = compNet+ ' %';
 					document.getElementById('compTPS').innerHTML = compTPS+ ' %';
+
+					if(parseFloat(compCPU) < 0)
+						document.getElementById('compCpu').className = 'greenText';					
+					else
+						document.getElementById('compCpu').className = 'redText';
+					if(parseFloat(compDisk) < 0)
+						document.getElementById('compDisk').className = 'greenText';					
+					else
+						document.getElementById('compDisk').className = 'redText';
+					if(parseFloat(compMem) < 0)
+						document.getElementById('compMem').className = 'greenText';					
+					else
+						document.getElementById('compMem').className = 'redText';
+					if(parseFloat(compNet) < 0)
+						document.getElementById('compNet').className = 'greenText';					
+					else
+						document.getElementById('compNet').className = 'redText';
+					if(parseFloat(compTPS) < 0)
+						document.getElementById('compTPS').className = 'greenText';					
+					else
+						document.getElementById('compTPS').className = 'redText';
+
+
 				}
 
 			}
