@@ -331,16 +331,10 @@
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
 
-					slaResult.innerHTML = slaResults[0];
-					if(slaResults[0] == 'Failed')
-						slaResult.className = 'redText';
-					else if(slaResults[0] == 'Passed')
-						slaResult.className = 'greenText';
 
 					var slaResult = document.getElementById('sla'+ (i+1));
 					var prevResult = document.getElementById('prev'+ (i+1));
 					var baseResult = document.getElementById('base'+ (i+1));
-					getResultPreviews();
 					//SLA
 					slaResult.innerHTML = slaResults[i];
 					if(slaResults[i] == 'Failed')
