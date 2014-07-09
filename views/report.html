@@ -206,7 +206,7 @@
 				var slaObj = testObject.sla;
 
 				var resultObj = {};
-
+				resultObj['overall'] = true;
 				for(var metric in slaObj){
 					var metricName = metric.substring(0, metric.length-5);
 					var min = parseFloat(slaObj[metric][0]);
@@ -230,6 +230,7 @@
 					}
 					else{
 						resultObj[display] = [jobResult, false];
+						resultObj['overall'] = false;
 					}
 
 				}
