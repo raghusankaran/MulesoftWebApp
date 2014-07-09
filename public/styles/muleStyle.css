@@ -485,6 +485,9 @@ body{
 	#basebutton{
 		margin-left: 10px;
 	}
+	#baseVersion{
+		color:cyan;
+	}
 }
 
 

@@ -10,6 +10,7 @@
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
 			var chosenID = -1;
+			var prevID, baseID;
 			var testObject = getItems(jobName);
 			var cache = {
 						'duration': '',
@@ -152,7 +153,7 @@
 			}
 
 			var avgCPU, avgDisk, avgMem, avgTPS, avgNet, avgGCStall, avgHeap, avgRespT;
-
+			var compCPU, compDisk, compMem, compTPS, compNet, compGCStall, compHeap, compRespT;
 			function showHide(index){
 				var divToChange;
 				if(index == 0){
@@ -265,7 +266,47 @@
 				avgNet = (''+ getAvg(cache['network used'])).substring(0,5);
 				avgMem = (''+ getAvg(cache['mem use'])).substring(0,5);
 			}
+			function calculateCompAverages(type){
+				if(type =='prev'){
+					compCPU = (''+ getAvg(prevCache['cpu use'])).substring(0,5);
+					compDisk = (''+ getAvg(prevCache['disk util'])).substring(0,5);
+					compTPS = (''+ getAvg(prevCache['disk tps'])).substring(0,7);
+					compNet = (''+ getAvg(prevCache['network used'])).substring(0,5);
+					compMem = (''+ getAvg(prevCache['mem use'])).substring(0,5);
 
+					diffCPU = parseFloat(avgCPU)- parseFloat(compCPU);
+					diffDisk = parseFloat(avgDisk)- parseFloat(compDisk);
+					diffTPS = parseFloat(avgTPS)- parseFloat(compTPS);
+					diffNet = parseFloat(avgNet)- parseFloat(compNet);
+					diffMem =parseFloat(avgMem)- parseFloat(compMem);
+
+					compCPU  = '' + diffCPU;
+					compDisk = '' + diffDisk;
+					compTPS  = '' + diffTPS;
+					compNet  = '' + diffNet;
+					compMem  = '' + diffMem;					
+				}	
+				else if(type == 'base')	{
+					compCPU = (''+ getAvg(baseCache['cpu use'])).substring(0,5);
+					compDisk = (''+ getAvg(baseCache['disk util'])).substring(0,5);
+					compTPS = (''+ getAvg(baseCache['disk tps'])).substring(0,7);
+					compNet = (''+ getAvg(baseCache['network used'])).substring(0,5);
+					compMem = (''+ getAvg(baseCache['mem use'])).substring(0,5);
+
+					diffCPU = parseFloat(avgCPU)- parseFloat(compCPU);
+					diffDisk = parseFloat(avgDisk)- parseFloat(compDisk);
+					diffTPS = parseFloat(avgTPS)- parseFloat(compTPS);
+					diffNet = parseFloat(avgNet)- parseFloat(compNet);
+					diffMem =parseFloat(avgMem)- parseFloat(compMem);
+
+					compCPU  = '' + diffCPU;
+					compDisk = '' + diffDisk;
+					compTPS  = '' + diffTPS;
+					compNet  = '' + diffNet;
+					compMem  = '' + diffMem;
+				}
+
+			}
 			//Return object
 			/*
 				obj = {
@@ -344,6 +385,83 @@
 
 			    return true;
 			}
+
+			function fillPrevCache(){
+				prevCache['duration'] =  getData('duration', prevID);
+
+				prevCache["cpu use"] = getData('cpu use', prevID);
+				prevCache["cpu iowait"] = getData('cpu iowait', prevID);
+				prevCache["cpu steal"] = getData('cpu steal', prevID);
+
+				prevCache['mem use'] = getData('mem use', prevID);				
+				prevCache['mem kbcache'] = getData('mem kbcache', prevID);
+				prevCache['mem kbbuffers'] = getData('mem kbbuffers', prevID);
+
+				prevCache['disk util'] = getData('disk util', prevID);
+				prevCache['network used'] = getData('network used', prevID);
+				prevCache['disk tps'] = getData('disk tps', prevID);
+
+			}
+
+			function fillBaseCache(){
+				baseCache['duration'] =  getData('duration',	baseID);
+
+				baseCache["cpu use"] = getData('cpu use',	baseID);
+				baseCache["cpu iowait"] = getData('cpu iowait',	baseID);
+				baseCache["cpu steal"] = getData('cpu steal',	baseID);
+
+				baseCache['mem use'] = getData('mem use',	baseID);				
+				baseCache['mem kbcache'] = getData('mem kbcache',	baseID);
+				baseCache['mem kbbuffers'] = getData('mem kbbuffers',	baseID);
+
+				baseCache['disk util'] = getData('disk util',	baseID);
+				baseCache['network used'] = getData('network used',	baseID);
+				baseCache['disk tps'] = getData('disk tps',	baseID);
+
+			}
+
+			function comparePrev(){
+				if(document.getElementById('prevbutton').value == 'ON'){
+					document.getElementById('prevbutton').value = 'OFF';
+				}
+				else{
+					document.getElementById('basebutton').value = 'OFF';
+					document.getElementById('prevbutton').value = 'ON';
+					var dropDown = document.getElementById('prevNumber');
+					prevID = dropDown.options[dropDown.selectedIndex].text;			
+
+					fillPrevCache();
+
+					calculateCompAverages('prev');				
+
+					document.getElementById('compCpu').innerHTML = compCPU+ ' %'; 
+					document.getElementById('compDisk').innerHTML = compDisk+ ' %';
+					document.getElementById('compMem').innerHTML = compMem+ ' %';
+					document.getElementById('compNet').innerHTML = compNet+ ' %';
+				}
+			}
+
+			function compareBase(){
+				if(document.getElementById('basebutton').value == 'ON'){
+					document.getElementById('basebutton').value = 'OFF';
+				}
+				else{
+					document.getElementById('prevbutton').value = 'OFF';
+					document.getElementById('basebutton').value = 'ON';
+					baseID = chosenID-1;
+
+					fillBaseCache();
+
+					calculateCompAverages('base');				
+
+					document.getElementById('compCpu').innerHTML = compCPU+ ' %'; 
+					document.getElementById('compDisk').innerHTML = compDisk+ ' %';
+					document.getElementById('compMem').innerHTML = compMem+ ' %';
+					document.getElementById('compNet').innerHTML = compNet+ ' %';
+				}
+
+			}
+
 			function fillPage(){
 				document.getElementById('durationInsert').innerHTML = cache['duration'];
 				document.getElementById('avgCpu').innerHTML = avgCPU+ ' %'; 
@@ -362,8 +480,7 @@
 					document.getElementById('slaPass').innerHTML = 'Failed';
 					document.getElementById('slaPass').className = 'redText';
 				}
-				
-				//XXX
+							
 
 				var slaData = document.getElementById('slaDataResults');
 				for(var metric in sla){
@@ -447,7 +564,7 @@
 					<div id='cpuBox' class="infoMule">
 						<p class='keyTitle'>Test Results</p>
 						<p id='cpuMetrics'>
-							Average TPS: <span id='avgTPS' class='keyMetricResults'>---</span><br>
+							Average TPS: <span id='avgTPS' class='keyMetricResults'>---</span><span id='compTPS'></span><br>
 							Average response time:  <span id='' class='keyMetricResults'>---</span><br>
 							90th-pctile response time:  <span id='' class='keyMetricResults'>---</span><br>
 							Failed requests:  <span id='' class='keyMetricResults'>---</span> <br>
@@ -458,10 +575,10 @@
 					<div id='systemBox'class="infoMule">
 						<p class='keyTitle'>System Resources</p>
 						<p id='sysMetrics'>
-							Avg CPU Use:  <span id='avgCpu' class='keyMetricResults'>---</span><br>
-							Avg Memory Use:  <span id='avgMem' class='keyMetricResults'>---</span><br>
-							Avg Disk Use:  <span id='avgDisk' class='keyMetricResults'>---</span><br>
-							Avg Network Use:   <span id='avgNet' class='keyMetricResults'>---</span><br>
+							Avg CPU Use:  <span id='avgCpu' class='keyMetricResults'>---</span><span id='compCpu'></span><br>
+							Avg Memory Use:  <span id='avgMem' class='keyMetricResults'>---</span><span id='compMem'></span><br>
+							Avg Disk Use:  <span id='avgDisk' class='keyMetricResults'>---</span><span id='compDisk'></span><br>
+							Avg Network Use:   <span id='avgNet' class='keyMetricResults'>---</span><span id='compNet'></span><br>
 						</p>
 						
 					</div>
@@ -490,11 +607,11 @@
 							<form id='buildPrevDropDown'action="" >
 								<select id="prevNumber" onchange="">
 								</select>
-								<input type='button' value='OFF' onclick=''>
+								<input id='prevbutton' type='button' value='OFF' onclick=''>
 							</form>
 						</div>
 						<div id='baseSection' >
-							<span id='baseTitle' class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to basline: <span id='baseVersion'> Mule Version: 3.5.1 </span></span>
+							<span id='baseTitle' class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to basline: <span id='baseVersion'> Mule Version 3.5.1 </span></span>
 							<form>								
 								<input id='basebutton' type='button' value='OFF' onclick=''>
 							</form>
