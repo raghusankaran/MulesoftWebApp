@@ -661,6 +661,7 @@
 				var dropDown = document.getElementById('buildNumber');
 				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
 				chosenID = dropDown.options[dropDown.selectedIndex].text;
+				testObject = getItems(jobName);
 				fillCache();
 				var prevButton = document.getElementById("prevbutton");
 				var baseButton = document.getElementById("basebutton");
