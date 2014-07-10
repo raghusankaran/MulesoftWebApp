@@ -101,7 +101,7 @@ exports.updateBaseline = function(req, res){
 				"base":{},
 				"baseline":baseID
 			};
-			jsonObj[type][metricID] = [min,max];
+			
 			var data = JSON.stringify(jsonObj);
 			fs.writeFile(path, data, function(err) {
 			    if(err) {
