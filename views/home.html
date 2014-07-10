@@ -274,12 +274,7 @@
 					editLinksMain[j].innerHTML = 'Edit';
 				}
 
-				var baseLinksMain = document.getElementsByName('seeBaseMain');
-
-				for(var j=0; j < baseLinksMain.length; j++){
-					baseLinksMain[j].href = config.report + main.name + '&id=' + baseID[2];
-					baseLinksMain[j].innerHTML = '(Go to this run!)';
-				}
+				
 
 				document.getElementById('mainRes').innerHTML = main.result;
 				if(main.result == 'SUCCESS')
@@ -295,6 +290,8 @@
 				var prevResult = document.getElementById('prevMain');
 				var baseResult = document.getElementById('baseMain');
 				getResultPreviews();
+
+
 				//SLA
 				slaResult.innerHTML = slaResults[2];
 				if(slaResults[2] == 'Failed')
@@ -312,6 +309,12 @@
 					baseResult.style.color = '#00FF00';
 					baseResult.innerHTML = baseID[2];
 					//XXX:add see details
+					var baseLinksMain = document.getElementsByName('seeBaseMain');
+
+					for(var j=0; j < baseLinksMain.length; j++){
+						baseLinksMain[j].href = config.report + main.name + '&id=' + baseID[2];
+						baseLinksMain[j].innerHTML = '(Go to this run!)';
+					}
 				}
 
 
