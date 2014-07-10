@@ -14,7 +14,7 @@ body{
 		box-shadow: 5px 5px 5px #5F5F5F;
 	}
 	#pagewrapper{
-		font: 13px/1.4 sans-serif;
+		font: 20px/1.4 sans-serif;
 		width: 1400px;
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -47,13 +47,13 @@ body{
 	#heading{
 		position: relative;
 		height: 150px;
-		width:1000px;
+		width:1000;
 		
 	}
 
 	#menu{
-		width:160px;
-		height:600px;
+		width:220px;
+		height:800px;
 	
 		float: left;
 		margin-top: 10px;
@@ -78,7 +78,7 @@ body{
 		font-size: 40px;
 		position: relative;
 		text-align: center;
-		margin-left: 75px;
+		margin-left: 400px;
 		margin-top: 70px;
 		
 		
@@ -115,7 +115,7 @@ body{
 		left: 30px;
 		top:-65px;
 		color: cyan;
-		width:100px;
+		width:200px;
 	}
 	#cButton{
 		position: relative;
@@ -152,7 +152,7 @@ body{
 
 	#content{
 		position: relative;
-		margin-left:180px;
+		margin-left:240px;
 		
 		color:cyan;
 	}
@@ -320,10 +320,10 @@ body{
 		border: 2px #FFF solid;
 		box-shadow: 5px 5px 5px #5F5F5F;
 
-		width:300px;
-		height: 400px;
+		width:500px;
+		height: 600px;
 
-		margin-right: 50px;
+		margin: 20px;
 		margin-top: 50px;
 	}
 	#nightlyTest{
@@ -337,9 +337,9 @@ body{
 	.homeBoxTitle{
 		color: white;
 		font-weight: bold;
-		font-size: 18px;
+		font-size: 30px;
 		margin-top: 20px; 
-		margin-left:15px;
+		margin-left:30px;
 	}
 
 	.mainPreview{
@@ -348,35 +348,36 @@ body{
 
 	.jobInfoPreview{
 		color:white;
-		font-size: 12px;
-		margin-left: 15px;
-		margin-top: 10px;
+		font-size: 20px;
+		margin-left: 50px;
+		margin-top: 30px;
+		
 	}
 	
 	.detailsLink{
-		font-size: 10px;
+		font-size: 18px;
 		position: relative;
 		float: right;
 		margin-right: 20px;
 		
 	}
 	.jobNameHome{
-		font-size: 15px;
+		font-size: 25px;
 		position: relative;
 		top:15px;
-		margin-left: 30px;
+		margin-left: 60px;
 	}
 
 	#otherBuilds{
-		width:700px;
+		width:1000px;
 		height:100px;
 		clear:left;
 		color:white;
-		font-size: 15px;
+		font-size: 22px;
 		margin: 0px;
-		margin-left: 0px;
+		margin-left: 50px;
 		position: relative;
-		top: -120px;
+		top:-100px;
 	}
 	#dropDownHome{
 		float: left;
