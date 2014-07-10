@@ -13,8 +13,11 @@ var config = {
 	update: urlPath +'update?job=',
 	testFilesPath: "/mnt/nfsshare/SLAS/",
 	getTestMetrics: urlPath+ 'getTestMetrics/?job=',
+	//Form~~
 	putJobTest: urlPath+ "putTestFile/?job=",
 	deleteJobTest: urlPath+"deleteJobTest?job=",
+	//Query: JOB & IDofBaseline
+	updateBaseline: urlPath+"updateBaseline?job=",
 	jobHost: 'http://mule-perflab06.managed.contegix.com:8080'
 
 };

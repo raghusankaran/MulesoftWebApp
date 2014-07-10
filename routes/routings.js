@@ -52,7 +52,8 @@ exports.deleteJobTest = function(req, res){
 			var jsonObj = {
 				"sla":{},
 				"prev":{},
-				"base":{}
+				"base":{},
+				"baseline":'-1'
 			};
 			
 			var data = JSON.stringify(jsonObj);
@@ -84,7 +85,46 @@ exports.deleteJobTest = function(req, res){
 };
 
 
+//Add baseline to test file
+exports.updateBaseline = function(req, res){
+	var baseID = req.query.id;
 
+	var filename = req.query.job + '.sla';
+	
+	path = config.testFilesPath + filename;
+	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
+	{
+		if(str == null){
+			var jsonObj = {
+				"sla":{},
+				"prev":{},
+				"base":{},
+				"baseline":baseID
+			};
+			jsonObj[type][metricID] = [min,max];
+			var data = JSON.stringify(jsonObj);
+			fs.writeFile(path, data, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+		else{
+			var data = JSON.parse(str);
+			data["baseline"] = baseID;
+			var newdata = JSON.stringify(data);
+			fs.writeFile(path, newdata, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+		}
+	});	
+};
 
 
 //Add to test file
@@ -104,7 +144,8 @@ exports.addJobTest = function(req, res){
 			var jsonObj = {
 				"sla":{},
 				"prev":{},
-				"base":{}
+				"base":{},
+				"baseline":'-1'
 			};
 			jsonObj[type][metricID] = [min,max];
 			var data = JSON.stringify(jsonObj);

@@ -50,6 +50,8 @@ app.get('/retrieveJobs', routings.getJobNames);
 //GET the test metrics for a job
 app.get('/getTestMetrics', routings.getTestMetrics);
 
+
+app.get('/updateBaseline', routings.updateBaseline);
 //GET all the build names
 app.get('/retrieveBuilds/', routings.getBuildNames);
 
