@@ -115,7 +115,7 @@ exports.updateBaseline = function(req, res){
 			var data = JSON.parse(str);
 			console.log(baseID);
 			data["baseline"] = baseID;
-			console.log('Added to file with baseline = ' + jsonObj['baseline']);
+			console.log('Added to file with baseline = ' + data['baseline']);
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
