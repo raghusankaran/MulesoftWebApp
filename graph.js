@@ -149,11 +149,12 @@ function updateGraph(nameOfCanvas, options){
 }
 
 function resizeCanvas(nameOfCanvas, x, y, options){
+	var canvas = document.getElementById(nameOfCanvas);
 	var width = x;
 	var height = y;
-	if (nameOfCanvas.width != width || nameOfCanvas.height != height) {
-		nameOfCanvas.width = width;
-		//nameOfCanvas.height = height;
+	if (canvas.width != width || canvas.height != height) {
+		canvas.width = width;
+		//canvas.height = height;
 	}
 	updateGraph(nameOfCanvas, options);
 }
