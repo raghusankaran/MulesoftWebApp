@@ -691,6 +691,7 @@
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				updatePage();
+				window.addEventListener('resize', resizeAllGraphs(options), false);
 				
 			}
 			function updatePage(){
