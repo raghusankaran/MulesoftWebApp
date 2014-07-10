@@ -152,8 +152,8 @@ body{
 
 	#content{
 		position: relative;
-		margin-left:240px;
-		
+		margin-left:12%;
+		min-margin-left:20px; 
 		color:cyan;
 	}
 	#contentTitle{
@@ -210,7 +210,7 @@ body{
 	}
 	#jobInfo{
 		height:100px;
-		width:1100px;
+		width:95%;
 	}
 	#buildDropDown{
 		position: relative;
@@ -236,7 +236,7 @@ body{
 		border-radius: 25px;
 		border: 2px #FFF solid;
 		box-shadow: 5px 5px 5px #5F5F5F;
-		width:350px;
+		width:30%;
 		height:300px;
 		margin-bottom: 30px;
 		color:white;
@@ -288,7 +288,7 @@ body{
 	}
 	#compareBlock{
 		max-height:500px;
-		width: 1100px;
+		width: 95%;
 		margin-bottom: 30px;
 
 		
@@ -406,7 +406,7 @@ body{
 		font-weight: bold;
 		font-size: 30px;
 		height: 1750px;
-		width: 1100px;
+		width: 95%;
 	}
 	.graphContent{
 		position: relative;
@@ -422,7 +422,7 @@ body{
 		clear: both;
 	}
 	.updateBox{
-		width: 1000px;
+		width: 95%;
 		background-color: black;
 		border-radius: 25px;
 		border: 2px #FFF solid;
@@ -434,7 +434,7 @@ body{
 		margin-bottom: -5px;
 	}
 	hr{
-		width: 950px;
+		width: 93%;
 		align: left;
 	}
 	.updateItems{
@@ -447,16 +447,16 @@ body{
 		margin-bottom: 20px;
 	}
 	.nameCurrMetric{
-		width: 300px;
+		width: 30%;
 		float: left;
 	}
 	.minCurrMetric{
 		float: left;
-		width: 200px;
+		width: 25%;
 	}
 	.maxCurrMetric{
 		float: left;
-		width: 200px;
+		width: 25%;
 	}
 
 	.metricDescriptions{
