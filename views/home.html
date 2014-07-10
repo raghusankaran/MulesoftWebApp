@@ -274,6 +274,13 @@
 					editLinksMain[j].innerHTML = 'Edit';
 				}
 
+				var baseLinksMain = document.getElementsByName('seeBaseMain');
+
+				for(var j=0; j < baseLinksMain.length; j++){
+					baseLinksMain[j].href = config.report + main.name + '&id=' + baseID[2];
+					baseLinksMain[j].innerHTML = '(Go to this run!)';
+				}
+
 				document.getElementById('mainRes').innerHTML = main.result;
 				if(main.result == 'SUCCESS')
 					document.getElementById('mainRes' ).className = 'greenText';
@@ -319,6 +326,9 @@
 						editLinks[j].innerHTML = 'Edit';
 					}
 
+					
+
+
 					document.getElementById('jobName'+ (i+1)).innerHTML = recents[i].name;
 					document.getElementById('jobNum'+ (i+1)).innerHTML = '#'+recents[i].id;
 					var date = new Date(parseFloat(recents[i].time)-28800000);
@@ -356,6 +366,13 @@
 					if(baseID[i] != '-1' && baseID[i] != null){
 						baseResult.style.color = '#00FF00';
 						baseResult.innerHTML = baseID[i];
+
+						var baseLinks = document.getElementsByName('seeBase' +(i+1));
+
+						for(var j=0; j < baseLinks.length; j++){
+							baseLinks[j].href = config.report + recents[i].name + '&id=' + baseID[i];
+							baseLinks[j].innerHTML = '(Go to this run!)';
+						}
 					}
 					
 				}
@@ -395,7 +412,7 @@
 									<ul>
 										<li>SLA Check: <span id='slaMain' class='grayText'>Not Configured</span> <a name= 'editSLAMain' class='editSLA' href=''></a></li>
 										<li>Compared to Previous: <span id='prevMain' class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
-										<li>Current Baseline: <span id='baseMain' class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>Current Baseline: <span id='baseMain' class='grayText'>Not Configured</span><a name= 'seeBaseMain' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
@@ -416,7 +433,7 @@
 									<ul>
 										<li>SLA Check: <span id='sla1' class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
 										<li>Compared to Previous: <span  id='prev1' class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
-										<li>Current Baseline: <span id='base1' class='grayText'>Not Configured</span><a name= 'editSLA1' class='editSLA' href=''></a></li>
+										<li>Current Baseline: <span id='base1' class='grayText'>Not Configured</span><a name= 'seeBase1' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
@@ -429,7 +446,7 @@
 									<ul>
 										<li>SLA Check: <span id='sla2' class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
 										<li>Compared to Previous: <span id='prev2' class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
-										<li>Current Baseline: <span id='base2' class='grayText'>Not Configured</span><a name= 'editSLA2' class='editSLA' href=''></a></li>
+										<li>Current Baseline: <span id='base2' class='grayText'>Not Configured</span><a name= 'seeBase2' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
