@@ -123,12 +123,19 @@ function getBounds(data){
 			'data': [[line1...],[line2...],[line3...]]
 			'baseline': [line...]
 			'percentage': true/false
+			'autosize': true/false
 			}
 
 */
 function updateGraph(nameOfCanvas, options){
-	
-
+	if(options.autosize){	
+		var width = nameOfCanvas.clientWidth;
+		var height = nameOfCanvas.clientHeight;
+		if (nameOfCanvas.width != width || nameOfCanvas.height != height) {
+			nameOfCanvas.width = width;
+			nameOfCanvas.height = height;
+		}
+	}
 	//get bounds
 	var bounds = getBounds(options.data);
 

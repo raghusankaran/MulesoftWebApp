@@ -14,6 +14,31 @@
 			if(optionalID == 'UNDEFINED')
 				optionalID = 0;
 			var prevID, baseID;
+
+			var options = [
+				 {
+					'description': 'CPU Graph',
+					'data':[cache['cpu use']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false
+				 },
+				 {
+					'description': 'CPU Graph',
+					'data':[cache['mem use']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false
+				 },
+				 {
+					'description': 'CPU Graph',
+					'data':[cache['disk util']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false
+				 }
+			];
+
 			var testObject = getItems(jobName);
 			var cache = {
 						'duration': '',
@@ -436,6 +461,39 @@
 
 			}
 
+			function resetGraphs(){
+				options[0]['data'] = [cache['cpu use']];
+				options[1]['data'] = [cache['mem use']];
+				options[2]['data'] = [cache['disk util']];
+
+				for(var i=0; i < options.length; i++){						
+					updateGraph('graph'+(i+1), options[i]);
+				}
+			}
+
+			function addComparisonToGraphs(type){
+
+				if(type =='prev'){
+					options[0]['data'] = [cache['cpu use'], prevCache['cpu use']];
+					options[1]['data'] = [cache['mem use'], prevCache['mem use']];
+					options[2]['data'] = [cache['disk util'], prevCache['disk util']];
+					
+					for(var i=0; i < options.length; i++){						
+						updateGraph('graph'+(i+1), options[i]);
+					}
+				}
+				else if(type == 'base'){
+					options[0]['data'] = [cache['cpu use'], baseCache['cpu use']];
+					options[1]['data'] = [cache['mem use'], baseCache['mem use']];
+					options[2]['data'] = [cache['disk util'], baseCache['disk util']];
+					
+					for(var i=0; i < options.length; i++){						
+						updateGraph('graph'+(i+1), options[i]);
+					}
+				}
+
+			}
+
 			function comparePrev(){
 				if(document.getElementById('prevbutton').value == 'ON'){
 					document.getElementById('prevbutton').value = 'OFF';
@@ -445,17 +503,8 @@
 					document.getElementById('compNet').innerHTML = ' ';
 					document.getElementById('compTPS').innerHTML = ' ';
 
-					var options = {
-							'description': 'CPU Graph',
-							'data':[cache['cpu use']],
-							'baseline': null,
-							'percentage': true
-					};
-					updateGraph('graph1', options);
-					options.data[0] = cache['mem use'];
-					updateGraph('graph2',options);
-					options.data[0] = cache['disk util'];
-					updateGraph('graph3',options);
+					resetGraphs();
+					
 				}
 				else{
 					document.getElementById('basebutton').value = 'OFF';
@@ -503,22 +552,12 @@
 					document.getElementById('compNet').innerHTML = ' '+compNet+ ' %';
 					document.getElementById('compTPS').innerHTML = ' '+compTPS+ ' %';
 
-					var options = {
-							'description': 'CPU Graph',
-							'data':[cache['cpu use'], prevCache['cpu use']],
-							'baseline': null,
-							'percentage': true
-					};
-					updateGraph('graph1', options);
-					options.data[0] = cache['mem use'];
-					options.data[1] = prevCache['mem use'];
-					updateGraph('graph2',options);
-					options.data[0] = cache['disk util'];
-					options.data[1] = prevCache['disk util'];
-					updateGraph('graph3',options);
+					addComparisonToGraphs('prev');
 					
 				}
 			}
+
+
 
 			function compareBase(){
 				if(document.getElementById('basebutton').value == 'ON'){
@@ -529,17 +568,7 @@
 					document.getElementById('compNet').innerHTML = ' ';
 					document.getElementById('compTPS').innerHTML = ' ';
 
-					var options = {
-							'description': 'CPU Graph',
-							'data':[cache['cpu use']],
-							'baseline': null,
-							'percentage': true
-					};
-					updateGraph('graph1', options);
-					options.data[0] = cache['mem use'];
-					updateGraph('graph2',options);
-					options.data[0] = cache['disk util'];
-					updateGraph('graph3',options);
+					resetGraphs();
 				}
 				else{
 					document.getElementById('prevbutton').value = 'OFF';
@@ -591,19 +620,7 @@
 						document.getElementById('compNet').innerHTML = ' '+compNet+ ' %';
 						document.getElementById('compTPS').innerHTML = ' '+compTPS+ ' %';
 
-						var options = {
-								'description': 'CPU Graph',
-								'data':[cache['cpu use'], baseCache['cpu use']],
-								'baseline': null,
-								'percentage': true
-						};
-						updateGraph('graph1', options);
-						options.data[0] = cache['mem use'];
-						options.data[1] = baseCache['mem use'];
-						updateGraph('graph2',options);
-						options.data[0] = cache['disk util'];
-						options.data[1] = baseCache['disk util'];
-						updateGraph('graph3',options);
+						addComparisonToGraphs('base');
 
 					}
 					else{
@@ -656,17 +673,10 @@
 							}
 
 				*/
-				var options = {
-							'description': 'CPU Graph',
-							'data':[cache['cpu use']],
-							'baseline': null,
-							'percentage': true
-				};
-				updateGraph('graph1', options);
-				options.data[0] = cache['mem use'];
-				updateGraph('graph2',options);
-				options.data[0] = cache['disk util'];
-				updateGraph('graph3',options);
+				
+				for(var i=0; i < options.length; i++){
+					updateGraph('graph'+(i+1), options[i]);
+				}
 
 			}
 
