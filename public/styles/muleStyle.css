@@ -499,6 +499,9 @@ body{
 	.compareText{
 		font-size: 14px;
 	}
+	#baselineNumber{
+		color: cyan;
+	}
 }
 
 
