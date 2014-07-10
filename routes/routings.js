@@ -124,7 +124,7 @@ exports.updateBaseline = function(req, res){
 			});
 		}
 	});
-	res.redirect(config.updateBaseline + req.query.job);
+	res.redirect(config.report + req.query.job);
 };
 
 
