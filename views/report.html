@@ -295,6 +295,12 @@
 				return avg;
 
 			}		
+
+			function reloadGraph(){
+				for(var i=0; i < options.length; i++){						
+					updateGraph('graph'+(i+1), options[i]);
+				}
+			}
 			
 			function calculateAllAverages(){
 				avgCPU = (''+ getAvg(cache['cpu use'])).substring(0,5);
@@ -702,6 +708,14 @@
 					baseButton.click();
 				calculateAllAverages();
 				fillPage();
+				resizeAllGraphs(options);
+			}
+			function resizeAllGraphs(optionsArray){
+				var x =window.innerWidth*.8,
+				    y =window.innerHeight*.8;
+				for(var line=0; line < optionsArray.length; line++){
+					resizeCanvas('graph' + (line+1), x, y, optionsArray[line]);
+				}
 			}
 
 			function setThisToBaseline(){
