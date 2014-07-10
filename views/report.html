@@ -358,8 +358,10 @@
 				var url = config.getTestMetrics + jobName;
 				var resp = getRequest(url);
 				if(resp == '')
-					resp = '{"sla":{},"prev":{},"base":{}}';
-				return JSON.parse(resp);
+					resp = '{"sla":{},"prev":{},"base":{},"baseline":"-1"}';
+				var value = JSON.parse(resp);
+				baseID = value.baseline;
+				return value;
 			}
 
 			function getPercentile(data, p){
@@ -530,7 +532,7 @@
 				else{
 					document.getElementById('prevbutton').value = 'OFF';
 					document.getElementById('basebutton').value = 'ON';
-					baseID = chosenID-1;
+					
 
 					fillBaseCache();
 
