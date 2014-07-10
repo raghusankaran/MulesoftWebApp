@@ -475,6 +475,7 @@
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
 				}
+				resizeAllGraphs(options);
 			}
 
 			function addComparisonToGraphs(type){
@@ -497,6 +498,7 @@
 						updateGraph('graph'+(i+1), options[i]);
 					}
 				}
+				resizeAllGraphs(options);
 
 			}
 
@@ -718,7 +720,9 @@
 					resizeCanvas('graph' + (line+1), x, y, optionsArray[line]);
 				}
 			}
-
+			function resizeEasy(){
+				resizeAllGraphs(options);
+			}
 			function setThisToBaseline(){
 				var url = config.updateBaseline + jobName +'&id=' + chosenID;
 				document.getElementById('baselineNumber').innerHTML = '' + chosenID;
@@ -726,7 +730,7 @@
 			}
 		</script>
 	</head>
-	<body>
+	<body onresize="resizeEasy()">
 		<div id= "pagewrapper">
 			<div id="heading" class="mule">
 				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
