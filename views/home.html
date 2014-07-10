@@ -301,8 +301,10 @@
 				else if(prevResults[2] == 'Passed')
 					prevResult.className = 'greenText';
 				//BASE
-				baseResult.innerHTML = baseID[2];
-				
+				if(baseID[2] != '-1'){
+					baseResult.innerHTML = baseID[2];
+					//XXX:add see details
+				}
 
 
 				//******************************************************************
@@ -350,7 +352,9 @@
 					else if(prevResults[i] == 'Passed')
 						prevResult.className = 'greenText';
 					//BASE
-					baseResult.innerHTML = baseID[i];
+					if(baseID[i] != '-1'){
+						baseResult.innerHTML = baseID[i];
+					}
 					
 				}
 				document.getElementById('searchBar').action = config.report;
@@ -389,7 +393,7 @@
 									<ul>
 										<li>SLA Check: <span id='slaMain' class='grayText'>Not Configured</span> <a name= 'editSLAMain' class='editSLA' href=''></a></li>
 										<li>Compared to Previous: <span id='prevMain' class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
-										<li>Current Baseline: <span id='baseMain'>7</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
+										<li>Current Baseline: <span id='baseMain' class='grayText'>Not Configured</span><a name= 'editSLAMain' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>
