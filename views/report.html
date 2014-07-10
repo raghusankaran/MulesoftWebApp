@@ -662,6 +662,11 @@
 				calculateAllAverages();
 				fillPage();
 			}
+
+			function setThisToBaseline(){
+				var url = config.updateBaseline + jobName +'&id=' + chosenID;
+				getRequest(url);
+			}
 		</script>
 	</head>
 	<body>
@@ -687,7 +692,9 @@
 							</select>
 						</form>
 						
-						<p id='testDurationTitle'>Test Duration: <span id='durationInsert' class='keyMetricResults'>---</span> seconds</p>
+						<p id='testDurationTitle'>Test Duration: <span id='durationInsert' class='keyMetricResults'>---</span> seconds</p><br>
+						<p id='setAsBase'>Set this run as the base line: <input type='button' value='YES' onclick='setThisToBaseline()'></p>
+
 					</div>
 				</div>
 				<div id='keyMetrics'>
