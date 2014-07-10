@@ -15,29 +15,7 @@
 				optionalID = 0;
 			var prevID, baseID;
 
-			var options = [
-				 {
-					'description': 'CPU Graph',
-					'data':[cache['cpu use']],
-					'baseline': null,
-					'percentage': true,
-					'autosize': false
-				 },
-				 {
-					'description': 'CPU Graph',
-					'data':[cache['mem use']],
-					'baseline': null,
-					'percentage': true,
-					'autosize': false
-				 },
-				 {
-					'description': 'CPU Graph',
-					'data':[cache['disk util']],
-					'baseline': null,
-					'percentage': true,
-					'autosize': false
-				 }
-			];
+			var options = [];
 
 			var testObject = getItems(jobName);
 			var cache = {
@@ -285,6 +263,28 @@
 				cache['disk util'] = getData('disk util', chosenID);
 				cache['network used'] = getData('network used', chosenID);
 				cache['disk tps'] = getData('disk tps', chosenID);
+
+				options = [{
+					'description': 'CPU Graph',
+					'data':[cache['cpu use']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false
+				 },
+				 {
+					'description': 'CPU Graph',
+					'data':[cache['mem use']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false
+				 },
+				 {
+					'description': 'CPU Graph',
+					'data':[cache['disk util']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false
+				 }];
 			}
 			function getAvg(data){
 				var avg = 0;
