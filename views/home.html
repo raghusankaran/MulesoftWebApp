@@ -301,7 +301,7 @@
 				else if(prevResults[2] == 'Passed')
 					prevResult.className = 'greenText';
 				//BASE
-				if(baseID[2] != '-1'){
+				if(baseID[2] != '-1' && baseID[2] != null){
 					baseResult.innerHTML = baseID[2];
 					//XXX:add see details
 				}
@@ -352,7 +352,7 @@
 					else if(prevResults[i] == 'Passed')
 						prevResult.className = 'greenText';
 					//BASE
-					if(baseID[i] != '-1'){
+					if(baseID[i] != '-1' && baseID[i] != null){
 						baseResult.innerHTML = baseID[i];
 					}
 					
