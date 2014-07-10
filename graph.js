@@ -153,7 +153,7 @@ function resizeCanvas(nameOfCanvas, x, y, options){
 	var height = y;
 	if (nameOfCanvas.width != width || nameOfCanvas.height != height) {
 		nameOfCanvas.width = width;
-		nameOfCanvas.height = height;
+		//nameOfCanvas.height = height;
 	}
 	updateGraph(nameOfCanvas, options);
 }
