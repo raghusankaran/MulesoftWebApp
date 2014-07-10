@@ -101,7 +101,7 @@ exports.updateBaseline = function(req, res){
 				"base":{},
 				"baseline":baseID
 			};
-			
+			console.log('Created file with baseline = ' + jsonObj['baseline']);
 			var data = JSON.stringify(jsonObj);
 			fs.writeFile(path, data, function(err) {
 			    if(err) {
@@ -113,7 +113,9 @@ exports.updateBaseline = function(req, res){
 		}
 		else{
 			var data = JSON.parse(str);
+			console.log(baseID);
 			data["baseline"] = baseID;
+			console.log('Added to file with baseline = ' + jsonObj['baseline']);
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
