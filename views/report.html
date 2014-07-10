@@ -10,6 +10,9 @@
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
 			var chosenID = -1;
+			var optionalID = getQueryVariable('id');
+			if(optionalID == 'UNDEFINED')
+				optionalID = 0;
 			var prevID, baseID;
 			var testObject = getItems(jobName);
 			var cache = {
@@ -210,12 +213,21 @@
 			function buildDropDown(dropDownName){
 				var buildIds = getBuilds(config.retrieveBuilds+ jobName);
 				var dropDown = document.getElementById(dropDownName);
-
-				for(var i=0; i < buildIds.length; i++){
-					if(i == 0)
-						dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
-					else
-						dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
+				if(optionalID == 0){
+					for(var i=0; i < buildIds.length; i++){
+						if(i == 0)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
+					}
+				}
+				else{
+					for(var i=0; i < buildIds.length; i++){
+						if(buildIds[i] == optionalID)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
+					}
 				}
 			}
 
