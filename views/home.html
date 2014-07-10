@@ -8,6 +8,7 @@
 		<script>
 		var data = [];
 		var main;
+		var baseID = [];
 		var buildIds= [,,];
 		var slaResults = [];
 		var prevResults = [];
@@ -53,7 +54,9 @@
 				var resp = getRequest(url);
 				if(resp == '')
 					resp = '{"sla":{},"prev":{},"base":{}}';
-				return JSON.parse(resp);
+				var answer = JSON.parse(resp);
+				baseID[baseID.length] = answer.baseline;
+				return answer;
 			}
 			function clearCache(){
 				cache = {
@@ -298,11 +301,8 @@
 				else if(prevResults[2] == 'Passed')
 					prevResult.className = 'greenText';
 				//BASE
-				baseResult.innerHTML = baseResults[2];
-				if(baseResults[2] == 'Failed')
-					baseResult.className = 'redText';
-				else if(baseResults[2] == 'Passed')
-					baseResult.className = 'greenText';
+				baseResult.innerHTML = baseID[2];
+				
 
 
 				//******************************************************************
@@ -350,11 +350,8 @@
 					else if(prevResults[i] == 'Passed')
 						prevResult.className = 'greenText';
 					//BASE
-					baseResult.innerHTML = baseResults[i];
-					if(baseResults[i] == 'Failed')
-						baseResult.className = 'redText';
-					else if(baseResults[i] == 'Passed')
-						baseResult.className = 'greenText';
+					baseResult.innerHTML = baseID[i];
+					
 				}
 				document.getElementById('searchBar').action = config.report;
 				buildDropDown();
