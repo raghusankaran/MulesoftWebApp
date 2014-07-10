@@ -662,6 +662,12 @@
 				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
 				chosenID = dropDown.options[dropDown.selectedIndex].text;
 				fillCache();
+				var prevButton = document.getElementById("prevbutton");
+				var baseButton = document.getElementById("basebutton");
+				if(prevButton.value == 'ON')
+					prevButton.click();
+				if(baseButton.value == 'ON')
+					baseButton.click();
 				calculateAllAverages();
 				fillPage();
 			}
