@@ -535,7 +535,7 @@
 					
 					baseID =  getItems(jobName).baseline;
 					if(baseID != '-1'){
-						document.getElementById('baseVersion').className = '';
+						document.getElementById('baseVersion').style.color = "cyan";
 						fillBaseCache();
 
 						calculateCompAverages('base');				
@@ -595,7 +595,7 @@
 					}
 					else{
 						
-						document.getElementById('baseVersion').className = 'redText';
+						document.getElementById('baseVersion').style.color = "red";
 						document.getElementById('baseVersion').innerHTML = 'ERROR: No Baseline Set';
 					}
 				}
