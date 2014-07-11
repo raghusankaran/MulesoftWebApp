@@ -108,7 +108,7 @@ function getBounds(data, setWidth){
 	var bounds = getMinAndMax(allMinMax);
 
 	
-	if(setWidth == -1){
+	if(setWidth < 0){
 		//Find x-axis range
 		var xaxis = [];
 		for(var line=0; line<data.length; line++){
@@ -144,7 +144,7 @@ function updateGraph(nameOfCanvas, options){
 	}
 	//get bounds
 	var bounds = getBounds(options.data, options.setWidth);
-	if(options.setWidth == -1){options.setWidth = bounds[2];}
+	if(options.setWidth < 0){options.setWidth = bounds[2];}
 	makeGraph(nameOfCanvas, options.percentage, bounds);
 
 	for(var line=0; line<options.data.length; line++){
