@@ -10,6 +10,7 @@
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
 			var chosenID = -1;
+			var mouseHolder = 0;
 			var optionalID = getQueryVariable('id');
 			if(optionalID == 'UNDEFINED')
 				optionalID = 0;
@@ -302,15 +303,20 @@
 				 	element.onmouseover = null;
 				 }
 			}
-			function dragRight(i){
-				options[i].currX += 4;
+			function redrawFrame(i, x){
+				if(options[i].currX + x > 0)
+					options[i].currX += x;
+
+				updateGraph('graph'+ (i+1), options[i]);
 			}
-			function dragLeft(i){
-				if(options[i].currX > 0)
-					options[i].currX -= 4;
-			}
+			
 			function drag(e){
-				var evt = window.event || e //equalize event object
+				var evt= window.event || e //equalize event object
+				var currPos = evt.pageX;
+
+				var x = (mouseHolder - currPos)/4;
+
+				redrawFrame(evt.target.gIndex, x);
 
 				if(evt.preventDefault){
 					evt.preventDefault();
@@ -321,7 +327,7 @@
 			function startDrag(e){
 				var evt = window.event || e //equalize event object
 				evt.target.onmouseover = drag;
-
+				mouseHolder = evt.pageX;
 				if(evt.preventDefault){
 					evt.preventDefault();
 				}
