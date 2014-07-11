@@ -15,7 +15,7 @@
 			if(optionalID == 'UNDEFINED')
 				optionalID = 0;
 			var prevID, baseID;
-
+			var onCanvas =[0,0,0];
 			var options = [];
 
 			var testObject = getItems(jobName);
@@ -301,10 +301,10 @@
 				 	var element = document.getElementById('graph'+(i+1));
 				 	element.gIndex = i;
 				 	element.addEventListener("mousewheel", zoom, false);
-				 	element.addEventListener("mousedown", startDrag, false);
-				 	element.addEventListener("mouseup", endDrag, false);
-				 	//element.addEventListener("mouseover", drag, false);
-				 	element.onmouseover = null;
+				 	
+				 	element.onmouseover = onCanvas;
+				 	element.onmouseout = offCanvas;
+				 	element.onmousemove = drag;
 				 }
 			}
 			function redrawFrame(i, x){
@@ -313,14 +313,27 @@
 
 				updateGraph('graph'+ (i+1), options[i]);
 			}
+
+			function onCanvas(e){
+				var evt= window.event || e //equalize event object
+				onCanvas[evt.target.gIndex] = 1;
+			}
+			function offCanvas(e){
+				var evt= window.event || e //equalize event object
+				onCanvas[evt.target.gIndex] = 0;
+			}
 			
 			function drag(e){
 				var evt= window.event || e //equalize event object
-				var currPos = evt.pageX;
 
-				var x = (mouseHolder - currPos)/4;
-				if(mousedown == 1)
-					redrawFrame(evt.target.gIndex, x);
+				if(mouseDown == 1 && onCanvas[evt.target.gIndex] == 1){
+					if(evt.pageX > mouseHolder){
+						redrawFrame(evt.target.gIndex, 2);						
+					}
+					else{
+						redrawFrame(evt.target.gIndex, -2);							
+					}
+				}
 
 				if(evt.preventDefault){
 					evt.preventDefault();
@@ -931,6 +944,8 @@
 			initializePage();
 
 			document.body.onmousedown = function() { 
+			  var evt = window.event;
+			  mouseHolder = evt.pageX;
 			  ++mouseDown;
 			}
 			document.body.onmouseup = function() {
