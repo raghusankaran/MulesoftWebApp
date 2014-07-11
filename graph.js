@@ -25,7 +25,7 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     for(var i=0; i < description.length; i++){
     	ctx.strokeStyle ='black';
 
-    	ctx.fillText(description[i], legendX, 20 + 35*i);
+    	ctx.fillText(description[i], legendX, 30 + 35*i);
     	ctx.strokeStyle =colors[i];
     	ctx.beginPath();
     	ctx.lineWidth = 5;
