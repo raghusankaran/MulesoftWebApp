@@ -363,14 +363,14 @@
 			}
 
 			function zoomIn(i){
-				var change = options[i].setWidth * .05;
+				var change = options[i].setWidth * .02;
 				if(options[i].setWidth >10)
 					options[i].setWidth -= change;
 				updateGraph('graph'+ (i+1), options[i]);
 			}
 
 			function zoomOut(i){
-				var change = options[i].setWidth * .05;
+				var change = options[i].setWidth * .02;
 
 				options[i].setWidth += change;
 				updateGraph('graph'+ (i+1), options[i]);
