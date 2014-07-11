@@ -310,6 +310,10 @@
 				 }
 			}
 			function redrawFrame(i, x){
+				if((options[i].currX + x ) % 2 == 1)
+				{
+					x=x+1;
+				}
 				if(options[i].currX + x >= 0){
 					options[i].currX += x;
 
