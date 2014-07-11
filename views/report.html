@@ -288,6 +288,11 @@
 					'autosize': false,
 					'setWidth': -1
 				 }];
+
+				 for(var i=0; i < options.length; i++){
+				 	var element = document.getElementById('graph'+(i+1));
+				 	element.onscroll = scrollZoom(i);
+				 }
 			}
 			function scrollZoom(i){
 				options[i].setWidth -= 5;
@@ -701,6 +706,7 @@
 				buildDropDown('prevNumber');
 				updatePage();
 				window.addEventListener('resize', resizeAllGraphs(options), false);
+
 				
 			}
 			function updatePage(){
