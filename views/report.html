@@ -160,12 +160,7 @@
 			}
 
 			var mouseDown = 0;
-			document.body.onmousedown = function() { 
-			  ++mouseDown;
-			}
-			document.body.onmouseup = function() {
-			  --mouseDown;
-			}
+			
 
 
 			var avgCPU, avgDisk, avgMem, avgTPS, avgNet, avgGCStall, avgHeap, avgRespT;
@@ -934,6 +929,13 @@
 		</div>
 		<script>
 			initializePage();
+
+			document.body.onmousedown = function() { 
+			  ++mouseDown;
+			}
+			document.body.onmouseup = function() {
+			  --mouseDown;
+			}
 		</script>
 	</body>
 
