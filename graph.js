@@ -96,7 +96,7 @@ function getMinAndMax(data){
 	return result;
 }
 
-function getBounds(data){
+function getBounds(data, setWidth){
 	var allMinMax = [];
 
 	//Find y-bounds
@@ -107,13 +107,19 @@ function getBounds(data){
 
 	var bounds = getMinAndMax(allMinMax);
 
-	//Find x-axis range
-	var xaxis = [];
-	for(var line=0; line<data.length; line++){
-		xaxis[xaxis.length] = data[line].length;
+	
+	if(setWidth == -1){
+		//Find x-axis range
+		var xaxis = [];
+		for(var line=0; line<data.length; line++){
+			xaxis[xaxis.length] = data[line].length;
+		}
+		bounds[bounds.length] = getMinAndMax(xaxis)[1] * 2;
 	}
-
-	bounds[bounds.length] = getMinAndMax(xaxis)[1] * 2;
+	else{
+		bounds[bounds.length] = setWidth;
+	}
+	
 	return bounds;
 }
 
@@ -137,8 +143,8 @@ function updateGraph(nameOfCanvas, options){
 		}
 	}
 	//get bounds
-	var bounds = getBounds(options.data);
-
+	var bounds = getBounds(options.data, options.setWidth);
+	if(options.setWidth == -1){options.setWidth = bounds[2];}
 	makeGraph(nameOfCanvas, options.percentage, bounds);
 
 	for(var line=0; line<options.data.length; line++){
