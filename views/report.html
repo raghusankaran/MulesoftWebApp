@@ -299,7 +299,7 @@
 			function zoom(e){
 				var evt = window.event || e //equalize event object
 				var delta = evt.wheelDelta;
-				if(delta<=-120){
+				if(delta< 0){
 					zoomOut(evt.target.gIndex);
 				}
 				else{
