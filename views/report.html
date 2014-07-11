@@ -324,12 +324,12 @@
 				var graphID = evt.target.gIndex;
 				if(mouseIsDown){
 					if(holdPosition <= e.pageX){
-						redrawFrame(graphID,Math.floor(options[graphID].setWidth *.05) + Math.floor(options[graphID].setWidth *.05)%2);
+						redrawFrame(graphID,Math.floor(options[graphID].setWidth *.01) + Math.floor(options[graphID].setWidth *.05)%2);
 						holdPosition = 	e.pageX;					
 					}
 					else{
 						
-						redrawFrame(graphID,Math.floor(options[graphID].setWidth *.05) + Math.floor(options[graphID].setWidth *.05)%2);		
+						redrawFrame(graphID,-Math.floor(options[graphID].setWidth *.01) + Math.floor(options[graphID].setWidth *.05)%2);		
 						holdPosition = 	e.pageX;			
 					}
 				}
