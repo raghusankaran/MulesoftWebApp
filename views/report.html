@@ -320,7 +320,7 @@
 			}
 			function startDrag(e){
 				var evt = window.event || e //equalize event object
-				evt.target.onmouseover = new EventListener("mouseover", drag, false);
+				evt.target.onmouseover = drag;
 
 				if(evt.preventDefault){
 					evt.preventDefault();
