@@ -29,8 +29,8 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     	ctx.strokeStyle =colors[i];
     	ctx.beginPath();
     	ctx.lineWidth = 5;
-    	ctx.moveTo(legendX-5, 20 + 35*i);
-    	ctx.lineTo(legendX-20, 20 + 35*i);
+    	ctx.moveTo(legendX-5, 23 + 35*i);
+    	ctx.lineTo(legendX-20, 23 + 35*i);
     	ctx.stroke();
 
     }
