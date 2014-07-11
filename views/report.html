@@ -370,7 +370,7 @@
 				var change = options[i].setWidth * .005;
 				if(options[i].setWidth >10){
 					options[i].setWidth -= change;
-					options[i].currX += Math.floor(change) + Math.floor(change)%2;
+					
 				}
 				updateGraph('graph'+ (i+1), options[i]);
 			}
