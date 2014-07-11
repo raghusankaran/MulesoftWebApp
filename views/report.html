@@ -302,9 +302,10 @@
 				 	element.gIndex = i;
 				 	element.addEventListener("mousewheel", zoom, false);
 				 	
-				 	element.onmouseover = onCanvas;
-				 	element.onmouseout = offCanvas;
-				 	element.onmousemove = drag;
+				 	element.addEventListener("onmouseover", onCanvas, false);
+				 	element.addEventListener("onmouseout", offCanvas, false);
+				 	element.addEventListener("onmousemove", drag, false);
+				 	
 				 }
 			}
 			function redrawFrame(i, x){
