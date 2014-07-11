@@ -18,11 +18,13 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     var startX = .05 * x;
     var startY = y*.85;
     ctx.strokeStyle = 'black';
+    ctx.lineCap='round';	
     var graphYAxis = [bounds[0], bounds[1]];
     ctx.font="25px Courier New";
     var legendX = x-400;
     for(var i=0; i < description.length; i++){
     	ctx.strokeStyle ='black';
+
     	ctx.fillText(description[i], legendX, 20 + 35*i);
     	ctx.strokeStyle =colors[i];
     	ctx.beginPath();
