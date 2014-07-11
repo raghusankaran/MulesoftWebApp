@@ -490,6 +490,10 @@ body{
 	#baseTitle{
 		float: left;
 	}
+	#baseSection{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 	#basebutton{
 		margin-left: 10px;
 	}
