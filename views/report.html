@@ -323,11 +323,11 @@
 
 				if(mouseIsDown){
 					if(holdPosition < e.pageX){
-						redrawFrame(0,2);						
+						redrawFrame(evt.target.gIndex,2);						
 					}
 					else{
-						ctx.clearRect(0,0,500,600);
-						redrawFrame(0,-2);					
+						
+						redrawFrame(evt.target.gIndex,-2);					
 					}
 				}
 				
