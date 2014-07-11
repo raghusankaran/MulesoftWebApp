@@ -324,11 +324,13 @@
 
 				if(mouseIsDown){
 					if(holdPosition <= e.pageX){
-						redrawFrame(evt.target.gIndex,2);						
+						redrawFrame(evt.target.gIndex,2);
+						holdPosition = 	e.pageX;					
 					}
 					else{
 						
-						redrawFrame(evt.target.gIndex,-2);					
+						redrawFrame(evt.target.gIndex,-2);		
+						holdPosition = 	e.pageX;			
 					}
 				}
 				
