@@ -270,7 +270,7 @@
 					'baseline': null,
 					'percentage': true,
 					'autosize': false,
-					'setWidth': 200
+					'setWidth': -1
 				 },
 				 {
 					'description': 'CPU Graph',
@@ -288,6 +288,10 @@
 					'autosize': false,
 					'setWidth': -1
 				 }];
+			}
+			function scrollZoom(i){
+				options[i].setWidth -= 5;
+				updateGraph('graph'+ (i+1), options[i]);
 			}
 			function getAvg(data){
 				var avg = 0;
@@ -825,13 +829,13 @@
 					<div class='graphs'>
 						<div class='graphContent'>
 							CPU Graph<br>
-							<canvas id='graph1' width='950' height='500'> 
+							<canvas id='graph1' width='950' height='500' onscroll='scrollZoom(0)'> 
 							</canvas><br>
 							Memory Graph<br>
-							<canvas id='graph2' width='950' height='500'> 
+							<canvas id='graph2' width='950' height='500' onscroll='scrollZoom(1)'> 
 							</canvas><br>
 							Disk Graph<br>
-							<canvas id='graph3' width='950' height='500'> 
+							<canvas id='graph3' width='950' height='500' onscroll='scrollZoom(2)'> 
 							</canvas><br>
 						</div>
 					</div>
