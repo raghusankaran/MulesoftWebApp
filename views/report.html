@@ -270,7 +270,8 @@
 					'baseline': null,
 					'percentage': true,
 					'autosize': false,
-					'setWidth': -1
+					'setWidth': -1,
+					'currX': 0
 				 },
 				 {
 					'description': 'CPU Graph',
@@ -278,7 +279,8 @@
 					'baseline': null,
 					'percentage': true,
 					'autosize': false,
-					'setWidth': -1
+					'setWidth': -1,
+					'currX': 0
 				 },
 				 {
 					'description': 'CPU Graph',
@@ -286,15 +288,35 @@
 					'baseline': null,
 					'percentage': true,
 					'autosize': false,
-					'setWidth': -1
+					'setWidth': -1,
+					'currX': 0
 				 }];
 
 				 for(var i=0; i < options.length; i++){
 				 	var element = document.getElementById('graph'+(i+1));
 				 	element.gIndex = i;
-				 	element.addEventListener("mousewheel", zoom, false)
-
+				 	element.addEventListener("mousewheel", zoom, false);
+				 	element.addEventListener("drag", drag, false);
+				 	
 				 }
+			}
+			function dragRight(i){
+				options[i].currX += 4;
+			}
+			function dragLeft(i){
+				if(options[i].currX > 0)
+					options[i].currX -= 4;
+			}
+
+			function drag(e){
+				var evt = window.event || e //equalize event object
+								
+
+				if(evt.preventDefault){
+					evt.preventDefault();
+				}
+				else
+					return false;
 			}
 			function zoom(e){
 				var evt = window.event || e //equalize event object

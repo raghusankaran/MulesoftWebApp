@@ -148,7 +148,7 @@ function updateGraph(nameOfCanvas, options){
 	makeGraph(nameOfCanvas, options.percentage, bounds);
 
 	for(var line=0; line<options.data.length; line++){
-		addLine(nameOfCanvas, options.data[line], bounds, colors[line]);
+		addLine(nameOfCanvas, options.data[line], options.currX,bounds, colors[line]);
 	}
 	
 	
@@ -164,7 +164,7 @@ function resizeCanvas(nameOfCanvas, x, y, options){
 	}
 	updateGraph(nameOfCanvas, options);
 }
-function addLine(nameOfCanvas, data, bounds, color){
+function addLine(nameOfCanvas, data, bounds,currX, color){
 	
 	
 	var canvas = document.getElementById(nameOfCanvas);
@@ -173,7 +173,7 @@ function addLine(nameOfCanvas, data, bounds, color){
     var y = canvas.height;
     var startX = .05 * x;
     var startY = y*.85;
-    var currentStart = 0;
+    var currentStart = currX;
     var secondsPerPage = bounds[2];
 
     var width = x*.95/data.length;
