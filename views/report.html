@@ -296,8 +296,10 @@
 				 	var element = document.getElementById('graph'+(i+1));
 				 	element.gIndex = i;
 				 	element.addEventListener("mousewheel", zoom, false);
-				 	element.addEventListener("mousedown", drag, false);
-				 	
+				 	element.addEventListener("mousedown", startDrag, false);
+				 	element.addEventListener("mouseup", endDrag, false);
+				 	element.addEventListener("mouseover", drag, false);
+				 	element.mouseover = null;
 				 }
 			}
 			function dragRight(i){
@@ -307,10 +309,8 @@
 				if(options[i].currX > 0)
 					options[i].currX -= 4;
 			}
-
 			function drag(e){
 				var evt = window.event || e //equalize event object
-								
 
 				if(evt.preventDefault){
 					evt.preventDefault();
@@ -318,6 +318,27 @@
 				else
 					return false;
 			}
+			function startDrag(e){
+				var evt = window.event || e //equalize event object
+				evt.target.onmouseover = new EventListener("mouseover", drag, false);
+
+				if(evt.preventDefault){
+					evt.preventDefault();
+				}
+				else
+					return false;
+			}
+			function endDrag(e){
+				var evt = window.event || e //equalize event object
+				evt.target.onmouseover = null;
+
+				if(evt.preventDefault){
+					evt.preventDefault();
+				}
+				else
+					return false;
+			}
+
 			function zoom(e){
 				var evt = window.event || e //equalize event object
 				var delta = evt.wheelDelta;
