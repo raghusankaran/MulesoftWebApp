@@ -19,12 +19,20 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     var startY = y*.85;
     ctx.strokeStyle = 'black';
     var graphYAxis = [bounds[0], bounds[1]];
-
+    ctx.font="25px Courier New";
     var legendX = x-200;
     for(var i=0; i < description.length; i++){
-    	ctx.fillText(description[i], legendX, 20 + 20*i);
-    }
+    	ctx.strokeStyle ='black';
+    	ctx.fillText(description[i], legendX, 20 + 25*i);
+    	ctx.strokeStyle =color[i];
+    	ctx.beginPath();
+    	ctx.lineWidth = 5;
+    	ctx.moveTo(legendX-5, 20 + 25*i);
+    	ctx.lineTo(legendX-20, 20 + 25*i);
 
+    }
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 2;
     ctx.beginPath();
 	ctx.moveTo(startX,startY);
 	ctx.lineTo(startX,5);
