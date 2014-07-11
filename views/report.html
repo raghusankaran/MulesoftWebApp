@@ -310,10 +310,11 @@
 				 }
 			}
 			function redrawFrame(i, x){
-				if(options[i].currX + x > 0)
+				if(options[i].currX + x >= 0){
 					options[i].currX += x;
 
-				updateGraph('graph'+ (i+1), options[i]);
+					updateGraph('graph'+ (i+1), options[i]);
+				}
 			}
 
 			
@@ -322,7 +323,7 @@
 				evt.preventDefault();
 
 				if(mouseIsDown){
-					if(holdPosition < e.pageX){
+					if(holdPosition <= e.pageX){
 						redrawFrame(evt.target.gIndex,1);						
 					}
 					else{
