@@ -23,12 +23,13 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     var legendX = x-400;
     for(var i=0; i < description.length; i++){
     	ctx.strokeStyle ='black';
-    	ctx.fillText(description[i], legendX, 20 + 25*i);
+    	ctx.fillText(description[i], legendX, 20 + 35*i);
     	ctx.strokeStyle =colors[i];
     	ctx.beginPath();
     	ctx.lineWidth = 5;
-    	ctx.moveTo(legendX-5, 20 + 25*i);
-    	ctx.lineTo(legendX-20, 20 + 25*i);
+    	ctx.moveTo(legendX-5, 20 + 35*i);
+    	ctx.lineTo(legendX-20, 20 + 35*i);
+    	ctx.stroke();
 
     }
     ctx.font="12px Courier New";
