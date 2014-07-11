@@ -271,7 +271,7 @@
 				cache['disk tps'] = getData('disk tps', chosenID);
 
 				options = [{
-					'description': 'CPU Graph',
+					'description': ['Current CPU Graph'],
 					'data':[cache['cpu use']],
 					'baseline': null,
 					'percentage': true,
@@ -280,7 +280,7 @@
 					'currX': 0
 				 },
 				 {
-					'description': 'CPU Graph',
+					'description': ['Current Memory Graph'],
 					'data':[cache['mem use']],
 					'baseline': null,
 					'percentage': true,
@@ -289,7 +289,7 @@
 					'currX': 0
 				 },
 				 {
-					'description': 'CPU Graph',
+					'description': ['Current Disk Graph'],
 					'data':[cache['disk util']],
 					'baseline': null,
 					'percentage': true,
@@ -558,8 +558,11 @@
 
 			function resetGraphs(){
 				options[0]['data'] = [cache['cpu use']];
+				options[0]['description'] = ['Current CPU Graph'];
 				options[1]['data'] = [cache['mem use']];
+				options[1]['description'] = ['Current Memory Graph'];
 				options[2]['data'] = [cache['disk util']];
+				options[2]['description'] = ['Current Disk Graph'];
 
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
@@ -571,8 +574,11 @@
 
 				if(type =='prev'){
 					options[0]['data'] = [cache['cpu use'], prevCache['cpu use']];
+					options[0]['description'] = ['Current CPU Graph', 'Previous CPU Graph'];
 					options[1]['data'] = [cache['mem use'], prevCache['mem use']];
+					options[1]['description'] = ['Current Memory Graph', 'Previous Memory Graph'];
 					options[2]['data'] = [cache['disk util'], prevCache['disk util']];
+					options[2]['description'] = ['Current Disk Graph', 'Previous Disk Graph'];
 					
 					for(var i=0; i < options.length; i++){						
 						updateGraph('graph'+(i+1), options[i]);
@@ -580,8 +586,11 @@
 				}
 				else if(type == 'base'){
 					options[0]['data'] = [cache['cpu use'], baseCache['cpu use']];
+					options[0]['description'] = ['Current CPU Graph', 'Baseline CPU Graph'];
 					options[1]['data'] = [cache['mem use'], baseCache['mem use']];
+					options[1]['description'] = ['Current Memory Graph', 'Baseline Memory Graph'];
 					options[2]['data'] = [cache['disk util'], baseCache['disk util']];
+					options[2]['description'] = ['Current Disk Graph', 'Baseline Disk Graph'];
 					
 					for(var i=0; i < options.length; i++){						
 						updateGraph('graph'+(i+1), options[i]);

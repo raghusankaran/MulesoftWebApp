@@ -9,7 +9,7 @@ function clearCanvas(nameOfCanvas){
 }
 
 
-function makeGraph(nameOfCanvas, percentage, bounds, currX){	
+function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors){	
 	clearCanvas(nameOfCanvas);
 	var canvas = document.getElementById(nameOfCanvas);
 	var ctx = canvas.getContext('2d');
@@ -19,6 +19,11 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX){
     var startY = y*.85;
     ctx.strokeStyle = 'black';
     var graphYAxis = [bounds[0], bounds[1]];
+
+    var legendX = x-200;
+    for(var i=0; i < description.length; i++){
+    	ctx.fillText(description[i], legendX, 20 + 20*i);
+    }
 
     ctx.beginPath();
 	ctx.moveTo(startX,startY);
@@ -145,7 +150,7 @@ function updateGraph(nameOfCanvas, options){
 	//get bounds
 	var bounds = getBounds(options.data, options.setWidth);
 	if(options.setWidth < 0){options.setWidth = bounds[2];}
-	makeGraph(nameOfCanvas, options.percentage, bounds,options.currX);
+	makeGraph(nameOfCanvas, options.percentage, bounds,options.currX, options.description, colors);
 
 	for(var line=0; line<options.data.length; line++){
 		addLine(nameOfCanvas, options.data[line], bounds, options.currX, colors[line]);
