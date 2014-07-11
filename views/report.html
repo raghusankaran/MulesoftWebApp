@@ -291,17 +291,19 @@
 
 				 for(var i=0; i < options.length; i++){
 				 	var element = document.getElementById('graph'+(i+1));
+				 	element.gIndex = i;
 				 	element.addEventListener("mousewheel", zoom(i), false)
+
 				 }
 			}
-			function zoom(i, e){
+			function zoom(e){
 				var evt = window.event || e //equalize event object
 				var delta = evt.wheelDelta;
 				if(delta<=-120){
-					zoomOut(i);
+					zoomOut(evt.target.gIndex);
 				}
 				else{
-					zoomIn(i);
+					zoomIn(evt.target.gIndex);
 				}
 
 				if(evt.preventDefault){
