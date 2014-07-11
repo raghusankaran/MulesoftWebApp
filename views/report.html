@@ -291,11 +291,34 @@
 
 				 for(var i=0; i < options.length; i++){
 				 	var element = document.getElementById('graph'+(i+1));
-				 	element.onscroll = scrollZoom(i);
+				 	element.addEventListener("mousewheel", zoom(i), false)
 				 }
 			}
-			function scrollZoom(i){
-				options[i].setWidth -= 2;
+			function zoom(i, e){
+				var evt = window.event || e //equalize event object
+				var delta = evt.wheelDelta;
+				if(delta<=-120){
+					zoomOut(i);
+				}
+				else{
+					zoomIn(i);
+				}
+
+				if(evt.preventDefault){
+					evt.preventDefault();
+				}
+				else
+					return false;
+			}
+
+			function zoomIn(i){
+				if(options[i].setWidth >10)
+					options[i].setWidth -= 2;
+				updateGraph('graph'+ (i+1), options[i]);
+			}
+
+			function zoomOut(i){
+				options[i].setWidth += 2;
 				updateGraph('graph'+ (i+1), options[i]);
 			}
 			function getAvg(data){
@@ -835,13 +858,13 @@
 					<div class='graphs'>
 						<div class='graphContent'>
 							CPU Graph<br>
-							<canvas id='graph1' width='950' height='500' onmousewheel='scrollZoom(0);'> 
+							<canvas id='graph1' width='950' height='500' > 
 							</canvas><br>
 							Memory Graph<br>
-							<canvas id='graph2' width='950' height='500' onmousewheel='scrollZoom(1);'> 
+							<canvas id='graph2' width='950' height='500' > 
 							</canvas><br>
 							Disk Graph<br>
-							<canvas id='graph3' width='950' height='500' onmousewheel='scrollZoom(2);'> 
+							<canvas id='graph3' width='950' height='500' > 
 							</canvas><br>
 						</div>
 					</div>
