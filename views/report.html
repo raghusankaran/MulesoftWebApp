@@ -354,7 +354,7 @@
 				
 				if(nameOfP == 'summary'){
 					var desiredResults = cache['SingularData']['Summary'];
-					box.innerHTML+='<br>';
+					box.innerHTML='<br>';
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
 							printMetric(nameOfP, prop, desiredResults[prop]);
