@@ -64,7 +64,7 @@ app.get('/data/', routings.getData);
 //GET ordered list of job names
 app.get('/getRecentJobs/', routings.getRecentJobs);
 
-
+app.get('/getParsedData', routings.getParsedData);
 
 
 

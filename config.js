@@ -18,8 +18,9 @@ var config = {
 	deleteJobTest: urlPath+"deleteJobTest?job=",
 	//Query: JOB & IDofBaseline
 	updateBaseline: urlPath+"updateBaseline?job=",
-	jobHost: 'http://mule-perflab06.managed.contegix.com:8080'
-
+	jobHost: 'http://mule-perflab06.managed.contegix.com:8080',
+	test: urlPath + 'testing',
+	getParsedData: urlPath+'getParsedData/?jobName='
 };
 
 module.exports.config = config;
