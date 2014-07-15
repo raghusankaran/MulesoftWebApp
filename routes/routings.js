@@ -629,8 +629,7 @@ function getPathToParsed(jobName, buildID){
 			    }
 			);
 		});
-	}
-	
+	});
 }
 
 // Let us generalize how we read the directories that contain our TXT Files
