@@ -643,7 +643,7 @@ function getMetricsInFolder(pathToDirectory){
 	//Use an synchronous call to access the directory
 	// readdirSync takes a directory and returns the names of the files a depth of 1 inside of it
 	var listOfFilenames = fs.readdirSync(pathToDirectory);	
-
+	console.log('All the files in ' +pathToDirectory+ ' are: ' + listOfFilenames);
 	//access all the TXT bodies of the filenames
 	//For all the files in the directory
 	for(var filename in listOfFilenames){
