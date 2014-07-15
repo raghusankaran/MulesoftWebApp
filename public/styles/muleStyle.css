@@ -267,6 +267,9 @@ body{
 		
 		margin-right: 20px;
 	}
+	#summary{
+		margin-left: 20px;
+	}
 	.keyTitle{
 		color: white;
 		margin-left: 10px;
