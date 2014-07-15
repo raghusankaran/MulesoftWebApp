@@ -354,7 +354,7 @@
 				
 				if(nameOfP == 'summary'){
 					var desiredResults = cache['SingularData']['Summary'];
-
+					box.innerHTML+='<br>';
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
 							printMetric(nameOfP, prop, desiredResults[prop]);
@@ -716,9 +716,10 @@
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				updatePage();
-				//window.addEventListener('resize', resizeAllGraphs(options), false);
-
 				
+			}
+			function stopScroll(){
+
 			}
 
 			function updatePage(){
