@@ -620,7 +620,7 @@ function getPathToParsed(jobName, buildID){
 							break;
 						}
 					}
-					return config.hudsonPath+job+'/builds/'+fileID+'/archive/' + pathToParsed;//chosen
+					return config.hudsonPath+jobName+'/builds/'+fileID+'/archive/' + pathToParsed;//chosen
 				}
 				return '';
 		    }
