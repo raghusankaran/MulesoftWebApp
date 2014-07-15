@@ -546,11 +546,15 @@
 				}
 				if(document.getElementById(buttonName).value == 'ON'){
 					document.getElementById(buttonName).value = 'OFF';
-					for(var compField in cache['SingularData']){
-						if(cache['SingularData'].hasOwnProperty(compField)){
-							document.getElementById('comp'+compField).innerHTML = '';
+					for(var section in cache['SingularData']){
+						if(cache['SingularData'].hasOwnProperty(section){		
+							for(var compField in cache['SingularData'][section]){
+								if(cache['SingularData'][section].hasOwnProperty(compField)){
+									document.getElementById('comp'+compField).innerHTML = '';
+								}
+							}
 						}
-					}
+					}						
 					//resetGraphs();					
 				}
 				else{
@@ -558,20 +562,24 @@
 					document.getElementById(buttonName).value = 'ON';
 					
 
-					for(var compField in cache['SingularData']){
-						if(cache['SingularData'].hasOwnProperty(compField) && compCache['SingularData'].hasOwnProperty(compField)){
-							//calculate difference (neg is good, pos is bad)
-							var difference = parseFloat(cache['SingularData'][compField]) - parseFloat(compCache['SingularData'][compField]);
-							//show difference
-							if(difference < 0){ //green and +
-								document.getElementById('comp'+compField).innerHTML = ('- ' + difference).substring(0,8);
-								document.getElementById('comp'+compField).className = 'greenText compareText';
-							}
-							else{//red and -
-								document.getElementById('comp'+compField).innerHTML = ('+ ' + difference).substring(0,8);
-								document.getElementById('comp'+compField).className = 'redText compareText';
-							}
+					for(var section in cache['SingularData']){
+						if(cache['SingularData'].hasOwnProperty(section){		
+							for(var compField in cache['SingularData'][section]){
+								if(cache['SingularData'][section].hasOwnProperty(compField) && compCache['SingularData'][section].hasOwnProperty(compField)){
+									//calculate difference (neg is good, pos is bad)
+									var difference = parseFloat(cache['SingularData'][section][compField]) - parseFloat(compCache['SingularData'][section][compField]);
+									//show difference
+									if(difference < 0){ //green and +
+										document.getElementById('comp'+compField).innerHTML = ('- ' + difference).substring(0,8);
+										document.getElementById('comp'+compField).className = 'greenText compareText';
+									}
+									else{//red and -
+										document.getElementById('comp'+compField).innerHTML = ('+ ' + difference).substring(0,8);
+										document.getElementById('comp'+compField).className = 'redText compareText';
+									}
 
+								}
+							}
 						}
 					}			
 
