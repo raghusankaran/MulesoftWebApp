@@ -681,7 +681,7 @@ function fileToObject(pathToFile){
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split('/n');
-	//dataFound.pop();
+	dataFound.pop();
 	
 	//Set fileObj.data = data
 	fileObj.data = dataFound;
