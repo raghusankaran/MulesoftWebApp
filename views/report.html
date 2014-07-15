@@ -20,41 +20,7 @@
 			var options = [];
 
 			var testObject = getItems(jobName);
-			var cache = {
-						'duration': '',
-
-				        'cpu use': [],
-				        'cpu iowait': [],
-				        'cpu steal': [],
-
-			 		    'mem use': [],
-			 		    'mem kbcache': [],
-			 		    'mem kbbuffers': [],
-			         
-			  			'disk util': [],
-			  	        'disk await': [],
-			  		    'disk tps': [],
-			  			'disk rd_sec': [],
-			  			'disk wr_sec': [],
-			  		  
-			  		  	'network used': [],
-			  			'network txkB': [],
-			  			'network rxkB': [],
-			  		  
-			            'paging pgpgin': [],
-			            'paging pgpgout': [],
-			            'paging fault': [],
-			            'paging majflt': [],
-			            'paging pgpgin': [],
-			            'paging pgfree': [],
-			            'paging pgscank': [],
-			            'paging pgscand': [],
-			            'paging pgsteal': [],
-			            'paging vmef': [],
-			  		  
-			  			'swap in': [],
-			  			'swap out': []
-			};
+			var cache = {};
 
 			var prevCache = {
 						'duration': '',
@@ -240,36 +206,22 @@
 				}
 			}
 
-			function getData(type, idNum){
-				var job = jobName;				
-				var query = '?job='+job+'&id='+idNum+'&type='+type;
-				var url = config.retrieveData+query
+			function getData(idNum){
+				var job = jobName;								
+				var url = config.getParsedData + jobName + '&id=' + idNum
 					
 				var str = getRequest(url);
-				if(type.indexOf('duration') >=0){
-					return str;
-				}
-				var data = str.split(',');
-				data.pop();
-				return data;				
+				
+				var data = JSON.parse(str);
+				return data;			
 			}
+
+
 			//tps, responsetime, failed requests, error rate
 			//cpu, memory, disk use, net use
 			function fillCache(){
-				cache['duration'] =  getData('duration', chosenID);
-
-				cache["cpu use"] = getData('cpu use', chosenID);
-				cache["cpu iowait"] = getData('cpu iowait', chosenID);
-				cache["cpu steal"] = getData('cpu steal', chosenID);
-
-				cache['mem use'] = getData('mem use', chosenID);				
-				cache['mem kbcache'] = getData('mem kbcache', chosenID);
-				cache['mem kbbuffers'] = getData('mem kbbuffers', chosenID);
-
-				cache['disk util'] = getData('disk util', chosenID);
-				cache['network used'] = getData('network used', chosenID);
-				cache['disk tps'] = getData('disk tps', chosenID);
-
+				cache = getData(chosenID);
+/*
 				options = [{
 					'description': ['Current CPU Graph'],
 					'data':[cache['cpu use']],
@@ -307,7 +259,7 @@
 					element.addEventListener('mouseup', isUp, false);
 				 	
 				 	
-				 }
+				 }*/
 			}
 			function redrawFrame(i, x){
 				if(options[i].currX + x >= 0){
@@ -375,71 +327,66 @@
 				options[i].setWidth += change;
 				updateGraph('graph'+ (i+1), options[i]);
 			}
-			function getAvg(data){
-				var avg = 0;
-				for(var i=0; i<data.length; i++){
-					avg += parseFloat(data[i]);
-				}
-				avg = avg/data.length;
-				return avg;
-
-			}		
-
+			
 			function reloadGraph(){
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
 				}
 			}
 			
-			function calculateAllAverages(){
-				avgCPU = (''+ getAvg(cache['cpu use'])).substring(0,5);
-				avgDisk = (''+ getAvg(cache['disk util'])).substring(0,5);
-				avgTPS = (''+ getAvg(cache['disk tps'])).substring(0,7);
-				avgNet = (''+ getAvg(cache['network used'])).substring(0,5);
-				avgMem = (''+ getAvg(cache['mem use'])).substring(0,5);
-			}
-			function calculateCompAverages(type){
-				if(type =='prev'){
-					compCPU = (''+ getAvg(prevCache['cpu use'])).substring(0,5);
-					compDisk = (''+ getAvg(prevCache['disk util'])).substring(0,5);
-					compTPS = (''+ getAvg(prevCache['disk tps'])).substring(0,7);
-					compNet = (''+ getAvg(prevCache['network used'])).substring(0,5);
-					compMem = (''+ getAvg(prevCache['mem use'])).substring(0,5);
+			function fillBox(nameOfP){
+				var box = document.getElementById(nameOfP);
+				
+				if(nameOfP == 'summary'){
+					var desiredResults = cache['SingularData']['Summary'];
 
-					diffCPU = parseFloat(avgCPU)- parseFloat(compCPU);
-					diffDisk = parseFloat(avgDisk)- parseFloat(compDisk);
-					diffTPS = parseFloat(avgTPS)- parseFloat(compTPS);
-					diffNet = parseFloat(avgNet)- parseFloat(compNet);
-					diffMem =parseFloat(avgMem)- parseFloat(compMem);
+					for(var prop in desiredResults){
+						if(desiredResults.hasOwnProperty(prop)){	
+							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
+									+ desiredResults[prop] +"</span><br>";
+						}
+					}
+				}
+				else if(nameOfP == 'testMetrics'){
+					box.innerHTML = '';
+					var desiredResults = cache['SingularData']['Test_Results'];
 
-					compCPU  =( '' + diffCPU).substring(0,5);
-					compDisk = ('' + diffDisk).substring(0,5);
-					compTPS  =( '' + diffTPS).substring(0,5);
-					compNet  =( '' + diffNet).substring(0,5);
-					compMem  =( '' + diffMem).substring(0,5);			
-				}	
-				else if(type == 'base')	{
-					compCPU = (''+ getAvg(baseCache['cpu use'])).substring(0,5);
-					compDisk = (''+ getAvg(baseCache['disk util'])).substring(0,5);
-					compTPS = (''+ getAvg(baseCache['disk tps'])).substring(0,7);
-					compNet = (''+ getAvg(baseCache['network used'])).substring(0,5);
-					compMem = (''+ getAvg(baseCache['mem use'])).substring(0,5);
+					for(var prop in desiredResults){
+						if(desiredResults.hasOwnProperty(prop)){	
+							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
+									+ desiredResults[prop] +"</span><br>";
+						}
+					}
+				}
+				else if(nameOfP == 'sysMetrics'){
+					box.innerHTML = '';
+					var desiredResults = cache['SingularData']['System_Resources'];
 
-					diffCPU = parseFloat(avgCPU)- parseFloat(compCPU);
-					diffDisk = parseFloat(avgDisk)- parseFloat(compDisk);
-					diffTPS = parseFloat(avgTPS)- parseFloat(compTPS);
-					diffNet = parseFloat(avgNet)- parseFloat(compNet);
-					diffMem =parseFloat(avgMem)- parseFloat(compMem);
+					for(var prop in desiredResults){
+						if(desiredResults.hasOwnProperty(prop)){	
+							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
+									+ desiredResults[prop] +"</span><br>";
+						}
+					}
 
-					compCPU  =( '' + diffCPU).substring(0,5);
-					compDisk = ('' + diffDisk).substring(0,5);
-					compTPS  =( '' + diffTPS).substring(0,5);
-					compNet  =( '' + diffNet).substring(0,5);
-					compMem  =( '' + diffMem).substring(0,5);
+				}
+				else if(nameOfP == 'jvmMetrics'){
+					box.innerHTML = '';
+					var desiredResults = cache['SingularData']['JVM'];
+
+					for(var prop in desiredResults){
+						if(desiredResults.hasOwnProperty(prop)){	
+							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
+									+ desiredResults[prop] +"</span><br>";
+						}
+					}
+
 				}
 
-
-
+			}
+			
+			function calculateCompAverages(type){
+				
 			}
 			//Return object
 			/*
@@ -449,7 +396,7 @@
 
 			*/
 			function slaResults(){
-				var slaObj = testObject.sla;
+				/*var slaObj = testObject.sla;
 
 				var resultObj = {};
 				resultObj['overall'] = true;
@@ -484,7 +431,7 @@
 					}
 
 				}
-				return resultObj;
+				return resultObj;*/
 			}
 			function getItems(jobName){
 				var url = config.getTestMetrics + jobName;
@@ -495,24 +442,7 @@
 				baseID = value.baseline;
 				return value;
 			}
-
-			function getPercentile(data, p){
-				var sortedD = data.sort();
-				var index = Math.ceil((p/100)*data.length);
-
-				return sortedD[index];
-
-			}
-
-			function getAvgResponseTime(){
-
-			}
-			function getFailedRequests(){
-
-			}
-			function getErrorRequests(){
-
-			}
+			
 			function isEmpty(obj) {
 			    for(var prop in obj) {
 			        if(obj.hasOwnProperty(prop))
@@ -523,40 +453,16 @@
 			}
 
 			function fillPrevCache(){
-				prevCache['duration'] =  getData('duration', prevID);
-
-				prevCache["cpu use"] = getData('cpu use', prevID);
-				prevCache["cpu iowait"] = getData('cpu iowait', prevID);
-				prevCache["cpu steal"] = getData('cpu steal', prevID);
-
-				prevCache['mem use'] = getData('mem use', prevID);				
-				prevCache['mem kbcache'] = getData('mem kbcache', prevID);
-				prevCache['mem kbbuffers'] = getData('mem kbbuffers', prevID);
-
-				prevCache['disk util'] = getData('disk util', prevID);
-				prevCache['network used'] = getData('network used', prevID);
-				prevCache['disk tps'] = getData('disk tps', prevID);
+				prevCache = getData(prevID);
 
 			}
 
 			function fillBaseCache(){
-				baseCache['duration'] =  getData('duration',	baseID);
-
-				baseCache["cpu use"] = getData('cpu use',	baseID);
-				baseCache["cpu iowait"] = getData('cpu iowait',	baseID);
-				baseCache["cpu steal"] = getData('cpu steal',	baseID);
-
-				baseCache['mem use'] = getData('mem use',	baseID);				
-				baseCache['mem kbcache'] = getData('mem kbcache',	baseID);
-				baseCache['mem kbbuffers'] = getData('mem kbbuffers',	baseID);
-
-				baseCache['disk util'] = getData('disk util',	baseID);
-				baseCache['network used'] = getData('network used',	baseID);
-				baseCache['disk tps'] = getData('disk tps',	baseID);
-
+				baseCache = getData(baseID);
 			}
 
 			function resetGraphs(){
+				/*
 				options[0]['data'] = [cache['cpu use']];
 				options[0]['description'] = ['Current CPU Graph'];
 				options[1]['data'] = [cache['mem use']];
@@ -567,11 +473,11 @@
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
 				}
-				resizeAllGraphs(options);
+				resizeAllGraphs(options);*/
 			}
 
 			function addComparisonToGraphs(type){
-
+				/*
 				if(type =='prev'){
 					options[0]['data'] = [cache['cpu use'], prevCache['cpu use']];
 					options[0]['description'] = ['Current CPU Graph', 'Previous CPU Graph'];
@@ -596,11 +502,12 @@
 						updateGraph('graph'+(i+1), options[i]);
 					}
 				}
-				resizeAllGraphs(options);
+				resizeAllGraphs(options);*/
 
 			}
 
 			function comparePrev(){
+				/*
 				if(document.getElementById('prevbutton').value == 'ON'){
 					document.getElementById('prevbutton').value = 'OFF';
 					document.getElementById('compCpu').innerHTML = ' ';
@@ -609,8 +516,7 @@
 					document.getElementById('compNet').innerHTML = ' ';
 					document.getElementById('compTPS').innerHTML = ' ';
 
-					resetGraphs();
-					
+					resetGraphs();					
 				}
 				else{
 					document.getElementById('basebutton').value = 'OFF';
@@ -660,12 +566,12 @@
 
 					addComparisonToGraphs('prev');
 					
-				}
+				}*/
 			}
 
 
 
-			function compareBase(){
+			function compareBase(){/*
 				if(document.getElementById('basebutton').value == 'ON'){
 					document.getElementById('basebutton').value = 'OFF';
 					document.getElementById('compCpu').innerHTML = ' ';
@@ -734,18 +640,26 @@
 						document.getElementById('baseVersion').style.color = "red";
 						document.getElementById('baseVersion').innerHTML = 'ERROR: No Baseline Set';
 					}
-				}
+				}*/
 
 			}
-
+			//XXXX
 			function fillPage(){
+
+				fillBox('summary');
+				fillBox('testMetrics');
+				fillBox('sysMetrics');
+				fillBox('jvmMetrics');
+
+				/*
 				document.getElementById('durationInsert').innerHTML = cache['duration'];
 				document.getElementById('avgCpu').innerHTML = avgCPU+ ' %'; 
 				document.getElementById('avgDisk').innerHTML = avgDisk+ ' %';
 				document.getElementById('avgMem').innerHTML = avgMem+ ' %';
 				document.getElementById('avgNet').innerHTML = avgNet+ ' %';
-				document.getElementById('avgTPS').innerHTML = avgTPS;
+				document.getElementById('avgTPS').innerHTML = avgTPS;*/
 				
+				/*
 				var sla = slaResults();
 
 				if(isEmpty(testObject.sla) == true){
@@ -769,7 +683,7 @@
 						slaData.innerHTML+= '<span class=' + colorOfResult + '>' + sla[metric][0] + '</span>';
 						slaData.innerHTML+='<br>';
 					}
-				}
+				}*/
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
@@ -780,9 +694,9 @@
 
 				*/
 				
-				for(var i=0; i < options.length; i++){
+				/*for(var i=0; i < options.length; i++){
 					updateGraph('graph'+(i+1), options[i]);
-				}
+				}*/
 
 			}
 
@@ -791,10 +705,11 @@
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				updatePage();
-				window.addEventListener('resize', resizeAllGraphs(options), false);
+				//window.addEventListener('resize', resizeAllGraphs(options), false);
 
 				
 			}
+
 			function updatePage(){
 				var dropDown = document.getElementById('buildNumber');
 				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
@@ -808,9 +723,9 @@
 					prevButton.click();
 				if(baseButton.value == 'ON')
 					baseButton.click();
-				calculateAllAverages();
+				
 				fillPage();
-				resizeAllGraphs(options);
+				//resizeAllGraphs(options);
 			}
 			function resizeAllGraphs(optionsArray){
 				var x =window.innerWidth*.7,
@@ -851,40 +766,31 @@
 							<select id="buildNumber" onchange="updatePage()">
 							</select>
 						</form>
+						<p id='summary'></p>
 						
-						<p id='testDurationTitle'>Test Duration: <span id='durationInsert' class='keyMetricResults'>---</span> seconds</p><br>
 						<p id='setAsBase'>Set this run as the base line: <input type='button' value='YES' onclick='setThisToBaseline()'></p>
 
 					</div>
 				</div>
-				<div id='keyMetrics'>
+				<div id='keyMetrics'> <!--XXX-->
 					<p>Key Metrics</p>
-					<div id='cpuBox' class="infoMule">
+					<div id='testBox' class="infoMule">
 						<p class='keyTitle'>Test Results</p>
-						<p id='cpuMetrics'>
-							Average TPS: <span id='avgTPS' class='keyMetricResults'>---</span><span id='compTPS'></span><br>
-							Average response time:  <span id='' class='keyMetricResults'>---</span><br>
-							90th-pctile response time:  <span id='' class='keyMetricResults'>---</span><br>
-							Failed requests:  <span id='' class='keyMetricResults'>---</span> <br>
-							Error rate:  <span id='' class='keyMetricResults'>---</span><br>
+						<p id='testMetrics'>
+							
 						</p>
 						
 					</div>
 					<div id='systemBox'class="infoMule">
 						<p class='keyTitle'>System Resources</p>
 						<p id='sysMetrics'>
-							Avg CPU Use:  <span id='avgCpu' class='keyMetricResults'>---</span><span id='compCpu'></span><br>
-							Avg Memory Use:  <span id='avgMem' class='keyMetricResults'>---</span><span id='compMem'></span><br>
-							Avg Disk Use:  <span id='avgDisk' class='keyMetricResults'>---</span><span id='compDisk'></span><br>
-							Avg Network Use:   <span id='avgNet' class='keyMetricResults'>---</span><span id='compNet'></span><br>
 						</p>
 						
 					</div>
 					<div id='jvmBox'class="infoMule">
 						<p class='keyTitle'>JVM </p>
 						<p id='jvmMetrics'>
-							Avg CPU Use:  <span id='' class='keyMetricResults'>---</span><br>
-							Avg Memory Use:  <span id='' class='keyMetricResults'>---</span><br>
+							Avg CPU Use:  <span id='' class='keyMetricResults'>---</span><br>							
 						</p>
 						
 					</div>
