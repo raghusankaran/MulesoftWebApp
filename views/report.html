@@ -546,8 +546,8 @@
 				}
 				if(document.getElementById(buttonName).value == 'ON'){
 					document.getElementById(buttonName).value = 'OFF';
-					for(var compField in cache){
-						if(cache.hasOwnProperty(compField)){
+					for(var compField in cache['SingularData']){
+						if(cache['SingularData'].hasOwnProperty(compField)){
 							document.getElementById('comp'+compField).innerHTML = '';
 						}
 					}
@@ -558,10 +558,10 @@
 					document.getElementById(buttonName).value = 'ON';
 					
 
-					for(var compField in cache){
-						if(cache.hasOwnProperty(compField) && compCache.hasOwnProperty(compField)){
+					for(var compField in cache['SingularData']){
+						if(cache['SingularData'].hasOwnProperty(compField) && compCache['SingularData'].hasOwnProperty(compField)){
 							//calculate difference (neg is good, pos is bad)
-							var difference = parseFloat(cache[compField]) - parseFloat(compCache[compField]);
+							var difference = parseFloat(cache['SingularData'][compField]) - parseFloat(compCache['SingularData'][compField]);
 							//show difference
 							if(difference < 0){ //green and +
 								document.getElementById('comp'+compField).innerHTML = ('- ' + difference).substring(0,8);
