@@ -742,9 +742,9 @@ exports.getParsedData = function(req, res){
 		//Access Summary directory
 		var summaryElements = getMetricsInFolder(path + 'Summary');
 		//FOR every file in the directory
-		for(var fileObj in summaryElements){
+		for(var i in summaryElements){
 			//summary[filename] = txtbody
-			summary[fileObj.filename] = fileObj.data[0];
+			summary[summaryElements[i].filename] = summaryElements[i].data[0];
 		}
 		console.log('This is what summary looks like: ' + summary);
 		//Create object test_results
