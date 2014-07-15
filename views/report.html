@@ -329,18 +329,23 @@
 			}
 			function printMetric(nameOfP, name, value){
 				var box = document.getElementById(nameOfP);
+				var displayName= '';
 				if(name.indexOf('.com') >= 0){
 					var type = name.substring(name.indexOf(':')+1, name.length);
 					var server = 'Server '+ name.substring(13,14) + ' ' ;
-					name = server +type;
-					name = name.replace(/_/g, ' ');
-					box.innerHTML += name + ": <span id='"+ name +"' class='keyMetricResults'> "
-									+ value +"</span><br>";
+					displayName = server +type;
+					displayName = name.replace(/_/g, ' ');
+					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'> "
+									+ value
+									+ "<span id='comp"+name+"></span>"
+									+ "</span><br>";
 				}
 				else{
-					name = name.replace(/_/g, ' ');
-					box.innerHTML += name + ": <span id='"+ name +"' class='keyMetricResults'> "
-									+ value +"</span><br>";
+					displayName = name.replace(/_/g, ' ');
+					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'> "
+									+ value 
+									+ "<span id='comp"+name+"></span>"
+									+ "</span><br>";
 				}
 			}
 			function reloadGraph(){
@@ -395,10 +400,7 @@
 				}
 
 			}
-			
-			function calculateCompAverages(type){
-				
-			}
+						
 			//Return object
 			/*
 				obj = {
@@ -517,72 +519,70 @@
 
 			}
 
-			function comparePrev(){
-				/*
-				if(document.getElementById('prevbutton').value == 'ON'){
-					document.getElementById('prevbutton').value = 'OFF';
-					document.getElementById('compCpu').innerHTML = ' ';
-					document.getElementById('compDisk').innerHTML = ' ';
-					document.getElementById('compMem').innerHTML = ' ';
-					document.getElementById('compNet').innerHTML = ' ';
-					document.getElementById('compTPS').innerHTML = ' ';
-
-					resetGraphs();					
+			function compare(type){
+				var buttonName, otherButton, compCache;
+				if(type == 'prev'){
+					buttonName = 'prevbutton';
+					otherButton = 'basebutton';
+					var dropDown = document.getElementById('prevNumber');
+					prevID = dropDown.options[dropDown.selectedIndex].text;	
+					fillPrevCache();
+					compCache = prevCache;
 				}
 				else{
-					document.getElementById('basebutton').value = 'OFF';
-					document.getElementById('prevbutton').value = 'ON';
-					var dropDown = document.getElementById('prevNumber');
-					prevID = dropDown.options[dropDown.selectedIndex].text;			
+					buttonName = 'basebutton';
+					otherButton = 'prevbutton';
 
-					fillPrevCache();
+					baseID =  getItems(jobName).baseline;
+					document.getElementById('baselineNumber').innerHTML = '' + baseID;
+					if(baseID != '-1'){
+						document.getElementById('baseVersion').style.color = "cyan";
+						fillBaseCache();
+						compCache = baseCache;
+					}
+					else
+						compCache = cache;
 
-					calculateCompAverages('prev');				
-
-					if(parseFloat(compCPU) < 0)
-						document.getElementById('compCpu').className = 'greenText compareText';					
-					else{
-						compCPU = ' +' + compCPU;
-						document.getElementById('compCpu').className = 'redText compareText';
+				}
+				if(document.getElementById(buttonName).value == 'ON'){
+					document.getElementById(buttonName).value = 'OFF';
+					for(var compField in cache){
+						if(cache.hasOwnProperty(compField)){
+							document.getElementById('comp'+compField).innerHTML = '';
+						}
 					}
-					if(parseFloat(compDisk) < 0)
-						document.getElementById('compDisk').className = 'greenText compareText';					
-					else{
-						compDisk = ' +' + compDisk;
-						document.getElementById('compDisk').className = 'redText compareText';
-					}
-					if(parseFloat(compMem) < 0)
-						document.getElementById('compMem').className = 'greenText compareText';					
-					else{
-						compMem = ' +' + compMem;
-						document.getElementById('compMem').className = 'redText compareText';
-					}
-					if(parseFloat(compNet) < 0)
-						document.getElementById('compNet').className = 'greenText compareText';					
-					else{
-						compNet = ' +' + compNet;
-						document.getElementById('compNet').className = 'redText compareText';
-					}
-					if(parseFloat(compTPS) < 0)
-						document.getElementById('compTPS').className = 'greenText compareText';					
-					else{
-						compTPS = ' +' + compTPS;
-						document.getElementById('compTPS').className = 'redText compareText';
-					}
-					document.getElementById('compCpu').innerHTML = ' '+compCPU+ ' %'; 
-					document.getElementById('compDisk').innerHTML = ' '+compDisk+ ' %';
-					document.getElementById('compMem').innerHTML = ' '+compMem+ ' %';
-					document.getElementById('compNet').innerHTML = ' '+compNet+ ' %';
-					document.getElementById('compTPS').innerHTML = ' '+compTPS;
-
-					addComparisonToGraphs('prev');
+					//resetGraphs();					
+				}
+				else{
+					document.getElementById(otherButton).value = 'OFF';
+					document.getElementById(buttonName).value = 'ON';
 					
-				}*/
+
+					for(var compField in cache){
+						if(cache.hasOwnProperty(compField) && compCache.hasOwnProperty(compField)){
+							//calculate difference (neg is good, pos is bad)
+							var difference = parseFloat(cache[compField]) - parseFloat(compCache[compField]);
+							//show difference
+							if(difference < 0){ //green and +
+								document.getElementById('comp'+compField).innerHTML = ('- ' + difference).substring(0,8);
+								document.getElementById('comp'+compField).className = 'greenText compareText';
+							}
+							else{//red and -
+								document.getElementById('comp'+compField).innerHTML = ('+ ' + difference).substring(0,8);
+								document.getElementById('comp'+compField).className = 'redText compareText';
+							}
+
+						}
+					}			
+
+					//addComparisonToGraphs('prev');
+					
+				}
 			}
 
 
 
-			function compareBase(){/*
+			function compareBase(){
 				if(document.getElementById('basebutton').value == 'ON'){
 					document.getElementById('basebutton').value = 'OFF';
 					document.getElementById('compCpu').innerHTML = ' ';
@@ -651,10 +651,9 @@
 						document.getElementById('baseVersion').style.color = "red";
 						document.getElementById('baseVersion').innerHTML = 'ERROR: No Baseline Set';
 					}
-				}*/
+				}
 
 			}
-			//XXXX
 			function fillPage(){
 
 				fillBox('summary');
@@ -823,13 +822,13 @@
 							<form id='buildPrevDropDown'action="" >
 								<select id="prevNumber" onchange="">
 								</select>
-								<input id='prevbutton' type='button' value='OFF' onclick='comparePrev()'>
+								<input id='prevbutton' type='button' value='OFF' onclick='compare("prev")'>
 							</form>
 						</div>
 						<div id='baseSection' >
 							<span id='baseTitle' class='keyTitle' onclick="showHide(2)"><span id='plus2'>+</span> Compared to basline:  Run #<span id='baselineNumber'></span> &#47;&#47; Mule Version <span id='baseVersion'> 3.5.1 </span></span>
 							<form>								
-								<input id='basebutton' type='button' value='OFF' onclick='compareBase()'>
+								<input id='basebutton' type='button' value='OFF' onclick='compare("base")'>
 							</form>
 						</div>
 					</div>
