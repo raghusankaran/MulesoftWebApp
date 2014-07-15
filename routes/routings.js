@@ -730,7 +730,7 @@ exports.getParsedData = function(req, res){
 		}
 	*/
 	promise.then(function (path){
-	
+		console.log('The path to "parsed" is: ' + path);
 		//Create object 'summary'
 		var summary = {};
 		//Access Summary directory
@@ -740,7 +740,7 @@ exports.getParsedData = function(req, res){
 			//summary[filename] = txtbody
 			summary[fileObj.filename] = fileObj.data[0];
 		}
-				
+		console.log('This is what summary looks like: ' + summary);
 		//Create object test_results
 		var test_results = {};
 		//Access Test_Results directory	
