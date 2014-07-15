@@ -688,7 +688,7 @@ function fileToObject(pathToFile){
 //NEW GETDATA REQUEST
 exports.getParsedData = function(req, res){
 	var id = req.query.id;
-	var job = req.query.jobName;
+	var jobName = req.query.jobName;
 	//FIND the parsed directory's path
 	var promise = getPathToParsed(jobName, id);
 	//Now that we have a path to PARSED we intend on returning a JSON of data of the following format:
