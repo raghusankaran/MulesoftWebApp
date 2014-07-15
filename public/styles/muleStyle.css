@@ -242,10 +242,12 @@ body{
 		border-radius: 25px;
 		border: 2px #FFF solid;
 		box-shadow: 5px 5px 5px #5F5F5F;
-		width:30%;
-		min-height:300px;
+		width: 30%;
+		min-height: 300px;
+		max-height: 300px;
 		margin-bottom: 30px;
-		color:white;
+		color: white;
+		overflow: auto;
 	}
 	#testBox{
 		float: left;
