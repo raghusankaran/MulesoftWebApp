@@ -544,14 +544,18 @@
 						compCache = cache;
 
 				}
-				if(document.getElementById(buttonName).value == 'ON'){
+				if(document.getElementById(buttonName).value == 'ON')
+				{
 					document.getElementById(buttonName).value = 'OFF';
-					for(var section in cache['SingularData']){
-						if(cache['SingularData'].hasOwnProperty(section){		
-							for(var compField in cache['SingularData'][section]){
-								if(cache['SingularData'][section].hasOwnProperty(compField)){
+					for(var section in cache['SingularData'])
+					{
+						if(cache['SingularData'].hasOwnProperty(section)
+						{		
+							for(var compField in cache['SingularData'][section])
+							{
+								if(cache['SingularData'][section].hasOwnProperty(compField))
 									document.getElementById('comp'+compField).innerHTML = '';
-								}
+								
 							}
 						}
 					}						
