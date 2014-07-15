@@ -746,40 +746,40 @@ exports.getParsedData = function(req, res){
 			//summary[filename] = txtbody
 			summary[summaryElements[i].filename] = summaryElements[i].data[0];
 		}
-		console.log('This is what summary looks like: ' + summary);
+		console.log('This is what summary looks like: ' + JSON.stringify(summary));
 		//Create object test_results
 		var test_results = {};
 		//Access Test_Results directory	
 		var testElements = getMetricsInFolder(path + 'Test_Results');
 		//FOR every file in the directory
-		for(var fileObj in testElements){
+		for(var i in testElements){
 			//test_results[filename] = txtbody
-			test_results[fileObj.filename] = fileObj.data[0];
+			test_results[testElements[i].filename] = testElements[i].data[0];
 		}
 			
-
+		console.log('This is what test_results looks like: ' + JSON.stringify(test_results));
 	
 		//Create object 'system_resources'
 		var system_resources = {};
 		//Access System_Resources directory
 		var sysElements = getMetricsInFolder(path + 'System_Resources');
 		//FOR every file in the directory
-		for(var fileObj in sysElements){
+		for(var i in sysElements){
 			//system_resources[filename] = txtbody
-			system_resources[fileObj.filename] = fileObj.data[0];
+			system_resources[sysElements[i].filename] = sysElements[i].data[0];
 		}
-
+		console.log('This is what system_resources looks like: ' + JSON.stringify(system_resources));
 	
 		//Create object jvm
 		var jvm = {};
 		//Access JVM directory
 		var jvmElements = getMetricsInFolder(path + 'JVM');
 		//FOR every file in the directory
-		for(var fileObj in jvmElements){
+		for(var i in jvmElements){
 			//jvm[filename] = txtbody
-			jvm[fileObj.filename] = fileObj.data[0];
+			jvm[jvmElements[i].filename] = jvmElements[i].data[0];
 		}
-
+		console.log('This is what jvm looks like: ' + JSON.stringify(jvm));
 		//Compile all objects ---
 		var result ={};
 		result['SingularData'] = {  
