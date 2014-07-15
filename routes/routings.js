@@ -782,6 +782,7 @@ exports.getParsedData = function(req, res){
 									'System Resources': system_resources, 
 									'JVM': jvm
 								};
+		res.send(result);
 
 	});
 	
