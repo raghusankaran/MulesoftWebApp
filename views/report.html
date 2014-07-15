@@ -335,17 +335,17 @@
 					var server = 'Server '+ name.substring(13,14) + ' ' ;
 					displayName = server +type;
 					displayName = name.replace(/_/g, ' ');
-					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'> "
-									+ value
-									+ "<span id='comp"+name+"'></span>"
-									+ "</span><br>";
+					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
+									value+ 
+									"<span id='comp"+name+"'></span>"+ 
+									"</span><br>";
 				
 				else{
 					displayName = name.replace(/_/g, ' ');
-					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'> "
-									+ value 
-									+ "<span id='comp"+name+"'></span>"
-									+ "</span><br>";
+					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
+									value + 
+									"<span id='comp"+name+"'></span>"+ 
+									"</span><br>";
 				}
 			}
 			function reloadGraph(){
