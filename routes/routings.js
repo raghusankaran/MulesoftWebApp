@@ -678,13 +678,13 @@ function fileToObject(pathToFile){
 	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
 	//console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
 	//create array of data
-	var data = [];
+	var dataFound = [];
 	//parse the body by new lines	
-	data = str.split('/n');
-	data.pop();
+	dataFound = str.split('/n');
+	//dataFound.pop();
 	
 	//Set fileObj.data = data
-	fileObj.data = data;
+	fileObj.data = dataFound;
 	console.log(JSON.stringify(fileObj));
 	//return the result
 	return fileObj;
