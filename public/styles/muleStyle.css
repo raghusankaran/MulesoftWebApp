@@ -247,7 +247,6 @@ body{
 		max-height: 300px;
 		margin-bottom: 30px;
 		color: white;
-		overflow: auto;
 	}
 	#testBox{
 		float: left;
