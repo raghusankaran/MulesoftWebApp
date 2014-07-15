@@ -333,12 +333,12 @@
 					var type = name.substring(name.indexOf(':')+1, name.length);
 					var server = 'Server '+ name.substring(13,14) + ' ' ;
 					name = server +type;
-					name = name.replace(/ /g, ' ');
+					name = name.replace(/_/g, ' ');
 					box.innerHTML += name + ": <span id='"+ name +"' class='keyMetricResults'> "
 									+ value +"</span><br>";
 				}
 				else{
-					name = name.replace('_', ' ');
+					name = name.replace(/_/g, ' ');
 					box.innerHTML += name + ": <span id='"+ name +"' class='keyMetricResults'> "
 									+ value +"</span><br>";
 				}

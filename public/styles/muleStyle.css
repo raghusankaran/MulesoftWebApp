@@ -252,33 +252,37 @@ body{
 	}
 	#testBox{
 		float: left;
+		
 		margin-right: 20px;
 
 	}
 	#systemBox{
 		float:	left;
+		
 		margin-right: 20px;
 	}
 	#jvmBox{
 		float: left;
+
+		
 		margin-right: 20px;
 	}
 	.keyTitle{
 		color: white;
 		margin-left: 10px;
 	}
-	#cpuMetrics{
+	#testMetrics{
 		font:14px;
-		
+		width: 90%;
 		margin-left: 40px;
-		width:300px;
+		
 	}
 	
 	#sysMetrics{
 		font:14px;
 		position: relative;
 		left: 40px;
-		width:300px;
+		width: 90%;
 	}
 	.keyMetricResults{
 		color:cyan;
@@ -288,7 +292,7 @@ body{
 		font:14px;
 		position: relative;
 		left: 40px;
-		width:300px;
+		width: 90%;
 	}
 	
 	#compareMetrics{
