@@ -2,7 +2,7 @@ var fs = require('fs');
 var paths = require('../config');
 var config = paths.config;
 var request = require('request');
-
+var Promise = require('promise');
 var username = 'naseem.alnaji';
 var password = '1325842Mulesoft';
 var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
@@ -227,9 +227,6 @@ exports.getBuildNames = function(req, res){
 	var dList = "";
 	var urlToHudson = config.jobHost + '/job/'+ buildName + '/api/json'
 
-	
-
-
 	request(
     {
         url : urlToHudson,
@@ -251,9 +248,6 @@ exports.getBuildNames = function(req, res){
 			}
 	    }
 	);
-
-	
-	
 };
 
 //GET a specific set of data using the following inputs:
@@ -564,5 +558,255 @@ exports.getData = function(req, res){
 				}
 			}
 	});
-
 };
+
+
+//GETREQUEST to Hudson for all relative names in /archive
+		//LINK: ?tree=artifacts[relativePath]
+
+	
+function getPathToParsed(jobName, buildID){
+
+	
+	//Create promise
+	var getPathToParsed = new Promise(function (resolve, reject){
+		var fileID = '';
+		var urlToHudson = config.jobHost + '/job/'+ jobName +'/'+ buildID +'/api/json';
+
+		//Get ID
+		request(
+	    {
+	        url : urlToHudson,
+	        headers : {
+	            "Authorization" : auth
+	        }
+	    },
+		    function (error, response, body) {
+		    	
+		        if (!error && response.statusCode == 200) {
+		        	var info = JSON.parse(body);	  			
+					fileID = info.id;
+					resolve(fileID);
+				}
+				else
+					resolve('');
+		});
+	});
+
+	getPathToParsed.then(function (fileID){
+		//This is the URL we will be submitting our get request... I suggest looking into the hudson API for more info
+		var urlToHudson = config.jobHost + '/job/'+ jobName + '/' + buildID +'/api/json?tree=artifacts[relativePath]';
+		var pathToParsed = '';
+
+		request(
+	    {
+	        url : urlToHudson,
+	        //This is how we authenticate accessing hudson
+	        headers : {
+	            "Authorization" : auth
+	        }
+	    },
+
+		    function (error, response, body) 
+		    {
+		        if (!error && response.statusCode == 200) {
+		        	
+		        	var info = JSON.parse(body);		        	
+		  			for(var i=0; i < info.artifacts.length; i++){
+		  				//we search for the path to 'parsed'
+		  				pathToParsed = info.artifacts[i].relativePath;
+						if( pathToParsed.indexOf('parsed') >= 0){
+							pathToParsed = pathToParsed.substring(0, pathToParsed.indexOf('parsed') +7);
+							break;
+						}
+					}
+					resolve(config.hudsonPath+job+'/builds/'+fileID+'/archive/' + pathToParsed);//chosen
+				}
+				resolve('');
+		    }
+		);
+	});
+
+	return getPathToParsed;
+}
+
+// Let us generalize how we read the directories that contain our TXT Files
+//End result is an array of objects that represent the metric files 
+
+// return array --- [{filename: name1, data: d1}, {filename: name2, data:d2}, ... ]
+function getMetricsInFolder(pathToDirectory){
+	//Create empty array "metricFileObjs" to represent all the metric files
+	var metricFileObjs = [];
+	
+	//Use an synchronous call to access the directory
+	// readdirSync takes a directory and returns the names of the files a depth of 1 inside of it
+	var listOfFilenames = fs.readdirSync(pathToDirectory);	
+
+	//access all the TXT bodies of the filenames
+	//For all the files in the directory
+	for(var filename in listOfFilenames){
+		//Create a fileObj for the target file
+		var fileObj = fileToObject(pathToDirectory +'/'+filename);
+		//Add the fileObj to 'metricFileObjs'
+		metricFileObjs.push(fileObj);			
+	}
+	return metricFileObjs;		
+}
+
+//Since we are always accessing files for metrics, let us generalize the methods!
+
+//End goal is to return an object that represents the file:
+	/*  return = 
+		{
+			filename: nameOfFile 
+			data: [123, 123, ...] //The data file will be parse line by line
+								  // Obviously singular data entries will have a length of 1
+		}
+	*/
+function fileToObject(pathToFile){
+	//Create object fileObj
+	var fileObj = {};
+	//Set fileObj.filename to the file name
+	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
+	fileObj.filename = filename;
+	//Use a synchronous call to access the data
+	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
+	//create array of data
+	var data = [];
+	//parse the body by new lines	
+	data = str.split('/n');
+	data.pop();
+	
+	//Set fileObj.data = data
+	fileObj.data = data;
+
+	//return the result
+	return fileObj;
+}
+
+
+//NEW GETDATA REQUEST
+exports.getParsedData = function(req, res){
+	var id = req.query.id;
+	var job = req.query.jobName;
+	//FIND the parsed directory's path
+	var promise = getPathToParsed(jobName, id);
+	//Now that we have a path to PARSED we intend on returning a JSON of data of the following format:
+
+	/*REUTURN : 
+		{
+			SingularData:
+			{
+				Summary: 
+					{
+						Test_Duration_Sec: 313 //Stored in parsed/Summary/Test_Duration_Sec.txt
+					}
+					
+				Test_Results:
+					{
+						Avg_Response_Time: XXX
+						Error_Percent: XXX
+						Max_Response_TIme: XXX
+						Min_Response_TIme: XXX
+						Throughput_TPS: XXX
+					}
+				System_Resources:
+					{
+						Avg_CPU: 36.6
+						XXX: XXX
+					}
+				
+				JVM:
+					{
+						GC_Failure_Count: XXX
+					}
+			}
+			
+			PlotData:
+			{
+				CPU_Usage: [12,13,12,10,13, ...] //Stored in parsed/PlotData/CPU_Usage.txt
+				CPU_IO_Wait: [30.013, 30.1, 31.03, ...] //Stored in CPU_IO_Wait.txt
+			}
+		}
+	*/
+	promise.then(function (path){
+	
+		//Create object 'summary'
+		var summary = {};
+		//Access Summary directory
+		var summaryElements = getMetricsInFolder(path + '/Summary');
+		//FOR every file in the directory
+		for(var fileObj in summaryElements){
+			//summary[filename] = txtbody
+			summary[fileObj.filename] = fileObj.data[0];
+		}
+				
+		//Create object test_results
+		var test_results = {};
+		//Access Test_Results directory	
+		var testElements = getMetricsInFolder(path + '/Test_Results');
+		//FOR every file in the directory
+		for(var fileObj in testElements){
+			//test_results[filename] = txtbody
+			test_results[fileObj.filename] = fileObj.data[0];
+		}
+			
+
+	
+		//Create object 'system_resources'
+		var system_resources = {};
+		//Access System_Resources directory
+		var sysElements = getMetricsInFolder(path + '/System_Resources');
+		//FOR every file in the directory
+		for(var fileObj in sysElements){
+			//system_resources[filename] = txtbody
+			system_resources[fileObj.filename] = fileObj.data[0];
+		}
+
+	
+		//Create object jvm
+		var jvm = {};
+		//Access JVM directory
+		var jvmElements = getMetricsInFolder(path + '/JVM');
+		//FOR every file in the directory
+		for(var fileObj in jvmElements){
+			//jvm[filename] = txtbody
+			jvm[fileObj.filename] = fileObj.data[0];
+		}
+
+		//Compile all objects ---
+		var result ={};
+		result['SingularData'] = {  
+									'Summary': summary, 
+									'Test_Results': test_results, 
+									'System Resources': system_resources, 
+									'JVM': jvm
+								};
+
+	});
+	
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
