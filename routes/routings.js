@@ -648,7 +648,9 @@ function getMetricsInFolder(pathToDirectory){
 	//For all the files in the directory
 	for(var filename in listOfFilenames){
 		//Create a fileObj for the target file
+		console.log('Going into: ' + pathToDirectory +'/'+filename);
 		var fileObj = fileToObject(pathToDirectory +'/'+filename);
+
 		//Add the fileObj to 'metricFileObjs'
 		metricFileObjs.push(fileObj);			
 	}
