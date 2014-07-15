@@ -559,8 +559,9 @@
 							}
 						}
 					}						
-					//resetGraphs();					
-				}
+					
+				}//resetGraphs();					
+			
 				else{
 					document.getElementById(otherButton).value = 'OFF';
 					document.getElementById(buttonName).value = 'ON';
@@ -593,79 +594,6 @@
 			}
 
 
-
-			function compareBase(){
-				if(document.getElementById('basebutton').value == 'ON'){
-					document.getElementById('basebutton').value = 'OFF';
-					document.getElementById('compCpu').innerHTML = ' ';
-					document.getElementById('compDisk').innerHTML = ' ';
-					document.getElementById('compMem').innerHTML = ' ';
-					document.getElementById('compNet').innerHTML = ' ';
-					document.getElementById('compTPS').innerHTML = ' ';
-
-					resetGraphs();
-				}
-				else{
-					document.getElementById('prevbutton').value = 'OFF';
-					document.getElementById('basebutton').value = 'ON';
-					
-					baseID =  getItems(jobName).baseline;
-					document.getElementById('baselineNumber').innerHTML = '' + baseID;
-					if(baseID != '-1'){
-						document.getElementById('baseVersion').style.color = "cyan";
-						fillBaseCache();
-
-						calculateCompAverages('base');				
-
-						
-
-						if(parseFloat(compCPU) < 0)
-							document.getElementById('compCpu').className = 'greenText compareText';					
-						else{
-							compCPU = ' +' + compCPU;
-							document.getElementById('compCpu').className = 'redText compareText';
-						}
-						if(parseFloat(compDisk) < 0)
-							document.getElementById('compDisk').className = 'greenText compareText';					
-						else{
-							compDisk = ' +' + compDisk;
-							document.getElementById('compDisk').className = 'redText compareText';
-						}
-						if(parseFloat(compMem) < 0)
-							document.getElementById('compMem').className = 'greenText compareText';					
-						else{
-							compMem = ' +' + compMem;
-							document.getElementById('compMem').className = 'redText compareText';
-						}
-						if(parseFloat(compNet) < 0)
-							document.getElementById('compNet').className = 'greenText compareText';					
-						else{
-							compNet = ' +' + compNet;
-							document.getElementById('compNet').className = 'redText compareText';
-						}
-						if(parseFloat(compTPS) < 0)
-							document.getElementById('compTPS').className = 'greenText compareText';					
-						else{
-							compTPS = ' +' + compTPS;
-							document.getElementById('compTPS').className = 'redText compareText';
-						}
-						document.getElementById('compCpu').innerHTML = ' '+compCPU+ ' %'; 
-						document.getElementById('compDisk').innerHTML = ' '+compDisk+ ' %';
-						document.getElementById('compMem').innerHTML = ' '+compMem+ ' %';
-						document.getElementById('compNet').innerHTML = ' '+compNet+ ' %';
-						document.getElementById('compTPS').innerHTML = ' '+compTPS;
-
-						addComparisonToGraphs('base');
-
-					}
-					else{
-						
-						document.getElementById('baseVersion').style.color = "red";
-						document.getElementById('baseVersion').innerHTML = 'ERROR: No Baseline Set';
-					}
-				}
-
-			}
 			function fillPage(){
 
 				fillBox('summary');
