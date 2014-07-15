@@ -676,7 +676,7 @@ function fileToObject(pathToFile){
 	fileObj.filename = filename;
 	//Use a synchronous call to access the data
 	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
-	console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
+	//console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
 	//create array of data
 	var data = [];
 	//parse the body by new lines	
@@ -685,7 +685,7 @@ function fileToObject(pathToFile){
 	
 	//Set fileObj.data = data
 	fileObj.data = data;
-
+	console.log(JSON.stringify(fileObj));
 	//return the result
 	return fileObj;
 }
@@ -743,7 +743,7 @@ exports.getParsedData = function(req, res){
 		var summaryElements = getMetricsInFolder(path + 'Summary');
 		//FOR every file in the directory
 		for(var i in summaryElements){
-			//summary[filename] = txtbody
+			//summary[filename] = txtbody			
 			summary[summaryElements[i].filename] = summaryElements[i].data[0];
 		}
 		console.log('This is what summary looks like: ' + JSON.stringify(summary));
