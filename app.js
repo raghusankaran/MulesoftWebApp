@@ -18,6 +18,7 @@ app.use(express.bodyParser());
 app.use(app.router);
 
 app.get('/', function(req, res){
+	console.log('??');
 	res.render('home');
 });
 app.get('/report', function(req, res){

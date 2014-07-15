@@ -785,7 +785,7 @@ exports.getParsedData = function(req, res){
 
 	});
 	
-};
+}
 
 
 
