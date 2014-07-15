@@ -646,10 +646,10 @@ function getMetricsInFolder(pathToDirectory){
 	console.log('All the files in ' +pathToDirectory+ ' are: ' + listOfFilenames);
 	//access all the TXT bodies of the filenames
 	//For all the files in the directory
-	for(var filename in listOfFilenames){
+	for(var i in listOfFilenames){
 		//Create a fileObj for the target file
-		console.log('Going into: ' + pathToDirectory +'/'+filename);
-		var fileObj = fileToObject(pathToDirectory +'/'+filename);
+		console.log('Going into: ' + pathToDirectory +'/'+listOfFilenames[i]);
+		var fileObj = fileToObject(pathToDirectory +'/'+listOfFilenames[i]);
 
 		//Add the fileObj to 'metricFileObjs'
 		metricFileObjs.push(fileObj);			
