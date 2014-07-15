@@ -327,7 +327,20 @@
 				options[i].setWidth += change;
 				updateGraph('graph'+ (i+1), options[i]);
 			}
-			
+			function printMetric(nameOfP, name, value){
+				var box = document.getElementById(nameOfP);
+				if(name.indexOf('.com') >= 0){
+					var type = name.substring(name.indexOf(':')+1, name.length);
+					var server = 'Server '+ name.substring(12,14) + ' ' ;
+					name = server +type;
+					box.innerHTML += name + ": <span id='"+ name +"' class='keyMetricResults'> "
+									+ value +"</span><br>";
+				}
+				else{
+					box.innerHTML += name + ": <span id='"+ name +"' class='keyMetricResults'> "
+									+ value +"</span><br>";
+				}
+			}
 			function reloadGraph(){
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
@@ -342,8 +355,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
-									+ desiredResults[prop] +"</span><br>";
+							printMetric(nameOfP, prop, desiredResults[prop]);
 						}
 					}
 				}
@@ -353,8 +365,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
-									+ desiredResults[prop] +"</span><br>";
+							printMetric(nameOfP, prop, desiredResults[prop]);
 						}
 					}
 				}
@@ -364,8 +375,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
-									+ desiredResults[prop] +"</span><br>";
+							printMetric(nameOfP, prop, desiredResults[prop]);
 						}
 					}
 
@@ -376,8 +386,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							box.innerHTML += prop + "<span id='"+ prop +"' class='keyMetricResults'>"
-									+ desiredResults[prop] +"</span><br>";
+							printMetric(nameOfP, prop, desiredResults[prop]);
 						}
 					}
 
