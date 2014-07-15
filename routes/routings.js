@@ -784,7 +784,7 @@ exports.getParsedData = function(req, res){
 		result['SingularData'] = {  
 									'Summary': summary, 
 									'Test_Results': test_results, 
-									'System Resources': system_resources, 
+									'System_Resources': system_resources, 
 									'JVM': jvm
 								};
 		res.send(result);
