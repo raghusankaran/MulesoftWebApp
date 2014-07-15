@@ -652,6 +652,7 @@ function getMetricsInFolder(pathToDirectory){
 		//Add the fileObj to 'metricFileObjs'
 		metricFileObjs.push(fileObj);			
 	}
+
 	return metricFileObjs;		
 }
 
@@ -673,6 +674,7 @@ function fileToObject(pathToFile){
 	fileObj.filename = filename;
 	//Use a synchronous call to access the data
 	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
+	console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
 	//create array of data
 	var data = [];
 	//parse the body by new lines	
@@ -736,7 +738,7 @@ exports.getParsedData = function(req, res){
 		//Create object 'summary'
 		var summary = {};
 		//Access Summary directory
-		var summaryElements = getMetricsInFolder(path + '/Summary');
+		var summaryElements = getMetricsInFolder(path + 'Summary');
 		//FOR every file in the directory
 		for(var fileObj in summaryElements){
 			//summary[filename] = txtbody
@@ -746,7 +748,7 @@ exports.getParsedData = function(req, res){
 		//Create object test_results
 		var test_results = {};
 		//Access Test_Results directory	
-		var testElements = getMetricsInFolder(path + '/Test_Results');
+		var testElements = getMetricsInFolder(path + 'Test_Results');
 		//FOR every file in the directory
 		for(var fileObj in testElements){
 			//test_results[filename] = txtbody
@@ -758,7 +760,7 @@ exports.getParsedData = function(req, res){
 		//Create object 'system_resources'
 		var system_resources = {};
 		//Access System_Resources directory
-		var sysElements = getMetricsInFolder(path + '/System_Resources');
+		var sysElements = getMetricsInFolder(path + 'System_Resources');
 		//FOR every file in the directory
 		for(var fileObj in sysElements){
 			//system_resources[filename] = txtbody
@@ -769,7 +771,7 @@ exports.getParsedData = function(req, res){
 		//Create object jvm
 		var jvm = {};
 		//Access JVM directory
-		var jvmElements = getMetricsInFolder(path + '/JVM');
+		var jvmElements = getMetricsInFolder(path + 'JVM');
 		//FOR every file in the directory
 		for(var fileObj in jvmElements){
 			//jvm[filename] = txtbody
