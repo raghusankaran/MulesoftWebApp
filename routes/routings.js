@@ -620,9 +620,9 @@ function getPathToParsed(jobName, buildID){
 							break;
 						}
 					}
-					resolve(config.hudsonPath+job+'/builds/'+fileID+'/archive/' + pathToParsed);//chosen
+					return config.hudsonPath+job+'/builds/'+fileID+'/archive/' + pathToParsed;//chosen
 				}
-				resolve('');
+				return '';
 		    }
 		);
 	});
