@@ -593,41 +593,44 @@ function getPathToParsed(jobName, buildID){
 		});
 	});
 
-	getPathToParsed.then(function (fileID){
-		//This is the URL we will be submitting our get request... I suggest looking into the hudson API for more info
-		var urlToHudson = config.jobHost + '/job/'+ jobName + '/' + buildID +'/api/json?tree=artifacts[relativePath]';
-		var pathToParsed = '';
+	return new Promise(function (resolve, reject){
 
-		request(
-	    {
-	        url : urlToHudson,
-	        //This is how we authenticate accessing hudson
-	        headers : {
-	            "Authorization" : auth
-	        }
-	    },
+			getPathToParsed.then(function (fileID){
+			//This is the URL we will be submitting our get request... I suggest looking into the hudson API for more info
+			var urlToHudson = config.jobHost + '/job/'+ jobName + '/' + buildID +'/api/json?tree=artifacts[relativePath]';
+			var pathToParsed = '';
 
-		    function (error, response, body) 
+			request(
 		    {
-		        if (!error && response.statusCode == 200) {
-		        	
-		        	var info = JSON.parse(body);		        	
-		  			for(var i=0; i < info.artifacts.length; i++){
-		  				//we search for the path to 'parsed'
-		  				pathToParsed = info.artifacts[i].relativePath;
-						if( pathToParsed.indexOf('parsed') >= 0){
-							pathToParsed = pathToParsed.substring(0, pathToParsed.indexOf('parsed') +7);
-							break;
-						}
-					}
-					return config.hudsonPath+jobName+'/builds/'+fileID+'/archive/' + pathToParsed;//chosen
-				}
-				return '';
-		    }
-		);
-	});
+		        url : urlToHudson,
+		        //This is how we authenticate accessing hudson
+		        headers : {
+		            "Authorization" : auth
+		        }
+		    },
 
-	return getPathToParsed;
+			    function (error, response, body) 
+			    {
+			        if (!error && response.statusCode == 200) {
+			        	
+			        	var info = JSON.parse(body);		        	
+			  			for(var i=0; i < info.artifacts.length; i++){
+			  				//we search for the path to 'parsed'
+			  				pathToParsed = info.artifacts[i].relativePath;
+							if( pathToParsed.indexOf('parsed') >= 0){
+								pathToParsed = pathToParsed.substring(0, pathToParsed.indexOf('parsed') +7);
+								break;
+							}
+						}
+
+						resolve( config.hudsonPath+jobName+'/builds/'+fileID+'/archive/' + pathToParsed);//chosen
+					}
+					resolve('');
+			    }
+			);
+		});
+	}
+	
 }
 
 // Let us generalize how we read the directories that contain our TXT Files
