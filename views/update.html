@@ -60,8 +60,8 @@
 			function updateDropDowns(){
 				var dropDown = document.getElementById('checkList');
 				
-				for(var key in dropDownOptions){						
-					dropDown.innerHTML += '<option value="'+dropDownOptions[key]+'">'+display(dropDownOptions[key])+'</option>';
+				for(var i=0; i<dropDownOptions.length; i++){						
+					dropDown.innerHTML += '<option value="'+dropDownOptions[i]+'">'+display(dropDownOptions[i])+'</option>';
 				}
 				
 			}
