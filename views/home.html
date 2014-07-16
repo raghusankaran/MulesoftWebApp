@@ -11,7 +11,7 @@
 		var baseID = [];
 		var buildIds= [,,];
 		var slaResults = [];
-		var prevResults = [];
+		
 		var baseResults =[];
 		var cache = {
 						'duration': '',
@@ -109,8 +109,7 @@
 				clearCache();
 				fetchData(jobName, test, buildID);
 				compareData('sla', test.sla);
-				compareData('prev', test.prev);
-				compareData('base', test.base);
+				
 			}
 
 			function getResultPreviews(){
@@ -139,23 +138,18 @@
 						var min = parseFloat(jsonObj[key][0]);
 						var max = parseFloat(jsonObj[key][1]);
 						var data = cache[dataID];
-						if(key.indexOf('avg') >= 0){
-							var result = parseFloat(getAvg(data));
-							if(min > result || max < result){
-								passed='Failed';
-							}
+						
+						var result = parseFloat(data);
+						if(min > result || max < result){
+							passed='Failed';
 						}
+						
 					}
 				}
 				if(type == 'sla'){
 					slaResults[slaResults.length] = passed;
 				}
-				else if(type == 'prev'){
-					prevResults[prevResults.length] = passed;
-				}
-				else if(type == 'base'){
-					baseResults[baseResults.length] = passed;
-				}
+				
 
 			}
 			function fetchData(jobName, jsonObj, buildID){
@@ -287,7 +281,7 @@
 					document.getElementById('mainRes').className = 'redText';
 
 				var slaResult = document.getElementById('slaMain');
-				var prevResult = document.getElementById('prevMain');
+				
 				var baseResult = document.getElementById('baseMain');
 				getResultPreviews();
 
@@ -298,12 +292,7 @@
 					slaResult.className = 'redText';
 				else if(slaResults[2] == 'Passed')
 					slaResult.className = 'greenText';
-				//PREV
-				prevResult.innerHTML = prevResults[2];
-				if(prevResults[2] == 'Failed')
-					prevResult.className = 'redText';
-				else if(prevResults[2] == 'Passed')
-					prevResult.className = 'greenText';
+				
 				//BASE
 				if(baseID[2] != '-1' && baseID[2] != null){
 					baseResult.style.color = '#00FF00';
@@ -351,7 +340,7 @@
 
 
 					var slaResult = document.getElementById('sla'+ (i+1));
-					var prevResult = document.getElementById('prev'+ (i+1));
+				
 					var baseResult = document.getElementById('base'+ (i+1));
 					//SLA
 					slaResult.innerHTML = slaResults[i];
@@ -359,12 +348,7 @@
 						slaResult.className = 'redText';
 					else if(slaResults[i] == 'Passed')
 						slaResult.className = 'greenText';
-					//PREV
-					prevResult.innerHTML = prevResults[i];
-					if(prevResults[i] == 'Failed')
-						prevResult.className = 'redText';
-					else if(prevResults[i] == 'Passed')
-						prevResult.className = 'greenText';
+					
 					//BASE
 					if(baseID[i] != '-1' && baseID[i] != null){
 						baseResult.style.color = '#00FF00';
