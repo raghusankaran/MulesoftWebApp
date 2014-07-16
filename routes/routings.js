@@ -641,12 +641,10 @@ function getMetricsInFolder(pathToDirectory){
 	//Use an synchronous call to access the directory
 	// readdirSync takes a directory and returns the names of the files a depth of 1 inside of it
 	var listOfFilenames = fs.readdirSync(pathToDirectory);	
-	console.log('All the files in ' +pathToDirectory+ ' are: ' + listOfFilenames);
 	//access all the TXT bodies of the filenames
 	//For all the files in the directory
 	for(var i in listOfFilenames){
 		//Create a fileObj for the target file
-		console.log('Going into: ' + pathToDirectory +'/'+listOfFilenames[i]);
 		var fileObj = fileToObject(pathToDirectory +'/'+listOfFilenames[i]);
 
 		//Add the fileObj to 'metricFileObjs'
@@ -678,7 +676,7 @@ function fileToObject(pathToFile){
 	//create array of data
 	var dataFound = [];
 	//parse the body by new lines	
-	dataFound = str.split('/n');
+	dataFound = str.split(/\n/g);
 	
 	//Set fileObj.data = data
 	fileObj.data = dataFound;
