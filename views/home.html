@@ -60,39 +60,6 @@
 			}
 			function clearCache(){
 				cache = {
-						'duration': '',
-
-				        'cpu use': [],
-				        'cpu iowait': [],
-				        'cpu steal': [],
-
-			 		    'mem use': [],
-			 		    'mem kbcache': [],
-			 		    'mem kbbuffers': [],
-			         
-			  			'disk util': [],
-			  	        'disk await': [],
-			  		    'disk tps': [],
-			  			'disk rd_sec': [],
-			  			'disk wr_sec': [],
-			  		  
-			  		  	'network used': [],
-			  			'network txkB': [],
-			  			'network rxkB': [],
-			  		  
-			            'paging pgpgin': [],
-			            'paging pgpgout': [],
-			            'paging fault': [],
-			            'paging majflt': [],
-			            'paging pgpgin': [],
-			            'paging pgfree': [],
-			            'paging pgscank': [],
-			            'paging pgscand': [],
-			            'paging pgsteal': [],
-			            'paging vmef': [],
-			  		  
-			  			'swap in': [],
-			  			'swap out': []
 				};
 			}
 			function getAvg(data){
@@ -107,7 +74,7 @@
 			function evaluateJob(jobName,buildID){
 				var test = getItems(jobName);
 				clearCache();
-				fetchData(jobName, test, buildID);
+				fetchData(jobName, buildID);
 				compareData('sla', test.sla);
 				
 			}
@@ -134,16 +101,21 @@
 				}
 				else{
 					for(var key in jsonObj){
-						var dataID = key.substring(0,key.length-5);
-						var min = parseFloat(jsonObj[key][0]);
-						var max = parseFloat(jsonObj[key][1]);
-						var data = cache[dataID];
-						
-						var result = parseFloat(data);
-						if(min > result || max < result){
-							passed='Failed';
+						if(jsonObj.hasOwnProperty(key)){
+							var dataID = key;
+							var min = parseFloat(jsonObj[key][0]);
+							var max = parseFloat(jsonObj[key][1]);
+							var data = cache[dataID];
+							if(data != null){	
+								var result = parseFloat(data);
+								if(min > result || max < result){
+									passed='Failed';
+								}
+							}
+							else{
+								passed='Failed';
+							}
 						}
-						
 					}
 				}
 				if(type == 'sla'){
@@ -152,30 +124,27 @@
 				
 
 			}
-			function fetchData(jobName, jsonObj, buildID){
-				for(var section in jsonObj){
-					if(typeof jsonObj[section] === 'object'){
-						for(var key in jsonObj[section]){
-							if(cache[metricName].length == 0){
-								cache[metricName] = getData(jobName, metricName, buildID);
+			function fetchData(jobName, buildID){
+				var requestedData = getData(jobName, buildID);
+				for(var section in requestedData){
+					if(requestedData.hasOwnProperty(section)){
+						for(var metric in requestedData.section){
+							if(requestedData.section.hasOwnProperty(metric)){
+								cache[metric] = requestedData.section.metric;
 							}
 						}
 					}
-				}						
+				}
 			}
 
-			function getData(jobName, type, idNum){
-				var job = jobName;				
-				var query = '?job='+job+'&id='+idNum+'&type='+type;
-				var url = config.retrieveData+query
+			function getData(jobName, idNum){
+										
+				var url = config.getParsedData + jobName + '&id=' + idNum;
 					
 				var str = getRequest(url);
-				if(type.indexOf('duration') >=0){
-					return str;
-				}
-				var data = str.split(',');
-				data.pop();
-				return data;				
+				
+				var data = JSON.parse(str);
+				return data[SingularData];
 			}
 
 			function getRequest(url){
