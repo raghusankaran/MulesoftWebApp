@@ -7,39 +7,9 @@
 		<script src="../config.js"></script>
 		<script type="text/javascript">
 			var jobName = getQueryVariable('job');
+			var id = getQueryVariable('id');
 			var items;
-			var dropDownOptions = {
-										 'CPU: Used': 'cpu use ',										
-										 'CPU: IO Wait': 'cpu iowait ',
-										 'CPU: Steal': 'cpu steal ',
-
-										 'Memory: Used':'mem use ',
-							 		     'Memory: KB Cache':'mem kbcache ',
-										 'Memory: KB Buffers': 'mem kbbuffers ',
-							         							  	      
-										 'Disk: Used': 'disk util ',
-										 'Disk: Await': 'disk await ',
-										 'Disk: TPS':'disk tps ',
-										 'Disk: RD_Sec': 'disk rd_sec ',
-										 'Disk: WR_Sec':'disk wr_sec ',
-							  		  
-										 'Network: Used':'network used ',
-							  			 'Network: TxkB':'network txkB ', 
-										 'Network: RxkB':'network rxkB ',
-							  		  
-										 'Paging: Pgpgin': 'paging pgpgin ',
-										 'Paging: Pgpgout':'paging pgpgout ',
-										 'Paging: Fault':'paging fault ',
-										 'Paging: Maj. Fault':'paging majflt ',				            
-										 'Paging: PG Free':'paging pgfree ',
-										 'Paging: PG Scank':'paging pgscank ',
-										 'Paging: PG Scand':'paging pgscand ',
-										 'Paging: PG Steal':'paging pgsteal ',
-										 'Paging: VMEF':'paging vmef ',
-							  		  
-										 'Swap: In':'swap in ',
-										 'Swap: Out':'swap out '
-			};
+			var dropDownOptions = [];
 
 			Object.prototype.getKeyByValue = function( value ) {
 			    for( var prop in this ) {
@@ -50,19 +20,50 @@
 			    }
 			}
 
-
-			
-
-			function updateDropDowns(){
-				var dropDown = document.getElementsByName('checkList');
-
-				for(var i=0; i < dropDown.length; i++){
-					for(var key in dropDownOptions){	
-						if(dropDownOptions.hasOwnProperty(key)){
-							dropDown[i].innerHTML += '<option value="'+dropDownOptions[key]+'">'+key+'</option>';
+			function getData(idNum){
+				var job = jobName;								
+				var url = config.getParsedData + jobName + '&id=' + idNum
+					
+				var str = getRequest(url);
+				
+				var data = JSON.parse(str);
+				return data;			
+			}
+			function inititalizeDDO(){
+				var data = getData(id);
+				for(var section in data['SingularData']){
+					if(data['SingularData'].hasOwnProperty(section)){
+						for(var metric in data['SingularData'][section]){
+							if(data['SingularData'][section].hasOwnProperty(metric)){
+								dropDownOptions[dropDownOptions.length] = metric;
+							}
 						}
 					}
 				}
+			}
+			function display(str){
+				var displayName = '';
+				if(name.indexOf('.com') >= 0){
+					var type = name.substring(name.indexOf(':')+1, name.length);
+					var server = 'Server '+ name.substring(13,14) + ' ' ;
+					displayName = server +type;
+					displayName = displayName.replace(/_/g, ' ');
+					return displayName;
+				}
+				else{
+					displayName = name.replace(/_/g, ' ');
+					return displayName;
+				}
+			}
+			
+
+			function updateDropDowns(){
+				var dropDown = document.getElementById('checkList');
+				
+				for(var key in dropDownOptions){						
+					dropDown.innerHTML += '<option value="'+dropDownOptions[key]+'">'+display(dropDownOptions[key])+'</option>';
+				}
+				
 			}
 			function getRequest(url){
 				var request = new XMLHttpRequest();
@@ -115,11 +116,11 @@
 			}
 
 			function initialize(){
+				inititalizeDDO();
 				updateDropDowns();
 				getItems();
 				showItems('sla', items['sla']);
-				showItems('prev', items['prev']);
-				showItems('base', items['base']);
+				
 			}
 
 		</script>
@@ -153,7 +154,7 @@
 						</div>
 						<hr>
 						<form id='slaForm' class='updateCheckForm' method='post' onsubmit='postRequest("sla")'>
-							<select name="checkList">							
+							<select id="checkList">							
 							</select>
 							<input type="text" name="min">
 							<input type="text" name="max">
@@ -164,62 +165,7 @@
 						</form>
 					</div>
 				</div>
-				<div id='prevBox'>
-					<p>Update "Previous" Check</p>
-					<div class='updateBox'>
-						<p class='currTitle'>Current Metrics</p>
-						<hr>
-						<div id='prevItems' class='updateItems'>
-							<div class='metricDescriptions'>
-							<span class="nameCurrMetric">Name</span>
-							<span class="minCurrMetric">Minimum</span>
-							<span class="maxCurrMetric">Maximum</span><br>
-							</div>
-							<div id='prevItemValues'>
-							</div>
-						</div>
-						<hr>
-						<form id='prevForm' class='updateCheckForm'  method='post' onsubmit='postRequest("prev")'>
-							<select name="checkList">
-							</select>
-							<input type="text" name="min">
-							<input type="text" name="max">
-							<input type="submit" value="Submit"><br>
-							<input type="radio" name="modifier" value="avg" checked>Average
-							<input type="radio" name="modifier" value="90%">90th Percentile
-							<input type="radio" name="modifier" value="99%">99th Percentile
-						</form>
-					</div>
-
-				</div>
-				<div id='baseBox'>
-					<p>Update "Baseline" Check</p>
-					<div class='updateBox'>
-						<p class='currTitle'>Current Metrics</p>
-						<hr>
-						<div id='baseItems' class='updateItems'>
-							<div class='metricDescriptions'>
-							<span class="nameCurrMetric">Name</span>
-							<span class="minCurrMetric">Minimum</span>
-							<span class="maxCurrMetric">Maximum</span><br>
-							</div>
-							<div id='baseItemValues'>
-							</div>
-						</div>
-						<hr>
-						<form id='baseForm' class='updateCheckForm' method='post' onsubmit='postRequest("base")'>
-							<select name="checkList">							
-							</select>
-							<input type="text" name="min">
-							<input type="text" name="max">
-							<input type="submit" value="Submit"><br>
-							<input type="radio" name="modifier" value="avg" checked>Average
-							<input type="radio" name="modifier" value="90%">90th Percentile
-							<input type="radio" name="modifier" value="99%">99th Percentile							
-						</form>
-					</div>
-
-				</div>
+				
 			</div>
 		</div>
 		<script type="text/javascript">
