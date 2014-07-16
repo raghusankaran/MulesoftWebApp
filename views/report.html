@@ -339,11 +339,11 @@
 						var displayMetric = display(metricName); //display
 						for(var section in cache.SingularData){
 							if(cache.SingularData.hasOwnProperty(section)){
-								for(var field in cache.SingularData.section){
-									if(cache.SingularData.section.hasOwnProperty(field)){
+								for(var field in cache.SingularData[section]){
+									if(cache.SingularData[section].hasOwnProperty(field)){
 										if(metricName == field)
 										{
-											jobResult = parseFloat(cache.SingularData.section.field);
+											jobResult = parseFloat(cache.SingularData[section][field]);
 										}
 									}
 								}
