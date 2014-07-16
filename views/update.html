@@ -22,7 +22,7 @@
 
 			function getData(idNum){
 				var job = jobName;								
-				var url = config.getParsedData + jobName + '&id=' + idNum
+				var url = config.getParsedData + jobName + '&id=' + idNum;
 					
 				var str = getRequest(url);
 				
@@ -102,13 +102,13 @@
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
 												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span>'+
-												'<a class="deleteMetric" href="'+config.deleteJobTest +jobName+'&type='+section+'&metric='+deleteLink+'">Delete</a><br>';
+												'<a class="deleteMetric" href="'+config.deleteJobTest +jobName+'&type='+section+'&metric='+deleteLink+'&id='+id+'">Delete</a><br>';
 					}
 				}
 			}
 
 			function postRequest(section){
-				var action = config.putJobTest+jobName+'&type='+section;
+				var action = config.putJobTest+jobName+'&type='+section+'&id='+id;
 				var form = document.getElementById(section+ 'Form');
 				form.action = action;
 
