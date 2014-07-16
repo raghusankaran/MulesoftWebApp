@@ -132,8 +132,8 @@ exports.updateBaseline = function(req, res){
 
 //Add to test file
 exports.addJobTest = function(req, res){
-	var metricID = req.body.checkList + req.body.modifier + ' ';
-
+	var metricID = req.body.checkList;
+	console.log(metricID);
 	var min = req.body.min;
 
 	var max = req.body.max;

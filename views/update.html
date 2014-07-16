@@ -97,8 +97,8 @@
 					if(key != 'getKeyByValue'){
 						var deleteLink = key.replace(' ', '+');
 						var deleteLink = deleteLink.replace('%20', '+');
-						var metricModifier = key.substring(key.length-4, key.length-1).toUpperCase();
-						var metric =dropDownOptions.getKeyByValue(key.substring(0, key.length-4)) + ' (' + metricModifier +')';
+						
+						var metric = dropDownOptions.getKeyByValue(key);
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
 												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span>'+
@@ -159,9 +159,6 @@
 							<input type="text" name="min">
 							<input type="text" name="max">
 							<input type="submit" value="Submit"><br>
-							<input type="radio" name="modifier" value="avg" checked>Average
-							<input type="radio" name="modifier" value="90%">90th Percentile
-							<input type="radio" name="modifier" value="99%">99th Percentile
 						</form>
 					</div>
 				</div>
