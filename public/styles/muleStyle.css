@@ -275,14 +275,14 @@ body{
 		margin-left: 10px;
 	}
 	#testMetrics{
-		font:14px;
+		font-size:14px;
 		width: 90%;
 		margin-left: 40px;
 		
 	}
 	
 	#sysMetrics{
-		font:10px;
+		font-size:10px;
 		position: relative;
 		left: 40px;
 		width: 90%;
@@ -292,7 +292,7 @@ body{
 	}
 
 	#jvmMetrics{
-		font:14px;
+		font-size:14px;
 		position: relative;
 		left: 40px;
 		width: 90%;
