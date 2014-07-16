@@ -336,7 +336,7 @@
 						var max = parseFloat(slaObj[metric][1]);
 						var jobResult = -1;
 
-						var display = display(metricName); //display
+						var displayMetric = display(metricName); //display
 						for(var section in cache.SingularData){
 							if(cache.SingularData.hasOwnProperty(section)){
 								for(var field in cache.SingularData.section){
@@ -355,10 +355,10 @@
 							var answer = jobResult + '';
 
 						if(min < jobResult && jobResult < max){
-							resultObj[display] = [answer, true];
+							resultObj[displayMetric] = [answer, true];
 						}
 						else{
-							resultObj[display] = [answer, false];
+							resultObj[displayMetric] = [answer, false];
 							resultObj['overall'] = false;
 						}
 					}
