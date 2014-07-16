@@ -571,12 +571,12 @@
 						if(cache['SingularData'].hasOwnProperty(section))
 						{		
 							for(var compField in cache['SingularData'][section]){
-								if(cache['SingularData'][section].hasOwnProperty(compField) && compCache['SingularData'][section].hasOwnProperty(compField)){
+								if(cache['SingularData'][section].hasOwnProperty(compField) && compCache['SingularData'][section].hasOwnProperty(compField) && section != 'Summary'){
 									//calculate difference (neg is good, pos is bad)
 									var difference = parseFloat(cache['SingularData'][section][compField]) - parseFloat(compCache['SingularData'][section][compField]);
 									//show difference
 									if(difference < 0){ //green and +
-										document.getElementById('comp'+compField).innerHTML = ('- ' + difference).substring(0,8);
+										document.getElementById('comp'+compField).innerHTML = (' ' + difference).substring(0,7);
 										document.getElementById('comp'+compField).className = 'greenText compareText';
 									}
 									else{//red and -
