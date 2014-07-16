@@ -734,58 +734,71 @@ exports.getParsedData = function(req, res){
 	*/
 	promise.then(function (path){
 		console.log('The path to "parsed" is: ' + path);
-		//Create object 'summary'
-		var summary = {};
-		//Access Summary directory
-		var summaryElements = getMetricsInFolder(path + 'Summary');
-		//FOR every file in the directory
-		for(var i in summaryElements){
-			//summary[filename] = txtbody			
-			summary[summaryElements[i].filename] = summaryElements[i].data[0];
-		}
-		console.log('This is what summary looks like: ' + JSON.stringify(summary));
-		//Create object test_results
-		var test_results = {};
-		//Access Test_Results directory	
-		var testElements = getMetricsInFolder(path + 'Test_Results');
-		//FOR every file in the directory
-		for(var i in testElements){
-			//test_results[filename] = txtbody
-			test_results[testElements[i].filename] = testElements[i].data[0];
-		}
-			
-		console.log('This is what test_results looks like: ' + JSON.stringify(test_results));
-	
-		//Create object 'system_resources'
-		var system_resources = {};
-		//Access System_Resources directory
-		var sysElements = getMetricsInFolder(path + 'System_Resources');
-		//FOR every file in the directory
-		for(var i in sysElements){
-			//system_resources[filename] = txtbody
-			system_resources[sysElements[i].filename] = sysElements[i].data[0];
-		}
-		console.log('This is what system_resources looks like: ' + JSON.stringify(system_resources));
-	
-		//Create object jvm
-		var jvm = {};
-		//Access JVM directory
-		var jvmElements = getMetricsInFolder(path + 'JVM');
-		//FOR every file in the directory
-		for(var i in jvmElements){
-			//jvm[filename] = txtbody
-			jvm[jvmElements[i].filename] = jvmElements[i].data[0];
-		}
-		console.log('This is what jvm looks like: ' + JSON.stringify(jvm));
-		//Compile all objects ---
 		var result ={};
-		result['SingularData'] = {  
-									'Summary': summary, 
-									'Test_Results': test_results, 
-									'System_Resources': system_resources, 
-									'JVM': jvm
-								};
-		res.send(result);
+		//ERROR CASE:
+		if(path.indexOf('parsed') < 0){
+			result['SingularData'] = {  
+										'Summary': {}, 
+										'Test_Results': {}, 
+										'System_Resources': {}, 
+										'JVM': {}
+									 };
+			res.send(result);
+		}
+		else{
+			//Create object 'summary'
+			var summary = {};
+			//Access Summary directory
+			var summaryElements = getMetricsInFolder(path + 'Summary');
+			//FOR every file in the directory
+			for(var i in summaryElements){
+				//summary[filename] = txtbody			
+				summary[summaryElements[i].filename] = summaryElements[i].data[0];
+			}
+			console.log('This is what summary looks like: ' + JSON.stringify(summary));
+			//Create object test_results
+			var test_results = {};
+			//Access Test_Results directory	
+			var testElements = getMetricsInFolder(path + 'Test_Results');
+			//FOR every file in the directory
+			for(var i in testElements){
+				//test_results[filename] = txtbody
+				test_results[testElements[i].filename] = testElements[i].data[0];
+			}
+				
+			console.log('This is what test_results looks like: ' + JSON.stringify(test_results));
+		
+			//Create object 'system_resources'
+			var system_resources = {};
+			//Access System_Resources directory
+			var sysElements = getMetricsInFolder(path + 'System_Resources');
+			//FOR every file in the directory
+			for(var i in sysElements){
+				//system_resources[filename] = txtbody
+				system_resources[sysElements[i].filename] = sysElements[i].data[0];
+			}
+			console.log('This is what system_resources looks like: ' + JSON.stringify(system_resources));
+		
+			//Create object jvm
+			var jvm = {};
+			//Access JVM directory
+			var jvmElements = getMetricsInFolder(path + 'JVM');
+			//FOR every file in the directory
+			for(var i in jvmElements){
+				//jvm[filename] = txtbody
+				jvm[jvmElements[i].filename] = jvmElements[i].data[0];
+			}
+			console.log('This is what jvm looks like: ' + JSON.stringify(jvm));
+			//Compile all objects ---
+			
+			result['SingularData'] = {  
+										'Summary': summary, 
+										'Test_Results': test_results, 
+										'System_Resources': system_resources, 
+										'JVM': jvm
+									};
+			res.send(result);
+		}
 
 	});
 	
