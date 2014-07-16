@@ -98,7 +98,7 @@
 						var deleteLink = key.replace(' ', '+');
 						var deleteLink = deleteLink.replace('%20', '+');
 						
-						var metric = dropDownOptions.getKeyByValue(key);
+						var metric = display(key);
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
 												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span>'+
