@@ -334,7 +334,7 @@
 					var type = name.substring(name.indexOf(':')+1, name.length);
 					var server = 'Server '+ name.substring(13,14) + ' ' ;
 					displayName = server +type;
-					displayName = name.replace(/_/g, ' ');
+					displayName = displayName.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
 									"<span id='comp"+name+"'></span>"+ 
