@@ -682,7 +682,6 @@ function fileToObject(pathToFile){
 	
 	//Set fileObj.data = data
 	fileObj.data = dataFound;
-	console.log(JSON.stringify(fileObj));
 	//return the result
 	return fileObj;
 }
@@ -725,7 +724,7 @@ exports.getParsedData = function(req, res){
 					}
 			}
 			
-			PlotData:
+			GraphData:
 			{
 				CPU_Usage: [12,13,12,10,13, ...] //Stored in parsed/PlotData/CPU_Usage.txt
 				CPU_IO_Wait: [30.013, 30.1, 31.03, ...] //Stored in CPU_IO_Wait.txt
@@ -733,7 +732,6 @@ exports.getParsedData = function(req, res){
 		}
 	*/
 	promise.then(function (path){
-		console.log('The path to "parsed" is: ' + path);
 		var result ={};
 		//ERROR CASE:
 		if(path.indexOf('parsed') < 0){
@@ -755,7 +753,6 @@ exports.getParsedData = function(req, res){
 				//summary[filename] = txtbody			
 				summary[summaryElements[i].filename] = summaryElements[i].data[0];
 			}
-			console.log('This is what summary looks like: ' + JSON.stringify(summary));
 			//Create object test_results
 			var test_results = {};
 			//Access Test_Results directory	
@@ -766,7 +763,6 @@ exports.getParsedData = function(req, res){
 				test_results[testElements[i].filename] = testElements[i].data[0];
 			}
 				
-			console.log('This is what test_results looks like: ' + JSON.stringify(test_results));
 		
 			//Create object 'system_resources'
 			var system_resources = {};
@@ -777,7 +773,6 @@ exports.getParsedData = function(req, res){
 				//system_resources[filename] = txtbody
 				system_resources[sysElements[i].filename] = sysElements[i].data[0];
 			}
-			console.log('This is what system_resources looks like: ' + JSON.stringify(system_resources));
 		
 			//Create object jvm
 			var jvm = {};
@@ -788,7 +783,18 @@ exports.getParsedData = function(req, res){
 				//jvm[filename] = txtbody
 				jvm[jvmElements[i].filename] = jvmElements[i].data[0];
 			}
-			console.log('This is what jvm looks like: ' + JSON.stringify(jvm));
+
+			var plots = {};
+
+			var plotElements = getMetricsInFolder(path+'PlotData');
+
+			//FOR every file in the directory
+			for(var i in plotElements){
+				//plot[filename] = txtbody
+				plots[plotElements[i].filename] = plotElements[i].data;
+			}
+
+			
 			//Compile all objects ---
 			
 			result['SingularData'] = {  
@@ -797,6 +803,7 @@ exports.getParsedData = function(req, res){
 										'System_Resources': system_resources, 
 										'JVM': jvm
 									};
+			result['GraphData'] = plots;
 			res.send(result);
 		}
 
