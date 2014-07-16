@@ -43,15 +43,15 @@
 			}
 			function display(str){
 				var displayName = '';
-				if(name.indexOf('.com') >= 0){
-					var type = name.substring(name.indexOf(':')+1, name.length);
-					var server = 'Server '+ name.substring(13,14) + ' ' ;
+				if(str.indexOf('.com') >= 0){
+					var type = str.substring(str.indexOf(':')+1, str.length);
+					var server = 'Server '+ str.substring(13,14) + ' ' ;
 					displayName = server +type;
 					displayName = displayName.replace(/_/g, ' ');
 					return displayName;
 				}
 				else{
-					displayName = name.replace(/_/g, ' ');
+					displayName = str.replace(/_/g, ' ');
 					return displayName;
 				}
 			}
