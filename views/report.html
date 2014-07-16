@@ -568,7 +568,8 @@
 					
 
 					for(var section in cache['SingularData']){
-						if(cache['SingularData'].hasOwnProperty(section){		
+						if(cache['SingularData'].hasOwnProperty(section))
+						{		
 							for(var compField in cache['SingularData'][section]){
 								if(cache['SingularData'][section].hasOwnProperty(compField) && compCache['SingularData'][section].hasOwnProperty(compField)){
 									//calculate difference (neg is good, pos is bad)
