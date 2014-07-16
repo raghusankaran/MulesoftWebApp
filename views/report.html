@@ -22,109 +22,10 @@
 			var testObject = getItems(jobName);
 			var cache = {};
 
-			var prevCache = {
-						'duration': '',
+			var prevCache = {};
+			var baseCache = {};
 
-				        'cpu use': [],
-				        'cpu iowait': [],
-				        'cpu steal': [],
-
-			 		    'mem use': [],
-			 		    'mem kbcache': [],
-			 		    'mem kbbuffers': [],
-			         
-			  			'disk util': [],
-			  	        'disk await': [],
-			  		    'disk tps': [],
-			  			'disk rd_sec': [],
-			  			'disk wr_sec': [],
-			  		  
-			  		  	'network used': [],
-			  			'network txkB': [],
-			  			'network rxkB': [],
-			  		  
-			            'paging pgpgin': [],
-			            'paging pgpgout': [],
-			            'paging fault': [],
-			            'paging majflt': [],
-			            'paging pgpgin': [],
-			            'paging pgfree': [],
-			            'paging pgscank': [],
-			            'paging pgscand': [],
-			            'paging pgsteal': [],
-			            'paging vmef': [],
-			  		  
-			  			'swap in': [],
-			  			'swap out': []
-			};
-			var baseCache = {
-						'duration': '',
-
-				        'cpu use': [],
-				        'cpu iowait': [],
-				        'cpu steal': [],
-
-			 		    'mem use': [],
-			 		    'mem kbcache': [],
-			 		    'mem kbbuffers': [],
-			         
-			  			'disk util': [],
-			  	        'disk await': [],
-			  		    'disk tps': [],
-			  			'disk rd_sec': [],
-			  			'disk wr_sec': [],
-			  		  
-			  		  	'network used': [],
-			  			'network txkB': [],
-			  			'network rxkB': [],
-			  		  
-			            'paging pgpgin': [],
-			            'paging pgpgout': [],
-			            'paging fault': [],
-			            'paging majflt': [],
-			            'paging pgpgin': [],
-			            'paging pgfree': [],
-			            'paging pgscank': [],
-			            'paging pgscand': [],
-			            'paging pgsteal': [],
-			            'paging vmef': [],
-			  		  
-			  			'swap in': [],
-			  			'swap out': []
-			};
-
-			var testOptions = {
-										 'cpu use ':'CPU: Used',
-										 'cpu iowait ':'CPU: IO Wait',
-										 'cpu steal ':'CPU: Steal',
-
-										 'mem use ':'Memory: Used',
-							 		     'mem kbcache ':'Memory: KB Cache',
-										 'mem kbbuffers ':'Memory: KB Buffers',
-							         							  	      
-										 'disk util ':'Disk: Used',
-										 'disk await ':'Disk: Await',
-										 'disk tps ':'Disk: TPS',
-										 'disk rd_sec ':'Disk: RD_Sec',
-										 'disk wr_sec ':'Disk: WR_Sec',
-							  		  
-										 'network used ':'Network: Used',
-							  			 'network txkB ': 'Network: TxkB',
-										 'network rxkB ':'Network: RxkB',
-							  		  
-										 'paging pgpgin ':'Paging: Pgpgin',
-										 'paging pgpgout ':'Paging: Pgpgout',
-										 'paging fault ':'Paging: Fault',
-										 'paging majflt ':	'Paging: Maj. Fault',
-										 'paging pgfree ':'Paging: PG Free',
-										 'paging pgscank ':'Paging: PG Scank',
-										 'paging pgscand ':'Paging: PG Scand',
-										 'paging pgsteal ':'Paging: PG Steal',
-										 'paging vmef ':'Paging: VMEF',
-							  		  
-										 'swap in ':'Swap: In',
-										 'swap out ':'Swap: Out'
-			}
+			var testOptions = {};
 
 			var mouseDown = 0;
 			
@@ -208,7 +109,7 @@
 
 			function getData(idNum){
 				var job = jobName;								
-				var url = config.getParsedData + jobName + '&id=' + idNum
+				var url = config.getParsedData + jobName + '&id=' + idNum;
 					
 				var str = getRequest(url);
 				
@@ -400,6 +301,21 @@
 				}
 
 			}
+
+			function display(str){
+				var displayName = '';
+				if(str.indexOf('.com') >= 0){
+					var type = str.substring(str.indexOf(':')+1, str.length);
+					var server = 'Server '+ str.substring(13,14) + ' ' ;
+					displayName = server +type;
+					displayName = displayName.replace(/_/g, ' ');
+					return displayName;
+				}
+				else{
+					displayName = str.replace(/_/g, ' ');
+					return displayName;
+				}
+			}
 						
 			//Return object
 			/*
@@ -409,42 +325,46 @@
 
 			*/
 			function slaResults(){
-				/*var slaObj = testObject.sla;
+				var slaObj = testObject.sla;
 
 				var resultObj = {};
 				resultObj['overall'] = true;
 				for(var metric in slaObj){
-					var metricName = metric.substring(0, metric.length-5);
-					var min = parseFloat(slaObj[metric][0]);
-					var max = parseFloat(slaObj[metric][1]);
-					var jobResult;
-					var type = metric.substring(metric.length-4, metric.length-1);
+					if(slaObj.hasOwnProperty(metric)){	
+						var metricName = metric;
+						var min = parseFloat(slaObj[metric][0]);
+						var max = parseFloat(slaObj[metric][1]);
+						var jobResult = -1;
 
-					var display = testOptions[metricName+' '] + ' (' +type.toUpperCase()+') --';
-					if(type == 'avg'){
-						jobResult = getAvg(cache[metricName]);						
-					}
-					else if(type == '90%'){
-						jobResult = getPercentile(cache[metricName], 90);
-					}
-					else if(type == '99%'){
-						jobResult = getPercentile(cache[metricName], 99);
-					}
-					if((jobResult+'').indexOf('.') >=0)
-						var answer = (jobResult+'').substring(0, (jobResult+'').indexOf('.') + 3);
-					else
-						var answer = jobResult + '';
+						var display = display(testOptions[metricName]); //display
+						for(var section in cache.SingularData){
+							if(cache.SingularData.hasOwnProperty(section)){
+								for(var field in cache.SingularData.section){
+									if(cache.SingularData.section.hasOwnProperty(field)){
+										if(metricName == field)
+										{
+											jobResult = parseFloat(cache.SingularData.section.field);
+										}
+									}
+								}
+							}
+						}
+						if((jobResult+'').indexOf('.') >=0)
+							var answer = (jobResult+'').substring(0, (jobResult+'').indexOf('.') + 3);
+						else
+							var answer = jobResult + '';
 
-					if(min < jobResult && jobResult < max){
-						resultObj[display] = [answer, true];
-					}
-					else{
-						resultObj[display] = [answer, false];
-						resultObj['overall'] = false;
+						if(min < jobResult && jobResult < max){
+							resultObj[display] = [answer, true];
+						}
+						else{
+							resultObj[display] = [answer, false];
+							resultObj['overall'] = false;
+						}
 					}
 
 				}
-				return resultObj;*/
+				return resultObj;
 			}
 			function getItems(jobName){
 				var url = config.getTestMetrics + jobName;
@@ -602,15 +522,8 @@
 				fillBox('sysMetrics');
 				fillBox('jvmMetrics');
 
-				/*
-				document.getElementById('durationInsert').innerHTML = cache['duration'];
-				document.getElementById('avgCpu').innerHTML = avgCPU+ ' %'; 
-				document.getElementById('avgDisk').innerHTML = avgDisk+ ' %';
-				document.getElementById('avgMem').innerHTML = avgMem+ ' %';
-				document.getElementById('avgNet').innerHTML = avgNet+ ' %';
-				document.getElementById('avgTPS').innerHTML = avgTPS;*/
+								
 				
-				/*
 				var sla = slaResults();
 
 				if(isEmpty(testObject.sla) == true){
@@ -634,7 +547,8 @@
 						slaData.innerHTML+= '<span class=' + colorOfResult + '>' + sla[metric][0] + '</span>';
 						slaData.innerHTML+='<br>';
 					}
-				}*/
+				}
+				
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
@@ -778,15 +692,12 @@
 						<p>Graph Plots</p>
 					<div class='graphs'>
 						<div class='graphContent'>
-							CPU Graph<br>
+							CPU/Memory/Disk Graph<br>
 							<canvas id='graph1' width='950' height='500' > 
 							</canvas><br>
-							Memory Graph<br>
+							Other Metrics Graph<br>
 							<canvas id='graph2' width='950' height='500' > 
-							</canvas><br>
-							Disk Graph<br>
-							<canvas id='graph3' width='950' height='500' > 
-							</canvas><br>
+							</canvas><br>							
 						</div>
 					</div>
 				</div>
