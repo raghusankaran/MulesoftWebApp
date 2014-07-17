@@ -903,7 +903,7 @@
 							CPU/Memory/Disk Graph<br>
 
 							<form id='mainGDropForm'action="">
-								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" onchange="reloadGraphs()">
+								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" onchange="compareChange()">
 								</select>
 							</form>
 
@@ -911,11 +911,11 @@
 							</canvas><br>
 							Other Metrics Graph<br>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" onchange="reloadGraphs()">
+								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" onchange="compareChange()">
 								</select>
 							</form>							
 							<form action="">
-								<select id="otherGDropMetric" onchange="reloadGraphs()">
+								<select id="otherGDropMetric" onchange="compareChange()">
 								</select>
 							</form>
 							<form action="" style='float: left'>
