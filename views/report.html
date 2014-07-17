@@ -321,6 +321,7 @@
 						for(var i=0; i<serverNames.length; i++){
 							var data = getDataByServer(serverNames[i]);
 							for(var metric in data){
+								document.getElementById('sysMetrics'+(i+1)).innerHTML += serverNames[i];
 								if(data.hasOwnProperty(metric)){
 									printMetric('sysMetrics'+(i+1), metric, data[metric]);
 								}
