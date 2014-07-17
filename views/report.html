@@ -903,7 +903,7 @@
 							CPU/Memory/Disk Graph<br>
 
 							<form id='mainGDropForm'action="">
-								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" onchange="compareChange()">
+								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 
@@ -911,19 +911,19 @@
 							</canvas><br>
 							Other Metrics Graph<br>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" onchange="compareChange()">
+								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>							
 							<form action="">
-								<select id="otherGDropMetric" onchange="compareChange()">
+								<select id="otherGDropMetric" onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose the <span style='color: cyan'>previous/base</span> run's server and metric: </span><select id="compareGDropServer" onchange="compareChange()">
+								<span class='inGraphText'>Choose the <span style='color: cyan'>previous/base</span> run's server and metric: </span><select id="compareGDropServer" onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>							
 							<form action="">
-								<select id="compareGDropMetric" onchange="compareChange()">
+								<select id="compareGDropMetric" onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 
