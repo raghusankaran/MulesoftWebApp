@@ -685,9 +685,40 @@
 					prevButton.click();
 				if(baseButton.value == 'ON')
 					baseButton.click();
+
+
+				dropDown = document.getElementById('mainGDrop');
+				var mainChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('otherGDropServer');
+				var otherChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('otherGDropMetric');
+				var otherChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
+
+				options = [{
+					'description': ['Current CPU Util', 
+									'Current Memory Util', 
+									'Current Disk Util'],
+					'data':[cache['GraphData'][mainChosenServer+ 'CPU_Util'],
+							cache['GraphData'][mainChosenServer+ 'MEMORY_Util'],
+							cache['GraphData'][mainChosenServer+ 'DISK_Util']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false,
+					'setWidth': -1,
+					'currX': 0
+				 },
+				 {
+					'description': ['Metric: ' + otherChosenMetric],
+					'data':[cache['GraphData'][otherChosenServer+otherChosenMetric]],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false,
+					'setWidth': -1,
+					'currX': 0
+				 }];
 				
 				fillPage();
-				//resizeAllGraphs(options);
+				resizeAllGraphs(options);
 			}
 			function resizeAllGraphs(optionsArray){
 				var x =window.innerWidth*.7,
