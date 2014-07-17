@@ -315,11 +315,13 @@
 						document.getElementById('sysMetricsBox1').style.width = '50%';
 						document.getElementById('sysMetricsBox1').style.float = 'left';
 						document.getElementById('sysMetrics1').style.marginTop = '0';
+						document.getElementById('sysMetrics1').style.height = '100%';
 						document.getElementById('sysMetrics1').style.marginLeft = '32px';
 						
 						document.getElementById('systemBox').innerHTML += '<div id="sysMetricsBox2"> <p id="sysMetrics2"></p></div>';
 						document.getElementById('sysMetrics2').style.marginTop = '0';
 						document.getElementById('sysMetricsBox2').style.width = '45%';
+						document.getElementById('sysMetrics2').style.height = '100%';
 						
 						for(var i=0; i<serverNames.length; i++){
 							var data = getDataByServer(serverNames[i]);
