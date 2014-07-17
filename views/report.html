@@ -140,37 +140,8 @@
 			function fillCache(){
 				cache = getData(chosenID);
 
-				buildMainGraphDropDown();
-				buildOtherGraphDropDown();	
-				var dropDown = document.getElementById('mainGDrop');
-				var mainChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
-				dropDown = document.getElementById('otherGDropServer');
-				var otherChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
-				dropDown = document.getElementById('otherGDropMetric');
-				var otherChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
-
-				options = [{
-					'description': ['Current CPU Util', 
-									'Current Memory Util', 
-									'Current Disk Util'],
-					'data':[cache['GraphData'][mainChosenServer+ 'CPU_Util'],
-							cache['GraphData'][mainChosenServer+ 'MEMORY_Util'],
-							cache['GraphData'][mainChosenServer+ 'DISK_Util']],
-					'baseline': null,
-					'percentage': true,
-					'autosize': false,
-					'setWidth': -1,
-					'currX': 0
-				 },
-				 {
-					'description': ['Metric: ' + otherChosenMetric],
-					'data':[cache['GraphData'][otherChosenServer+otherChosenMetric]],
-					'baseline': null,
-					'percentage': true,
-					'autosize': false,
-					'setWidth': -1,
-					'currX': 0
-				 }];
+				
+				
 
 				 for(var i=0; i < options.length; i++){
 				 	var element = document.getElementById('graph'+(i+1));
@@ -270,7 +241,37 @@
 									"</span><br>";
 				}
 			}
-			function reloadGraph(){
+			function reloadGraphs(){
+				dropDown = document.getElementById('mainGDrop');
+				var mainChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('otherGDropServer');
+				var otherChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('otherGDropMetric');
+				var otherChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
+
+				options = [{
+					'description': ['Current CPU Util', 
+									'Current Memory Util', 
+									'Current Disk Util'],
+					'data':[cache['GraphData'][mainChosenServer+ 'CPU_Util'],
+							cache['GraphData'][mainChosenServer+ 'MEMORY_Util'],
+							cache['GraphData'][mainChosenServer+ 'DISK_Util']],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false,
+					'setWidth': -1,
+					'currX': 0
+				 },
+				 {
+					'description': ['Metric: ' + otherChosenMetric],
+					'data':[cache['GraphData'][otherChosenServer+otherChosenMetric]],
+					'baseline': null,
+					'percentage': true,
+					'autosize': false,
+					'setWidth': -1,
+					'currX': 0
+				 }];
+
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
 				}
@@ -416,13 +417,20 @@
 			}
 
 			function resetGraphs(){
+				dropDown = document.getElementById('mainGDrop');
+				var mainChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('otherGDropServer');
+				var otherChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('otherGDropMetric');
+				var otherChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
+
 				options = [{
 					'description': ['Current CPU Util', 
 									'Current Memory Util', 
 									'Current Disk Util'],
-					'data':[cache[GraphData][mainChosenServer+ 'CPU_Util'],
-							cache[GraphData][mainChosenServer+ 'MEMORY_Util'],
-							cache[GraphData][mainChosenServer+ 'DISK_Util']],
+					'data':[cache['GraphData'][mainChosenServer+ 'CPU_Util'],
+							cache['GraphData'][mainChosenServer+ 'MEMORY_Util'],
+							cache['GraphData'][mainChosenServer+ 'DISK_Util']],
 					'baseline': null,
 					'percentage': true,
 					'autosize': false,
@@ -431,13 +439,14 @@
 				 },
 				 {
 					'description': ['Metric: ' + otherChosenMetric],
-					'data':[cache[GraphData][otherChosenServer+otherChosenMetric]],
+					'data':[cache['GraphData'][otherChosenServer+otherChosenMetric]],
 					'baseline': null,
 					'percentage': true,
 					'autosize': false,
 					'setWidth': -1,
 					'currX': 0
 				 }];
+
 
 				for(var i=0; i < options.length; i++){						
 					updateGraph('graph'+(i+1), options[i]);
@@ -686,6 +695,9 @@
 				if(baseButton.value == 'ON')
 					baseButton.click();
 
+				buildMainGraphDropDown();
+				buildOtherGraphDropDown();	
+
 
 				dropDown = document.getElementById('mainGDrop');
 				var mainChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
@@ -822,7 +834,7 @@
 							CPU/Memory/Disk Graph<br>
 
 							<form id='mainGDropForm'action="">
-								<select id="mainGDrop" onchange="updatePage()">
+								<select id="mainGDrop" onchange="reloadGraphs()">
 								</select>
 							</form>
 
@@ -830,11 +842,11 @@
 							</canvas><br>
 							Other Metrics Graph<br>
 							<form action="">
-								<select id="otherGDropServer" onchange="updatePage()">
+								<select id="otherGDropServer" onchange="reloadGraphs()">
 								</select>
 							</form>
 							<form action="">
-								<select id="otherGDropMetric" onchange="updatePage()">
+								<select id="otherGDropMetric" onchange="reloadGraphs()">
 								</select>
 							</form>
 
