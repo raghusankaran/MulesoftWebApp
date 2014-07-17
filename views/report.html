@@ -19,6 +19,8 @@
 			var onCanvas =[0,0,0];
 			var options = [];
 
+			var serverNames=[];
+
 			var testObject = getItems(jobName);
 			var cache = {};
 
@@ -64,6 +66,21 @@
 			        }
 			    }
 			    return 'UNDEFINED';
+			}
+
+			function findServerNames(){
+				for(var server in cache.PlotData){
+					if(cache.PlotData.hasOwnProperty(server)){
+						var name = server.substring(0, serverName.indexOf('.com'));
+						if(serverNames.length == 0){
+							serverNames[serverNames.length] = name;
+						}
+						else if(serverNames[serverNames.length-1] != name){
+							serverNames[serverNames.length] = name;
+						}
+					}
+				}
+				
 			}
 			
 			function getRequest(url){
@@ -513,7 +530,64 @@
 					
 				}
 			}
+			function buildMainGraphDropDown(){
+				serverNames = [];
+				findServerNames();
+				var dropDown = document.getElementById('mainGDrop');
 
+				for(var i=0; i < serverNames.length; i++){
+						if(serverNames[i] == 0)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+serverNames[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+serverNames[i]+'</option>';
+					}
+				}
+
+			}
+			function buildOtherGraphDropDown(){
+				serverNames = [];
+				findServerNames();
+				var dropDown = document.getElementById('otherGDropServer');
+
+				for(var i=0; i < serverNames.length; i++){
+						if(serverNames[i] == 0)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+serverNames[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+serverNames[i]+'</option>';
+					}
+				}
+
+				optionNames = [];
+				for(var metric in cache.PlotData){
+					if(cache.PlotData.hasOwnProperty(metric)){
+						var name = metric.substring(serverName.indexOf(':')+1);
+						var found = false;
+						if(optionNames.length == 0){
+							optionNames[optionNames.length] = name;
+						}
+						for(var i=0; i<optionNames.length; i++){
+							if(optionNames[i] == name){
+								found = true;
+							}
+						}
+						if(found == false){
+							optionNames[optionNames.length] = name;
+						}
+					}
+				}				
+
+
+				var dropDown = document.getElementById('otherGDropMetric');
+
+				for(var i=0; i < optionNames.length; i++){
+						if(optionNames[i] == 0)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+optionNames[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+optionNames[i]+'</option>';
+					}
+				}
+
+			}
 
 			function fillPage(){
 
@@ -548,6 +622,9 @@
 						slaData.innerHTML+='<br>';
 					}
 				}
+
+				buildMainGraphDropDown();
+				buildOtherGraphDropDown();				
 				
 				/*
 					options = {
@@ -569,6 +646,7 @@
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
+
 				updatePage();
 				
 			}
@@ -693,9 +771,24 @@
 					<div class='graphs'>
 						<div class='graphContent'>
 							CPU/Memory/Disk Graph<br>
+
+							<form id='mainGDropForm'action="">
+								<select id="mainGDrop" onchange="">
+								</select>
+							</form>
+
 							<canvas id='graph1' width='950' height='500' > 
 							</canvas><br>
 							Other Metrics Graph<br>
+							<form action="">
+								<select id="otherGDropServer" onchange="">
+								</select>
+							</form>
+							<form action="">
+								<select id="otherGDropMetric" onchange="">
+								</select>
+							</form>
+
 							<canvas id='graph2' width='950' height='500' > 
 							</canvas><br>							
 						</div>
