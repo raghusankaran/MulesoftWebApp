@@ -678,8 +678,13 @@ function fileToObject(pathToFile){
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
 	
+	if(dataFound > 2){
+		dataFound.pop();
+	}
+
 	//Set fileObj.data = data
 	fileObj.data = dataFound;
+
 	//return the result
 	return fileObj;
 }
