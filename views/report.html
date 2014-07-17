@@ -143,16 +143,7 @@
 				
 				
 
-				 for(var i=0; i < options.length; i++){
-				 	var element = document.getElementById('graph'+(i+1));
-				 	element.gIndex = i;
-				 	element.addEventListener("mousewheel", zoom, false);
-				 	element.addEventListener('mousemove', drag, false);
-					element.addEventListener('mousedown', isDown, false);
-					element.addEventListener('mouseup', isUp, false);
-				 	
-				 	
-				 }
+				 
 			}
 			function redrawFrame(i, x){
 				if(options[i].currX + x >= 0){
@@ -675,7 +666,17 @@
 				buildDropDown('prevNumber');
 
 				updatePage();
-				
+
+				for(var i=0; i < options.length; i++){
+				 	var element = document.getElementById('graph'+(i+1));
+				 	element.gIndex = i;
+				 	element.addEventListener("mousewheel", zoom, false);
+				 	element.addEventListener('mousemove', drag, false);
+					element.addEventListener('mousedown', isDown, false);
+					element.addEventListener('mouseup', isUp, false);
+				 	
+				 	
+				 }				
 			}
 			function stopScroll(){
 
