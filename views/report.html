@@ -560,7 +560,7 @@
 				optionNames = [];
 				for(var metric in cache.GraphData){
 					if(cache.GraphData.hasOwnProperty(metric)){
-						var name = metric.substring(serverName.indexOf(':')+1);
+						var name = metric.substring(metric.indexOf(':')+1);
 						var found = false;
 						if(optionNames.length == 0){
 							optionNames[optionNames.length] = name;
