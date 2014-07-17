@@ -339,15 +339,15 @@
 			}
 
 			function getDataByServer(nameOfServer){
-				var data = [];
+				var data = {};
 				for(var metric in cache['GraphData']){
 					if(cache['GraphData'].hasOwnProperty(metric)){
 						if(metric.indexOf(nameOfServer) >= 0){
 							if(nameOfServer.indexOf('contegix') >= 0){
 								var nameOfMetric = metric.substring(metric.lastIndexOf('.')+1);
-								var obj = {};
-								obj[nameOfMetric] = cache['GraphData'][metric];
-								data.push(obj);
+								
+								data[nameOfMetric] = cache['GraphData'][metric];
+								
 							}
 						}
 					}
