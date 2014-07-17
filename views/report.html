@@ -344,7 +344,7 @@
 					if(cache['SingularData']['System_Resources'].hasOwnProperty(metric)){
 						if(metric.indexOf(nameOfServer) >= 0){
 							if(nameOfServer.indexOf('contegix') >= 0){
-								var nameOfMetric = metric.substring(metric.lastIndexOf('.')+1);
+								var nameOfMetric = metric.substring(metric.indexOf(':')+1);
 								
 								data[nameOfMetric] = cache['SingularData']['System_Resources'][metric];
 								
