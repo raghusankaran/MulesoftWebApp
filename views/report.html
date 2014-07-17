@@ -19,6 +19,8 @@
 			var onCanvas =[0,0,0];
 			var options = [];
 
+			var sysResourceNames = [];
+
 			var serverNames=[];
 
 			var testObject = getItems(jobName);
@@ -291,15 +293,36 @@
 					}
 				}
 				else if(nameOfP == 'sysMetrics'){
-					box.innerHTML = '';
-					var desiredResults = cache['SingularData']['System_Resources'];
+					if(serverNames.length == 1){
+						document.getElementById('testBox').width = 30%;
+						document.getElementById('systemBox').width = 30%;
+						document.getElementById('jvmBox').width = 30%;
+						box.innerHTML = '';
+						var desiredResults = cache['SingularData']['System_Resources'];
 
-					for(var prop in desiredResults){
-						if(desiredResults.hasOwnProperty(prop)){	
-							printMetric(nameOfP, prop, desiredResults[prop]);
+						for(var prop in desiredResults){
+							if(desiredResults.hasOwnProperty(prop)){	
+								printMetric(nameOfP, prop, desiredResults[prop]);
+							}
 						}
 					}
-
+					else{
+						//XXX
+						document.getElementById('testBox').style.width = 21%;
+						document.getElementById('systemBox').style.width = 47%;
+						document.getElementById('jvmBox').style.width = 21%;
+						document.getElementById('sysMetricsBox1').style.width = 45%;
+						document.getElementById('systemBox').innerHTML += '<div id="sysMetricsBox2"> <p id="sysMetrics2"></p></div>';
+						document.getElementById('sysMetricsBox2').style.width = 45%;
+						for(var i=0; i<serverNames.length; i++){
+							var data = getDataByServer(serverNames);
+							for(var metric in data){
+								if(data.hasOwnProperty(metric)){
+									printMetric('sysMetrics'+(i+1), metric, data[metric]);
+								}
+							}
+						}
+					}
 				}
 				else if(nameOfP == 'jvmMetrics'){
 					box.innerHTML = '';
@@ -314,6 +337,21 @@
 				}
 
 			}
+
+			function getDataByServer(nameOfServer){
+				var data = [];
+				for(var metric in cache['GraphData']){
+					if(cache['GraphData'].hasOwnProperty(metric)){
+						if(metric.indexOf(nameOfServer) > 0){
+							if(nameOfServer.indexOf('contegix') > 0){
+								var nameOfMetric = metric.substring(metric.lastIndexOf('.')+1);
+								data.push( {nameOfMetric : cache['GraphData'][metric]});
+							}
+						}
+					}
+				}
+			}
+
 
 			function display(str){
 				var displayName = '';
@@ -445,29 +483,7 @@
 				resizeAllGraphs(options);
 			}
 
-			function addComparisonToGraphs(type, server, metric){
-				//XXX
-				if(type =='prev'){					
-					options[1]['data'][options[1]['data'].length] = prevCache[''];
-					options[1]['description'][options[1]['description'].length] = 'Metric: (Prev)' + metric;
-					
-					
-					for(var i=0; i < options.length; i++){						
-						updateGraph('graph'+(i+1), options[i]);
-					}
-				}
-				else if(type == 'base'){
-					options[1]['data'][options[1]['data'].length] = baseCache[''];
-					options[1]['description'][options[1]['description'].length] = 'Metric: (Base)' + metric;
-					
-					for(var i=0; i < options.length; i++){						
-						updateGraph('graph'+(i+1), options[i]);
-					}
-				}
-				resizeAllGraphs(options);
-
-			}
-
+		
 			function compare(type){
 				var buttonName, otherButton, compCache;
 				if(type == 'prev'){
@@ -695,7 +711,7 @@
 
 			}
 			function compareChange(){
-				//XXX
+				
 				var prevStatus = document.getElementById('prevbutton').value;
 				var baseStatus = document.getElementById('basebutton').value;
 
@@ -846,7 +862,7 @@
 
 					</div>
 				</div>
-				<div id='keyMetrics'> 
+				<div id='keyMetrics'> <!--XXX -->
 					<p>Key Metrics</p>
 					<div id='testBox' class="infoMule">
 						<p class='keyTitle'>Test Results</p>
@@ -857,9 +873,9 @@
 					</div>
 					<div id='systemBox'class="infoMule">
 						<p class='keyTitle'>System Resources</p>
-						<p id='sysMetrics'>
-						</p>
-						
+						<div id='sysMetricsBox1'>	
+							<p id='sysMetrics1'></p>
+						</div>
 					</div>
 					<div id='jvmBox'class="infoMule">
 						<p class='keyTitle'>JVM </p>
