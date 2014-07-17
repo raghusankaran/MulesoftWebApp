@@ -320,7 +320,7 @@
 						document.getElementById('sysMetricsBox2').style.width = '45%';
 						for(var i=0; i<serverNames.length; i++){
 							var data = getDataByServer(serverNames[i]);
-							document.getElementById('sysMetrics'+(i+1)).innerHTML += serverNames[i];
+							document.getElementById('sysTitle'+(i+1)).innerHTML = 'SERVER ' + i;
 							for(var metric in data){
 
 								if(data.hasOwnProperty(metric)){
@@ -883,6 +883,10 @@
 					</div>
 					<div id='systemBox'class="infoMule">
 						<p class='keyTitle'>System Resources</p>
+						<div id='sysTitles'>
+							<p id='sysTitle1' style='float: left'></p>
+							<p id='sysTitle2'></p>
+						</div>
 						<div id='sysMetricsBox1'>	
 							<p id='sysMetrics1'></p>
 						</div>
