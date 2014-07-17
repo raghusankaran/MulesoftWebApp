@@ -445,33 +445,26 @@
 				resizeAllGraphs(options);
 			}
 
-			function addComparisonToGraphs(type){
-				/*
-				if(type =='prev'){
-					options[0]['data'] = [cache['cpu use'], prevCache['cpu use']];
-					options[0]['description'] = ['Current CPU Graph', 'Previous CPU Graph'];
-					options[1]['data'] = [cache['mem use'], prevCache['mem use']];
-					options[1]['description'] = ['Current Memory Graph', 'Previous Memory Graph'];
-					options[2]['data'] = [cache['disk util'], prevCache['disk util']];
-					options[2]['description'] = ['Current Disk Graph', 'Previous Disk Graph'];
+			function addComparisonToGraphs(type, server, metric){
+				
+				if(type =='prev'){					
+					options[1]['data'][options[1]['data'].length] = prevCache[''];
+					options[1]['description'][options[1]['description'].length] = 'Metric: (Prev)' + metric;
+					
 					
 					for(var i=0; i < options.length; i++){						
 						updateGraph('graph'+(i+1), options[i]);
 					}
 				}
 				else if(type == 'base'){
-					options[0]['data'] = [cache['cpu use'], baseCache['cpu use']];
-					options[0]['description'] = ['Current CPU Graph', 'Baseline CPU Graph'];
-					options[1]['data'] = [cache['mem use'], baseCache['mem use']];
-					options[1]['description'] = ['Current Memory Graph', 'Baseline Memory Graph'];
-					options[2]['data'] = [cache['disk util'], baseCache['disk util']];
-					options[2]['description'] = ['Current Disk Graph', 'Baseline Disk Graph'];
+					options[1]['data'][options[1]['data'].length] = baseCache[''];
+					options[1]['description'][options[1]['description'].length] = 'Metric: (Base)' + metric;
 					
 					for(var i=0; i < options.length; i++){						
 						updateGraph('graph'+(i+1), options[i]);
 					}
 				}
-				resizeAllGraphs(options);*/
+				resizeAllGraphs(options);
 
 			}
 
@@ -543,10 +536,16 @@
 								}
 							}
 						}
-					}			
+					}
 
-					//addComparisonToGraphs('prev');
-					
+					var dropDown = document.getElementById('compareGDropServer');
+					var compareChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+					dropDown = document.getElementById('compareGDropMetric');
+					var compareChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
+								
+
+					addComparisonToGraphs('prev');
+
 				}
 			}
 			function buildMainGraphDropDown(){
@@ -607,7 +606,50 @@
 				}
 
 			}
+			function buildOtherGraphDropDown(){
+				serverNames = [];
+				findServerNames();
+				var dropDown = document.getElementById('compareGDropServer');
 
+				for(var i=0; i < serverNames.length; i++){
+						if(serverNames[i] == 0)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+serverNames[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+serverNames[i]+'</option>';
+					
+				}
+
+				optionNames = [];
+				for(var metric in cache.GraphData){
+					if(cache.GraphData.hasOwnProperty(metric)){
+						var name = metric.substring(metric.lastIndexOf('.')+1);
+						var found = false;
+						if(optionNames.length == 0){
+							optionNames[optionNames.length] = name;
+						}
+						for(var i=0; i<optionNames.length; i++){
+							if(optionNames[i] == name){
+								found = true;
+							}
+						}
+						if(found == false){
+							optionNames[optionNames.length] = name;
+						}
+					}
+				}				
+
+
+				var dropDown = document.getElementById('compareGDropMetric');
+
+				for(var i=0; i < optionNames.length; i++){
+						if(optionNames[i] == 0)
+							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+optionNames[i]+'</option>';
+						else
+							dropDown.innerHTML += '<option>'+optionNames[i]+'</option>';
+					
+				}
+
+			}
 			function fillPage(){
 
 				fillBox('summary');
@@ -698,7 +740,7 @@
 
 				buildMainGraphDropDown();
 				buildOtherGraphDropDown();	
-
+				buildCompareGraphDropDown();
 
 				dropDown = document.getElementById('mainGDrop');
 				var mainChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
