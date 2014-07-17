@@ -315,7 +315,7 @@
 						document.getElementById('systemBox').innerHTML += '<div id="sysMetricsBox2"> <p id="sysMetrics2"></p></div>';
 						document.getElementById('sysMetricsBox2').style.width = '45%';
 						for(var i=0; i<serverNames.length; i++){
-							var data = getDataByServer(serverNames);
+							var data = getDataByServer(serverNames[i]);
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
 									printMetric('sysMetrics'+(i+1), metric, data[metric]);
