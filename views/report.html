@@ -340,13 +340,13 @@
 
 			function getDataByServer(nameOfServer){
 				var data = {};
-				for(var metric in cache['GraphData']){
-					if(cache['GraphData'].hasOwnProperty(metric)){
+				for(var metric in cache['SingularData']['System_Resources']){
+					if(cache['SingularData']['System_Resources'].hasOwnProperty(metric)){
 						if(metric.indexOf(nameOfServer) >= 0){
 							if(nameOfServer.indexOf('contegix') >= 0){
 								var nameOfMetric = metric.substring(metric.lastIndexOf('.')+1);
 								
-								data[nameOfMetric] = cache['GraphData'][metric];
+								data[nameOfMetric] = cache['SingularData']['System_Resources'][metric];
 								
 							}
 						}
