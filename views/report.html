@@ -294,9 +294,9 @@
 				}
 				else if(nameOfP == 'sysMetrics'){
 					if(serverNames.length == 1){
-						document.getElementById('testBox').width = 30%;
-						document.getElementById('systemBox').width = 30%;
-						document.getElementById('jvmBox').width = 30%;
+						document.getElementById('testBox').width = '30%';
+						document.getElementById('systemBox').width = '30%';
+						document.getElementById('jvmBox').width = '30%';
 						box.innerHTML = '';
 						var desiredResults = cache['SingularData']['System_Resources'];
 
@@ -308,12 +308,12 @@
 					}
 					else{
 						//XXX
-						document.getElementById('testBox').style.width = 21%;
-						document.getElementById('systemBox').style.width = 47%;
-						document.getElementById('jvmBox').style.width = 21%;
-						document.getElementById('sysMetricsBox1').style.width = 45%;
+						document.getElementById('testBox').style.width = '21%';
+						document.getElementById('systemBox').style.width = '47%';
+						document.getElementById('jvmBox').style.width = '21%';
+						document.getElementById('sysMetricsBox1').style.width = '45%';
 						document.getElementById('systemBox').innerHTML += '<div id="sysMetricsBox2"> <p id="sysMetrics2"></p></div>';
-						document.getElementById('sysMetricsBox2').style.width = 45%;
+						document.getElementById('sysMetricsBox2').style.width = '45%';
 						for(var i=0; i<serverNames.length; i++){
 							var data = getDataByServer(serverNames);
 							for(var metric in data){
