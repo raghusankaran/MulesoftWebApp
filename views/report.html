@@ -711,14 +711,19 @@
 
 				if(prevStatus == 'ON'){
 					options[1]['data'][options[1]['data'].length] = prevCache['GraphData'][compareChosenServer + compareChosenMetric];
-					options[1]['description'][options[1]['description'].length] = 'Metric: (Prev)' + compareChosenMetric;
-					reloadGraphs();
+					options[1]['description'][options[1]['description'].length] = 'Metric: (Prev) ' + compareChosenMetric;
+					
 					
 				}
 				else if(baseStatus == 'ON'){
 					options[1]['data'][options[1]['data'].length] = baseCache['GraphData'][compareChosenServer + compareChosenMetric];
-					options[1]['description'][options[1]['description'].length] = 'Metric: (Base)' + compareChosenMetric;
-					reloadGraphs();
+					options[1]['description'][options[1]['description'].length] = 'Metric: (Base) ' + compareChosenMetric;
+					
+				}
+
+				for(var i=0; i < options.length; i++)
+				{						
+						updateGraph('graph'+(i+1), options[i]);
 				}
 
 				
