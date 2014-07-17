@@ -791,7 +791,7 @@
 							CPU/Memory/Disk Graph<br>
 
 							<form id='mainGDropForm'action="">
-								<select id="mainGDrop" onchange="">
+								<select id="mainGDrop" onchange="updatePage()">
 								</select>
 							</form>
 
@@ -799,11 +799,11 @@
 							</canvas><br>
 							Other Metrics Graph<br>
 							<form action="">
-								<select id="otherGDropServer" onchange="">
+								<select id="otherGDropServer" onchange="updatePage()">
 								</select>
 							</form>
 							<form action="">
-								<select id="otherGDropMetric" onchange="">
+								<select id="otherGDropMetric" onchange="updatePage()">
 								</select>
 							</form>
 
