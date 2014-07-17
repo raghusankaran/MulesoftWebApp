@@ -322,7 +322,7 @@
 						document.getElementById('sysMetricsBox2').style.width = '45%';
 						for(var i=0; i<serverNames.length; i++){
 							var data = getDataByServer(serverNames[i]);
-							document.getElementById('sysTitle'+(i+1)).innerHTML = 'SERVER ' + i;
+							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
 
 								if(data.hasOwnProperty(metric)){
