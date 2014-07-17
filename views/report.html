@@ -446,7 +446,7 @@
 			}
 
 			function addComparisonToGraphs(type, server, metric){
-				
+				//XXX
 				if(type =='prev'){					
 					options[1]['data'][options[1]['data'].length] = prevCache[''];
 					options[1]['description'][options[1]['description'].length] = 'Metric: (Prev)' + metric;
@@ -508,8 +508,8 @@
 							}
 						}
 					}						
-					
-				}//resetGraphs();					
+					compareChange();	
+				}
 			
 				else{
 					document.getElementById(otherButton).value = 'OFF';
@@ -538,14 +538,7 @@
 						}
 					}
 
-					var dropDown = document.getElementById('compareGDropServer');
-					var compareChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
-					dropDown = document.getElementById('compareGDropMetric');
-					var compareChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
-								
-
-					addComparisonToGraphs('prev');
-
+					compareChange();
 				}
 			}
 			function buildMainGraphDropDown(){
@@ -701,7 +694,35 @@
 				}
 
 			}
+			function compareChange(){
+				//XXX
+				var prevStatus = document.getElementById('prevbutton').value;
+				var baseStatus = document.getElementById('basebutton').value;
 
+				var dropDown = document.getElementById('compareGDropServer');
+				var compareChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				dropDown = document.getElementById('compareGDropMetric');
+				var compareChosenMetric = dropDown.options[dropDown.selectedIndex].text;
+
+				if(options[1]['data'].length > 1){
+					options[1]['data'].pop();
+					options[1]['description'].pop();
+				}
+
+				if(prevStatus == 'ON'){
+					options[1]['data'][options[1]['data'].length] = prevCache['GraphData'][compareChosenServer + compareChosenMetric];
+					options[1]['description'][options[1]['description'].length] = 'Metric: (Prev)' + compareChosenMetric;
+					reloadGraphs();
+					
+				}
+				else if(baseStatus == 'ON'){
+					options[1]['data'][options[1]['data'].length] = baseCache['GraphData'][compareChosenServer + compareChosenMetric];
+					options[1]['description'][options[1]['description'].length] = 'Metric: (Base)' + compareChosenMetric;
+					reloadGraphs();
+				}
+
+				
+			}
 			function initializePage(){
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown('buildNumber');
@@ -820,7 +841,7 @@
 
 					</div>
 				</div>
-				<div id='keyMetrics'> <!--XXX-->
+				<div id='keyMetrics'> 
 					<p>Key Metrics</p>
 					<div id='testBox' class="infoMule">
 						<p class='keyTitle'>Test Results</p>
@@ -893,11 +914,11 @@
 								</select>
 							</form>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose the <span style='color: cyan'>previous</span> run's server and metric: </span><select id="compareGDropServer" onchange="reloadGraphs()">
+								<span class='inGraphText'>Choose the <span style='color: cyan'>previous/base</span> run's server and metric: </span><select id="compareGDropServer" onchange="compareChange()">
 								</select>
 							</form>							
 							<form action="">
-								<select id="compareGDropMetric" onchange="reloadGraphs()">
+								<select id="compareGDropMetric" onchange="compareChange()">
 								</select>
 							</form>
 
