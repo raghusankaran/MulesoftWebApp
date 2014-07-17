@@ -303,7 +303,7 @@
 
 						for(var prop in desiredResults){
 							if(desiredResults.hasOwnProperty(prop)){	
-								printMetric(nameOfP, prop, desiredResults[prop]);
+								printSysMetric(nameOfP, prop, desiredResults[prop]);
 							}
 						}
 					}
@@ -327,7 +327,7 @@
 							for(var metric in data){
 
 								if(data.hasOwnProperty(metric)){
-									printMetric('sysMetrics'+(i+1), metric, data[metric]);
+									printSysMetric('sysMetrics'+(i+1), metric, data[metric], serverNames[i]+'.com.'+metric);
 								}
 							}
 						}
@@ -345,6 +345,28 @@
 
 				}
 
+			}
+
+			function printSysMetric(nameOfP, name, value, cachename){
+				var box = document.getElementById(nameOfP);
+				var displayName= '';
+				if(name.indexOf('.com') >= 0){
+					var type = name.substring(name.indexOf(':')+1, name.length);
+					var server = 'Server '+ name.substring(13,14) + ' ' ;
+					displayName = server +type;
+					displayName = displayName.replace(/_/g, ' ');
+					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
+									value+ 
+									"<span id='comp"+cachename+"'></span>"+ 
+									"</span><br>";
+				}
+				else{
+					displayName = name.replace(/_/g, ' ');
+					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
+									value + 
+									"<span id='comp"+cachename+"'></span>"+ 
+									"</span><br>";
+				}
 			}
 
 			function getDataByServer(nameOfServer){
