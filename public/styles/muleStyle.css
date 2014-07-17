@@ -516,6 +516,10 @@ body{
 	#baselineNumber{
 		color: cyan;
 	}
+	.inGraphText{
+		color: white;
+		font-size: 20px;
+	}
 }
 
 
