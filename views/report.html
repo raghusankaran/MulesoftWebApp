@@ -69,8 +69,8 @@
 			}
 
 			function findServerNames(){
-				for(var server in cache.PlotData){
-					if(cache.PlotData.hasOwnProperty(server)){
+				for(var server in cache.GraphData){
+					if(cache.GraphData.hasOwnProperty(server)){
 						var name = server.substring(0, serverName.indexOf('.com'));
 						if(serverNames.length == 0){
 							serverNames[serverNames.length] = name;
@@ -558,8 +558,8 @@
 				}
 
 				optionNames = [];
-				for(var metric in cache.PlotData){
-					if(cache.PlotData.hasOwnProperty(metric)){
+				for(var metric in cache.GraphData){
+					if(cache.GraphData.hasOwnProperty(metric)){
 						var name = metric.substring(serverName.indexOf(':')+1);
 						var found = false;
 						if(optionNames.length == 0){
