@@ -71,7 +71,7 @@
 			function findServerNames(){
 				for(var server in cache.GraphData){
 					if(cache.GraphData.hasOwnProperty(server)){
-						var name = server.substring(0, serverName.indexOf('.com'));
+						var name = server.substring(0, server.indexOf('.com'));
 						if(serverNames.length == 0){
 							serverNames[serverNames.length] = name;
 						}
