@@ -757,11 +757,9 @@
 				}
 
 			}
-			function trimNumber(str){
-				if(str == null){
-					return str;	
-				}
-				else if(str.indexOf('0.') == 0){
+			function trimNumber(num){
+				var str = '' + num;
+				if(str.indexOf('0.') == 0){
 					str = str.substring(0, 5);
 				}
 				else if(str.indexOf('.')>=0){
