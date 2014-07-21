@@ -49,6 +49,12 @@
 					displayName = server +type;
 					displayName = displayName.replace(/_/g, ' ');
 					return displayName;
+				}else if( str.indexOf(':') < str.length-2){
+					var server = str.substring(0, str.indexOf(':'));
+					var type = str.substring(str.indexOf(':')+1, str.length);
+					displayName = server +' '+type;
+					displayName = displayName.replace(/_/g, ' ');
+					return displayName;
 				}
 				else{
 					displayName = str.replace(/_/g, ' ');
