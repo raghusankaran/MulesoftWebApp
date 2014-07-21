@@ -142,7 +142,7 @@
 			function fillCache(){
 				cache = getData(chosenID);
 
-				
+				trimCache(cache);
 				
 
 				 
@@ -483,11 +483,13 @@
 
 			function fillPrevCache(){
 				prevCache = getData(prevID);
+				trimCache(prevCache);
 
 			}
 
 			function fillBaseCache(){
 				baseCache = getData(baseID);
+				trimCache(baseCache);
 			}
 
 			function resetGraphs(){
@@ -752,6 +754,28 @@
 				
 				for(var i=0; i < options.length; i++){
 					updateGraph('graph'+(i+1), options[i]);
+				}
+
+			}
+			function trimNumber(str){
+				
+				if(str.indexOf('0.') == 0){
+					str = str.substring(0, 5);
+				}
+				else if(str.indexOf('.')>=0){
+					str=str.substring(0, str.indexOf('.') + 3);
+				}
+				return str;
+			}
+			function trimCache(trim){
+				for(var section in trim['SingularData']){
+					if(trim['SingularData'].hasOwnProperty(section) && section != 'Summary'){
+						for(var metric in trim['SingularData'][section]){
+							if(trim['SingularData'][section].hasOwnProperty[metric]){
+								trim['SingularData'][section][metric]] = trimNumber(trim['SingularData'][section][metric])
+							}
+						}
+					}
 				}
 
 			}
