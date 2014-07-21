@@ -588,11 +588,11 @@
 									var difference = parseFloat(cache['SingularData'][section][compField]) - parseFloat(compCache['SingularData'][section][compField]);
 									//show difference
 									if(difference < 0){ //green and +
-										document.getElementById('comp'+compField).innerHTML = (' ' + difference)
+										document.getElementById('comp'+compField).innerHTML = (' ' + trimNumber(difference));
 										document.getElementById('comp'+compField).className = 'greenText compareText';
 									}
 									else{//red and -
-										document.getElementById('comp'+compField).innerHTML = (' + ' + difference);
+										document.getElementById('comp'+compField).innerHTML = (' + ' + trimNumber(difference));
 										document.getElementById('comp'+compField).className = 'redText compareText';
 									}
 
