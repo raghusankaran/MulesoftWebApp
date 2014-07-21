@@ -606,7 +606,7 @@
 				serverNames = [];
 				findServerNames();
 				var dropDown = document.getElementById('mainGDrop');
-
+				dropDown.innerHTML = '';
 				for(var i=0; i < serverNames.length; i++){
 						if(serverNames[i] == 0)
 							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+serverNames[i]+'</option>';
@@ -620,7 +620,7 @@
 				serverNames = [];
 				findServerNames();
 				var dropDown = document.getElementById('otherGDropServer');
-
+				dropDown.innerHTML = '';
 				for(var i=0; i < serverNames.length; i++){
 						if(serverNames[i] == 0)
 							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+serverNames[i]+'</option>';
@@ -650,7 +650,7 @@
 
 
 				var dropDown = document.getElementById('otherGDropMetric');
-
+				dropDown.innerHTML = '';
 				for(var i=0; i < optionNames.length; i++){
 						if(optionNames[i] == 0)
 							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+optionNames[i]+'</option>';
@@ -664,7 +664,7 @@
 				serverNames = [];
 				findServerNames();
 				var dropDown = document.getElementById('compareGDropServer');
-
+				dropDown.innerHTML = '';
 				for(var i=0; i < serverNames.length; i++){
 						if(serverNames[i] == 0)
 							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+serverNames[i]+'</option>';
@@ -694,7 +694,7 @@
 
 
 				var dropDown = document.getElementById('compareGDropMetric');
-
+				dropDown.innerHTML = '';
 				for(var i=0; i < optionNames.length; i++){
 						if(optionNames[i] == 0)
 							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+optionNames[i]+'</option>';
@@ -761,7 +761,7 @@
 				var baseStatus = document.getElementById('basebutton').value;
 
 				var dropDown = document.getElementById('compareGDropServer');
-				var compareChosenServer  = dropDown.options[dropDown.selectedIndex].text + '.com.';	
+				var compareChosenServer  = dropDown.options[dropDown.selectedIndex].text;	
 				dropDown = document.getElementById('compareGDropMetric');
 				var compareChosenMetric = dropDown.options[dropDown.selectedIndex].text;
 
@@ -812,10 +812,14 @@
 			}
 
 			function updatePage(){
+				serverNames = [];
+				findServerNames();
 				var dropDown = document.getElementById('buildNumber');
 				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
 				chosenID = dropDown.options[dropDown.selectedIndex].text;
 				testObject = getItems(jobName);
+				buildDropDown('buildNumber');
+				buildDropDown('prevNumber');
 				document.getElementById('baselineNumber').innerHTML = '' + baseID;
 				fillCache();
 				var prevButton = document.getElementById("prevbutton");
