@@ -814,12 +814,13 @@
 			function updatePage(){
 				serverNames = [];
 				findServerNames();
+				var dropDown = document.getElementById('buildNumber');
+				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
 				optionalID = dropDown.options[dropDown.selectedIndex].text;
 
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
-				var dropDown = document.getElementById('buildNumber');
-				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
+				
 				chosenID = dropDown.options[dropDown.selectedIndex].text;
 				testObject = getItems(jobName);
 
