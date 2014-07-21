@@ -73,7 +73,7 @@
 			function findServerNames(){
 				for(var server in cache.GraphData){
 					if(cache.GraphData.hasOwnProperty(server)){
-						var name = server.substring(0, server.indexOf('.com'));
+						var name = server.substring(0, server.indexOf(':'));
 						if(serverNames.length == 0){
 							serverNames[serverNames.length] = name;
 						}
@@ -312,7 +312,7 @@
 							document.getElementById('sysTitle1').innerHTML = serverNames[0];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
-									printSysMetric('sysMetrics1', metric, data[metric], serverNames[0]+'.com:'+metric);
+									printSysMetric('sysMetrics1', metric, data[metric], serverNames[0]+':'+metric);
 								}
 							}						
 					}
@@ -339,7 +339,7 @@
 							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
-									printSysMetric('sysMetrics'+(i+1), metric, data[metric], serverNames[i]+'.com:'+metric);
+									printSysMetric('sysMetrics'+(i+1), metric, data[metric], serverNames[i]+':'+metric);
 								}
 							}
 						}
