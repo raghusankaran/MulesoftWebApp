@@ -814,6 +814,8 @@
 			function updatePage(){
 				serverNames = [];
 				findServerNames();
+				optionalID = dropDown.options[dropDown.selectedIndex].text;
+
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				var dropDown = document.getElementById('buildNumber');
