@@ -304,14 +304,16 @@
 						document.getElementById('sysMetrics1').style.paddingBottom = '200px';
 						document.getElementById('sysMetrics1').style.marginLeft = '32px';
 						document.getElementById('sysMetrics1').style.width = '90%';
-						
+						document.getElementById('sysTitle1').innerHTML = serverNames[0];
 						var desiredResults = cache['SingularData']['System_Resources'];
-
-						for(var prop in desiredResults){
-							if(desiredResults.hasOwnProperty(prop)){	
-								printSysMetric(nameOfP+'1', prop, desiredResults[prop]);
-							}
-						}
+						
+							var data = getDataByServer(serverNames[0]);
+							document.getElementById('sysTitle1').innerHTML = serverNames[0];
+							for(var metric in data){
+								if(data.hasOwnProperty(metric)){
+									printSysMetric('sysMetrics1', metric, data[metric], serverNames[0]+'.com:'+metric);
+								}
+							}						
 					}
 					else{
 						//XXX
@@ -335,7 +337,6 @@
 							var data = getDataByServer(serverNames[i]);
 							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
-
 								if(data.hasOwnProperty(metric)){
 									printSysMetric('sysMetrics'+(i+1), metric, data[metric], serverNames[i]+'.com:'+metric);
 								}
