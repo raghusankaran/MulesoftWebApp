@@ -770,7 +770,7 @@ exports.getParsedData = function(req, res){
 			//FOR every file in the directory
 			for(var i in testElements){
 				//test_results[filename] = txtbody
-				test_results[testElements[i].filename] = testElements[i].data[0];
+				test_results[testElements[i].filename] = testElements[i].data;
 			}
 				
 			
@@ -782,7 +782,7 @@ exports.getParsedData = function(req, res){
 
 			for(var i in sysElements){
 				//system_resources[filename] = txtbody
-				system_resources[sysElements[i].filename] = sysElements[i].data[0];
+				system_resources[sysElements[i].filename] = sysElements[i].data;
 			}
 			
 			
@@ -793,7 +793,7 @@ exports.getParsedData = function(req, res){
 			//FOR every file in the directory
 			for(var i in jvmElements){
 				//jvm[filename] = txtbody
-				jvm[jvmElements[i].filename] = jvmElements[i].data[0];
+				jvm[jvmElements[i].filename] = jvmElements[i].data;
 			}
 
 			var plots = {};
