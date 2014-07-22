@@ -270,7 +270,7 @@ body{
 	}
 	#systemBox{
 		float:	left;
-		overflow: visible;
+		overflow: hidden;
 		margin-right: 20px;
 	}
 	#jvmBox{
@@ -535,6 +535,9 @@ body{
 	#showscroller{
 		overflow-y: auto;
 		overflow-x: hidden;
+		max-height: 285px;
+		margin-top: 13px;
+		width: 99.5%;
 	}
 
 }
