@@ -119,7 +119,7 @@
 				}
 				else{
 					for(var i=0; i < buildIds.length; i++){
-						if(buildIds[i] == optionalID)
+						if(buildIds[i].number == optionalID)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 						else
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" >'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
