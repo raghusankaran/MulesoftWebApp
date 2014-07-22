@@ -138,13 +138,34 @@
 			}
 
 			function getData(jobName, idNum){
-										
-				var url = config.getParsedData + jobName + '&id=' + idNum;
+				var go = true;
+				for(var i=0; i < 3; i++){
+					if(i == 0 && main.result == null){						
+						go =false;						
+					}
+					else if(i > 0 && buildIds[i].result == null){
+						go = false;
+					}
+				}			
+
+				if(go == true){				
+					var url = config.getParsedData + jobName + '&id=' + idNum;
+						
+					var str = getRequest(url);
 					
-				var str = getRequest(url);
-				
-				var data = JSON.parse(str);
-				return data['SingularData'];
+					var data = JSON.parse(str);
+					return data['SingularData'];
+				}
+				else{
+					var emptyData = 
+									{
+										Summary: {},
+										Test_Results: {},
+										System_Resources: {},										
+										JVM: {}
+									};
+					return	emptyData;
+				}
 			}
 
 			function getRequest(url){
