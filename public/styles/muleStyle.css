@@ -8,9 +8,11 @@ html{
 }
 ::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: rgba(255,255,255,.5);
+    background-color: rgba(255,255,255,.7);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+
+
 
 body{
 		
@@ -268,7 +270,7 @@ body{
 	}
 	#systemBox{
 		float:	left;
-		
+		overflow: hidden;
 		margin-right: 20px;
 	}
 	#jvmBox{
@@ -530,7 +532,10 @@ body{
 		color: white;
 		font-size: 20px;
 	}
-}
+	#showscroller{
+		overflow-y:auto;
+		overflow-x: hidden;
+	}
 
 
 
