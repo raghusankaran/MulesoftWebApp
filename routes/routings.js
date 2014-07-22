@@ -735,6 +735,8 @@ exports.getParsedData = function(req, res){
 		}
 	*/
 	promise.then(function (path){
+		console.log('made it to ' + path);
+
 		var result ={};
 		//ERROR CASE:
 		if(path.indexOf('parsed') < 0){
@@ -766,7 +768,7 @@ exports.getParsedData = function(req, res){
 				test_results[testElements[i].filename] = testElements[i].data[0];
 			}
 				
-		
+			console.log('made it to Summary and Test_Results');
 			//Create object 'system_resources'
 			var system_resources = {};
 			//Access System_Resources directory
@@ -776,7 +778,8 @@ exports.getParsedData = function(req, res){
 				//system_resources[filename] = txtbody
 				system_resources[sysElements[i].filename] = sysElements[i].data[0];
 			}
-		
+			
+			console.log('made it to jvm');
 			//Create object jvm
 			var jvm = {};
 			//Access JVM directory
