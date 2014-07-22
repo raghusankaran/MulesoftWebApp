@@ -761,7 +761,7 @@ exports.getParsedData = function(req, res){
 			//FOR every file in the directory
 			for(var i in summaryElements){
 				//summary[filename] = txtbody			
-				summary[summaryElements[i].filename] = summaryElements[i].data;
+				summary[summaryElements[i].filename] = summaryElements[i].data[0];
 			}
 			//Create object test_results
 			var test_results = {};
