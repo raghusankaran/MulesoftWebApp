@@ -66,6 +66,7 @@ app.get('/data/', routings.getData);
 app.get('/getRecentJobs/', routings.getRecentJobs);
 
 app.get('/getParsedData', routings.getParsedData);
+app.get('/getBuildsByDescription', routings.getBuildsByDescription);
 
 
 

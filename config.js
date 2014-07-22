@@ -20,7 +20,8 @@ var config = {
 	updateBaseline: urlPath+"updateBaseline?job=",
 	jobHost: 'http://mule-perflab06.managed.contegix.com:8080',
 	test: urlPath + 'testing',
-	getParsedData: urlPath+'getParsedData/?jobName='
+	getParsedData: urlPath+'getParsedData/?jobName=',
+	getBuildsByDescription: urlPath+'getBuildsByDescription/?build='
 };
 
 module.exports.config = config;
