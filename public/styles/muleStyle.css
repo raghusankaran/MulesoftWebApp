@@ -270,7 +270,7 @@ body{
 	}
 	#systemBox{
 		float:	left;
-		overflow: hidden;
+		overflow: visible;
 		margin-right: 20px;
 	}
 	#jvmBox{
