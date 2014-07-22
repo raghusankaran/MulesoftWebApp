@@ -106,23 +106,23 @@
 			}
 
 			function buildDropDown(dropDownName){
-				var buildIds = getBuilds(config.retrieveBuilds+ jobName);
+				var buildIds = JSON.parse(getRequest(config.getBuildsByDescription+ jobName));
 				var dropDown = document.getElementById(dropDownName);
 				dropDown.innerHTML = '';
 				if(optionalID == 0){
 					for(var i=0; i < buildIds.length; i++){
 						if(i == 0)
-							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
+							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 						else
-							dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
+							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" >'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 					}
 				}
 				else{
 					for(var i=0; i < buildIds.length; i++){
 						if(buildIds[i] == optionalID)
-							dropDown.innerHTML += '<option value="'+i+'"selected="selected">'+buildIds[i]+'</option>';
+							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 						else
-							dropDown.innerHTML += '<option>'+buildIds[i]+'</option>';
+							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" >'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 					}
 				}
 			}
@@ -565,7 +565,7 @@
 					buttonName = 'prevbutton';
 					otherButton = 'basebutton';
 					var dropDown = document.getElementById('prevNumber');
-					prevID = dropDown.options[dropDown.selectedIndex].text;	
+					prevID = dropDown.options[dropDown.selectedIndex].value;	
 					fillPrevCache();
 					compCache = prevCache;
 				}
@@ -867,13 +867,13 @@
 				serverNames = [];
 				findServerNames();
 				var dropDown = document.getElementById('buildNumber');
-				var buildNumber = dropDown.options[dropDown.selectedIndex].text;
-				optionalID = dropDown.options[dropDown.selectedIndex].text;
+				var buildNumber = dropDown.options[dropDown.selectedIndex].value;
+				optionalID = dropDown.options[dropDown.selectedIndex].value;
 
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				
-				chosenID = dropDown.options[dropDown.selectedIndex].text;
+				chosenID = dropDown.options[dropDown.selectedIndex].value;
 				testObject = getItems(jobName);
 
 				document.getElementById('baselineNumber').innerHTML = '' + baseID;
