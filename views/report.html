@@ -106,7 +106,7 @@
 			}
 
 			function buildDropDown(dropDownName){
-				var buildIds = JSON.parse(getRequest(config.getBuildsByDescription+ jobName));
+				var buildIds = JSON.parse(getRequest(config.getBuildsByDescription+ jobName))['builds'];
 				var dropDown = document.getElementById(dropDownName);
 				dropDown.innerHTML = '';
 				if(optionalID == 0){
