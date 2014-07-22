@@ -140,10 +140,10 @@
 			function getData(jobName, idNum){
 				var go = true;
 				for(var i=0; i < 3; i++){
-					if(i == 0 && main.result == null){						
+					if(i == 0 && main.result == null && main.name == jobName){						
 						go =false;						
 					}
-					else if(i > 0 && buildIds[i].result == null){
+					else if(i > 0 && buildIds[i].result == null  buildIds.name == jobName){
 						go = false;
 					}
 				}			
