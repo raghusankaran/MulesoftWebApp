@@ -643,6 +643,7 @@ function getMetricsInFolder(pathToDirectory){
 	var listOfFilenames = fs.readdirSync(pathToDirectory);	
 	//access all the TXT bodies of the filenames
 	//For all the files in the directory
+	console.log('fetched ' + pathToDirectory);
 	for(var i in listOfFilenames){
 		//Create a fileObj for the target file
 		var fileObj = fileToObject(pathToDirectory +'/'+listOfFilenames[i]);
@@ -670,10 +671,12 @@ function fileToObject(pathToFile){
 	//Set fileObj.filename to the file name
 	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
 	fileObj.filename = filename;
+	console.log('Reading file:  ' + filname + ' at '+ pathToFile);
 	//Use a synchronous call to access the data
 	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
 	//console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
 	//create array of data
+	console.log('Read file:  ' + pathToFile);
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
@@ -774,6 +777,7 @@ exports.getParsedData = function(req, res){
 			//Access System_Resources directory
 			var sysElements = getMetricsInFolder(path + 'System_Resources');
 			//FOR every file in the directory
+
 			for(var i in sysElements){
 				//system_resources[filename] = txtbody
 				system_resources[sysElements[i].filename] = sysElements[i].data[0];
