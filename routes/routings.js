@@ -670,7 +670,7 @@ function fileToObject(pathToFile){
 	//Create object fileObj
 	var fileObj = {};
 	//Set fileObj.filename to the file name
-	console.log('Does it break here?');
+	console.log('Does it break here?' + pathToFile);
 	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
 	fileObj.filename = filename;
 	console.log('Reading file:  ' + filname + ' at '+ pathToFile);
