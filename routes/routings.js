@@ -644,7 +644,7 @@ function getMetricsInFolder(pathToDirectory){
 	var listOfFilenames = fs.readdirSync(pathToDirectory);	
 	//access all the TXT bodies of the filenames
 	//For all the files in the directory
-	console.log('fetched ' + pathToDirectory);
+	
 	for(var i in listOfFilenames){
 		//Create a fileObj for the target file
 		var fileObj = fileToObject(pathToDirectory +'/'+listOfFilenames[i]);
@@ -670,15 +670,15 @@ function fileToObject(pathToFile){
 	//Create object fileObj
 	var fileObj = {};
 	//Set fileObj.filename to the file name
-	console.log('Does it break here?' + pathToFile);
+	console.log('Does it break here?' + pathToFile); //XXXXXX
 	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
 	fileObj.filename = filename;
-	console.log('Reading file:  ' + filname + ' at '+ pathToFile);
+	
 	//Use a synchronous call to access the data
 	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
 	//console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
 	//create array of data
-	console.log('Read file:  ' + pathToFile);
+	
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
@@ -740,7 +740,7 @@ exports.getParsedData = function(req, res){
 		}
 	*/
 	promise.then(function (path){
-		console.log('made it to ' + path);
+		
 
 		var result ={};
 		//ERROR CASE:
@@ -773,7 +773,7 @@ exports.getParsedData = function(req, res){
 				test_results[testElements[i].filename] = testElements[i].data[0];
 			}
 				
-			console.log('made it to Summary and Test_Results');
+			
 			//Create object 'system_resources'
 			var system_resources = {};
 			//Access System_Resources directory
@@ -785,7 +785,7 @@ exports.getParsedData = function(req, res){
 				system_resources[sysElements[i].filename] = sysElements[i].data[0];
 			}
 			
-			console.log('made it to jvm');
+			
 			//Create object jvm
 			var jvm = {};
 			//Access JVM directory
