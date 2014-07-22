@@ -279,7 +279,7 @@
 					box.innerHTML='<br>';
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							printMetric(nameOfP, prop, desiredResults[prop]);
+							printMetric(nameOfP, prop, desiredResults[prop][0] + ' '+desiredResults[prop][1]);
 						}
 					}
 				}
@@ -289,7 +289,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							printMetric(nameOfP, prop, desiredResults[prop]);
+							printMetric(nameOfP, prop, desiredResults[prop][0] + ' ' + desiredResults[prop][1]);
 						}
 					}
 				}
@@ -313,7 +313,7 @@
 							document.getElementById('sysTitle1').innerHTML = serverNames[0];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
-									printSysMetric('sysMetrics1', metric, data[metric], serverNames[0]+':'+metric);
+									printSysMetric('sysMetrics1', metric, data[metric][0]+ ' '+  data[metric][1], serverNames[0]+':'+metric);
 								}
 							}						
 					}
@@ -340,7 +340,7 @@
 							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
-									printSysMetric('sysMetrics'+(i+1), metric, data[metric], serverNames[i]+':'+metric);
+									printSysMetric('sysMetrics'+(i+1), metric, data[metric][0]+ ' '+  data[metric][1], serverNames[i]+':'+metric);
 								}
 							}
 						}
@@ -352,7 +352,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							printMetric(nameOfP, prop, desiredResults[prop]);
+							printMetric(nameOfP, prop, desiredResults[prop][0] + ' '+desiredResults[prop][1]);
 						}
 					}
 
