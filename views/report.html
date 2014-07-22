@@ -108,6 +108,7 @@
 			function buildDropDown(dropDownName){
 				var buildIds = getBuilds(config.retrieveBuilds+ jobName);
 				var dropDown = document.getElementById(dropDownName);
+				dropDown.innerHTML = '';
 				if(optionalID == 0){
 					for(var i=0; i < buildIds.length; i++){
 						if(i == 0)
