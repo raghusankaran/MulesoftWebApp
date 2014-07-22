@@ -638,6 +638,7 @@ function getMetricsInFolder(pathToDirectory){
 	//Create empty array "metricFileObjs" to represent all the metric files
 	var metricFileObjs = [];
 	
+
 	//Use an synchronous call to access the directory
 	// readdirSync takes a directory and returns the names of the files a depth of 1 inside of it
 	var listOfFilenames = fs.readdirSync(pathToDirectory);	
@@ -669,6 +670,7 @@ function fileToObject(pathToFile){
 	//Create object fileObj
 	var fileObj = {};
 	//Set fileObj.filename to the file name
+	console.log('Does it break here?');
 	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
 	fileObj.filename = filename;
 	console.log('Reading file:  ' + filname + ' at '+ pathToFile);
@@ -803,6 +805,7 @@ exports.getParsedData = function(req, res){
 				//plot[filename] = txtbody
 				plots[plotElements[i].filename] = plotElements[i].data;
 			}
+
 
 			
 			//Compile all objects ---
