@@ -800,7 +800,7 @@
 					if(trim['SingularData'].hasOwnProperty(section) && section != 'Summary'){
 						for(var metric in trim['SingularData'][section]){
 							if(trim['SingularData'][section].hasOwnProperty(metric)){
-								trim['SingularData'][section][metric] = trimNumber(trim['SingularData'][section][metric][0]);
+								trim['SingularData'][section][metric][0] = trimNumber(trim['SingularData'][section][metric][0]);
 							}
 						}
 					}
