@@ -18,7 +18,7 @@
 			var prevID, baseID;
 			var onCanvas =[0,0,0];
 			var options = [];
-
+			var helperServerNames = ['server1','server2'];
 			var sysResourceNames = [];
 
 			var serverNames=[];
@@ -316,17 +316,17 @@
 						document.getElementById('sysTitle1').style.width = '100%';
 						var desiredResults = cache['SingularData']['System_Resources'];
 						
-							var data = getDataByServer(serverNames[0]);
+							var data = getDataByServer(helperServerNames[0]);
 							document.getElementById('sysTitle1').innerHTML = serverNames[0];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
 
 									if(data[metric].length ==2){
 										var value = data[metric];
-										printSysMetric('sysMetrics1', metric, value[0]+ ' '+  value[1], serverNames[0]+':'+metric);
+										printSysMetric('sysMetrics1', metric, value[0]+ ' '+  value[1], helperServerNames[0]+':'+metric);
 									}
 									else{
-										printSysMetric('sysMetrics1', metric, data[metric], serverNames[0]+':'+metric);	
+										printSysMetric('sysMetrics1', metric, data[metric], helperServerNames[0]+':'+metric);	
 									}
 								}
 							}						
@@ -350,16 +350,16 @@
 						document.getElementById('sysMetrics1').innerHTML ='';
 						document.getElementById('sysMetrics2').innerHTML ='';
 						for(var i=0; i<serverNames.length; i++){
-							var data = getDataByServer(serverNames[i]);
+							var data = getDataByServer(helperServerNames[i]);
 							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
 									if(data[metric].length ==2){
 										var value = data[metric];
-										printSysMetric('sysMetrics'+(i+1), metric, value[0]+ ' '+  value[1], serverNames[i]+':'+metric);
+										printSysMetric('sysMetrics'+(i+1), metric, value[0]+ ' '+  value[1], helperServerNames[i]+':'+metric);
 									}
 									else{
-										printSysMetric('sysMetrics'+(i+1), metric, data[metric], serverNames[i]+':'+metric);
+										printSysMetric('sysMetrics'+(i+1), metric, data[metric], helperServerNames[i]+':'+metric);
 									}
 								}
 							}
