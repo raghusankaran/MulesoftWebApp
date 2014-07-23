@@ -667,19 +667,25 @@ function getMetricsInFolder(pathToDirectory){
 
 	//Use an synchronous call to access the directory
 	// readdirSync takes a directory and returns the names of the files a depth of 1 inside of it
-	var listOfFilenames = fs.readdirSync(pathToDirectory);	
+	var listOfFilenames = [];
+	try{
+		listOfFilenames = fs.readdirSync(pathToDirectory);	
+		for(var i in listOfFilenames){
+			//Create a fileObj for the target file
+			var fileObj = fileToObject(pathToDirectory +'/'+listOfFilenames[i]);
+
+			//Add the fileObj to 'metricFileObjs'
+			metricFileObjs.push(fileObj);			
+		}
+
+		
+	}catch(err){
+
+	}
 	//access all the TXT bodies of the filenames
 	//For all the files in the directory
-	
-	for(var i in listOfFilenames){
-		//Create a fileObj for the target file
-		var fileObj = fileToObject(pathToDirectory +'/'+listOfFilenames[i]);
-
-		//Add the fileObj to 'metricFileObjs'
-		metricFileObjs.push(fileObj);			
-	}
-
-	return metricFileObjs;		
+	return metricFileObjs;	
+		
 }
 
 //Since we are always accessing files for metrics, let us generalize the methods!
@@ -699,25 +705,26 @@ function fileToObject(pathToFile){
 	//console.log('Does it break here?' + pathToFile); //XXXXXX
 	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
 	fileObj.filename = filename;
-	
-	//Use a synchronous call to access the data
-	var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
-	//console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
-	//create array of data
-	
-	var dataFound = [];
-	//parse the body by new lines	
-	dataFound = str.split(/\n/g);
-	
-	if(dataFound[dataFound.length-1] == ''){
-		dataFound.pop();
-	}
-	if(dataFound.length < 4)
-		console.log(dataFound);
+	try{
+		//Use a synchronous call to access the data
+		var str = fs.readFileSync(pathToFile, {encoding: 'utf-8'});	
+		//console.log(' --> Going inside the file ' + filename + ' we find: ' + str);
+		//create array of data
+		
+		var dataFound = [];
+		//parse the body by new lines	
+		dataFound = str.split(/\n/g);
+		
+		if(dataFound[dataFound.length-1] == ''){
+			dataFound.pop();
+		}
+		if(dataFound.length < 4)
+			console.log(dataFound);
 
-	//Set fileObj.data = data
-	fileObj.data = dataFound;
-
+		//Set fileObj.data = data
+		fileObj.data = dataFound;
+	}catch(err){}
+	
 	//return the result
 	return fileObj;
 }
