@@ -886,7 +886,7 @@
 
 
 							if(currentName == foundNames[i]){
-								typeOfCache['SingularData']['System_Resources']['server' +(i+1)+currentType] = typeOfCache['SingularData']['System_Resources'][metric];
+								typeOfCache['SingularData']['System_Resources']['server' +(i+1)+':'+currentType] = typeOfCache['SingularData']['System_Resources'][metric];
 								delete typeOfCache['SingularData']['System_Resources'][metric];
 							}
 
@@ -928,7 +928,7 @@
 				var otherChosenServer  = dropDown.options[dropDown.selectedIndex].text +':';	
 				dropDown = document.getElementById('otherGDropMetric');
 				var otherChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
-				
+
 				options = [{
 					'description': ['Current CPU Util', 
 									'Current Memory Util', 
