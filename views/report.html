@@ -613,7 +613,7 @@
 							for(var compField in cache['SingularData'][section]){
 								if(cache['SingularData'][section].hasOwnProperty(compField) && compCache['SingularData'][section].hasOwnProperty(compField) && section != 'Summary'){
 									//calculate difference (neg is good, pos is bad)
-									var difference = parseFloat(cache['SingularData'][section][compField]) - parseFloat(compCache['SingularData'][section][compField]);
+									var difference = parseFloat(cache['SingularData'][section][compField][0]) - parseFloat(compCache['SingularData'][section][compField][0]);
 									//show difference
 									if(difference < 0){ //green and +
 										document.getElementById('comp'+compField).innerHTML = (' ' + trimNumber(difference));
@@ -800,7 +800,7 @@
 					if(trim['SingularData'].hasOwnProperty(section) && section != 'Summary'){
 						for(var metric in trim['SingularData'][section]){
 							if(trim['SingularData'][section].hasOwnProperty(metric)){
-								trim['SingularData'][section][metric] = trimNumber(trim['SingularData'][section][metric]);
+								trim['SingularData'][section][metric] = trimNumber(trim['SingularData'][section][metric][0]);
 							}
 						}
 					}
