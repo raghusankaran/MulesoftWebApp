@@ -709,7 +709,7 @@ function fileToObject(pathToFile){
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
 	
-	if(dataFound.length > 2){
+	if(if(dataFound[dataFound.length] == '')){
 		dataFound.pop();
 	}
 
