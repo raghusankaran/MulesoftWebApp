@@ -708,11 +708,12 @@ function fileToObject(pathToFile){
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
-	if(dataFound.length < 4)
-		console.log(dataFound);
+	
 	if(dataFound[dataFound.length] == ''){
 		dataFound.pop();
 	}
+	if(dataFound.length < 4)
+		console.log(dataFound);
 
 	//Set fileObj.data = data
 	fileObj.data = dataFound;
