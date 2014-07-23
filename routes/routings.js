@@ -696,7 +696,7 @@ function fileToObject(pathToFile){
 	//Create object fileObj
 	var fileObj = {};
 	//Set fileObj.filename to the file name
-	console.log('Does it break here?' + pathToFile); //XXXXXX
+	//console.log('Does it break here?' + pathToFile); //XXXXXX
 	var filename = pathToFile.substring(pathToFile.lastIndexOf('/') + 1, pathToFile.indexOf('.txt'));
 	fileObj.filename = filename;
 	
@@ -708,7 +708,8 @@ function fileToObject(pathToFile){
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
-	console.log(dataFound);
+	if(pathToFile.indexOf('GraphData') < 0)
+		console.log(dataFound);
 	if(dataFound[dataFound.length] == ''){
 		dataFound.pop();
 	}
