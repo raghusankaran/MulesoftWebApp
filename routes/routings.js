@@ -708,7 +708,7 @@ function fileToObject(pathToFile){
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
-	if(pathToFile.indexOf('GraphData') < 0)
+	if(dataFound.length < 4)
 		console.log(dataFound);
 	if(dataFound[dataFound.length] == ''){
 		dataFound.pop();
