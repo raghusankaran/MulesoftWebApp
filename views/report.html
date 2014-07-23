@@ -291,7 +291,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							if(desiredResults[prop].indexOf(',') >= 0){
+							if(desiredResults[prop].length == 2){
 								var value = desiredResults[prop].split(',');
 								printMetric(nameOfP, prop, value[0] + ' '+value[1]);
 							}
@@ -322,7 +322,7 @@
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
 
-									if(data[metric].indexOf(',') >=0){
+									if(data[metric].length ==2){
 										var value = data[metric].split(',');
 										printSysMetric('sysMetrics1', metric, value[0]+ ' '+  value[1], serverNames[0]+':'+metric);
 									}
@@ -355,7 +355,7 @@
 							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
 								if(data.hasOwnProperty(metric)){
-									if(data[metric].indexOf(',') >=0){
+									if(data[metric].length ==2){
 										var value = data[metric].split(',');
 										printSysMetric('sysMetrics'+(i+1), metric, value[0]+ ' '+  value[1], serverNames[i]+':'+metric);
 									}
@@ -373,7 +373,7 @@
 
 					for(var prop in desiredResults){
 						if(desiredResults.hasOwnProperty(prop)){	
-							if(desiredResults[prop].indexOf(',') >= 0){
+							if(desiredResults[prop].length == 2){
 								var value = desiredResults[prop].split(',');
 								printMetric(nameOfP, prop, value[0] + ' '+value[1]);
 							}
