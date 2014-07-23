@@ -1,52 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<script src="../Chart.js/Chart.js"></script>
-	<script>
-		 
-		 var woah = 200;
-		var mouseIsDown;
-		var holdPosition= 0;
-	</script>
-	
+<head>	
+	<script src="../config.js"></script>
 </head>
 <body>
 	
-	<canvas id='myChart' width='1000' height='1000' onclick='scrollPlay()'></canvas>
-
+	<p id='demoTest'>hmmm</p>
 	<script>
-		var ctx = document.getElementById("myChart").getContext("2d");
-		ctx.fillRect(0,0,200,200);
-
-		function scrollPlay(e){
-			e.preventDefault();
-			var ctx = document.getElementById("myChart").getContext("2d");
-			if(mouseIsDown){
-				if(holdPosition < e.pageX){
-					ctx.fillRect(0,0,woah+5,woah+5);
-					woah+=5;
-				}
-				else{
-					ctx.clearRect(0,0,500,600);
-					ctx.fillRect(0,0,woah-5,woah-5);
-					woah-=5;
-				}
-
+		var str = getRequest(config.url + '');
+		document.getElementById('demoTest').innerHTML = str;
+		function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
 			}
-		}
-		function isDown(e){
-			e.preventDefault();
-			holdPosition = e.pageX;
-			mouseIsDown = true;
-		}
-		function isUp(e){
-			e.preventDefault();
-			mouseIsDown = false;
-		}
-		var element = document.getElementById("myChart");
-		element.addEventListener('mousemove', scrollPlay, false);
-		element.addEventListener('mousedown', isDown, false);
-		element.addEventListener('mouseup', isUp, false);
 	</script>
 	
 <body>
