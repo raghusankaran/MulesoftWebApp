@@ -81,8 +81,7 @@
 							serverNames[serverNames.length] = name;
 						}
 					}
-				}
-				
+				}				
 			}
 			
 			function getRequest(url){
@@ -863,6 +862,40 @@
 
 			}
 
+			function removeServerNames(typeOfCache){
+
+				var foundNames = [];
+
+				for(var server in typeOfCache.GraphData){
+					if(typeOfCache.GraphData.hasOwnProperty(server)){
+						var name = server.substring(0, server.indexOf(':'));
+						if(foundNames.length == 0){
+							foundNames[foundNames.length] = name;
+						}
+						else if(foundNames[foundNames.length-1] != name){
+							foundNames[foundNames.length] = name;
+						}
+					}
+				}	
+
+				for(var metric in typeOfCache['SingularData']['System_Resources']){
+					if(typeOfCache['SingularData']['System_Resources'].hasOwnProperty(metric)){
+						var currentName = metric.substring(0, metric.indexOf(':'));
+						var currentType = metric.substring(metric.indexOf(':')+1);
+						for(var i=0; i<foundNames.length; i++){
+
+
+							if(currentName == foundNames[i]){
+								typeOfCache['SingularData']['System_Resources']['server' +(i+1)+currentType] = typeOfCache['SingularData']['System_Resources'][metric];
+								delete typeOfCache['SingularData']['System_Resources'][metric];
+							}
+
+
+						}
+					}
+				}
+			}
+
 			function updatePage(){
 				serverNames = [];
 				findServerNames();
@@ -895,7 +928,7 @@
 				var otherChosenServer  = dropDown.options[dropDown.selectedIndex].text +':';	
 				dropDown = document.getElementById('otherGDropMetric');
 				var otherChosenMetric = dropDown.options[dropDown.selectedIndex].text;	
-
+				
 				options = [{
 					'description': ['Current CPU Util', 
 									'Current Memory Util', 
@@ -918,7 +951,7 @@
 					'setWidth': -1,
 					'currX': 0
 				 }];
-				
+				removeServerNames(cache);
 				fillPage();
 				resizeAllGraphs(options);
 			}
