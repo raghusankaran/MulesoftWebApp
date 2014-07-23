@@ -708,7 +708,7 @@ function fileToObject(pathToFile){
 	var dataFound = [];
 	//parse the body by new lines	
 	dataFound = str.split(/\n/g);
-	
+	console.log(dataFound);
 	if(dataFound[dataFound.length] == ''){
 		dataFound.pop();
 	}
