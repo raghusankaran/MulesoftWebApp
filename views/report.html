@@ -110,6 +110,9 @@
 				dropDown.innerHTML = '';
 				if(optionalID == 0){
 					for(var i=0; i < buildIds.length; i++){
+						if(buildIds[i].description.length > 50)
+							buildIds[i].description= buildIds[i].description.substring(0,50);
+
 						if(i == 0)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 						else
@@ -118,6 +121,9 @@
 				}
 				else{
 					for(var i=0; i < buildIds.length; i++){
+						if(buildIds[i].description.length > 50)
+							buildIds[i].description= buildIds[i].description.substring(0,50);
+
 						if(buildIds[i].number == optionalID)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
 						else
@@ -993,7 +999,7 @@
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
 						<form id='buildDropDown'action="">
-							<select id="buildNumber" style="width: 800px" onchange="updatePage()">
+							<select id="buildNumber" onchange="updatePage()">
 							</select>
 						</form>
 						<p id='summary'></p>
