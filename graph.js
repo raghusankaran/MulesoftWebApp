@@ -20,7 +20,7 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     ctx.strokeStyle = 'black';
     ctx.lineCap='round';	
     var graphYAxis = [bounds[0], bounds[1]];
-    ctx.font="25px Courier New";
+    ctx.font="15px Courier New";
     var legendX = x-400;
     for(var i=0; i < description.length; i++){
     	ctx.strokeStyle ='black';
@@ -29,8 +29,8 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
     	ctx.strokeStyle =colors[i];
     	ctx.beginPath();
     	ctx.lineWidth = 5;
-    	ctx.moveTo(legendX-5, 23 + 35*i);
-    	ctx.lineTo(legendX-20, 23 + 35*i);
+    	ctx.moveTo(legendX-5, 15 + 25*i);
+    	ctx.lineTo(legendX-20, 15 + 25*i);
     	ctx.stroke();
 
     }
