@@ -39,6 +39,10 @@ app.get('/update', function(req, res){
 	res.render('update');
 });
 
+app.get('/muledir', function(req, res){
+	res.render('muledir');
+});
+
 //delete test metric
 app.get('/deleteJobTest', routings.deleteJobTest);
 
@@ -67,6 +71,8 @@ app.get('/getRecentJobs/', routings.getRecentJobs);
 
 app.get('/getParsedData', routings.getParsedData);
 app.get('/getBuildsByDescription', routings.getBuildsByDescription);
+
+
 
 
 
