@@ -108,6 +108,7 @@
 				var buildIds = JSON.parse(getRequest(config.getBuildsByDescription+ jobName))['builds'];
 				var dropDown = document.getElementById(dropDownName);
 				dropDown.innerHTML = '';
+				dropDown.style.fontSize = '20px';
 				if(optionalID == 0){
 					for(var i=0; i < buildIds.length; i++){
 						if(buildIds[i].description.length > 75)
