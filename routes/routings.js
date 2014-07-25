@@ -574,9 +574,9 @@ exports.getParsedData = function(req, res){
 
 			}
 
-			res.send(result);
+			
 		});
-		
+		res.send(result);
 	}
 	else{
 		//FIND the parsed directory's path
