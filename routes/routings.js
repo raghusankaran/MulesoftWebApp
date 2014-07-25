@@ -441,7 +441,7 @@ function getAllPerfCIJobs(id){
 		        if (!error && response.statusCode == 200) {
 		        	var info = JSON.parse(body);	  			
 					fileID = info.id;
-					console.log(fileID);
+					
 					resolve(fileID);
 				}
 				else
@@ -450,7 +450,7 @@ function getAllPerfCIJobs(id){
 	});
 	return new Promise(function (resolve, reject) {
 		getFileID.then(function (fileID){
-			console.log(fileID);
+
 			//path to logs
 			var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
 
@@ -458,6 +458,7 @@ function getAllPerfCIJobs(id){
 			var result = '';
 			try{
 				listOfFilenames = fs.readdirSync(path);	
+				console.log(listOfFilenames);
 				for(var i=0; i<listOfFilenames; i++){
 					result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
 				}
