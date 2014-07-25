@@ -214,7 +214,7 @@ exports.getTestOptions = function(req, res){
 exports.addTestOption = function(req, res){
 	var path = config.testFilesPath + 'LIST.txt';
 	var type = req.body.addList;
-	
+
 	var metric = req.body.metric;
 	var option = '(' + type +') '+ metric;
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
@@ -224,7 +224,8 @@ exports.addTestOption = function(req, res){
 		}
 		else{
 			var data = JSON.parse(str);
-			data.options.push(option);//XXX
+			if(data.options.indexOf(option) < 0 && metric.length > 2)
+				data.options.push(option);//XXX
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
@@ -236,6 +237,31 @@ exports.addTestOption = function(req, res){
 
 		}
 			
+	});	
+	res.redirect('/update?job=' + req.query.job);
+};
+
+exports.deleteTestOption = function(req, res){
+	var path = config.testFilesPath + 'LIST.txt';
+	var metric = req.body.delList;
+	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
+	{
+		if(str == null){
+			res.send(null);
+		}
+		else{
+			var data = JSON.parse(str);
+			data.options.splice(data.options.indexOf(metric),1);
+			var newdata = JSON.stringify(data);
+			fs.writeFile(path, newdata, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+
+		}
 	});	
 	res.redirect('/update?job=' + req.query.job);
 };

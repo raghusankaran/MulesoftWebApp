@@ -68,6 +68,8 @@ app.get('/getTestOptions', routings.getTestOptions);
 //app.get('/data/', routings.getData);
 
 app.post('/addTestOption', routings.addTestOption);
+
+app.post('/deleteTestOption', routings.deleteTestOption);
 //GET ordered list of job names
 app.get('/getRecentJobs/', routings.getRecentJobs);
 
