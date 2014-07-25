@@ -455,23 +455,22 @@ function getAllPerfCIJobs(id){
 			var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
 
 			var listOfFilenames = [];
-			var result = '';
+			var stringToParsedEntries = '';
 			try{
 				listOfFilenames = fs.readdirSync(path);	
 				console.log(listOfFilenames);
-				for(var i=0; i<listOfFilenames; i++){
-					console.log(listOfFilenames[i]);
-					result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
-
+				for(var i=0; i < listOfFilenames; i++){
+					console.log(listOfFilenames[i] + '');
+					stringToParsedEntries += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
 				}
 				console.log(result);
 								
 			}catch(err){
-
+				console.log('WOAH');
 			}
 			//access all the TXT bodies of the filenames
 			//For all the files in the directory
-			resolve(result);
+			resolve(stringToParsedEntries);
 		});
 	});
 		
