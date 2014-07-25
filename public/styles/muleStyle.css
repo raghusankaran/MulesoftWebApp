@@ -550,7 +550,9 @@ body{
 	#delForm{
 			margin-left: 20px;
 	}
-
+	.updateLists{
+		font-size: 16px;
+	}
 }
 
 
