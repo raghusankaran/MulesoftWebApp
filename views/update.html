@@ -98,17 +98,22 @@
 						sectionDiv.innerHTML += '<span class="nameCurrMetric">'+ metric + '</span>'+ 
 												'<span class="minCurrMetric">'+ jsonObj[key][0] + '</span>'+
 												'<span class="maxCurrMetric">'+ jsonObj[key][1] + '</span>'+
-												'<a class="deleteMetric" href="'+config.deleteJobTest +jobName+'&metric='+deleteLink+'&id='+id+'">Delete</a><br>';
+												'<a class="deleteMetric" href="'+config.deleteJobTest +jobName+'&metric='+deleteLink+'">Delete</a><br>';
 					}
 				}
 			}
 
 			function postRequest(section){
-				var action = config.putJobTest+jobName+'&id='+id;
-				var form = document.getElementById(section+ 'Form');
-				form.action = action;
-
-				
+				if(section == 'sla'){
+					var action = config.putJobTest+jobName;
+					var form = document.getElementById(section+ 'Form');
+					form.action = action;
+				}
+				else{
+					var action = config.addTestOption+jobName;
+					var form = document.getElementById(section+ 'Form');
+					form.action = action;
+				}
 			}
 
 			function initialize(){
@@ -161,9 +166,9 @@
 				<p> Add New "SLA" Metric </p>
 				<div id='addNewMetricBox' class= "updateBox">
 
-					<form id='addForm' onsubmit=''>
-							<p class='currTitle' style='margin-left:20px'>Choose your metric "Type" and type the name to add a new option</p>
-							<select id="addList" name="checkList">
+					<form id='addForm' method='post' onsubmit='postRequest("add")'>
+							<p class='currTitle' style='margin-left:0px'>Choose your metric "Type" and type the name to add a new option</p>
+							<select id="addList" name="addList">
 								<option value="Test Results">Test Results</option>	
 								<option value="System Resources">System Resources</option>	
 								<option value="JVM">JVM</option>				

@@ -276,7 +276,7 @@
 				var editLinksMain = document.getElementsByName('editSLAMain');
 
 				for(var j=0; j < editLinksMain.length; j++){
-					editLinksMain[j].href = config.update + main.name +'&id=' +main.id;
+					editLinksMain[j].href = config.update + main.name ;
 					editLinksMain[j].innerHTML = 'Edit';
 				}
 
@@ -309,7 +309,7 @@
 					var editLinks = document.getElementsByName('editSLA' +(i+1));
 
 					for(var j=0; j < editLinks.length; j++){
-						editLinks[j].href = config.update + recents[i].name +'&id=' + recents[i].id;
+						editLinks[j].href = config.update + recents[i].name ;
 						editLinks[j].innerHTML = 'Edit';
 					}
 
