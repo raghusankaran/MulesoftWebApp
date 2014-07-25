@@ -461,7 +461,7 @@ function getAllPerfCIJobs(id){
 				console.log(listOfFilenames);
 				for(var i=0; i < listOfFilenames; i++){
 					console.log(listOfFilenames[i] + '');
-					stringToParsedEntries += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
+					//stringToParsedEntries += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
 				}
 				console.log(result);
 								
