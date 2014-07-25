@@ -544,6 +544,9 @@ body{
 		margin-top: 13px;
 		width: 99.5%;
 	}
+	#addForm{
+		margin: 20px;
+	}
 
 }
 
