@@ -553,6 +553,9 @@ body{
 	.updateLists{
 		font-size: 16px;
 	}
+	#hrAd{
+		width:100%;
+	}
 }
 
 
