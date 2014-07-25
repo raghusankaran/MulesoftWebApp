@@ -60,7 +60,6 @@
 				for(var i=0; i<dropDownOptions.length; i++){						
 					dropDown.innerHTML += '<option value="'+dropDownOptions[i]+'">'+display(dropDownOptions[i])+'</option>';
 				}
-				
 			}
 			function getRequest(url){
 				var request = new XMLHttpRequest();
@@ -158,6 +157,18 @@
 							<input type="submit" value="Submit"><br>
 						</form>
 					</div>
+				</div>
+
+				<div id='addNewMetricBox'>
+					<form id='addForm' onsubmit=''>
+							<select id="addList" name="checkList">
+								<option value="Test Results">Test Results</option>	
+								<option value="System Resources">System Resources</option>	
+								<option value="JVM">JVM</option>				
+							</select>
+							<input type="text" name="metric">
+							<input type="submit" value="Submit"><br>
+					</form>
 				</div>
 				
 			</div>
