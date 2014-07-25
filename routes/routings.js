@@ -329,7 +329,7 @@ exports.getBuildsByDescription = function(req, res){
 
 	var dList = "";
 	var descriptions ="";
-	var urlToHudson = config.jobHost + '/job/'+ buildName + '/api/json?tree=builds[number,description]'
+	var urlToHudson = config.jobHost + '/job/'+ buildName + '/api/json?tree=builds[number,description,timestamp]'
 
 	request(
     {
