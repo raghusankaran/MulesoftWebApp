@@ -253,7 +253,7 @@
 						jobsList.innerHTML += "<li id='perf"+job+"'>"+job+": </li>";
 					}
 					var jobElement = document.getElementById('perf'+job);
-					jobElement.innerHTML = '<ul>';
+					jobElement.innerHTML += '<ul>';
 					jobElement.innerHTML += '<li>SLA Result: </li>';
 					jobElement.innerHTML += '<li>Current Baseline: </li>';
 					jobElement.innerHTML += '</ul>';
