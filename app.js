@@ -67,6 +67,7 @@ app.get('/getTestOptions', routings.getTestOptions);
 //  -type = type of data
 //app.get('/data/', routings.getData);
 
+app.get('/addTestOption', routings.addTestOption);
 //GET ordered list of job names
 app.get('/getRecentJobs/', routings.getRecentJobs);
 
