@@ -427,7 +427,7 @@ function getAllPerfCIJobs(id){
 	var getFileID = new Promise(function (resolve, reject){
 		var fileID = '';
 		var urlToHudson = config.jobHost + '/job/PERF_CI/'+ id +'/api/json';
-
+		console.log(urlToHudson);
 		//Get ID
 		request(
 	    {
@@ -441,6 +441,7 @@ function getAllPerfCIJobs(id){
 		        if (!error && response.statusCode == 200) {
 		        	var info = JSON.parse(body);	  			
 					fileID = info.id;
+					console.log(fileID);
 					resolve(fileID);
 				}
 				else
@@ -449,6 +450,7 @@ function getAllPerfCIJobs(id){
 	});
 	return new Promise(function (resolve, reject) {
 		getFileID.then(function (fileID){
+			console.log(fileID);
 			//path to logs
 			var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
 
