@@ -48,7 +48,14 @@
 					compareData(test.sla);
 				}
 				else{
-
+					for(var job in perfciInfo){
+						if(perfciInfo.hasOwnProperty(job)){
+							var test = getItems(job);
+							clearCache();
+							cache = perfciInfo[job]['SingularData'];
+							compareData(test.sla);
+						}
+					}
 				}
 					
 			}
