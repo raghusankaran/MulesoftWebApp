@@ -574,7 +574,7 @@ exports.getParsedData = function(req, res){
 					subResult['GraphData'] = plots;
 					console.log(perfJobName);
 					result[perfJobName] = subResult;
-					console.log(listOfJobPaths.length);
+					console.log(listOfJobPaths[0]+'\n'+listOfJobPaths[1]);
 
 				}
 
