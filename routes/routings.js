@@ -461,7 +461,7 @@ function getAllPerfCIJobs(id){
 
 				for(var i=0; i<listOfFilenames.length; i++){
 					console.log(listOfFilenames[i]);
-					result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
+					result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs/' +listOfFilenames[i] + '/parsed,';
 				}
 				console.log(result);
 								
@@ -489,7 +489,7 @@ exports.getParsedData = function(req, res){
 			var listOfJobPaths = stringOfPaths.split(',');
 			listOfJobPaths.pop();
 			for(var i=0; i<listOfJobPaths.length; i++){
-				var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].lastIndexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
+				var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
 				result[''+ perfJobName] = {};
 				//XXXXXX
 				var subResult = {};
