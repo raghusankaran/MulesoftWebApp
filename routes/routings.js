@@ -578,10 +578,11 @@ exports.getParsedData = function(req, res){
 					//result[perfJobName] = subResult;
 					result[perfJobName] = subResult;
 					subResult = {};
-
+					console.log(i);
 				}
-				
+				console.log(i);
 			}
+			console.log(i);
 			console.log(listOfJobPaths[0]+'\n'+listOfJobPaths[1]);
 			console.log(result);
 			res.send(result);
