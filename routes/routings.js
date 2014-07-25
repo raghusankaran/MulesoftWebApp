@@ -494,7 +494,7 @@ exports.getParsedData = function(req, res){
 				//XXXXXX
 				var subResult = {};
 				path = listOfJobPaths[i];
-
+				console.log(path);
 				//ERROR CASE:
 				if(path.indexOf('parsed') < 0){
 					subResult['SingularData'] = {  
