@@ -14,39 +14,6 @@
 		
 		var baseResults =[];
 		var cache = {
-						'duration': '',
-
-				        'cpu use': [],
-				        'cpu iowait': [],
-				        'cpu steal': [],
-
-			 		    'mem use': [],
-			 		    'mem kbcache': [],
-			 		    'mem kbbuffers': [],
-			         
-			  			'disk util': [],
-			  	        'disk await': [],
-			  		    'disk tps': [],
-			  			'disk rd_sec': [],
-			  			'disk wr_sec': [],
-			  		  
-			  		  	'network used': [],
-			  			'network txkB': [],
-			  			'network rxkB': [],
-			  		  
-			            'paging pgpgin': [],
-			            'paging pgpgout': [],
-			            'paging fault': [],
-			            'paging majflt': [],
-			            'paging pgpgin': [],
-			            'paging pgfree': [],
-			            'paging pgscank': [],
-			            'paging pgscand': [],
-			            'paging pgsteal': [],
-			            'paging vmef': [],
-			  		  
-			  			'swap in': [],
-			  			'swap out': []
 			};
 
 		var perfciInfo = {};
@@ -74,11 +41,16 @@
 
 			}	
 			function evaluateJob(jobName,buildID){
-				var test = getItems(jobName);
-				clearCache();
-				fetchData(jobName, buildID);
-				compareData('sla', test.sla);
-				
+				if(jobName != 'PERF_CI'){
+					var test = getItems(jobName);
+					clearCache();
+					fetchData(jobName, buildID);
+					compareData(test.sla);
+				}
+				else{
+
+				}
+					
 			}
 
 			function getResultPreviews(){
@@ -95,7 +67,7 @@
 			    return true;
 			}
 
-			function compareData(type,jsonObj){
+			function compareData(jsonObj){
 
 				var passed = 'Passed';
 				if(isEmpty(jsonObj)){
@@ -120,9 +92,9 @@
 						}
 					}
 				}
-				if(type == 'sla'){
+				
 					slaResults[slaResults.length] = passed;
-				}
+				
 				
 
 			}
@@ -130,9 +102,9 @@
 				var requestedData = getData(jobName, buildID);
 				for(var section in requestedData){
 					if(requestedData.hasOwnProperty(section)){
-						for(var metric in requestedData.section){
-							if(requestedData.section.hasOwnProperty(metric)){
-								cache[metric] = requestedData.section.metric;
+						for(var metric in requestedData[section]){
+							if(requestedData[section].hasOwnProperty(metric)){
+								cache[metric] = requestedData[section][metric];
 							}
 						}
 					}
