@@ -76,7 +76,7 @@ exports.deleteJobTest = function(req, res){
 		}
 
 	});	
-	res.redirect('/update?job=' + req.query.job + '&id='+req.query.id);
+	res.redirect('/update?job=' + req.query.job );
 };
 
 
@@ -166,7 +166,7 @@ exports.addJobTest = function(req, res){
 		}
 
 	});	
-	res.redirect('/update?job=' + req.query.job + '&id=' + req.query.id);
+	res.redirect('/update?job=' + req.query.job);
 };
 
 
