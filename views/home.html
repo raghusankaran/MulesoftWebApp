@@ -76,10 +76,31 @@
 				else{
 					for(var key in jsonObj){
 						if(jsonObj.hasOwnProperty(key)){
-							var dataID = key;
+							var type = key.substring(key.indexOf('(')+1, key.indexOf(')')).replace(' ', '_');
+							var dataID = key.substring(key.indexOf(')')+2).replace(' ','_');
 							var min = parseFloat(jsonObj[key][0]);
 							var max = parseFloat(jsonObj[key][1]);
-							var data = cache[dataID];
+
+							var data = 0;
+							if(type = 'System_Resources'){
+								var serverResults = [];
+								for(var metric in cache['System_Resources']){
+									if(cache['System_Resources'].hasOwnProperty(metric)){
+										var metricID = metric.substring(metric.indexOf(':')+1,metric.lastIndexOf(':'));
+										if(metricID == dataID)
+											serverResults.push(cache['System_Resources'][metric][0]);
+									}
+								}
+								if(serverResults.length == 2){
+									data = Math.max(parseFloat(serverResults[0]),parseFloat(serverResults[1]));
+								}
+								else
+									data = serverResults[0];
+							}
+							else{
+								data = cache[type][dataID][0];
+							}
+
 							if(data != null){	
 								var result = parseFloat(data);
 								if(min > result || max < result){
@@ -99,16 +120,8 @@
 
 			}
 			function fetchData(jobName, buildID){
-				var requestedData = getData(jobName, buildID);
-				for(var section in requestedData){
-					if(requestedData.hasOwnProperty(section)){
-						for(var metric in requestedData[section]){
-							if(requestedData[section].hasOwnProperty(metric)){
-								cache[metric] = requestedData[section][metric];
-							}
-						}
-					}
-				}
+				cache = getData(jobName, buildID);
+				
 			}
 
 			function getData(jobName, idNum){
