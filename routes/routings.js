@@ -447,31 +447,28 @@ function getAllPerfCIJobs(id){
 					resolve('');
 		});
 	});
-	getFileID.then(function (fileID){
-		//path to logs
-		var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
+	return new Promise(functon (resolve, reject){
+		getFileID.then(function (fileID){
+			//path to logs
+			var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
 
-		var listOfFilenames = [];
-		var result = '';
-		try{
-			listOfFilenames = fs.readdirSync(path);	
-			for(var i=0; i<listOfFilenames; i++){
-				result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
+			var listOfFilenames = [];
+			var result = '';
+			try{
+				listOfFilenames = fs.readdirSync(path);	
+				for(var i=0; i<listOfFilenames; i++){
+					result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
+				}
+								
+			}catch(err){
+
 			}
-							
-		}catch(err){
-
-		}
-		//access all the TXT bodies of the filenames
-		//For all the files in the directory
-		if(result != ''){
-
-			var n = result.split(',');
-			n.pop();
-			return n;
-		}
-		return [];
+			//access all the TXT bodies of the filenames
+			//For all the files in the directory
+			resolve(result);
+		});
 	});
+		
 }
 
 
@@ -481,95 +478,100 @@ exports.getParsedData = function(req, res){
 	var jobName = req.query.jobName;
 	var result ={};
 	if(jobName == 'PERF_CI'){
-		var listOfJobPaths = getAllPerfCIJobs(id);
+		var perfPromise = getAllPerfCIJobs(id);
+		perfPromise.then( function (stringOfPaths){
+			
+			var listOfJobPaths = stringOfPaths.split(',');
+			listOfJobPaths.pop();
+			for(var i=0; i<listOfJobPaths.length; i++){
+				var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
+				result[''+ perfJobName] = {};
+				//XXXXXX
+				var subResult = {};
+				path = listOfJobPaths[i];
 
-		for(var i=0; i<listOfJobPaths.length; i++){
-			var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
-			result[''+ perfJobName] = {};
-			//XXXXXX
-			var subResult = {};
-			path = listOfJobPaths[i];
-
-			//ERROR CASE:
-			if(path.indexOf('parsed') < 0){
-				subResult['SingularData'] = {  
-											'Summary': {}, 
-											'Test_Results': {}, 
-											'System_Resources': {}, 
-											'JVM': {}
-										 };
-				result[perfJobName] = subResult;
-			}
-			else{
-				//Create object 'summary'
-				var summary = {};
-				//Access Summary directory
-				var summaryElements = getMetricsInFolder(path + 'Summary');
-				//FOR every file in the directory
-				for(var i in summaryElements){
-					//summary[filename] = txtbody			
-					summary[summaryElements[i].filename] = summaryElements[i].data[0];
+				//ERROR CASE:
+				if(path.indexOf('parsed') < 0){
+					subResult['SingularData'] = {  
+												'Summary': {}, 
+												'Test_Results': {}, 
+												'System_Resources': {}, 
+												'JVM': {}
+											 };
+					result[perfJobName] = subResult;
 				}
-				//Create object test_results
-				var test_results = {};
-				//Access Test_Results directory	
-				var testElements = getMetricsInFolder(path + 'Test_Results');
-				//FOR every file in the directory
-				for(var i in testElements){
-					//test_results[filename] = txtbody
-					test_results[testElements[i].filename] = testElements[i].data;
-				}
+				else{
+					//Create object 'summary'
+					var summary = {};
+					//Access Summary directory
+					var summaryElements = getMetricsInFolder(path + 'Summary');
+					//FOR every file in the directory
+					for(var i in summaryElements){
+						//summary[filename] = txtbody			
+						summary[summaryElements[i].filename] = summaryElements[i].data[0];
+					}
+					//Create object test_results
+					var test_results = {};
+					//Access Test_Results directory	
+					var testElements = getMetricsInFolder(path + 'Test_Results');
+					//FOR every file in the directory
+					for(var i in testElements){
+						//test_results[filename] = txtbody
+						test_results[testElements[i].filename] = testElements[i].data;
+					}
+						
 					
-				
-				//Create object 'system_resources'
-				var system_resources = {};
-				//Access System_Resources directory
-				var sysElements = getMetricsInFolder(path + 'System_Resources');
-				//FOR every file in the directory
+					//Create object 'system_resources'
+					var system_resources = {};
+					//Access System_Resources directory
+					var sysElements = getMetricsInFolder(path + 'System_Resources');
+					//FOR every file in the directory
 
-				for(var i in sysElements){
-					//system_resources[filename] = txtbody
-					system_resources[sysElements[i].filename] = sysElements[i].data;
+					for(var i in sysElements){
+						//system_resources[filename] = txtbody
+						system_resources[sysElements[i].filename] = sysElements[i].data;
+					}
+					
+					
+					//Create object jvm
+					var jvm = {};
+					//Access JVM directory
+					var jvmElements = getMetricsInFolder(path + 'JVM');
+					//FOR every file in the directory
+					for(var i in jvmElements){
+						//jvm[filename] = txtbody
+						jvm[jvmElements[i].filename] = jvmElements[i].data;
+					}
+
+					var plots = {};
+
+					var plotElements = getMetricsInFolder(path+'PlotData');
+
+					//FOR every file in the directory
+					for(var i in plotElements){
+						//plot[filename] = txtbody
+						plots[plotElements[i].filename] = plotElements[i].data;
+					}
+
+
+					
+					//Compile all objects ---
+					
+					subResult['SingularData'] = {  
+												'Summary': summary, 
+												'Test_Results': test_results, 
+												'System_Resources': system_resources, 
+												'JVM': jvm
+											};
+					subResult['GraphData'] = plots;
+					result[perfJobName] = subResult;
 				}
-				
-				
-				//Create object jvm
-				var jvm = {};
-				//Access JVM directory
-				var jvmElements = getMetricsInFolder(path + 'JVM');
-				//FOR every file in the directory
-				for(var i in jvmElements){
-					//jvm[filename] = txtbody
-					jvm[jvmElements[i].filename] = jvmElements[i].data;
-				}
 
-				var plots = {};
-
-				var plotElements = getMetricsInFolder(path+'PlotData');
-
-				//FOR every file in the directory
-				for(var i in plotElements){
-					//plot[filename] = txtbody
-					plots[plotElements[i].filename] = plotElements[i].data;
-				}
-
-
-				
-				//Compile all objects ---
-				
-				subResult['SingularData'] = {  
-											'Summary': summary, 
-											'Test_Results': test_results, 
-											'System_Resources': system_resources, 
-											'JVM': jvm
-										};
-				subResult['GraphData'] = plots;
-				result[perfJobName] = subResult;
 			}
 
-		}
-
-		res.send(result);
+			res.send(result);
+		});
+		
 	}
 	else{
 		//FIND the parsed directory's path
