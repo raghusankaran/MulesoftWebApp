@@ -310,14 +310,14 @@
 					document.getElementById('mainRes' ).className = 'greenText';
 				else if(main.result == null){
 					document.getElementById('mainRes').className = 'yellowText';
-					document.getElementById('mainRes').innerHTML = 'In progress...'
+					document.getElementById('mainRes').innerHTML = 'In progress...';
+					var archive = JSON.parse(getRequest(config.getBuildsByDescription+ 'PERF_CI'))['builds'];
+					var nextBest = archive[archive.length-2].number;
+					document.getElementById('mainNum').innerHTML = '#'+ nextBest;
 				}
 				else
 					document.getElementById('mainRes').className = 'redText';
 
-				var slaResult = document.getElementById('slaMain');
-				
-				var baseResult = document.getElementById('baseMain');
 				getResultPreviews();
 
 
@@ -352,6 +352,9 @@
 					else if(recents[i].result == null){
 						document.getElementById('jobRes'+ (i+1)).className = 'yellowText';
 						document.getElementById('jobRes'+ (i+1)).innerHTML = 'In progress...'
+						var archive = JSON.parse(getRequest(config.getBuildsByDescription+ recents[i].name))['builds'];
+						var nextBest = archive[archive.length-2].number;
+						document.getElementById('jobNum'+(i+1)).innerHTML = '#'+ nextBest;
 					}
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
