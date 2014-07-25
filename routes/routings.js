@@ -489,8 +489,8 @@ exports.getParsedData = function(req, res){
 			var listOfJobPaths = stringOfPaths.split(',');
 			listOfJobPaths.pop();
 			
-			for(var i=0; i<20; i++){
-				
+			for(var i=0; i<listOfJobPaths.length; i++){
+				console.log('BOOP!');
 				var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
 				result[''+ perfJobName] = {};
 				//XXXXXX
