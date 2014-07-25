@@ -493,7 +493,7 @@ exports.getParsedData = function(req, res){
 				result[''+ perfJobName] = {};
 				//XXXXXX
 				var subResult = {};
-				path = listOfJobPaths[i];
+				var path = listOfJobPaths[i];
 				console.log(path);
 				//ERROR CASE:
 				if(path.indexOf('parsed') < 0){
@@ -573,10 +573,10 @@ exports.getParsedData = function(req, res){
 				}
 
 			}
-
+			res.send(result);
 			
 		});
-		res.send(result);
+		
 	}
 	else{
 		//FIND the parsed directory's path
