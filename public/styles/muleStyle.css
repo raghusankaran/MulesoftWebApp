@@ -341,6 +341,7 @@ body{
 	.grayText{color:#4F4F4F;}
 	.whiteText{color:white;}
 	.yellowText{color:yellow;}
+	.cyanText{color:cyan;}
 	.dataResults{
 		position: relative;
 		left: 50px;
