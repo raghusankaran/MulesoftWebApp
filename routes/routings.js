@@ -214,6 +214,7 @@ exports.getTestOptions = function(req, res){
 exports.addTestOption = function(req, res){
 	var path = config.testFilesPath + 'LIST.txt';
 	var type = req.body.addList;
+	 console.log(body);
 	var metric = req.body.metric;
 	var option = '(' + type +') '+ metric;
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
