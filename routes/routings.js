@@ -178,7 +178,20 @@ exports.getTestMetrics = function(req, res){
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
 	{
 		if(str == null){
-			res.send(null);
+			var jsonObj = {
+				"sla":{},
+				"baseline":'-1'
+			};
+			jsonObj['sla'][metricID] = [min,max];
+			var data = JSON.stringify(jsonObj);
+			fs.writeFile(path, data, function(err) {
+			    if(err) {
+			        console.log(err);
+			    } else {
+			        console.log("The file was saved!");
+			    }
+			});
+			res.send(data);
 		}
 		else
 			res.send(str);
