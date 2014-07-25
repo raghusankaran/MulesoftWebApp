@@ -175,15 +175,19 @@
 
 				for(var i = 0; i <  info.jobs.length; i++){
 
-					if(info.jobs[i].lastBuild != null){
+					if(info.jobs[i].lastBuild != null ){
+						if( info.jobs[i].name != 'PERF_CI')	{
+							data[data.length] = {'name': info.jobs[i].name, 
+												 'id': info.jobs[i].lastBuild.number,
+												 'time': info.jobs[i].lastBuild.timestamp,
+												 'result': info.jobs[i].lastBuild.result};
+						}
 
-						data[data.length] = {'name': info.jobs[i].name, 
-											 'id': info.jobs[i].lastBuild.number,
-											 'time': info.jobs[i].lastBuild.timestamp,
-											 'result': info.jobs[i].lastBuild.result};
-
-						if(data[data.length-1].name == 'PERF_CI'){
-							main = data[data.length-1];
+						else{
+							main = {'name': info.jobs[i].name, 
+												 'id': info.jobs[i].lastBuild.number,
+												 'time': info.jobs[i].lastBuild.timestamp,
+												 'result': info.jobs[i].lastBuild.result};
 							buildIds[buildIds.length] = [main.name, main.id];
 						}
 					}					 
