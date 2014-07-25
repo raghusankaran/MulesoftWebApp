@@ -86,7 +86,7 @@
 								var serverResults = [];
 								for(var metric in cache['System_Resources']){
 									if(cache['System_Resources'].hasOwnProperty(metric)){
-										var metricID = metric.substring(metric.indexOf(':')+1,metric.lastIndexOf(':'));
+										var metricID = metric.substring(metric.indexOf(':')+1);
 										if(metricID == dataID)
 											serverResults.push(cache['System_Resources'][metric][0]);
 									}
