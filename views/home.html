@@ -353,12 +353,14 @@
 						document.getElementById('jobRes'+ (i+1)).className = 'yellowText';
 						document.getElementById('jobRes'+ (i+1)).innerHTML = 'In progress...';
 						var archive = JSON.parse(getRequest(config.getBuildsByDescription+ recents[i].name));
-						var nextBestNumber = archive.builds[1].number;
-						var nextBestTimestamp = archive.builds[1].timestamp;
-						document.getElementById('jobNum'+(i+1)).innerHTML = '#'+ nextBestNumber;
-						document.getElementById('jobLink' + (i+1)).href += '&id='+nextBestNumber;
-						var newDate = new Date(parseFloat(nextBestTimestamp)-28800000);
-						document.getElementById('jobDate' + (i+1)).innerHTML = (newDate.toUTCString()).substring(0,newDate.toUTCString().length-3);
+						if(archive.builds.length > 1){
+							var nextBestNumber = archive.builds[1].number;
+							var nextBestTimestamp = archive.builds[1].timestamp;
+							document.getElementById('jobNum'+(i+1)).innerHTML = '#'+ nextBestNumber;
+							document.getElementById('jobLink' + (i+1)).href += '&id='+nextBestNumber;
+							var newDate = new Date(parseFloat(nextBestTimestamp)-28800000);
+							document.getElementById('jobDate' + (i+1)).innerHTML = (newDate.toUTCString()).substring(0,newDate.toUTCString().length-3);
+						}
 					}
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
