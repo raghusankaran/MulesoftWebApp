@@ -355,7 +355,7 @@
 						var archive = JSON.parse(getRequest(config.getBuildsByDescription+ recents[i].name))['builds'];
 						var nextBest = archive[1].number;
 						document.getElementById('jobNum'+(i+1)).innerHTML = '#'+ nextBest;
-						document.getElementById('jobLink' + (i+1)).href += nextBest;
+						document.getElementById('jobLink' + (i+1)).href += '&id='nextBest;
 					}
 					else
 						document.getElementById('jobRes'+ (i+1)).className = 'redText';
