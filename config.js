@@ -22,6 +22,7 @@ var config = {
 	test: urlPath + 'testing',
 	getParsedData: urlPath+'getParsedData/?jobName=',
 	getBuildsByDescription: urlPath+'getBuildsByDescription/?build='
+	getTestOptions: urlPath+'getTestOptions/'
 };
 
 module.exports.config = config;

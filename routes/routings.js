@@ -192,6 +192,20 @@ exports.getTestMetrics = function(req, res){
 	
 };
 
+//GET all the job names
+exports.getTestOptions = function(req, res){
+	var path = config.testFilesPath + 'LIST.txt';
+	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
+	{
+		if(str == null){
+			res.send(null);
+		}
+		else
+			res.send(str);
+	});	
+};
+
+
 //GET builds in order of timestamp
 exports.getRecentJobs = function(req, res){
 	var dList = "";

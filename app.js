@@ -60,6 +60,7 @@ app.get('/updateBaseline', routings.updateBaseline);
 //GET all the build names
 app.get('/retrieveBuilds/', routings.getBuildNames);
 
+app.get('/getTestOptions/', routings.getTestOptions);
 //GET a specific set of data using the following inputs:
 //	-job = name of job
 //  -id  = name of build
