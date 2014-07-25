@@ -574,11 +574,11 @@ exports.getParsedData = function(req, res){
 					console.log(perfJobName);
 					result[perfJobName] = subResult;
 					console.log(listOfJobPaths.length);
+					continue;
 				}
 
 			}
-			
-			
+			res.send(result);
 		});
 		
 	}
