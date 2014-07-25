@@ -489,13 +489,13 @@ exports.getParsedData = function(req, res){
 			var listOfJobPaths = stringOfPaths.split(',');
 			listOfJobPaths.pop();
 			
-			for(var i=0; i<listOfJobPaths.length; i++){
+			for(var j=0; j<listOfJobPaths.length; j++){
 				console.log('BOOP!');
-				var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
+				var perfJobName = listOfJobPaths[j].substring(listOfJobPaths[j].indexOf('logs/')+5,listOfJobPaths[j].indexOf('/parsed'));
 				result[''+ perfJobName] = {};
 				//XXXXXX
 				var subResult = {};
-				var path = listOfJobPaths[i];
+				var path = listOfJobPaths[j];
 				console.log(path);
 
 				//ERROR CASE:
@@ -578,11 +578,11 @@ exports.getParsedData = function(req, res){
 					//result[perfJobName] = subResult;
 					result[perfJobName] = subResult;
 					subResult = {};
-					console.log(i);
+					
 				}
-				console.log(i);
+			
 			}
-			console.log(i);
+			
 			console.log(listOfJobPaths[0]+'\n'+listOfJobPaths[1]);
 			console.log(result);
 			res.send(result);
