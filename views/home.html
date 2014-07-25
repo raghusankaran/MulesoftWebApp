@@ -245,11 +245,11 @@
 					}
 					var jobElement = document.getElementById('perf'+job);
 					var str = '<ul>';
-					str += '<li>SLA Check: </li>';
-					str += '<li>Current Baseline: </li>';
+					str += '<li>SLA Check: <span id="perfSLA'+job+'"></span> <a href="'+config.update+job'">Edit</a></li>';
+					str += '<li>Current Baseline: <span id="perfBase'+job+'"></span></li>';
 					str += '</ul>';
 					jobElement.innerHTML +=str;
-				}				
+				}
 
 			}
 
