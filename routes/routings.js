@@ -42,15 +42,13 @@ exports.deleteJobTest = function(req, res){
 	
 	
 	var filename = req.query.job + '.sla';
-	var type = req.query.type;
+	
 	path = config.testFilesPath + filename;
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
 	{
 		if(str == null){
 			var jsonObj = {
 				"sla":{},
-				"prev":{},
-				"base":{},
 				"baseline":'-1'
 			};
 			
@@ -65,9 +63,8 @@ exports.deleteJobTest = function(req, res){
 		}
 		else{
 			var data = JSON.parse(str);
-			console.log('trying to delete: '+type + ' | ' + metricID);
 			console.log(data);
-			delete data[type][metricID];
+			delete data['sla'][metricID];
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
@@ -137,18 +134,15 @@ exports.addJobTest = function(req, res){
 	var max = req.body.max;
 
 	var filename = req.query.job + '.sla';
-	var type = req.query.type;
 	path = config.testFilesPath + filename;
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
 	{
 		if(str == null){
 			var jsonObj = {
 				"sla":{},
-				"prev":{},
-				"base":{},
 				"baseline":'-1'
 			};
-			jsonObj[type][metricID] = [min,max];
+			jsonObj['sla'][metricID] = [min,max];
 			var data = JSON.stringify(jsonObj);
 			fs.writeFile(path, data, function(err) {
 			    if(err) {
@@ -160,7 +154,7 @@ exports.addJobTest = function(req, res){
 		}
 		else{
 			var data = JSON.parse(str);
-			data[type][metricID] = [min, max];
+			data['sla'][metricID] = [min, max];
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
