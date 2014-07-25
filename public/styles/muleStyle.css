@@ -547,6 +547,9 @@ body{
 	#addForm{
 		margin: 20px;
 	}
+	#delForm{
+			margin-left: 20px;
+	}
 
 }
 
