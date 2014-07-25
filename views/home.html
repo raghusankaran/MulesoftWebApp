@@ -250,8 +250,13 @@
 				for(var job in perfciInfo){
 					if(perfciInfo.hasOwnProperty(job)){
 						//XXXX
-						jobsList.innerHTML += "<li id='perf'"+job+">"+job+": </li>";
+						jobsList.innerHTML += "<li id='perf"+job+"'>"+job+": </li>";
 					}
+					var jobElement = document.getElementById('perf'+job);
+					jobElement.innerHTML = '<ul>';
+					jobElement.innerHTML += '<li>SLA Result: </li>';
+					jobElement.innerHTML += '<li>Current Baseline: </li>';
+					jobElement.innerHTML += '</ul>';
 				}				
 
 			}
@@ -294,7 +299,7 @@
 
 				//FILL MAIN PERF_CI 
 
-				fillMain()
+				fillMain();
 
 				//******************************************************************
 				//RECENTS!!!!
