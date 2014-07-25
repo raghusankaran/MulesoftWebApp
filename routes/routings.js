@@ -274,316 +274,6 @@ exports.getBuildsByDescription = function(req, res){
 	);
 };
 
-// //GET a specific set of data using the following inputs:
-// //	-job = name of job
-// //  -id  = name of build
-// //  -type = type of data
-// exports.getData = function(req, res){
-// 	var id = req.query.id;
-// 	var job = req.query.job;
-// 	var type = req.query.type;
-
-// 	var fileID = '';
-// 	var urlToHudson = config.jobHost + '/job/'+job+'/'+ id +'/api/json';
-
-// 	//Get ID
-// 	request(
-//     {
-//         url : urlToHudson,
-//         headers : {
-//             "Authorization" : auth
-//         }
-//     },
-// 	    function (error, response, body) {
-	    	
-// 	        if (!error && response.statusCode == 200) {
-// 	        	var info = JSON.parse(body);	  			
-// 				fileID = info.id;		
-			
-	    	
-// 				var path = config.hudsonPath+job+'/builds/'+fileID+'/archive/';
-// 				var relative = 'ERROR';
-// 				//
-// 				for(var i=0; i < info.artifacts.length; i++){
-// 					//
-// 					if(info.artifacts[i].fileName.indexOf('sar.cpuusage') >= 0){
-// 						relative = info.artifacts[i].relativePath.substring(0,info.artifacts[i].relativePath.length-16);
-// 						break;
-// 					}
-// 				}
-// 				if(relative == 'ERROR'){
-// 					res.send('Bad build');
-// 				}
-// 				else{
-// 					path+=relative;
-// 					//
-// 					if(type.indexOf('cpu') >=0)
-// 					{	
-// 						var nameOfFile = 'sar.cpuusage.out';
-// 						//
-// 						if(type.indexOf('use') >=0){	
-// 							fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 							{
-								
-// 								var locateStart = str.indexOf('%idle');
-// 								str = str.substring(locateStart+5);
-// 								var dataSet = str.match(/\s\s\d+\.\d+/g);
-// 								//usr + nice + sys + irq 
-// 								var data = '';
-								
-// 								var jump = 9;
-// 								for(var i = 0; i < dataSet.length; i+= jump)
-// 								{
-// 									data += (parseFloat(dataSet[i]) + parseFloat(dataSet[i+1]) + parseFloat(dataSet[i+2]) + parseFloat(dataSet[i+5]))+',';
-// 								}
-// 								res.send(data);
-// 							});					
-// 						}
-// 						else if(type.indexOf('iowait') >=0){
-// 							fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 							{
-								
-// 								var locateStart = str.indexOf('%idle');
-// 								str = str.substring(locateStart+5);
-// 								var dataSet = str.match(/\s\s\d+\.\d+/g);
-// 								//usr + nice + sys + irq 
-// 								var data = '';
-								
-// 								var jump = 9;
-// 								for(var i = 0; i < dataSet.length; i+= jump)
-// 								{
-// 									data += dataSet[i+3]+',';
-// 								}
-// 								res.send(data);
-// 							});	
-
-// 						}
-// 						else if(type.indexOf('steal') >=0){
-// 							fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 							{
-								
-// 								var locateStart = str.indexOf('%idle');
-// 								str = str.substring(locateStart+5);
-// 								var dataSet = str.match(/\s\s\d+\.\d+/g);
-// 								//usr + nice + sys + irq 
-// 								var data = '';
-								
-// 								var jump = 9;
-// 								for(var i = 0; i < dataSet.length; i+= jump)
-// 								{
-// 									data += dataSet[i+4]+',';
-// 								}
-// 								res.send(data);
-// 							});	
-// 						}
-// 					}
-// 					else if(type.indexOf('mem') >=0)
-// 					{	
-// 						var nameOfFile = 'sar.memutil.out';
-// 						if(type.indexOf('use') >=0){
-							
-// 							//
-// 							fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 							{
-								
-// 								var locateStart = str.indexOf('%commit');
-// 								str = str.substring(locateStart+7);
-// 								var dataSet = str.match(/\s\s\d+(\.)?\d+/g);
-// 								//usr + nice + sys + irq 
-// 								var data = '';
-								
-// 								var jump = 7;
-// 								for(var i = 0; i < dataSet.length; i+= jump)
-// 								{
-// 									data += dataSet[i+2]+',';
-// 								}
-// 								res.send(data);
-// 							});	
-// 						}
-// 						else if(type.indexOf('kbcache') >=0){
-// 							fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 							{
-								
-// 								var locateStart = str.indexOf('%commit');
-// 								str = str.substring(locateStart+7);
-// 								var dataSet = str.match(/\s\s\d+(\.)?\d+/g);
-// 								//usr + nice + sys + irq 
-// 								var data = '';
-								
-// 								var jump = 7;
-// 								for(var i = 0; i < dataSet.length; i+= jump)
-// 								{
-// 									data += dataSet[i+4]+',';
-// 								}
-// 								res.send(data);
-// 							});
-// 						}
-// 						else if(type.indexOf('kbbuffers') >=0){
-// 							fs.readFile(path+nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 							{
-								
-// 								var locateStart = str.indexOf('%commit');
-// 								str = str.substring(locateStart+7);
-// 								var dataSet = str.match(/\s\s\d+(\.)?\d+/g);
-// 								//usr + nice + sys + irq 
-// 								var data = '';
-								
-// 								var jump = 7;
-// 								for(var i = 0; i < dataSet.length; i+= jump)
-// 								{
-// 									data += dataSet[i+3]+',';
-// 								}
-// 								res.send(data);
-// 							});
-// 						}						
-// 					}
-
-// 					else if(type.indexOf('disk') >=0){
-// 						var nameOfFile = 'sar.device.out';
-						
-// 						fs.readFile(path + nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 						{			
-// 							var temp = str.match(/\s\d+\.\d\d/g);
-// 							var data = '';
-// 							if(type.indexOf('util') >=0){
-// 								for(var i = 0; i < temp.length; i++){
-// 									if((i+1) % 8 == 0){
-// 										data += temp[i]+',';
-// 									}
-// 								}
-// 							}
-
-// 							else if(type.indexOf('await') >=0){
-// 								for(var i = 0; i < temp.length; i++){
-// 									if((i+1) % 8 == 6){
-// 										data += temp[i]+',';
-// 									}
-// 								}
-// 							}
-// 							else if(type.indexOf('tps') >=0){
-// 								for(var i = 0; i < temp.length; i++){
-// 									if((i+1) % 8 == 1){
-// 										data += temp[i]+',';
-// 									}
-// 								}
-
-// 							}
-// 							else if(type.indexOf('wr_sec') >=0){
-								
-// 								for(var i = 0; i < temp.length; i++){
-// 									if((i+1 )% 8 == 3){
-// 										data += temp[i]+',';
-// 									}
-// 								}
-// 							}
-// 							else if(type.indexOf('rd_sec') >=0){
-								
-// 								for(var i = 0; i < temp.length; i++){
-// 									if((i+1) % 8 == 2){
-// 										data += temp[i]+',';
-// 									}
-// 								}
-// 							}
-// 							res.send(data);
-
-// 						});
-
-						
-// 					}
-
-// 					else if(type.indexOf('network') >=0){
-// 						var nameOfFile = 'sar.network.DEV.out';
-// 						fs.readFile(path + nameOfFile, {encoding: 'utf-8'}, function(err, str)
-// 						{			
-// 							var temp = str.split(/[^\w)\d]\n/g);
-// 							var subgroups = [];
-// 							temp.splice(0,1);
-// 							var sections = temp.length;
-// 							for(var i = 0; i < temp.length; i++){
-// 								subgroups[subgroups.length] = temp[i].match(/\s\s\d+\.\d+/g);
-// 							}
-// 							var maxTString = '';
-// 							var maxRString = '';
-// 							var len = subgroups[0].length/7;
-							
-// 							temp = str.match(/\s\s\d+\.\d+/g);
-// 							var maxT = 0, maxR=0;
-// 							var dataT = [], dataR = [];
-// 							for(var i = 0; i <  temp.length; i++){
-// 								if((i+1) % 7 == 4)
-// 								{
-// 									dataT[dataT.length] = temp[i];
-// 								}
-// 								else if((i+1) % 7 == 3 ){
-// 									dataR[dataR.length] = temp[i];
-// 								}
-// 							}
-// 							var maxRSet = [];
-// 							var maxTSet = [];
-// 							var count = 0;
-// 							for(var k = 0; k < dataT.length; k++){
-// 								if(count == len ){
-// 									maxTSet[maxTSet.length] = ''+ maxT;
-// 									maxTString += maxT +',';
-// 									maxT = 0;
-// 									count = 0;
-// 								}
-								
-// 								if(maxT < dataT[k]){
-// 									maxT = dataT[k];	
-// 								}
-// 								count++;
-								
-// 							}
-// 							count = 0;
-// 							for(var k = 0; k < dataR.length; k++){
-// 								if(count == len ){
-// 									maxRSet[maxRSet.length] = maxR;
-// 									maxRString += maxR +',';
-// 									maxR = 0;
-// 									count = 0;
-// 								}
-								
-// 								if(maxR < dataR[k]){
-// 									maxR = dataR[k];	
-// 								}
-// 								count++;
-								
-// 							}
-// 							var data = '';
-// 							if(type.indexOf('used') >=0){
-// 								data = '';
-// 								for(var i = 0; i < maxRSet.length; i++){
-// 									var temp = Math.max(maxRSet[i], maxTSet[i]);
-// 									temp = (((temp * 8 ) / 1024 )/ 102.4);
-// 									data += temp + ',';
-// 								}
-// 								res.send(data);
-// 							}
-// 							else if(type.indexOf('txkB') >=0){
-// 								res.send(maxTString);
-// 							}
-// 							else if(type.indexOf('rxkB') >=0){
-// 								res.send(maxRString);
-// 							}
-							
-// 						});
-						
-// 					}
-
-// 					else if(type.indexOf('duration') >=0){
-// 						res.send(''+ info.duration);
-// 					}
-
-// 					else{
-// 						res.send('');
-						
-// 					}
-// 				}
-// 			}
-// 	});
-// };
-
 
 //GETREQUEST to Hudson for all relative names in /archive
 		//LINK: ?tree=artifacts[relativePath]
@@ -655,6 +345,8 @@ function getPathToParsed(jobName, buildID){
 		});
 	});
 }
+
+
 
 // Let us generalize how we read the directories that contain our TXT Files
 //End result is an array of objects that represent the metric files 
@@ -729,133 +421,279 @@ function fileToObject(pathToFile){
 	return fileObj;
 }
 
+//returns an array of all the job names in the logs folder
+function getAllPerfCIJobs(id){
+
+	var getFileID = new Promise(function (resolve, reject){
+		var fileID = '';
+		var urlToHudson = config.jobHost + '/job/PERF_CI/'+ id +'/api/json';
+
+		//Get ID
+		request(
+	    {
+	        url : urlToHudson,
+	        headers : {
+	            "Authorization" : auth
+	        }
+	    },
+		    function (error, response, body) {
+		    	
+		        if (!error && response.statusCode == 200) {
+		        	var info = JSON.parse(body);	  			
+					fileID = info.id;
+					resolve(fileID);
+				}
+				else
+					resolve('');
+		});
+	});
+	getFileID.then(function (fileID){
+		//path to logs
+		var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
+
+		var listOfFilenames = [];
+		var result = '';
+		try{
+			listOfFilenames = fs.readdirSync(path);	
+			for(var i=0; i<listOfFilenames; i++){
+				result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs' +listOfFilenames[i] + '/parsed,';
+			}
+							
+		}catch(err){
+
+		}
+		//access all the TXT bodies of the filenames
+		//For all the files in the directory
+		if(result != ''){
+
+			var n = result.split(',');
+			n.pop();
+			return n;
+		}
+		return [];
+	});
+}
+
 
 //NEW GETDATA REQUEST
 exports.getParsedData = function(req, res){
 	var id = req.query.id;
 	var jobName = req.query.jobName;
-	//FIND the parsed directory's path
-	var promise = getPathToParsed(jobName, id);
-	//Now that we have a path to PARSED we intend on returning a JSON of data of the following format:
+	var result ={};
+	if(jobName == 'PERF_CI'){
+		var listOfJobPaths = getAllPerfCIJobs(id);
 
-	/*REUTURN : 
-		{
-			SingularData:
-			{
-				Summary: 
-					{
-						Test_Duration_Sec: 313 //Stored in parsed/Summary/Test_Duration_Sec.txt
-					}
+		for(var i=0; i<listOfJobPaths.length; i++){
+			var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
+			result[''+ perfJobName] = {};
+			//XXXXXX
+			var subResult = {};
+			path = listOfJobPaths[i];
+
+			//ERROR CASE:
+			if(path.indexOf('parsed') < 0){
+				subResult['SingularData'] = {  
+											'Summary': {}, 
+											'Test_Results': {}, 
+											'System_Resources': {}, 
+											'JVM': {}
+										 };
+				result[perfJobName] = subResult;
+			}
+			else{
+				//Create object 'summary'
+				var summary = {};
+				//Access Summary directory
+				var summaryElements = getMetricsInFolder(path + 'Summary');
+				//FOR every file in the directory
+				for(var i in summaryElements){
+					//summary[filename] = txtbody			
+					summary[summaryElements[i].filename] = summaryElements[i].data[0];
+				}
+				//Create object test_results
+				var test_results = {};
+				//Access Test_Results directory	
+				var testElements = getMetricsInFolder(path + 'Test_Results');
+				//FOR every file in the directory
+				for(var i in testElements){
+					//test_results[filename] = txtbody
+					test_results[testElements[i].filename] = testElements[i].data;
+				}
 					
-				Test_Results:
-					{
-						Avg_Response_Time: XXX
-						Error_Percent: XXX
-						Max_Response_TIme: XXX
-						Min_Response_TIme: XXX
-						Throughput_TPS: XXX
-					}
-				System_Resources:
-					{
-						Avg_CPU: 36.6
-						XXX: XXX
-					}
 				
-				JVM:
-					{
-						GC_Failure_Count: XXX
-					}
+				//Create object 'system_resources'
+				var system_resources = {};
+				//Access System_Resources directory
+				var sysElements = getMetricsInFolder(path + 'System_Resources');
+				//FOR every file in the directory
+
+				for(var i in sysElements){
+					//system_resources[filename] = txtbody
+					system_resources[sysElements[i].filename] = sysElements[i].data;
+				}
+				
+				
+				//Create object jvm
+				var jvm = {};
+				//Access JVM directory
+				var jvmElements = getMetricsInFolder(path + 'JVM');
+				//FOR every file in the directory
+				for(var i in jvmElements){
+					//jvm[filename] = txtbody
+					jvm[jvmElements[i].filename] = jvmElements[i].data;
+				}
+
+				var plots = {};
+
+				var plotElements = getMetricsInFolder(path+'PlotData');
+
+				//FOR every file in the directory
+				for(var i in plotElements){
+					//plot[filename] = txtbody
+					plots[plotElements[i].filename] = plotElements[i].data;
+				}
+
+
+				
+				//Compile all objects ---
+				
+				subResult['SingularData'] = {  
+											'Summary': summary, 
+											'Test_Results': test_results, 
+											'System_Resources': system_resources, 
+											'JVM': jvm
+										};
+				subResult['GraphData'] = plots;
+				result[perfJobName] = subResult;
 			}
-			
-			GraphData:
+
+		}
+
+		res.send(result);
+	}
+	else{
+		//FIND the parsed directory's path
+		var promise = getPathToParsed(jobName, id);
+
+		//Now that we have a path to PARSED we intend on returning a JSON of data of the following format:
+
+		/*REUTURN : 
 			{
-				CPU_Usage: [12,13,12,10,13, ...] //Stored in parsed/PlotData/CPU_Usage.txt
-				CPU_IO_Wait: [30.013, 30.1, 31.03, ...] //Stored in CPU_IO_Wait.txt
+				SingularData:
+				{
+					Summary: 
+						{
+							Test_Duration_Sec: 313 //Stored in parsed/Summary/Test_Duration_Sec.txt
+						}
+						
+					Test_Results:
+						{
+							Avg_Response_Time: XXX
+							Error_Percent: XXX
+							Max_Response_TIme: XXX
+							Min_Response_TIme: XXX
+							Throughput_TPS: XXX
+						}
+					System_Resources:
+						{
+							Avg_CPU: 36.6
+							XXX: XXX
+						}				
+					JVM:
+						{
+							GC_Failure_Count: XXX
+						}
+				}			
+				GraphData:
+				{
+					CPU_Usage: [12,13,12,10,13, ...] //Stored in parsed/PlotData/CPU_Usage.txt
+					CPU_IO_Wait: [30.013, 30.1, 31.03, ...] //Stored in CPU_IO_Wait.txt
+				}
 			}
-		}
-	*/
-	promise.then(function (path){
-		
+		*/
+		promise.then(function (path){
+			
 
-		var result ={};
-		//ERROR CASE:
-		if(path.indexOf('parsed') < 0){
-			result['SingularData'] = {  
-										'Summary': {}, 
-										'Test_Results': {}, 
-										'System_Resources': {}, 
-										'JVM': {}
-									 };
-			res.send(result);
-		}
-		else{
-			//Create object 'summary'
-			var summary = {};
-			//Access Summary directory
-			var summaryElements = getMetricsInFolder(path + 'Summary');
-			//FOR every file in the directory
-			for(var i in summaryElements){
-				//summary[filename] = txtbody			
-				summary[summaryElements[i].filename] = summaryElements[i].data[0];
+			
+			//ERROR CASE:
+			if(path.indexOf('parsed') < 0){
+				result['SingularData'] = {  
+											'Summary': {}, 
+											'Test_Results': {}, 
+											'System_Resources': {}, 
+											'JVM': {}
+										 };
+				res.send(result);
 			}
-			//Create object test_results
-			var test_results = {};
-			//Access Test_Results directory	
-			var testElements = getMetricsInFolder(path + 'Test_Results');
-			//FOR every file in the directory
-			for(var i in testElements){
-				//test_results[filename] = txtbody
-				test_results[testElements[i].filename] = testElements[i].data;
-			}
+			else{
+				//Create object 'summary'
+				var summary = {};
+				//Access Summary directory
+				var summaryElements = getMetricsInFolder(path + 'Summary');
+				//FOR every file in the directory
+				for(var i in summaryElements){
+					//summary[filename] = txtbody			
+					summary[summaryElements[i].filename] = summaryElements[i].data[0];
+				}
+				//Create object test_results
+				var test_results = {};
+				//Access Test_Results directory	
+				var testElements = getMetricsInFolder(path + 'Test_Results');
+				//FOR every file in the directory
+				for(var i in testElements){
+					//test_results[filename] = txtbody
+					test_results[testElements[i].filename] = testElements[i].data;
+				}
+					
 				
-			
-			//Create object 'system_resources'
-			var system_resources = {};
-			//Access System_Resources directory
-			var sysElements = getMetricsInFolder(path + 'System_Resources');
-			//FOR every file in the directory
+				//Create object 'system_resources'
+				var system_resources = {};
+				//Access System_Resources directory
+				var sysElements = getMetricsInFolder(path + 'System_Resources');
+				//FOR every file in the directory
 
-			for(var i in sysElements){
-				//system_resources[filename] = txtbody
-				system_resources[sysElements[i].filename] = sysElements[i].data;
+				for(var i in sysElements){
+					//system_resources[filename] = txtbody
+					system_resources[sysElements[i].filename] = sysElements[i].data;
+				}
+				
+				
+				//Create object jvm
+				var jvm = {};
+				//Access JVM directory
+				var jvmElements = getMetricsInFolder(path + 'JVM');
+				//FOR every file in the directory
+				for(var i in jvmElements){
+					//jvm[filename] = txtbody
+					jvm[jvmElements[i].filename] = jvmElements[i].data;
+				}
+
+				var plots = {};
+
+				var plotElements = getMetricsInFolder(path+'PlotData');
+
+				//FOR every file in the directory
+				for(var i in plotElements){
+					//plot[filename] = txtbody
+					plots[plotElements[i].filename] = plotElements[i].data;
+				}
+
+
+				
+				//Compile all objects ---
+				
+				result['SingularData'] = {  
+											'Summary': summary, 
+											'Test_Results': test_results, 
+											'System_Resources': system_resources, 
+											'JVM': jvm
+										};
+				result['GraphData'] = plots;
+				res.send(result);
 			}
-			
-			
-			//Create object jvm
-			var jvm = {};
-			//Access JVM directory
-			var jvmElements = getMetricsInFolder(path + 'JVM');
-			//FOR every file in the directory
-			for(var i in jvmElements){
-				//jvm[filename] = txtbody
-				jvm[jvmElements[i].filename] = jvmElements[i].data;
-			}
 
-			var plots = {};
-
-			var plotElements = getMetricsInFolder(path+'PlotData');
-
-			//FOR every file in the directory
-			for(var i in plotElements){
-				//plot[filename] = txtbody
-				plots[plotElements[i].filename] = plotElements[i].data;
-			}
-
-
-			
-			//Compile all objects ---
-			
-			result['SingularData'] = {  
-										'Summary': summary, 
-										'Test_Results': test_results, 
-										'System_Resources': system_resources, 
-										'JVM': jvm
-									};
-			result['GraphData'] = plots;
-			res.send(result);
-		}
-
-	});
+		});
+	}
 	
 }
 
