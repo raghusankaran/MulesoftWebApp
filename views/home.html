@@ -260,7 +260,16 @@
 							slaElement.className = 'redText';
 						else
 							slaElement.className = 'grayText';
-
+						var baseElement = document.getElementById('perfBase'+job);
+						if(baseID[jobNum] == '-1'){
+							baseElement.innerHTML = 'Not Configured';
+							baseElement.className = 'grayText';
+						}
+						else{
+							baseElement.innerHTML = baseID[jobNum];
+							baseElement.className = 'greenText';
+						}
+							
 						jobNum++;
 					}
 				}
