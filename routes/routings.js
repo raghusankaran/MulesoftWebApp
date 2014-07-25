@@ -181,8 +181,7 @@ exports.getTestMetrics = function(req, res){
 			var jsonObj = {
 				"sla":{},
 				"baseline":'-1'
-			};
-			jsonObj['sla'][metricID] = [min,max];
+			};			
 			var data = JSON.stringify(jsonObj);
 			fs.writeFile(path, data, function(err) {
 			    if(err) {
