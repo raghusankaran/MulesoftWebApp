@@ -234,8 +234,7 @@
 			}
 
 			function fillMain(){
-				var get = getRequest(config.getParsedData + 'PERF_CI&id='+main.id);
-				perfciInfo = JSON.parse(get);
+				
 				
 				var jobsList = document.getElementById('perfJobs');
 				jobsList.innerHTML = '';
@@ -256,6 +255,8 @@
 
 			function initialize(){
 				getJobs();
+				var get = getRequest(config.getParsedData + 'PERF_CI&id='+main.id);
+				perfciInfo = JSON.parse(get);
 				var recents = getMostRecentJobs(2);
 
 				document.getElementById('mainName').innerHTML = main.name;
