@@ -49,6 +49,8 @@
 			  			'swap out': []
 			};
 
+		var perfciInfo = ;
+
 			function getItems(jobName){
 				var url = config.getTestMetrics + jobName;
 				var resp = getRequest(url);
@@ -239,6 +241,21 @@
 				}
 			}
 
+			function fillMain(){
+				var get = getRequest(config.getParsedData + 'PERF_CI&id='+main.id);
+				perfciInfo = JSON.parse(get);
+				
+				var jobsList = document.getElementById('perfJobs');
+				jobsList.innerHTML = '';
+				for(var job in perfciInfo){
+					if(perfciInfo.hasOwnProperty(job)){
+						//XXXX
+						jobsList.innerHTML += "<li id='perf'"+job+">"+job+": </li>";
+					}
+				}				
+
+			}
+
 			function initialize(){
 				getJobs();
 				var recents = getMostRecentJobs(2);
@@ -275,25 +292,8 @@
 				getResultPreviews();
 
 
-				//SLA
-				slaResult.innerHTML = slaResults[2];
-				if(slaResults[2] == 'Failed')
-					slaResult.className = 'redText';
-				else if(slaResults[2] == 'Passed')
-					slaResult.className = 'greenText';
-				
-				//BASE
-				if(baseID[2] != '-1' && baseID[2] != null){
-					baseResult.style.color = '#00FF00';
-					baseResult.innerHTML = baseID[2];
-					//XXX:add see details
-					var baseLinksMain = document.getElementsByName('seeBaseMain');
+				//FILL MAIN PERF_CI 
 
-					for(var j=0; j < baseLinksMain.length; j++){
-						baseLinksMain[j].href = config.report + main.name + '&id=' + baseID[2];
-						baseLinksMain[j].innerHTML = '(Go to this run!)';
-					}
-				}
 
 
 				//******************************************************************
@@ -385,10 +385,8 @@
 							<ul>
 								<li>Latest run <span id='mainNum' class='keyMetricResults'>#48</span> on <span id='mainDate' class='keyMetricResults'>6/29/2014 11:22:22</span></li>
 								<li >Status Report - <span id='mainRes'></span> </li>
-									<ul>
-										<li>SLA Check: <span id='slaMain' class='grayText'>Not Configured</span> <a name= 'editSLAMain' class='editSLA' href=''></a></li>
+									<ul id='perfJobs'>
 										
-										<li>Current Baseline: <span id='baseMain' class='grayText'>Not Configured</span><a name= 'seeBaseMain' class='editSLA' href=''></a></li>
 									</ul>
 							</ul>
 						</div>

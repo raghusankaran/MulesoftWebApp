@@ -561,8 +561,6 @@ exports.getParsedData = function(req, res){
 						//plot[filename] = txtbody
 						plots[plotElements[i].filename] = plotElements[i].data;
 					}
-
-
 					
 					//Compile all objects ---
 					
@@ -573,18 +571,12 @@ exports.getParsedData = function(req, res){
 												'JVM': jvm
 											};
 
-					subResult['GraphData'] = plots;
-					console.log(perfJobName);
-					//result[perfJobName] = subResult;
-					result[perfJobName] = subResult;
-					subResult = {};
+					subResult['GraphData'] = plots;					
 					
-				}
-			
-			}
-			
-			console.log(listOfJobPaths[0]+'\n'+listOfJobPaths[1]);
-			console.log(result);
+					result[perfJobName] = subResult;
+					subResult = {};				
+				}			
+			}			
 			res.send(result);
 		});
 		
