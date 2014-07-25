@@ -238,18 +238,34 @@
 				
 				var jobsList = document.getElementById('perfJobs');
 				jobsList.innerHTML = '';
+				var jobNum = 2;
 				for(var job in perfciInfo){
 					if(perfciInfo.hasOwnProperty(job)){
 						//XXXX
+
 						jobsList.innerHTML += "<li id='perf"+job+"'>"+job+": </li>";
+						
+						var jobElement = document.getElementById('perf'+job);
+						var str = '<ul>';
+						str += '<li>SLA Check: <span id="perfSLA'+job+'"></span> <a class="editSLA" href="'+config.update + job+'">Edit</a></li>';
+						str += '<li>Current Baseline: <span id="perfBase'+job+'"></span></li>';
+						str += '</ul>';
+						jobElement.innerHTML +=str;
+
+						var slaElement = document.getElementById('perfSLA'+ job);
+						slaElement.innerHTML = slaResults[jobNum];
+						if(slaResults[jobNum] == 'Passed')
+							slaElement.className = 'greenText';
+						else if(slaResults[jobNum] == 'Failed')
+							slaElement.className = 'redText';
+						else
+							slaElement.className = 'grayText';
+
 					}
-					var jobElement = document.getElementById('perf'+job);
-					var str = '<ul>';
-					str += '<li>SLA Check: <span id="perfSLA'+job+'"></span> <a class="editSLA" href="'+config.update + job+'">Edit</a></li>';
-					str += '<li>Current Baseline: <span id="perfBase'+job+'"></span></li>';
-					str += '</ul>';
-					jobElement.innerHTML +=str;
 				}
+
+
+
 
 			}
 
