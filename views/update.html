@@ -165,7 +165,7 @@
 						</div>
 						<hr>
 						<form id='slaForm' class='updateCheckForm' method='post' onsubmit='postRequest("sla")'>
-							<select id="checkList" name="checkList">							
+							<select id="checkList"  style='font-size: 16px' name="checkList">							
 							</select>
 							<input type="text" name="min">
 							<input type="text" name="max">
@@ -178,7 +178,7 @@
 
 					<form id='addForm' method='post' onsubmit='postRequest("add")'>
 							<p class='currTitle' style='margin-left:0px'>Choose your metric "Type" and type the name to add a new option</p>
-							<select id="addList" name="addList">
+							<select id="addList" style='font-size: 16px'  name="addList">
 								<option value="Test Results">Test Results</option>	
 								<option value="System Resources">System Resources</option>	
 								<option value="JVM">JVM</option>				
@@ -189,7 +189,7 @@
 
 					<form id='delForm' method='post' onsubmit='postRequest("del")'>
 							<p class='currTitle' style='margin-left:0px'>Here you can delete a metric option from the global list</p>
-							<select id="delList" name="delList">
+							<select id="delList" style='font-size: 16px' name="delList">
 							</select>
 							<input type="submit" value="Delete"><br>
 					</form>
