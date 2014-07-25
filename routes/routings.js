@@ -506,6 +506,7 @@ exports.getParsedData = function(req, res){
 												'System_Resources': {}, 
 												'JVM': {}
 											 };
+					console.log('WOAH');
 					result[perfJobName] = subResult;
 				}
 				else{
@@ -571,6 +572,7 @@ exports.getParsedData = function(req, res){
 												'System_Resources': system_resources, 
 												'JVM': jvm
 											};
+
 					subResult['GraphData'] = plots;
 					console.log(perfJobName);
 					//result[perfJobName] = subResult;
@@ -581,6 +583,7 @@ exports.getParsedData = function(req, res){
 				
 			}
 			console.log(listOfJobPaths[0]+'\n'+listOfJobPaths[1]);
+			console.log(result);
 			res.send(result);
 		});
 		
