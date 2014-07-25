@@ -60,6 +60,11 @@
 				for(var i=0; i<dropDownOptions.length; i++){						
 					dropDown.innerHTML += '<option value="'+dropDownOptions[i]+'">'+display(dropDownOptions[i])+'</option>';
 				}
+				dropDown = document.getElementById('delList');
+				for(var i=0; i<dropDownOptions.length; i++){						
+					dropDown.innerHTML += '<option value="'+dropDownOptions[i]+'">'+display(dropDownOptions[i])+'</option>';
+				}
+
 			}
 			function getRequest(url){
 				var request = new XMLHttpRequest();
@@ -109,8 +114,13 @@
 					var form = document.getElementById(section+ 'Form');
 					form.action = action;
 				}
-				else{
+				else if(section =='add'){
 					var action = config.addTestOption+jobName;
+					var form = document.getElementById(section+ 'Form');
+					form.action = action;
+				}
+				else if(section =='del'){
+					var action = config.deleteTestOption+jobName;
 					var form = document.getElementById(section+ 'Form');
 					form.action = action;
 				}
@@ -174,7 +184,14 @@
 								<option value="JVM">JVM</option>				
 							</select>
 							<input type="text" name="metric">
-							<input type="submit" value="Submit"><br>
+							<input type="submit" value="Add"><br>
+					</form>
+
+					<form id='delForm' method='post' onsubmit='postRequest("add")'>
+							<p class='currTitle' style='margin-left:0px'>Here you can delete a metric option from the global list</p>
+							<select id="delList" name="delList">
+							</select>
+							<input type="submit" value="Delete"><br>
 					</form>
 				</div>
 				
