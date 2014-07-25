@@ -447,7 +447,7 @@ function getAllPerfCIJobs(id){
 					resolve('');
 		});
 	});
-	return new Promise(functon (resolve, reject){
+	return new Promise(function (resolve, reject) {
 		getFileID.then(function (fileID){
 			//path to logs
 			var path = config.hudsonPath+'PERF_CI'+'/builds/'+fileID+'/archive/logs';
