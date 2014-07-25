@@ -488,7 +488,7 @@ exports.getParsedData = function(req, res){
 			console.log(stringOfPaths);
 			var listOfJobPaths = stringOfPaths.split(',');
 			listOfJobPaths.pop();
-
+			
 			for(var i=0; i<listOfJobPaths.length; i++){
 				var perfJobName = listOfJobPaths[i].substring(listOfJobPaths[i].indexOf('logs/')+5,listOfJobPaths[i].indexOf('/parsed'));
 				result[''+ perfJobName] = {};
@@ -573,6 +573,7 @@ exports.getParsedData = function(req, res){
 					subResult['GraphData'] = plots;
 					console.log(perfJobName);
 					result[perfJobName] = subResult;
+					console.log(listOfJobPaths.length);
 				}
 
 			}
