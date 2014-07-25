@@ -480,7 +480,7 @@ exports.getParsedData = function(req, res){
 	if(jobName == 'PERF_CI'){
 		var perfPromise = getAllPerfCIJobs(id);
 		perfPromise.then( function (stringOfPaths){
-			
+			console.log(stringOfPaths);
 			var listOfJobPaths = stringOfPaths.split(',');
 			listOfJobPaths.pop();
 			for(var i=0; i<listOfJobPaths.length; i++){
