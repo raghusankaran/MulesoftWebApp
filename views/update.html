@@ -30,16 +30,7 @@
 				return data;			
 			}
 			function inititalizeDDO(){
-				var data = getData(id);
-				for(var section in data['SingularData']){
-					if(data['SingularData'].hasOwnProperty(section)){
-						for(var metric in data['SingularData'][section]){
-							if(data['SingularData'][section].hasOwnProperty(metric)){
-								dropDownOptions[dropDownOptions.length] = metric;
-							}
-						}
-					}
-				}
+				dropDownOptions = JSON.parse(getRequest(config.getTestOptions))['options'];
 			}
 			function display(str){
 				var displayName = '';
