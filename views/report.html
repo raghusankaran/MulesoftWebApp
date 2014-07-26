@@ -926,7 +926,7 @@
 				}
 			}
 
-			function updatePage(){
+			function updatePage(type){
 				serverNames = [];
 				findServerNames();
 				var dropDown = document.getElementById('buildNumber');
@@ -937,9 +937,33 @@
 				buildDropDown('prevNumber');
 				
 				chosenID = dropDown.options[dropDown.selectedIndex].value;
-				testObject = getItems(jobName);
+				
 
 				document.getElementById('baselineNumber').innerHTML = '' + baseID;
+
+				if(type == 'perfcibuild' ){	
+					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
+					var perfDrop = document.getElementById('perfJob');
+					perfDrop.innerHTML = '';
+					var chosenPerfJob = '';
+					for(var subJob in perfCache){
+						if(perfCache.hasOwnProperty(subJob)){
+							if(chosenPerfJob == '')
+								chosenPerfJob = subJob;
+							perfDrop.innerHTML += '<option value="'+subJob+'">'+subJob+'</option>';
+						}
+					}
+					testObject = getItems(chosenSubJob);
+				}
+				else if(type == 'subchange'){
+					var perfDrop = document.getElementById('perfJob');
+					var chosenSubJob  = perfDrop.options[perfDrop.selectedIndex].value;
+					testObject = getItems(chosenSubJob);
+				}
+				else{
+					testObject = getItems(jobName);	
+				}
+
 				fillCache();
 				var prevButton = document.getElementById("prevbutton");
 				var baseButton = document.getElementById("basebutton");
