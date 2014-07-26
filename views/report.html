@@ -859,7 +859,7 @@
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
-					document.getElementById('perfCI').innerHTML ='<select style="font-size: xx-large;" id="perfJob" onchange="updatePage(subchange)"></select>';
+					document.getElementById('perfCI').innerHTML ='<select style="font-size: xx-large;" id="perfJob" onchange="updatePage("subchange")"></select>';
 					var dropDown = document.getElementById('buildNumber');
 					var buildNumber = dropDown.options[dropDown.selectedIndex].value;
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
@@ -875,7 +875,7 @@
 					cache = perfCache[chosenPerfJob];
 				}
 
-				updatePage(subchange);
+				updatePage('subchange');
 
 				for(var i=0; i < options.length; i++){
 				 	var element = document.getElementById('graph'+(i+1));
@@ -1045,7 +1045,7 @@
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
 						<form id='buildDropDown'action="">
-							<select id="buildNumber" onchange="updatePage(perfcibuild)">
+							<select id="buildNumber" onchange="updatePage('perfcibuild')">
 							</select>
 						</form>
 
