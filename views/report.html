@@ -855,8 +855,9 @@
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
 					document.getElementById('perfCI').innerHTML ='<select id="perfJob" onchange=""></select>';
-
-					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + chosenID));
+					var dropDown = document.getElementById('buildNumber');
+					var buildNumber = dropDown.options[dropDown.selectedIndex].value;
+					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
 					var perfDrop = document.getElementById('perfJob');
 					var chosenPerfJob = ''
 					for(var subJob in perfCache){
@@ -866,6 +867,7 @@
 							perfDrop.innerHTML += '<option value="'+subJob+'">'+subJob+'</option>';
 						}
 					}
+					cache = perfCache[chosenPerfJob];
 				}
 
 				updatePage();
