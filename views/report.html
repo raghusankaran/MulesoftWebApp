@@ -495,7 +495,7 @@
 						}
 						var answer = jobResult + '';
 
-						if(min < jobResult && jobResult < max){
+						if(min <= jobResult && jobResult <= max){
 							resultObj[displayMetric] = [answer, true];
 						}
 						else{

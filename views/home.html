@@ -110,7 +110,7 @@
 
 							if(data != null){	
 								var result = parseFloat(data);
-								if(min > result || max < result){
+								if(min >= result || max <= result){
 									passed='Failed';
 								}
 							}
