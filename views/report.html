@@ -475,7 +475,7 @@
 						var jobResult = -1;
 
 						var displayMetric = key+': '; //display
-						if(type = 'System_Resources'){
+						if(type == 'System_Resources'){
 							var serverResults = [];
 							for(var metric in cache['SingularData']['System_Resources']){
 								if(cache['SingularData']['System_Resources'].hasOwnProperty(metric)){

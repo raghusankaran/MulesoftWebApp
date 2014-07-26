@@ -89,7 +89,7 @@
 							var max = parseFloat(jsonObj[key][1]);
 
 							var data = null;
-							if(type = 'System_Resources'){
+							if(type == 'System_Resources'){
 								var serverResults = [];
 								for(var metric in cache['System_Resources']){
 									if(cache['System_Resources'].hasOwnProperty(metric)){
