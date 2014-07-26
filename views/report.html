@@ -25,7 +25,7 @@
 
 			var testObject = getItems(jobName);
 			var cache = {};
-
+			var perfCache = {};
 			var prevCache = {};
 			var baseCache = {};
 
@@ -853,6 +853,21 @@
 				document.getElementById('jobTitle').innerHTML = jobName;
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
+				if(jobName == 'PERF_CI'){	
+					document.getElementById('perfCI').innerHTML ='<select id="perfJob" onchange="">
+							</select>'
+
+					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + chosenID));
+					var perfDrop = document.getElementById('perfJob');
+					var chosenPerfJob = ''
+					for(var subJob in perfCache){
+						if(perfCache.hasOwnProperty(subJob)){
+							if(chosenPerfJob == '')
+								chosenPerfJob = subJob;
+							perfDrop.innerHTML += '<option value="'+subJob+'">'+subJob+'</option>';
+						}
+					}
+				}
 
 				updatePage();
 
@@ -1002,6 +1017,9 @@
 						<form id='buildDropDown'action="">
 							<select id="buildNumber" onchange="updatePage()">
 							</select>
+						</form>
+
+						<form id='perfCI'action="">
 						</form>
 						<p id='summary'></p>
 						
