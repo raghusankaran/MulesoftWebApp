@@ -466,28 +466,34 @@
 				resultObj['overall'] = true;
 				for(var metric in slaObj){
 					if(slaObj.hasOwnProperty(metric)){	
-						var metricName = metric;
+						var type = metric.substring(metric.indexOf('(')+1, metric.indexOf(')')).replace(/\s/g, '_');
+						var dataID = metric.substring(metric.indexOf(')')+2).replace(/\s/g,'_');
 						var min = parseFloat(slaObj[metric][0]);
 						var max = parseFloat(slaObj[metric][1]);
+
+						var data = null;
 						var jobResult = -1;
 
-						var displayMetric = display(metricName)+': '; //display
-						for(var section in cache.SingularData){
-							if(cache.SingularData.hasOwnProperty(section)){
-								for(var field in cache.SingularData[section]){
-									if(cache.SingularData[section].hasOwnProperty(field)){
-										if(metricName == field)
-										{
-											jobResult = parseFloat(cache.SingularData[section][field]);
-										}
-									}
+						var displayMetric = metric+': '; //display
+						if(type = 'System_Resources'){
+							var serverResults = [];
+							for(var metric in cache['System_Resources']){
+								if(cache['System_Resources'].hasOwnProperty(metric)){
+									var metricID = metric.substring(metric.indexOf(':')+1);
+									if(metricID == dataID)
+										serverResults.push(cache['System_Resources'][metric][0]);
 								}
 							}
+							if(serverResults.length == 2){
+								jobResult = Math.max(parseFloat(serverResults[0]),parseFloat(serverResults[1]));
+							}
+							else
+								jobResult = parseFloat(serverResults[0]);
 						}
-						if((jobResult+'').indexOf('.') >=0)
-							var answer = (jobResult+'').substring(0, (jobResult+'').indexOf('.') + 3);
-						else
-							var answer = jobResult + '';
+						else{
+							jobResult = parseFloat(cache[type][dataID][0]);
+						}
+						var answer = jobResult + '';
 
 						if(min < jobResult && jobResult < max){
 							resultObj[displayMetric] = [answer, true];
