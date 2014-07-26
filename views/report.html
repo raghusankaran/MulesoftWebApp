@@ -464,17 +464,17 @@
 
 				var resultObj = {};
 				resultObj['overall'] = true;
-				for(var metric in slaObj){
-					if(slaObj.hasOwnProperty(metric)){	
-						var type = metric.substring(metric.indexOf('(')+1, metric.indexOf(')')).replace(/\s/g, '_');
-						var dataID = metric.substring(metric.indexOf(')')+2).replace(/\s/g,'_');
-						var min = parseFloat(slaObj[metric][0]);
-						var max = parseFloat(slaObj[metric][1]);
+				for(var key in slaObj){
+					if(slaObj.hasOwnProperty(key)){	
+						var type = key.substring(key.indexOf('(')+1, key.indexOf(')')).replace(/\s/g, '_');
+						var dataID = key.substring(key.indexOf(')')+2).replace(/\s/g,'_');
+						var min = parseFloat(slaObj[key][0]);
+						var max = parseFloat(slaObj[key][1]);
 
 						var data = null;
 						var jobResult = -1;
 
-						var displayMetric = metric+': '; //display
+						var displayMetric = key+': '; //display
 						if(type = 'System_Resources'){
 							var serverResults = [];
 							for(var metric in cache['SingularData']['System_Resources']){
