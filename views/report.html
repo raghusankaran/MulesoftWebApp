@@ -854,8 +854,7 @@
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
-					document.getElementById('perfCI').innerHTML ='<select id="perfJob" onchange="">
-							</select>'
+					document.getElementById('perfCI').innerHTML ='<select id="perfJob" onchange=""></select>';
 
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + chosenID));
 					var perfDrop = document.getElementById('perfJob');
