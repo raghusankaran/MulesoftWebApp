@@ -147,8 +147,13 @@
 			//tps, responsetime, failed requests, error rate
 			//cpu, memory, disk use, net use
 			function fillCache(){
-				cache = getData(chosenID);
-
+				if(jobName != 'PERF_CI')
+					cache = getData(chosenID);
+				else{
+					var perfDrop = document.getElementById('perfJob');
+					var chosenSubJob  = perfDrop.options[perfDrop.selectedIndex].text;
+					cache = getData(chosenID)[chosenSubJob];
+				}
 				trimCache(cache);
 				
 
