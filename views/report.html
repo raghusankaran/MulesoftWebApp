@@ -859,7 +859,7 @@
 				buildDropDown('buildNumber');
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
-					document.getElementById('perfCI').innerHTML ='<select style="font-size: xx-large;" id="perfJob" onchange=""></select>';
+					document.getElementById('perfCI').innerHTML ='<select style="font-size: xx-large;" id="perfJob" onchange="updatePage()"></select>';
 					var dropDown = document.getElementById('buildNumber');
 					var buildNumber = dropDown.options[dropDown.selectedIndex].value;
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
@@ -869,7 +869,7 @@
 						if(perfCache.hasOwnProperty(subJob)){
 							if(chosenPerfJob == '')
 								chosenPerfJob = subJob;
-							perfDrop.innerHTML += '<option value="'+subJob+'"> Sub-Job:'+subJob+'</option>';
+							perfDrop.innerHTML += '<option value="'+subJob+'">'+subJob+'</option>';
 						}
 					}
 					cache = perfCache[chosenPerfJob];
