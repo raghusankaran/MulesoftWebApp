@@ -477,11 +477,11 @@
 						var displayMetric = metric+': '; //display
 						if(type = 'System_Resources'){
 							var serverResults = [];
-							for(var metric in cache['System_Resources']){
-								if(cache['System_Resources'].hasOwnProperty(metric)){
+							for(var metric in cache['SingularData']['System_Resources']){
+								if(cache['SingularData']['System_Resources'].hasOwnProperty(metric)){
 									var metricID = metric.substring(metric.indexOf(':')+1);
 									if(metricID == dataID)
-										serverResults.push(cache['System_Resources'][metric][0]);
+										serverResults.push(cache['SingularData']['System_Resources'][metric][0]);
 								}
 							}
 							if(serverResults.length == 2){
@@ -491,7 +491,7 @@
 								jobResult = parseFloat(serverResults[0]);
 						}
 						else{
-							jobResult = parseFloat(cache[type][dataID][0]);
+							jobResult = parseFloat(cache['SingularData'][type][dataID][0]);
 						}
 						var answer = jobResult + '';
 
