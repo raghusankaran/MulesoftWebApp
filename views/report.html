@@ -1011,7 +1011,7 @@
 					prevButton.click();
 				if(baseButton.value == 'ON')
 					baseButton.click();
-
+				removeServerNames(cache);
 				buildMainGraphDropDown();
 				buildOtherGraphDropDown();	
 				buildCompareGraphDropDown();
@@ -1045,7 +1045,7 @@
 					'setWidth': -1,
 					'currX': 0
 				 }];
-				removeServerNames(cache);
+//				removeServerNames(cache);
 				fillPage();
 				resizeAllGraphs(options);
 			}
