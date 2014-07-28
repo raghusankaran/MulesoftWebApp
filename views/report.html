@@ -952,7 +952,7 @@
 
 				document.getElementById('baselineNumber').innerHTML = '' + baseID;
 
-				if(type == 'perfcibuild' ){	
+				if(type == 'perfcibuild' && jobName == 'PERF_CI'){	
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
 					var perfDrop = document.getElementById('perfJob');
 					perfDrop.innerHTML = '';
@@ -966,7 +966,7 @@
 					}
 					testObject = getItems(chosenSubJob);
 				}
-				else if(type == 'subchange'){
+				else if(type == 'subchange' && jobName == 'PERF_CI'){
 					var perfDrop = document.getElementById('perfJob');
 					var chosenSubJob  = perfDrop.options[perfDrop.selectedIndex].value;
 					testObject = getItems(chosenSubJob);
