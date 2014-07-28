@@ -538,7 +538,7 @@ body{
 		color: white;
 		font-size: 20px;
 	}
-	#showscroller{
+	.showscroller{
 		overflow-y: auto;
 		overflow-x: hidden;
 		max-height: 285px;
