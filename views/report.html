@@ -772,6 +772,10 @@
 					document.getElementById('slaPass').innerHTML = 'Failed';
 					document.getElementById('slaPass').className = 'redText';
 				}
+				else if(sla['overall'] == true){
+					document.getElementById('slaPass').innerHTML = 'Passed';
+					document.getElementById('slaPass').className = 'greenText';
+				}
 							
 
 				var slaData = document.getElementById('slaDataResults');
