@@ -949,6 +949,21 @@
 						}
 					}
 				}
+
+				for(var metric in typeOfCache['GraphData']){
+					if(typeOfCache['GraphData'].hasOwnProperty(metric)){
+						var currentName = metric.substring(0, metric.indexOf(':'));
+						var currentType = metric.substring(metric.indexOf(':')+1);
+						for(var i=0; i<foundNames.length; i++){
+
+
+							if(currentName == foundNames[i]){
+								typeOfCache['GraphData']['Server ' +(i+1)+':'+currentType] = typeOfCache['GraphData'][metric];
+								delete typeOfCache['GraphData'][metric];
+							}
+						}
+					}
+				}
 			}
 
 			function updatePage(type){
