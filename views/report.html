@@ -655,6 +655,9 @@
 										document.getElementById('comp'+compField).innerHTML = (' ' + trimNumber(difference));
 										document.getElementById('comp'+compField).className = 'greenText compareText';
 									}
+									else if(document.getElementById('comp'+compField) == null){
+										
+									}
 									else{//red and -
 										document.getElementById('comp'+compField).innerHTML = (' +' + trimNumber(difference));
 										document.getElementById('comp'+compField).className = 'redText compareText';
