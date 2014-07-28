@@ -361,7 +361,7 @@
 						document.getElementById('sysMetrics2').style.width = '230%';
 						document.getElementById('sysMetrics1').innerHTML ='';
 						document.getElementById('sysMetrics2').innerHTML ='';
-						for(var i=0; i<serverNames.length; i++){
+						for(var i=0; i< 2; i++){
 							var data = getDataByServer(helperServerNames[i]);
 							document.getElementById('sysTitle'+(i+1)).innerHTML = serverNames[i];
 							for(var metric in data){
