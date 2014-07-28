@@ -880,9 +880,13 @@
 						}
 					}
 					cache = perfCache[chosenPerfJob];
+					updatePage('subchange');
+				}
+				else{
+					updatePage('');
 				}
 
-				updatePage('subchange');
+				
 
 				for(var i=0; i < options.length; i++){
 				 	var element = document.getElementById('graph'+(i+1));
