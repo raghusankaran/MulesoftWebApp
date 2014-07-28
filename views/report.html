@@ -543,7 +543,9 @@
 				if(jobName == 'PERF_CI'){
 					var perfDrop = document.getElementById('perfJob');
 					var chosenPerfJob  = perfDrop.options[perfDrop.selectedIndex].value;
-					prevCache = prevCache[chosenPerfJob];
+					jobName = chosenPerfJob;
+					baseCache = getData(baseID);
+					jobName = 'PERF_CI';
 				}
 				trimCache(baseCache);
 				removeServerNames(baseCache);
