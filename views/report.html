@@ -656,7 +656,7 @@
 										document.getElementById('comp'+compField).className = 'greenText compareText';
 									}
 									else if(document.getElementById('comp'+compField) == null){
-										
+
 									}
 									else{//red and -
 										document.getElementById('comp'+compField).innerHTML = (' +' + trimNumber(difference));
@@ -1112,14 +1112,15 @@
 				<div id='keyMetrics'> <!--XXX -->
 					<p>Key Metrics</p>
 					<div id='testBox' class="infoMule">
+						<div class='showscroller'>
 						<p class='keyTitle'>Test Results</p>
 						<p id='testMetrics'>
 							
 						</p>
-						
+						</div>
 					</div>
 					<div id='systemBox' class="infoMule">
-						<div id='showscroller'>
+						<div class='showscroller'>
 							<p class='keyTitle'>System Resources</p>
 							<div id='sysTitles' style='float: left;width: 100%;'>
 								<span id='sysTitle1' style='width: 40%;float: left;margin-left: 23px;'></span>
@@ -1134,11 +1135,12 @@
 					</div>
 					
 					<div id='jvmBox'class="infoMule">
+						<div class='showscroller'>
 						<p class='keyTitle'>JVM </p>
 						<p id='jvmMetrics'>
 							Avg CPU Use:  <span id='' class='keyMetricResults'>---</span><br>							
 						</p>
-						
+						</div>
 					</div>
 				</div>
 				<p>Comparisons</p>
