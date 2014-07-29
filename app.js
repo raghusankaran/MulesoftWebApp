@@ -40,6 +40,11 @@ app.post('/login', function (req, res) {
   }
 });
 
+app.get('/logout', function (req, res) {
+  delete req.session.user_id;
+  res.redirect('/');
+});
+
 app.get('/', checkAuth, function(req, res){
 	
 	res.render('home');
