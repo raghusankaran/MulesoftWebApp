@@ -23,6 +23,7 @@ app.use(app.router);
 
 //LOGIN CHECKER
 function checkAuth(req, res, next) {
+  //dashboardUserList.txt
   if (!req.session.user_id) {
     res.render('login');
   } else {
@@ -32,12 +33,19 @@ function checkAuth(req, res, next) {
 
 app.post('/login', function (req, res) {
   var post = req.body;
-  if (post.user === 'john' && post.password === 'johnspassword') {
-    req.session.user_id = 'john';
-    res.redirect('/');
-  } else {
-    res.redirect('/');
-  }
+  fs.readFile(path, {encoding: 'utf-8'}, function(err, str){
+    if(str != null){
+      var userList = JSON.parse(str);
+
+      if (userList.hasOwnProperty(post.user) && post.password === userList[post.user]) {
+        req.session.user_id = post.user;
+        res.redirect('/');
+      }
+       else {
+        res.redirect('/');
+      }
+    }
+  });
 });
 
 app.get('/logout', function (req, res) {

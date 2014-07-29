@@ -24,7 +24,8 @@ var config = {
 	getBuildsByDescription: urlPath+'getBuildsByDescription/?build=',
 	getTestOptions: urlPath+'getTestOptions/',
 	addTestOption: urlPath+'addTestOption?job=',
-	deleteTestOption: urlPath+'deleteTestOption?job='
+	deleteTestOption: urlPath+'deleteTestOption?job=',
+	users: "/mnt/nfsshare/dashboardUserList.txt"
 };
 
 module.exports.config = config;
