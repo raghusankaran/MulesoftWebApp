@@ -3,7 +3,7 @@ var app = express();
 var path = require('path');
 var forever = require('forever');
 var routings = require('./routes/routings.js');
-var config = require('config.js');
+var config = require('./config.js');
 var hbs = require('hbs');
 
 var fs = require('fs');
