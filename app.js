@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var paths = require('../config');
+var paths = require('./config');
 var config = paths.config;
 var forever = require('forever');
 var routings = require('./routes/routings.js');
