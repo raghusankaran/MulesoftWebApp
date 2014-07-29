@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
-var paths = require('./config');
-var config = paths.config;
+
 var forever = require('forever');
 var routings = require('./routes/routings.js');
 var config = require('./config.js');
@@ -34,7 +33,7 @@ function checkAuth(req, res, next) {
 
 app.post('/login', function (req, res) {
   var post = req.body;
-  fs.readFile(config.users, {encoding: 'utf-8'}, function(err, str){
+  fs.readFile('/mnt/nfsshare/dashboardUserList.txt', {encoding: 'utf-8'}, function(err, str){
     if(str != null){
       var userList = JSON.parse(str);
 
@@ -46,6 +45,8 @@ app.post('/login', function (req, res) {
         res.redirect('/');
       }
     }
+    else{res.redirect('/');}
+    
   });
 });
 
