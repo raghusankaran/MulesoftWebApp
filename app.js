@@ -36,7 +36,8 @@ app.post('/login', function (req, res) {
     req.session.user_id = 'john';
     res.redirect('/');
   } else {
-    res.send('Bad user/pass');
+    
+    res.redirect('/');
   }
 });
 
