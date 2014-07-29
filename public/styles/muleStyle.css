@@ -574,7 +574,9 @@ hr{
 	margin-bottom: 30px;
 	color: white;
 }
-
+#addNewMetricBox{
+	padding: 14px;
+}
 
 
 
