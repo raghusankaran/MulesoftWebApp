@@ -44,60 +44,60 @@ app.get('/', checkAuth, function(req, res){
 	
 	res.render('home');
 });
-app.get('/report', function(req, res){
+app.get('/report', checkAuth, function(req, res){
 	res.render('report');
 });
 
-app.get('/builds', function(req, res){
+app.get('/builds',checkAuth, function(req, res){
 	res.render('builds');
 });
-app.get('/home', function(req, res){
+app.get('/home', checkAuth, function(req, res){
 	res.render('home');
 });
-app.get('/graph', function(req, res){
+app.get('/graph',checkAuth, function(req, res){
 	res.render('graph');
 });
 
-app.get('/update', function(req, res){
+app.get('/update',checkAuth, function(req, res){
 	res.render('update');
 });
 
-app.get('/muledir', function(req, res){
+app.get('/muledir',checkAuth, function(req, res){
 	res.render('muledir');
 });
 
 //delete test metric
-app.get('/deleteJobTest', routings.deleteJobTest);
+app.get('/deleteJobTest',checkAuth, routings.deleteJobTest);
 
 //put test file
-app.post('/putTestFile', routings.addJobTest);
+app.post('/putTestFile',checkAuth, routings.addJobTest);
 
 //GET all the job names
-app.get('/retrieveJobs', routings.getJobNames);
+app.get('/retrieveJobs',checkAuth, routings.getJobNames);
 
 //GET the test metrics for a job
-app.get('/getTestMetrics', routings.getTestMetrics);
+app.get('/getTestMetrics',checkAuth, routings.getTestMetrics);
 
 
-app.get('/updateBaseline', routings.updateBaseline);
+app.get('/updateBaseline', checkAuth,routings.updateBaseline);
 //GET all the build names
-app.get('/retrieveBuilds/', routings.getBuildNames);
+app.get('/retrieveBuilds/',checkAuth, routings.getBuildNames);
 
-app.get('/getTestOptions', routings.getTestOptions);
+app.get('/getTestOptions', checkAuth,routings.getTestOptions);
 //GET a specific set of data using the following inputs:
 //	-job = name of job
 //  -id  = name of build
 //  -type = type of data
 //app.get('/data/', routings.getData);
 
-app.post('/addTestOption', routings.addTestOption);
+app.post('/addTestOption',checkAuth, routings.addTestOption);
 
-app.post('/deleteTestOption', routings.deleteTestOption);
+app.post('/deleteTestOption', checkAuth,routings.deleteTestOption);
 //GET ordered list of job names
-app.get('/getRecentJobs/', routings.getRecentJobs);
+app.get('/getRecentJobs/',checkAuth, routings.getRecentJobs);
 
-app.get('/getParsedData', routings.getParsedData);
-app.get('/getBuildsByDescription', routings.getBuildsByDescription);
+app.get('/getParsedData',checkAuth, routings.getParsedData);
+app.get('/getBuildsByDescription',checkAuth, routings.getBuildsByDescription);
 
 
 
