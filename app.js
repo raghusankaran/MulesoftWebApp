@@ -67,7 +67,7 @@ app.get('/update',checkAuth, function(req, res){
 	res.render('update');
 });
 
-app.get('/muledir',checkAuth, function(req, res){
+app.get('/muledir', function(req, res){
 	res.render('muledir');
 });
 
