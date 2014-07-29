@@ -22,6 +22,9 @@ function checkAuth(req, res, next) {
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 app.use(express.static(__dirname));
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
+
 
 app.use(express.bodyParser());
 app.use(app.router);
