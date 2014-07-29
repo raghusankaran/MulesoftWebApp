@@ -10,6 +10,15 @@ var fs = require('fs');
 
 app.listen(8880);
 
+//LOGIN CHECKER
+function checkAuth(req, res, next) {
+  if (!req.session.user_id) {
+    res.send('You are not authorized to view this page');
+  } else {
+    next();
+  }
+}
+
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
 app.use(express.static(__dirname));
@@ -17,7 +26,7 @@ app.use(express.static(__dirname));
 app.use(express.bodyParser());
 app.use(app.router);
 
-app.get('/', function(req, res){
+app.get('/', checkAuth, function(req, res){
 	console.log('??');
 	res.render('home');
 });
