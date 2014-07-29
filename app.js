@@ -33,7 +33,7 @@ function checkAuth(req, res, next) {
 app.post('/login', function (req, res) {
   var post = req.body;
   if (post.user === 'john' && post.password === 'johnspassword') {
-    req.session.user_id = johns_user_id_here;
+    req.session.user_id = 'john';
     res.redirect('/');
   } else {
     res.send('Bad user/pass');
