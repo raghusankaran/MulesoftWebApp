@@ -33,7 +33,7 @@ function checkAuth(req, res, next) {
 
 app.post('/login', function (req, res) {
   var post = req.body;
-  fs.readFile(path, {encoding: 'utf-8'}, function(err, str){
+  fs.readFile(config.users, {encoding: 'utf-8'}, function(err, str){
     if(str != null){
       var userList = JSON.parse(str);
 
