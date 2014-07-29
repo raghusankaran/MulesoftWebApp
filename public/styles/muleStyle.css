@@ -561,8 +561,8 @@ body{
 	#loginBox{
 		margin:120px auto;
 		padding: 1%;
-		width:30%;
-		height:12%;
+		width:200px;
+		
 
 		background-color: black;
 		border-radius: 25px;
