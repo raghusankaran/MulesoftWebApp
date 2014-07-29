@@ -10,14 +10,6 @@ var fs = require('fs');
 
 app.listen(8880);
 
-//LOGIN CHECKER
-function checkAuth(req, res, next) {
-  if (!req.session.user_id) {
-    res.send('You are not authorized to view this page');
-  } else {
-    next();
-  }
-}
 
 app.set('view engine', 'html');
 app.engine('html', hbs.__express);
@@ -29,8 +21,27 @@ app.use(express.session({secret: '1234567890QWERTY'}));
 app.use(express.bodyParser());
 app.use(app.router);
 
+//LOGIN CHECKER
+function checkAuth(req, res, next) {
+  if (!req.session.user_id) {
+    res.render('login');
+  } else {
+    next();
+  }
+}
+
+app.post('/login', function (req, res) {
+  var post = req.body;
+  if (post.user === 'john' && post.password === 'johnspassword') {
+    req.session.user_id = johns_user_id_here;
+    res.redirect('/');
+  } else {
+    res.send('Bad user/pass');
+  }
+});
+
 app.get('/', checkAuth, function(req, res){
-	console.log('??');
+	
 	res.render('home');
 });
 app.get('/report', function(req, res){
