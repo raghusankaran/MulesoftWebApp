@@ -28,4 +28,4 @@ var config = {
 	users: "/mnt/nfsshare/dashboardUserList.txt"
 };
 
-module.exports.config = config;
+exports.config = config;
