@@ -599,6 +599,7 @@
 					prevID = dropDown.options[dropDown.selectedIndex].value;	
 					fillPrevCache();
 					compCache = prevCache;
+
 				}
 				else{
 					buttonName = 'basebutton';
@@ -620,6 +621,7 @@
 						compCache = cache;
 
 				}
+				buildCompareGraphDropDown();
 				if(document.getElementById(buttonName).value == 'ON')
 				{
 					document.getElementById(buttonName).value = 'OFF';
@@ -634,7 +636,7 @@
 								
 							}
 						}
-					}						
+					}					
 					compareChange();	
 				}
 			
