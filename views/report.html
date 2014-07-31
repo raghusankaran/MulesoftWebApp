@@ -1026,7 +1026,7 @@
 				fillBaseCache();
 				var prevButton = document.getElementById("prevbutton");
 				var baseButton = document.getElementById("basebutton");
-				if(prevButton.value == 'ON')
+				if(prevButton.value == 'OFF')
 					prevButton.click();
 				if(baseButton.value == 'ON')
 					baseButton.click();
@@ -1174,7 +1174,7 @@
 							<form id='buildPrevDropDown'action="" >
 								<select id="prevNumber" onchange="">
 								</select>
-								<input id='prevbutton' type='button' value='ON' onclick='compare("prev")'>
+								<input id='prevbutton' type='button' value='OFF' onclick='compare("prev")'>
 							</form>
 						</div>
 						<div id='baseSection' >
