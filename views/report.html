@@ -1026,10 +1026,7 @@
 				fillBaseCache();
 				var prevButton = document.getElementById("prevbutton");
 				var baseButton = document.getElementById("basebutton");
-				if(prevButton.value == 'OFF')
-					prevButton.click();
-				if(baseButton.value == 'ON')
-					baseButton.click();
+				
 				removeServerNames(cache);
 				buildMainGraphDropDown();
 				buildOtherGraphDropDown();	
@@ -1064,6 +1061,10 @@
 					'setWidth': -1,
 					'currX': 0
 				 }];
+				 if(prevButton.value == 'OFF')
+					prevButton.click();
+				if(baseButton.value == 'ON')
+					baseButton.click();
 //				removeServerNames(cache);
 				fillPage();
 				resizeAllGraphs(options);
