@@ -252,7 +252,7 @@
 						var jobElement = document.getElementById('perf'+job);
 						var str = '<ul>';
 						str += '<li>SLA Check: <span id="perfSLA'+job+'"></span> <a class="editSLA" href="'+config.update + job+'">Edit</a></li>';
-						str += '<li>Current Baseline: <span id="perfBase'+job+'"></span> <a id="baseSLAMain'+job+'" href="'+config.report + job+ '&id='+'">(Go to this run!)</a></li>';
+						str += '<li>Current Baseline: <span id="perfBase'+job+'"></span> <a class="editSLA" id="baseSLAMain'+job+'" href="'+config.report + job+ '&id='+'">(Go to this run!)</a></li>';
 						str += '</ul>';
 						jobElement.innerHTML +=str;
 
