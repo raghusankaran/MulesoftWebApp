@@ -1170,11 +1170,11 @@
 							</div>
 						</div>
 						<div id='prevSection'>
-							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Compared to run: </span>
+							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Select a run to be compared: </span>
 							<form id='buildPrevDropDown'action="" >
 								<select id="prevNumber" onchange="">
 								</select>
-								<input id='prevbutton' type='button' value='OFF' onclick='compare("prev")'>
+								<input id='prevbutton' type='button' value='ON' onclick='compare("prev")'>
 							</form>
 						</div>
 						<div id='baseSection' >
@@ -1208,7 +1208,7 @@
 								</select>
 							</form>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose the <span style='color: cyan'>compared</span> run's server and metric: </span><select id="compareGDropServer" onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose the <span style='color: cyan'>selected</span> run's server and metric: </span><select id="compareGDropServer" onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>							
 							<form action="">
