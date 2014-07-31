@@ -252,7 +252,7 @@
 						var jobElement = document.getElementById('perf'+job);
 						var str = '<ul>';
 						str += '<li>SLA Check: <span id="perfSLA'+job+'"></span> <a class="editSLA" href="'+config.update + job+'">Edit</a></li>';
-						str += '<li>Current Baseline: <span id="perfBase'+job+'"></span></li>';
+						str += '<li>Current Baseline: <span id="perfBase'+job+'"></span> <a id="baseSLAMain'+job+'" href="'+config.report + job+ '&id='+'">(Go to this run!)</a></li>';
 						str += '</ul>';
 						jobElement.innerHTML +=str;
 
@@ -265,13 +265,17 @@
 						else
 							slaElement.className = 'grayText';
 						var baseElement = document.getElementById('perfBase'+job);
+						var goToBase = document.getElementById('baseSLAMain'+job);
 						if(baseID[jobNum] == '-1'){
 							baseElement.innerHTML = 'Not Configured';
 							baseElement.className = 'grayText';
+							goToBase.href = '';
+							goToBase.innerHTML = '';
 						}
 						else{
 							baseElement.innerHTML = baseID[jobNum];
 							baseElement.className = 'cyanText';
+							gotToBase.href += baseID[jobNum];
 						}
 							
 						jobNum++;
@@ -297,10 +301,11 @@
 				document.getElementById('mainLink' ).href = config.report + main.name;
 				
 				var editLinksMain = document.getElementsByName('editSLAMain');
-
+				var baseLinksMain = document.getElementsByName('baseSLAMain');
 				for(var j=0; j < editLinksMain.length; j++){
 					editLinksMain[j].href = config.update + main.name ;
 					editLinksMain[j].innerHTML = 'Edit';
+					
 				}
 
 				
