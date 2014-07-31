@@ -813,7 +813,9 @@
 					}
 				}
 
-							
+				if(baseCache[SingularData]['Version'] != null){
+					document.getElementById('baseVersion').innerHTML
+				}							
 
 				/*
 					options = {
@@ -1019,6 +1021,7 @@
 				baseID = testObject.baseline;
 				document.getElementById('baselineNumber').innerHTML = '' + baseID;
 				fillCache();
+				fillBaseCache();
 				var prevButton = document.getElementById("prevbutton");
 				var baseButton = document.getElementById("basebutton");
 				if(prevButton.value == 'ON')
