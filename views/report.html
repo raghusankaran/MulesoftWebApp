@@ -814,9 +814,11 @@
 				}
 
 				if(baseCache['SingularData']['Summary']['Version'] != null){
-					document.getElementById('baseVersion').innerHTML
+					document.getElementById('baseVersion').innerHTML = baseCache['SingularData']['Summary']['Version'];
 				}							
-
+				else{
+					document.getElementById('baseVersion').innerHTML = 'NaN';
+				}
 				/*
 					options = {
 						    'description': 'nameOfLine1, nameOfLine2, nameOfLine3'
