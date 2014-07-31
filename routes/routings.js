@@ -10,6 +10,9 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 //GET all the job names
 exports.getJobNames = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getJobNames at: ' + n);
 	var dList = "";
 
 	
@@ -57,7 +60,7 @@ exports.deleteJobTest = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			        //console.log("The file was saved!");
 			    }
 			});
 		}
@@ -70,7 +73,7 @@ exports.deleteJobTest = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			       // console.log("The file was saved!");
 			    }
 			});
 		}
@@ -82,6 +85,9 @@ exports.deleteJobTest = function(req, res){
 
 //Add baseline to test file
 exports.updateBaseline = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called updateBaseline at: ' + n);
 	var baseID = req.query.id;
 
 	var filename = req.query.job + '.sla';
@@ -96,27 +102,27 @@ exports.updateBaseline = function(req, res){
 				"base":{},
 				"baseline":baseID
 			};
-			console.log('Created file with baseline = ' + jsonObj['baseline']);
+			//console.log('Created file with baseline = ' + jsonObj['baseline']);
 			var data = JSON.stringify(jsonObj);
 			fs.writeFile(path, data, function(err) {
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			        //console.log("The file was saved!");
 			    }
 			});
 		}
 		else{
 			var data = JSON.parse(str);
-			console.log(baseID);
+			//console.log(baseID);
 			data["baseline"] = baseID;
-			console.log('Added to file with baseline = ' + data['baseline']);
+			//console.log('Added to file with baseline = ' + data['baseline']);
 			var newdata = JSON.stringify(data);
 			fs.writeFile(path, newdata, function(err) {
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			       // console.log("The file was saved!");
 			    }
 			});
 		}
@@ -127,8 +133,11 @@ exports.updateBaseline = function(req, res){
 
 //Add to test file
 exports.addJobTest = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called addJobTest at: ' + n);
 	var metricID = req.body.checkList;
-	console.log(metricID);
+	//console.log(metricID);
 	var min = req.body.min;
 
 	var max = req.body.max;
@@ -148,7 +157,7 @@ exports.addJobTest = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			       // console.log("The file was saved!");
 			    }
 			});
 		}
@@ -160,7 +169,7 @@ exports.addJobTest = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			       // console.log("The file was saved!");
 			    }
 			});
 		}
@@ -172,6 +181,9 @@ exports.addJobTest = function(req, res){
 
 //GET all the job names
 exports.getTestMetrics = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getTestMetrics at: ' + n);
 	var job = req.query.job;
 	var filename = job+'.sla';
 	var path = config.testFilesPath + filename;
@@ -187,7 +199,7 @@ exports.getTestMetrics = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			        //console.log("The file was saved!");
 			    }
 			});
 			res.send(data);
@@ -200,6 +212,9 @@ exports.getTestMetrics = function(req, res){
 
 //GET all the job names
 exports.getTestOptions = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getTestOptions at: ' + n);
 	var path = config.testFilesPath + 'LIST.txt';
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
 	{
@@ -212,6 +227,9 @@ exports.getTestOptions = function(req, res){
 };
 
 exports.addTestOption = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called addTestOption at: ' + n);
 	var path = config.testFilesPath + 'LIST.txt';
 	var type = req.body.addList;
 
@@ -231,7 +249,7 @@ exports.addTestOption = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			       // console.log("The file was saved!");
 			    }
 			});
 
@@ -242,6 +260,9 @@ exports.addTestOption = function(req, res){
 };
 
 exports.deleteTestOption = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called deleteTestOption at: ' + n);
 	var path = config.testFilesPath + 'LIST.txt';
 	var metric = req.body.delList;
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
@@ -257,7 +278,7 @@ exports.deleteTestOption = function(req, res){
 			    if(err) {
 			        console.log(err);
 			    } else {
-			        console.log("The file was saved!");
+			        //console.log("The file was saved!");
 			    }
 			});
 
@@ -269,6 +290,9 @@ exports.deleteTestOption = function(req, res){
 
 //GET builds in order of timestamp
 exports.getRecentJobs = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getRecentJobs at: ' + n);
 	var dList = "";
 
 	
@@ -295,6 +319,9 @@ exports.getRecentJobs = function(req, res){
 
 //GET all the build names
 exports.getBuildNames = function(req, res){ 
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getBuildNames at: ' + n);
 	var buildName = req.query.build;
 
 	var dList = "";
@@ -325,6 +352,9 @@ exports.getBuildNames = function(req, res){
 
 //GET all the build names
 exports.getBuildsByDescription = function(req, res){ 
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getBuildsByDescription at: ' + n);
 	var buildName = req.query.build;
 
 	var dList = "";
@@ -355,6 +385,9 @@ exports.getBuildsByDescription = function(req, res){
 
 	
 function getPathToParsed(jobName, buildID){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getPathToParsed at: ' + n);
 
 	
 	//Create promise
@@ -428,6 +461,10 @@ function getPathToParsed(jobName, buildID){
 
 // return array --- [{filename: name1, data: d1}, {filename: name2, data:d2}, ... ]
 function getMetricsInFolder(pathToDirectory){
+
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getMetricsInFolder at: ' + n);
 	//Create empty array "metricFileObjs" to represent all the metric files
 	var metricFileObjs = [];
 	
@@ -466,6 +503,9 @@ function getMetricsInFolder(pathToDirectory){
 		}
 	*/
 function fileToObject(pathToFile){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called fileToObject at: ' + n);
 	//Create object fileObj
 	var fileObj = {};
 	//Set fileObj.filename to the file name
@@ -486,7 +526,7 @@ function fileToObject(pathToFile){
 			dataFound.pop();
 		}
 		if(dataFound.length < 4)
-			console.log(dataFound);
+			//console.log(dataFound);
 
 		//Set fileObj.data = data
 		fileObj.data = dataFound;
@@ -498,11 +538,14 @@ function fileToObject(pathToFile){
 
 //returns an array of all the job names in the logs folder
 function getAllPerfCIJobs(id){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getAllPerfCIJobs at: ' + n);
 
 	var getFileID = new Promise(function (resolve, reject){
 		var fileID = '';
 		var urlToHudson = config.jobHost + '/job/PERF_CI/'+ id +'/api/json';
-		console.log(urlToHudson);
+		//console.log(urlToHudson);
 		//Get ID
 		request(
 	    {
@@ -535,10 +578,10 @@ function getAllPerfCIJobs(id){
 				listOfFilenames = fs.readdirSync(path);	
 
 				for(var i=0; i<listOfFilenames.length; i++){
-					console.log(listOfFilenames[i]);
+					//console.log(listOfFilenames[i]);
 					result += config.hudsonPath+'PERF_CI/builds/'+fileID+'/archive/logs/' +listOfFilenames[i] + '/parsed/,';
 				}
-				console.log(result);
+				//console.log(result);
 								
 			}catch(err){
 
@@ -554,24 +597,27 @@ function getAllPerfCIJobs(id){
 
 //NEW GETDATA REQUEST
 exports.getParsedData = function(req, res){
+	var d = new Date(Date.now() - 28800000);
+	var n = d.toUTCString();
+	console.log('Called getParsedData at: ' + n);
 	var id = req.query.id;
 	var jobName = req.query.jobName;
 	var result ={};
 	if(jobName == 'PERF_CI'){
 		var perfPromise = getAllPerfCIJobs(id);
 		perfPromise.then( function (stringOfPaths){
-			console.log(stringOfPaths);
+			//console.log(stringOfPaths);
 			var listOfJobPaths = stringOfPaths.split(',');
 			listOfJobPaths.pop();
 			
 			for(var j=0; j<listOfJobPaths.length; j++){
-				console.log('BOOP!');
+				//console.log('BOOP!');
 				var perfJobName = listOfJobPaths[j].substring(listOfJobPaths[j].indexOf('logs/')+5,listOfJobPaths[j].indexOf('/parsed'));
 				result[''+ perfJobName] = {};
 				//XXXXXX
 				var subResult = {};
 				var path = listOfJobPaths[j];
-				console.log(path);
+				//console.log(path);
 
 				//ERROR CASE:
 				if(path.indexOf('parsed') < 0){
@@ -581,7 +627,7 @@ exports.getParsedData = function(req, res){
 												'System_Resources': {}, 
 												'JVM': {}
 											 };
-					console.log('WOAH');
+					//console.log('WOAH');
 					result[perfJobName] = subResult;
 				}
 				else{
