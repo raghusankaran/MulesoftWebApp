@@ -10,9 +10,6 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 //GET all the job names
 exports.getJobNames = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getJobNames at: ' + n);
 	var dList = "";
 
 	
@@ -85,9 +82,6 @@ exports.deleteJobTest = function(req, res){
 
 //Add baseline to test file
 exports.updateBaseline = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called updateBaseline at: ' + n);
 	var baseID = req.query.id;
 
 	var filename = req.query.job + '.sla';
@@ -133,9 +127,6 @@ exports.updateBaseline = function(req, res){
 
 //Add to test file
 exports.addJobTest = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called addJobTest at: ' + n);
 	var metricID = req.body.checkList;
 	//console.log(metricID);
 	var min = req.body.min;
@@ -181,9 +172,6 @@ exports.addJobTest = function(req, res){
 
 //GET all the job names
 exports.getTestMetrics = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getTestMetrics at: ' + n);
 	var job = req.query.job;
 	var filename = job+'.sla';
 	var path = config.testFilesPath + filename;
@@ -212,9 +200,6 @@ exports.getTestMetrics = function(req, res){
 
 //GET all the job names
 exports.getTestOptions = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getTestOptions at: ' + n);
 	var path = config.testFilesPath + 'LIST.txt';
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
 	{
@@ -227,9 +212,6 @@ exports.getTestOptions = function(req, res){
 };
 
 exports.addTestOption = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called addTestOption at: ' + n);
 	var path = config.testFilesPath + 'LIST.txt';
 	var type = req.body.addList;
 
@@ -260,9 +242,6 @@ exports.addTestOption = function(req, res){
 };
 
 exports.deleteTestOption = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called deleteTestOption at: ' + n);
 	var path = config.testFilesPath + 'LIST.txt';
 	var metric = req.body.delList;
 	fs.readFile(path, {encoding: 'utf-8'}, function(err, str)
@@ -290,9 +269,6 @@ exports.deleteTestOption = function(req, res){
 
 //GET builds in order of timestamp
 exports.getRecentJobs = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getRecentJobs at: ' + n);
 	var dList = "";
 
 	
@@ -319,9 +295,6 @@ exports.getRecentJobs = function(req, res){
 
 //GET all the build names
 exports.getBuildNames = function(req, res){ 
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getBuildNames at: ' + n);
 	var buildName = req.query.build;
 
 	var dList = "";
@@ -352,9 +325,6 @@ exports.getBuildNames = function(req, res){
 
 //GET all the build names
 exports.getBuildsByDescription = function(req, res){ 
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getBuildsByDescription at: ' + n);
 	var buildName = req.query.build;
 
 	var dList = "";
@@ -385,9 +355,6 @@ exports.getBuildsByDescription = function(req, res){
 
 	
 function getPathToParsed(jobName, buildID){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getPathToParsed at: ' + n);
 
 	
 	//Create promise
@@ -461,10 +428,6 @@ function getPathToParsed(jobName, buildID){
 
 // return array --- [{filename: name1, data: d1}, {filename: name2, data:d2}, ... ]
 function getMetricsInFolder(pathToDirectory){
-
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getMetricsInFolder at: ' + n);
 	//Create empty array "metricFileObjs" to represent all the metric files
 	var metricFileObjs = [];
 	
@@ -503,9 +466,6 @@ function getMetricsInFolder(pathToDirectory){
 		}
 	*/
 function fileToObject(pathToFile){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called fileToObject at: ' + n);
 	//Create object fileObj
 	var fileObj = {};
 	//Set fileObj.filename to the file name
@@ -538,9 +498,6 @@ function fileToObject(pathToFile){
 
 //returns an array of all the job names in the logs folder
 function getAllPerfCIJobs(id){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getAllPerfCIJobs at: ' + n);
 
 	var getFileID = new Promise(function (resolve, reject){
 		var fileID = '';
@@ -597,9 +554,6 @@ function getAllPerfCIJobs(id){
 
 //NEW GETDATA REQUEST
 exports.getParsedData = function(req, res){
-	var d = new Date(Date.now() - 28800000);
-	var n = d.toUTCString();
-	console.log('Called getParsedData at: ' + n);
 	var id = req.query.id;
 	var jobName = req.query.jobName;
 	var result ={};
