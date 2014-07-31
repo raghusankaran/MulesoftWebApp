@@ -1082,6 +1082,13 @@
 				var url = config.updateBaseline + jobName +'&id=' + chosenID;
 				document.getElementById('baselineNumber').innerHTML = '' + chosenID;
 				getRequest(url);
+				fillBaseCache();
+				if(baseCache['SingularData']['Summary']['Version'] != null){
+					document.getElementById('baseVersion').innerHTML = baseCache['SingularData']['Summary']['Version'];
+				}							
+				else{
+					document.getElementById('baseVersion').innerHTML = 'NaN';
+				}
 			}
 		</script>
 	</head>
