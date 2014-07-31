@@ -744,7 +744,7 @@
 
 				optionNames = [];
 				for(var metric in cache.GraphData){
-					if(cache.GraphData.hasOwnProperty(metric) && (prevCache == null || prevCache.GraphData.hasOwnProperty(metric) )){
+					if(cache.GraphData.hasOwnProperty(metric) && (isEmpty(prevCache) || prevCache.GraphData.hasOwnProperty(metric) )){
 						var name = metric.substring(metric.indexOf(':')+1);
 						var found = false;
 						if(optionNames.length == 0){
