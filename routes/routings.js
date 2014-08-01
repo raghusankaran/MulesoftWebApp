@@ -485,8 +485,8 @@ function fileToObject(pathToFile){
 		if(dataFound[dataFound.length-1] == ''){
 			dataFound.pop();
 		}
-		if(dataFound.length < 4)
-			//console.log(dataFound);
+		
+		
 
 		//Set fileObj.data = data
 		fileObj.data = dataFound;
