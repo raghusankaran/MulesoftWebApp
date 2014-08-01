@@ -31,6 +31,7 @@
 			}
 			function inititalizeDDO(){
 				dropDownOptions = JSON.parse(getRequest(config.getTestOptions))['options'];
+				dropDownOptions.sort();
 			}
 			function display(str){
 				var displayName = '';
