@@ -477,7 +477,7 @@
 				</div>
 				<div id='otherBuilds' class='homeMule'>
 					<div id='dropDownHome'>						
-						<form id='droplist'action='' method='get'>
+						<form id='droplist'action='' method='get' onchange = 'document.getElementById("droplist").submit()'>
 							Select a Build: 
 							<select name='dropMenu' id='jobDropDown'></select>
 							<input type="button" onClick="location= config.report + jobDropDown.options[jobDropDown.selectedIndex].value;" value="GO">
