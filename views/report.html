@@ -1114,7 +1114,7 @@
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
 						<form id='buildDropDown'action="">
-							<select id="buildNumber" onchange="updatePage('perfcibuild')">
+							<select id="buildNumber" class='select-style' onchange="updatePage('perfcibuild')">
 							</select>
 						</form>
 
@@ -1174,7 +1174,7 @@
 						<div id='prevSection'>
 							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Select a run to be compared: </span>
 							<form id='buildPrevDropDown'action="" >
-								<select id="prevNumber" onchange="">
+								<select id="prevNumber" class='select-style' onchange="">
 								</select>
 								<input id='prevbutton' type='button' value='OFF' onclick='compare("prev")'>
 							</form>
@@ -1194,7 +1194,7 @@
 							CPU/Memory/Disk Graph<br>
 
 							<form id='mainGDropForm'action="">
-								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 
@@ -1202,19 +1202,19 @@
 							</canvas><br>
 							Other Metrics Graph<br>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>							
 							<form action="">
-								<select id="otherGDropMetric" onchange="reloadGraphs();compareChange()">
+								<select id="otherGDropMetric" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose the <span style='color: cyan'>selected</span> run's server and metric: </span><select id="compareGDropServer" onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose the <span style='color: cyan'>selected</span> run's server and metric: </span><select id="compareGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>	
 							<form action="">
-								<select id="compareGDropMetric" onchange="reloadGraphs();compareChange()">
+								<select id="compareGDropMetric" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 							<canvas id='graph2' width='950' height='500' > 
