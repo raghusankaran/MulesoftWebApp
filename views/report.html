@@ -504,7 +504,7 @@
 						else{
 							if(jobResult == -1)
 								answer = 'Not Configured';
-							
+
 							resultObj[displayMetric] = [answer, false];
 							resultObj['overall'] = false;
 						}
@@ -902,7 +902,7 @@
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
 
-					document.getElementById('perfCI').innerHTML ='<select style="font-size: xx-large;" id="perfJob" onchange="updatePage(&quot;subchange&quot;)"></select>';
+					document.getElementById('perfCI').innerHTML ='<select class="select-style" style="font-size: xx-large;" id="perfJob" onchange="updatePage(&quot;subchange&quot;)"></select>';
 					var dropDown = document.getElementById('buildNumber');
 					var buildNumber = dropDown.options[dropDown.selectedIndex].value;
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
