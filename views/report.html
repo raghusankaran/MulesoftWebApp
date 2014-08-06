@@ -491,7 +491,10 @@
 								jobResult = parseFloat(serverResults[0]);
 						}
 						else{
-							jobResult = parseFloat(cache['SingularData'][type][dataID][0]);
+							if(cache['SingularData'][type][dataID] != null)
+								jobResult = parseFloat(cache['SingularData'][type][dataID][0]);
+							else
+								jobResult = -1;
 						}
 						var answer = jobResult + '';
 
