@@ -151,8 +151,15 @@
 					cache = getData(chosenID);
 				else{
 					var perfDrop = document.getElementById('perfJob');
-					var chosenSubJob  = perfDrop.options[perfDrop.selectedIndex].value;
-					cache = getData(chosenID)[chosenSubJob];
+					if(perfDrop.options[perfDrop.selectedIndex] != null){
+						var chosenSubJob  = perfDrop.options[perfDrop.selectedIndex].value;
+						cache = getData(chosenID)[chosenSubJob];
+					}
+					else{
+						cache = getData(chosenID);
+					}
+
+					
 				}
 				trimCache(cache);
 				
