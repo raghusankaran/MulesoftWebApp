@@ -502,6 +502,9 @@
 							resultObj[displayMetric] = [answer, true];
 						}
 						else{
+							if(jobResult == -1)
+								answer = 'Not Configured';
+							
 							resultObj[displayMetric] = [answer, false];
 							resultObj['overall'] = false;
 						}
