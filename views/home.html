@@ -105,7 +105,10 @@
 									data = serverResults[0];
 							}
 							else{
-								data = cache[type][dataID][0];
+								if(cache[type][dataID] != null)
+									data = cache[type][dataID][0];
+								else
+									data = null;
 							}
 
 							if(data != null){	
