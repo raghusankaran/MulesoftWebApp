@@ -24,8 +24,6 @@
 
 body{
 		
-		background-color: #4F4F4F;
-		
 
 	}
 canvas{
@@ -249,7 +247,7 @@ canvas{
 	overflow-y: scroll; 
 	overflow-x: hidden;
 	margin-bottom: 30px;
-	color: white;
+	color: black;
 }
 #testBox{
 	float: left;
@@ -289,7 +287,7 @@ canvas{
 	width:85%;
 }
 .keyMetricResults{
-	color:cyan;
+	color:black;
 }
 
 #jvmMetrics{
@@ -326,7 +324,7 @@ canvas{
 .grayText{color:#4F4F4F;}
 .whiteText{color:white;}
 .yellowText{color:yellow;}
-.cyanText{color:cyan;}
+.cyanText{color:black;}
 .dataResults{
 	position: relative;
 	left: 50px;
@@ -477,7 +475,7 @@ hr{
 	text-decoration: underline;
 }
 .editSLA{
-	color: cyan;
+	color: black;
 	font-size: 12px;
 	margin-left: 10px;
 }
@@ -504,16 +502,16 @@ hr{
 	margin-left: 10px;
 }
 #baseVersion{
-	color:cyan;
+	color:black;
 }
 .compareText{
 	font-size: 14px;
 }
 #baselineNumber{
-	color: cyan;
+	color: black;
 }
 .inGraphText{
-	color: white;
+	color: black;
 	font-size: 20px;
 }
 .showscroller{
