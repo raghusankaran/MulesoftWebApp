@@ -1176,10 +1176,10 @@
 				drop.remove();
 
 				var formsCollection = document.getElementsByTagName("form");
-				for(var form in formsCollection)
+				for(formsCollection.length > 0)
 				{
-				   form.remove();
-				   delete formsCollection[form];
+				   formsCollection['0'].remove();
+				   formsCollection = document.getElementsByTagName("form");
 				   
 				}
 
