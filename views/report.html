@@ -1094,6 +1094,12 @@
 					resizeCanvas('graph' + (line+1), x, y, optionsArray[line]);
 				}
 			}
+			function selectedMetricChange(){
+				prevButton = document.getElementById('prevbutton');
+				if(prevButton.value == 'ON'){
+					compareChange();
+				}
+			}
 			function resizeEasy(){
 				resizeAllGraphs(options);
 			}
@@ -1190,7 +1196,7 @@
 						</div>
 						<div id='prevSection'>
 							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Select a run to be compared: </span>
-							<form id='buildPrevDropDown'action="" >
+							<form id='buildPrevDropDown'action="" onchange="selectedMetricChange()" >
 								<select id="prevNumber" class='select-style' onchange="">
 								</select>
 								<input id='prevbutton' type='button' value='OFF' onclick='compare("prev")'>
