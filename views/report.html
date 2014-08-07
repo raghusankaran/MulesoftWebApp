@@ -1153,6 +1153,7 @@
 				dropToText = document.getElementById('mainGDropText');
 				drop = document.getElementById('mainGDrop');
 				dropToText.innerHTML = drop.options[drop.selectedIndex].text;
+				dropToText.style.display = 'block';
 				drop.remove();
 
 				dropToText = document.getElementById('otherGDropText');
@@ -1282,7 +1283,7 @@
 
 							<form id='mainGDropForm'action="">
 								<span class='inGraphText'>Choose your server: </span>
-								<pre id='mainGDropText'></pre><!-- XXX -->
+								<pre id='mainGDropText' style='display:none'></pre><!-- XXX -->
 								<select id="mainGDrop" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
