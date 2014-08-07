@@ -1151,6 +1151,8 @@
 					dropToText = document.getElementById('perfCIText');
 					drop = document.getElementById('perfciSelect');
 					dropToText.innerHTML = 'Subjob: ' +drop.options[drop.selectedIndex].text;
+					dropToText.style.display = 'block';
+					
 					drop.remove();
 				}
 
