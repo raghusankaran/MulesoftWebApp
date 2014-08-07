@@ -1138,6 +1138,38 @@
 				img2.src = graphImage2.src;
 				img1.style.width = '70%';
 				img2.style.width = '70%';
+
+				var dropToText = document.getElementById('buildDropDownText');
+				var drop = document.getElementById('buildNumber');
+				dropToText.innerHTML = drop.options[drop.selectedIndex];
+				drop.remove();
+
+				dropToText = document.getElementById('buildPrevDropDownText');
+				drop = document.getElementById('buildPrevDropDown');
+				dropToText.innerHTML = drop.options[drop.selectedIndex];
+				drop.remove();
+
+				dropToText = document.getElementById('mainGDropText');
+				drop = document.getElementById('mainGDrop');
+				dropToText.innerHTML = drop.options[drop.selectedIndex];
+				drop.remove();
+
+				dropToText = document.getElementById('otherGDropText');
+				drop = document.getElementById('otherGDropServer');
+				dropToText.innerHTML = drop.options[drop.selectedIndex];
+				drop.remove();
+				drop = document.getElementById('otherGDropMetric');
+				dropToText.innerHTML += '  '+drop.options[drop.selectedIndex];
+				drop.remove();
+
+				dropToText = document.getElementById('compareGDropText');
+				drop = document.getElementById('compareGDropServer');
+				dropToText.innerHTML = drop.options[drop.selectedIndex];
+				drop.remove();
+				drop = document.getElementById('compareGDropMetric');
+				dropToText.innerHTML += '  '+drop.options[drop.selectedIndex];
+				drop.remove();
+
 				printerFriendlyHTML += content.innerHTML;
 				document.write(printerFriendlyHTML);
 			}
@@ -1161,6 +1193,7 @@
 					<p><b>Hudson Job:</b> <span id='jobTitle'></span></p>
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
+						<pre id='buildDropDownText'><pre><!-- XXX -->
 						<form id='buildDropDown'action="">
 							<select id="buildNumber" class='select-style' onchange="updatePage('perfcibuild')">
 							</select>
@@ -1176,7 +1209,7 @@
 
 					</div>
 				</div>
-				<div id='keyMetrics'> <!--XXX -->
+				<div id='keyMetrics'> 
 					<p>Key Metrics</p>
 					<div id='testBox' class="infoMule">
 						<div class='showscroller'>
@@ -1223,6 +1256,7 @@
 						</div>
 						<div id='prevSection'>
 							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Select a run to be compared: </span>
+							<pre id='buildPrevDropDownText'><pre><!-- XXX -->
 							<form id='buildPrevDropDown'action="" onchange="selectedMetricChange()" >
 								<select id="prevNumber" class='select-style' onchange="">
 								</select>
@@ -1244,7 +1278,9 @@
 							CPU/Memory/Disk Graph<br>
 
 							<form id='mainGDropForm'action="">
-								<span class='inGraphText'>Choose your server: </span><select id="mainGDrop" class='select-style' onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose your server: </span>
+								<pre id='mainGDropText'><pre><!-- XXX -->
+								<select id="mainGDrop" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
 
@@ -1254,7 +1290,9 @@
 							<br>
 							Other Metrics Graph<br>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose your server and metric: </span><select id="otherGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose your server and metric: </span>
+								<pre id='otherGDropText'><pre><!-- XXX -->
+								<select id="otherGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>							
 							<form action="">
@@ -1263,7 +1301,9 @@
 							</form>
 							<br>
 							<form action="" style='float: left'>
-								<span class='inGraphText'>Choose the <span class='cyanText'>selected</span> run's server and metric: </span><select id="compareGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
+								<span class='inGraphText'>Choose the <span class='cyanText'>selected</span> run's server and metric: </span>
+								<pre id='compareGDropText'><pre><!-- XXX -->
+								<select id="compareGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>	
 							<form action="">
