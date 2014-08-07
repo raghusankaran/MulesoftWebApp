@@ -1176,9 +1176,10 @@
 				drop.remove();
 
 				var formsCollection = document.getElementsByTagName("form");
-				while(formsCollection.length >0)
+				for(var form in formsCollection)
 				{
-				   formsCollection[i].remove();
+				   form.remove();
+				   delete formsCollection[form];
 				   
 				}
 
