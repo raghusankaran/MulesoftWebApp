@@ -1150,8 +1150,9 @@
 
 					dropToText = document.getElementById('perfCIText');
 					drop = document.getElementById('perfJob');
-					dropToText.innerHTML = 'Subjob: <span style="font-size:23px">' +drop.options[drop.selectedIndex].text + '</span>';
+					dropToText.innerHTML = 'Subjob: <span style="font-size:27px">' +drop.options[drop.selectedIndex].text + '</span>';
 					dropToText.style.display = 'block';
+					dropToText.style.float = 'left';
 					
 					drop.remove();
 				}
