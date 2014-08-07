@@ -1075,8 +1075,12 @@
 					'setWidth': -1,
 					'currX': 0
 				 }];
-				 if(prevButton.value == 'OFF')
+				if(prevButton.value == 'OFF')
 					prevButton.click();
+				else{
+					prevButton.click();
+					prevButton.click();
+				}
 				if(baseButton.value == 'ON')
 					baseButton.click();
 //				removeServerNames(cache);
