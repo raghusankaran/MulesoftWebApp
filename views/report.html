@@ -509,7 +509,8 @@
 							resultObj[displayMetric] = [answer, true];
 						}
 						else{
-							if(jobResult == -1)
+								
+							if(jobResult == -1 || answer == 'NaN')
 								answer = 'Not Configured';
 
 							resultObj[displayMetric] = [answer, false];
