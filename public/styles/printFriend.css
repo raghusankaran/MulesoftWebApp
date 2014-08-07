@@ -553,6 +553,9 @@ hr{
 #addNewMetricBox{
 	padding: 14px;
 }
+.printerFriendlyText{
+	font-size: 18px;
+}
 
 
 

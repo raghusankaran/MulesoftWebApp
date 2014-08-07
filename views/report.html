@@ -1159,7 +1159,8 @@
 
 				dropToText = document.getElementById('otherGDropText');
 				drop = document.getElementById('otherGDropServer');
-				dropToText.innerHTML = drop.options[drop.selectedIndex].text;
+				dropToText.innerHTML = 'The current graph is: '
+				dropToText.innerHTML += drop.options[drop.selectedIndex].text;
 				drop.remove();
 				drop = document.getElementById('otherGDropMetric');
 				dropToText.innerHTML += '  '+drop.options[drop.selectedIndex].text;
@@ -1167,8 +1168,9 @@
 				drop.remove();
 
 				dropToText = document.getElementById('compareGDropText');
+				dropToText.innerHTML = 'The selected graph is: '
 				drop = document.getElementById('compareGDropServer');
-				dropToText.innerHTML = drop.options[drop.selectedIndex].text;
+				dropToText.innerHTML += drop.options[drop.selectedIndex].text;
 				drop.remove();
 				drop = document.getElementById('compareGDropMetric');
 				dropToText.innerHTML += '  '+drop.options[drop.selectedIndex].text;
@@ -1205,7 +1207,7 @@
 					<p><b>Hudson Job:</b> <span id='jobTitle'></span></p>
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
-						<pre id='buildDropDownText' style='float: left display:none'></pre><!-- XXX -->
+						<pre id='buildDropDownText' class='printerFriendlyText'  style='float: left display:none'></pre><!-- XXX -->
 						<form id='buildDropDown'action="">
 							<select id="buildNumber" class='select-style' onchange="updatePage('perfcibuild')">
 							</select>
@@ -1268,7 +1270,7 @@
 						</div>
 						<div id='prevSection'>
 							<span id='prevTitle' class='keyTitle' onclick="showHide(1)"><span id='plus1'>+</span> Select a run to be compared: </span>
-							<pre id='buildPrevDropDownText'></pre><!-- XXX -->
+							<pre id='buildPrevDropDownText'  class='printerFriendlyText' ></pre><!-- XXX -->
 							<form id='buildPrevDropDown'action="" onchange="selectedMetricChange()" >
 								<select id="prevNumber" class='select-style' onchange="">
 								</select>
@@ -1282,16 +1284,16 @@
 							</form>
 						</div>
 					</div>
-				
+				<br>
 				<div id='graphArea'>
 						<p>Graph Plots</p>
 					<div class='graphs'>
 						<div class='graphContent'>
 							CPU/Memory/Disk Graph<br>
-
+							<pre id='mainGDropText' class='printerFriendlyText' style='display:none'></pre><!-- XXX -->
 							<form id='mainGDropForm'action="">
 								<span class='inGraphText'>Choose your server: </span>
-								<pre id='mainGDropText' style='display:none'></pre><!-- XXX -->
+								
 								<select id="mainGDrop" class='select-style' onchange="reloadGraphs();compareChange()">
 								</select>
 							</form>
@@ -1301,7 +1303,7 @@
 							<img id='graph1Img' src="" width='0'>
 							<br>
 							Other Metrics Graph<br>
-							<pre id='otherGDropText' style="display:none"></pre><!-- XXX -->
+							<pre id='otherGDropText' class='printerFriendlyText'  style="display:none"></pre><!-- XXX -->
 							<form action="" id='weoifgjepw' style='float: left'>
 								<span class='inGraphText'>Choose your server and metric: </span>
 								
@@ -1314,7 +1316,7 @@
 							</form>
 							<br>
 
-							<pre id='compareGDropText' style="display:none"></pre><!-- XXX -->
+							<pre id='compareGDropText'  class='printerFriendlyText' style="display:none"></pre><!-- XXX -->
 
 							<form action="" "id="fwekf" style='float: left'>
 								<span class='inGraphText'>Choose the <span class='cyanText'>selected</span> run's server and metric: </span>
