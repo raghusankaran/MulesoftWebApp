@@ -64,7 +64,7 @@ function makeGraph(nameOfCanvas, percentage, bounds, currX, description, colors)
 		for(var i=graphYAxis[0]; i <= graphYAxis[1]; i+= (graphYAxis[1]-graphYAxis[0])/samples){
 			ctx.fillStyle = 'black';
 			var text = '' + i;
-			ctx.fillText(text.substring(0,5) + '%',startX/5,startY - (startY/samples) * count);
+			ctx.fillText(text.substring(0,5),startX/5,startY - (startY/samples) * count);
 			ctx.stroke();
 			count++;
 		}
