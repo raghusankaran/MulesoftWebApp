@@ -1118,6 +1118,10 @@
 					document.getElementById('baseVersion').innerHTML = 'NaN';
 				}
 			}
+			function print(){
+				var content = document.getElementById('content');
+				document.write(content.innerHTML);
+			}
 		</script>
 	</head>
 	<body onresize="resizeEasy()">
@@ -1148,6 +1152,8 @@
 						<p id='summary'></p>
 						
 						<p id='setAsBase'>Set this run as the base line: <input type='button' value='YES' onclick='setThisToBaseline()'></p>
+
+						<p id='setAsBase'>Print this run: <input type='button' value='PRINT' onclick='print()'></p>
 
 					</div>
 				</div>
