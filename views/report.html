@@ -910,7 +910,7 @@
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
 
-					document.getElementById('perfCI').innerHTML ='<select class="select-style" style="font-size: xx-large;" id="perfJob" onchange="updatePage(&quot;subchange&quot;)"></select>';
+					document.getElementById('perfCI').innerHTML ='<select id="perfciSelect" class="select-style" style="font-size: xx-large;" id="perfJob" onchange="updatePage(&quot;subchange&quot;)"></select>';
 					var dropDown = document.getElementById('buildNumber');
 					var buildNumber = dropDown.options[dropDown.selectedIndex].value;
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
@@ -1146,6 +1146,14 @@
 				dropToText.style.float = 'left';
 				drop.remove();
 
+				if(jobName == 'PERF_CI'){
+
+					dropToText = document.getElementById('perfCIText');
+					drop = document.getElementById('perfciSelect');
+					dropToText.innerHTML = 'Subjob: ' +drop.options[drop.selectedIndex].text;
+					drop.remove();
+				}
+
 				dropToText = document.getElementById('buildPrevDropDownText');
 				drop = document.getElementById('prevNumber');
 				dropToText.innerHTML = '   ' +drop.options[drop.selectedIndex].text;
@@ -1215,6 +1223,7 @@
 
 						<form id='perfCI'action="">
 						</form>
+						<pre id='perfCIText'  class='printerFriendlyText' style="display:none"></pre>
 						<p id='summary'></p>
 						
 						<p id='setAsBase'>Set this run as the base line: <input type='button' value='YES' onclick='setThisToBaseline()'></p>
