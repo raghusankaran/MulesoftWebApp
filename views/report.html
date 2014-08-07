@@ -1119,8 +1119,11 @@
 				}
 			}
 			function print(){
+				var printerFriendlyHTML = "<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>"
 				var content = document.getElementById('content');
-				document.write("<link href='public/styles/muleStyle.css' rel='stylesheet'type='text/css'>" + content.innerHTML);
+				document.getElementById('graph1').remove();
+				document.getElementById('graph2').remove();
+				document.write( + content.innerHTML);
 			}
 		</script>
 	</head>
