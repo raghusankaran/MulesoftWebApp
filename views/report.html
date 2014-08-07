@@ -1132,8 +1132,12 @@
 				var graphImage2 = convertCanvasToImage(document.getElementById('graph2'));
 				document.getElementById('graph1').remove();
 				document.getElementById('graph2').remove();
-				document.getElementById('graph1Img').src = graphImage1.src;
-				document.getElementById('graph2Img').src = graphImage2.src;
+				var img1 = document.getElementById('graph1Img')
+				var img2 = document.getElementById('graph2Img')
+				img1.src = graphImage1.src;
+				img2.src = graphImage2.src;
+				img1.width = '90%';
+				img2.width = '90%';
 				printerFriendlyHTML += content.innerHTML;
 				document.write(printerFriendlyHTML);
 			}
