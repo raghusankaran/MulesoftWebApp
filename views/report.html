@@ -1123,7 +1123,8 @@
 				var content = document.getElementById('content');
 				document.getElementById('graph1').remove();
 				document.getElementById('graph2').remove();
-				document.write( + content.innerHTML);
+				printerFriendlyHTML += content.innerHTML;
+				document.write(printerFriendlyHTML);
 			}
 		</script>
 	</head>
