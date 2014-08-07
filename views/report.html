@@ -910,7 +910,7 @@
 				buildDropDown('prevNumber');
 				if(jobName == 'PERF_CI'){	
 
-					document.getElementById('perfCI').innerHTML ='<select id="perfciSelect" class="select-style" style="font-size: xx-large;" id="perfJob" onchange="updatePage(&quot;subchange&quot;)"></select>';
+					document.getElementById('perfCI').innerHTML ='<select class="select-style" style="font-size: xx-large;" id="perfJob" onchange="updatePage(&quot;subchange&quot;)"></select>';
 					var dropDown = document.getElementById('buildNumber');
 					var buildNumber = dropDown.options[dropDown.selectedIndex].value;
 					perfCache = JSON.parse(getRequest(config.getParsedData + 'PERF_CI&id=' + buildNumber));
@@ -1149,7 +1149,7 @@
 				if(jobName == 'PERF_CI'){
 
 					dropToText = document.getElementById('perfCIText');
-					drop = document.getElementById('perfciSelect');
+					drop = document.getElementById('perfJob');
 					dropToText.innerHTML = 'Subjob: ' +drop.options[drop.selectedIndex].text;
 					dropToText.style.display = 'block';
 					
