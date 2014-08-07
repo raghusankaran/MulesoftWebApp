@@ -1142,6 +1142,7 @@
 				var dropToText = document.getElementById('buildDropDownText');
 				var drop = document.getElementById('buildNumber');
 				dropToText.innerHTML = drop.options[drop.selectedIndex].text;
+				dropToText.style.display = 'block';
 				drop.remove();
 
 				dropToText = document.getElementById('buildPrevDropDownText');
@@ -1195,7 +1196,7 @@
 					<p><b>Hudson Job:</b> <span id='jobTitle'></span></p>
 					<div id='jobInfo' class='mule'>
 						<p id='buildDropDownTitle'>Build:</p>
-						<pre id='buildDropDownText' style='float: left'></pre><!-- XXX -->
+						<pre id='buildDropDownText' style='float: left display:none'></pre><!-- XXX -->
 						<form id='buildDropDown'action="">
 							<select id="buildNumber" class='select-style' onchange="updatePage('perfcibuild')">
 							</select>
