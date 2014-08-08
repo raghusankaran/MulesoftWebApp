@@ -285,10 +285,15 @@ exports.getRecentJobs = function(req, res){
 	        if (!error && response.statusCode == 200) {
 	        	var info = JSON.parse(body);
 	  			
-	  			var data = [];
+	  			
 
 				res.send(info);
 			}
+			else{
+				var info = {jobs:[]};
+				res.send(info)
+			}
+				
 	    }
 	);	
 };
@@ -319,6 +324,8 @@ exports.getBuildNames = function(req, res){
 				
 				res.send(dList);
 			}
+			else
+				res.send(dList);
 	    }
 	);
 };
@@ -343,6 +350,10 @@ exports.getBuildsByDescription = function(req, res){
 	        if (!error && response.statusCode == 200) {
 	        	//
 	        	var info = JSON.parse(body);
+				res.send(info);
+			}
+			else{
+				var info = {builds: []};
 				res.send(info);
 			}
 	    }
