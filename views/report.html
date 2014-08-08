@@ -632,11 +632,11 @@
 						compCache = baseCache;
 					}
 					else
-						compCache = cache;
+						compCache = null;
 
 				}
 				buildCompareGraphDropDown();
-				if(document.getElementById(buttonName).value == 'ON')
+				if(document.getElementById(buttonName).value == 'ON' && compCache != null)
 				{
 					document.getElementById(buttonName).value = 'OFF';
 					for(var section in cache['SingularData'])
@@ -654,7 +654,7 @@
 					compareChange();	
 				}
 			
-				else{
+				else if(compCache != null){
 					document.getElementById(otherButton).value = 'OFF';
 					document.getElementById(buttonName).value = 'ON';
 					
