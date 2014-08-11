@@ -253,7 +253,7 @@
 					displayName = displayName.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
-									"<span onclick='toggle(\"comp\", \""+name+"\"); id='comp"+name+"'></span>"+ 
+									"<span onclick='toggle(\"comp\", \""+name+"\"); return false' id='comp"+name+"'></span>"+ 
 									"<span onclick='toggle(\"perc\", \""+name+"\"); return false' id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
@@ -261,7 +261,7 @@
 					displayName = name.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
-									"<span onclick='toggle(\"comp\", \""+name+"\"); id='comp"+name+"'></span>"+ 
+									"<span onclick='toggle(\"comp\", \""+name+"\"); return false' id='comp"+name+"'></span>"+ 
 									"<span onclick='toggle(\"perc\", \""+name+"\"); return false' id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
