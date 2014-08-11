@@ -253,16 +253,16 @@
 					displayName = displayName.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
-									"<span onclick='toggle(\"comp\", \""+name+"\"); return false' id='comp"+name+"'></span>"+ 
-									"<span onclick='toggle(\"perc\", \""+name+"\"); return false' id='perc"+name+"'></span>"+
+									"<span id='comp"+name+"' onclick='toggle(\"comp\", \""+name+"\"); return false'  ></span>"+ 
+									"<span id='perc"+name+"'  onclick='toggle(\"perc\", \""+name+"\"); return false'></span>"+
 									"</span><br>";
 				}
 				else{
 					displayName = name.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
-									"<span onclick='toggle(\"comp\", \""+name+"\"); return false' id='comp"+name+"'></span>"+ 
-									"<span onclick='toggle(\"perc\", \""+name+"\"); return false' id='perc"+name+"'></span>"+
+									"<span id='comp"+name+"'  onclick='toggle(\"comp\", \""+name+"\"); return false' ></span>"+ 
+									"<span  id='perc"+name+"' onclick='toggle(\"perc\", \""+name+"\"); return false'></span>"+
 									"</span><br>";
 				}
 
@@ -433,16 +433,16 @@
 					displayName = displayName.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
-									"<span onclick='toggle(\"comp\", \""+cachename+"\"); return false' id='comp"+cachename+"'></span>"+
-									"<span onclick='toggle(\"perc\", \""+cachename+"\"); return false' id='perc"+cachename+"'></span>"+ 
+									"<span  id='comp"+cachename+"' onclick='toggle(\"comp\", \""+cachename+"\"); return false'></span>"+
+									"<span id='perc"+cachename+"' onclick='toggle(\"perc\", \""+cachename+"\"); return false' ></span>"+ 
 									"</span><br>";
 				}
 				else{
 					displayName = name.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
-									"<span onclick='toggle(\"comp\", \""+cachename+"\"); return false' id='comp"+cachename+"'></span>"+ 
-									"<span onclick='toggle(\"perc\", \""+cachename+"\"); return false' id='perc"+cachename+"'></span>"+ 
+									"<span id='comp"+cachename+"' onclick='toggle(\"comp\", \""+cachename+"\"); return false' ></span>"+ 
+									"<span id='perc"+cachename+"' onclick='toggle(\"perc\", \""+cachename+"\"); return false' ></span>"+ 
 									"</span><br>";
 				}
 				document.getElementById('perc'+cachename).style.display = 'none';
