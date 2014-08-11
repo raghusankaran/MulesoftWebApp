@@ -236,10 +236,10 @@
 			function toggle(option, metric){
 				if(option == 'comp'){
 					document.getElementById('comp'+metric).style.display = 'none';
-					document.getElementById('perc'+metric).style.display = 'show';
+					document.getElementById('perc'+metric).style.display = 'compact';
 				}
 				else{
-					document.getElementById('comp'+metric).style.display = 'show';
+					document.getElementById('comp'+metric).style.display = 'compact';
 					document.getElementById('perc'+metric).style.display = 'none';
 				}
 			}
@@ -267,7 +267,7 @@
 				}
 
 				document.getElementById('perc'+name).style.display = 'none';
-				document.getElementById('comp'+name).style.display = 'show';
+				document.getElementById('comp'+name).style.display = 'compact';
 				
 
 			}
@@ -446,7 +446,7 @@
 									"</span><br>";
 				}
 				document.getElementById('perc'+cachename).style.display = 'none';
-				document.getElementById('comp'+cachename).style.display = 'show';
+				document.getElementById('comp'+cachename).style.display = 'compact';
 			}
 
 			function getDataByServer(nameOfServer){
