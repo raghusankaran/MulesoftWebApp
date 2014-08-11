@@ -254,7 +254,7 @@
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
 									"<span id='comp"+name+"'></span>"+ 
-									"<span onclick='toggle('perc', "+name+"); return false' id='perc"+name+"'></span>"+
+									"<span onclick='toggle(\"perc\", \""+name+"\"); return false' id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
 				else{
@@ -262,7 +262,7 @@
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
 									"<span id='comp"+name+"'></span>"+ 
-									"<span onclick='toggle('perc', "+name+"); return false' id='perc"+name+"'></span>"+
+									"<span onclick='toggle(\"perc\", \""+name+"\"); return false' id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
 
@@ -441,8 +441,8 @@
 					displayName = name.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
-									"<span onclick='toggle('perc', "+cachename+"); return false' id='comp"+cachename+"'></span>"+ 
-									"<span onclick='toggle('perc', "+cachename+"); return false' id='perc"+cachename+"'></span>"+ 
+									"<span onclick='toggle(\"perc\", \""+cachename+"\"); return false' id='comp"+cachename+"'></span>"+ 
+									"<span onclick='toggle(\"perc\", \""+cachename+"\"); return false' id='perc"+cachename+"'></span>"+ 
 									"</span><br>";
 				}
 				document.getElementById('perc'+cachename).style.display = 'none';
