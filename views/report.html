@@ -254,7 +254,7 @@
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
 									"<span id='comp"+name+"'></span>"+ 
-									"<span id='perc"+name+"'></span>"+
+									"<span onclick='toggle('perc', "+name+"); return false' id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
 				else{
@@ -262,14 +262,12 @@
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
 									"<span id='comp"+name+"'></span>"+ 
-									"<span id='perc"+name+"'></span>"+
+									"<span onclick='toggle('perc', "+name+"); return false' id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
 
 				document.getElementById('perc'+name).style.display = 'none';
 				document.getElementById('comp'+name).style.display = 'block';
-				document.getElementById('perc'+name).addEventListener('click', toggle('perc', name)); 
-				document.getElementById('comp'+name).addEventListener('click', toggle('comp', name)); 
 				
 
 			}
@@ -443,14 +441,12 @@
 					displayName = name.replace(/_/g, ' ');
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
-									"<span id='comp"+cachename+"'></span>"+ 
-									"<span id='perc"+cachename+"'></span>"+ 
+									"<span onclick='toggle('perc', "+cachename+"); return false' id='comp"+cachename+"'></span>"+ 
+									"<span onclick='toggle('perc', "+cachename+"); return false' id='perc"+cachename+"'></span>"+ 
 									"</span><br>";
 				}
 				document.getElementById('perc'+cachename).style.display = 'none';
 				document.getElementById('comp'+cachename).style.display = 'block';
-				document.getElementById('perc'+cachename).addEventListener('onclick', toggle('perc', cachename)); 
-				document.getElementById('comp'+cachename).addEventListener('onclick', toggle('comp', cachename)); 
 			}
 
 			function getDataByServer(nameOfServer){
