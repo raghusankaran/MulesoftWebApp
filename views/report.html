@@ -449,8 +449,8 @@
 				}
 				document.getElementById('perc'+cachename).style.display = 'none';
 				document.getElementById('comp'+cachename).style.display = 'block';
-				document.getElementById('perc'+cachename).addEventListener('click', toggle('perc', cachename)); 
-				document.getElementById('comp'+cachename).addEventListener('click', toggle('comp', cachename)); 
+				document.getElementById('perc'+cachename).addEventListener('onclick', toggle('perc', cachename)); 
+				document.getElementById('comp'+cachename).addEventListener('onclick', toggle('comp', cachename)); 
 			}
 
 			function getDataByServer(nameOfServer){
