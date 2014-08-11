@@ -663,7 +663,7 @@
 					document.getElementById(buttonName).value = 'OFF';
 					for(var section in cache['SingularData'])
 					{
-						if(cache['SingularData'].hasOwnProperty(section))
+						if(section != 'Summary' && cache['SingularData'].hasOwnProperty(section))
 						{		
 							for(var compField in cache['SingularData'][section])
 							{
