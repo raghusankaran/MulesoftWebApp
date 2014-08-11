@@ -232,6 +232,17 @@
 				options[i].setWidth += change;
 				updateGraph('graph'+ (i+1), options[i]);
 			}
+
+			function toggle(option, metric){
+				if(option == 'comp'){
+					document.getElementById('comp'+metric).style.display = 'none';
+					document.getElementById('perc'+metric).style.display = 'block';
+				}
+				else{
+					document.getElementById('comp'+metric).style.display = 'block';
+					document.getElementById('perc'+metric).style.display = 'none';
+				}
+			}
 			function printMetric(nameOfP, name, value){
 				var box = document.getElementById(nameOfP);
 				var displayName= '';
@@ -243,6 +254,7 @@
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>"+
 									value+ 
 									"<span id='comp"+name+"'></span>"+ 
+									"<span id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
 				else{
@@ -250,8 +262,16 @@
 					box.innerHTML += displayName + ": <span id='"+ name +"' class='keyMetricResults'>" +
 									value + 
 									"<span id='comp"+name+"'></span>"+ 
+									"<span id='perc"+name+"'></span>"+
 									"</span><br>";
 				}
+
+				document.getElementById('perc'+name).style.display = 'none';
+				document.getElementById('comp'+name).style.display = 'block';
+				document.getElementById('perc'+name).addEventListener('click', toggle('perc', name)); 
+				document.getElementById('comp'+name).addEventListener('click', toggle('comp', name)); 
+				
+
 			}
 			function reloadGraphs(){
 				dropDown = document.getElementById('mainGDrop');
@@ -645,8 +665,10 @@
 						{		
 							for(var compField in cache['SingularData'][section])
 							{
-								if(cache['SingularData'][section].hasOwnProperty(compField))
+								if(cache['SingularData'][section].hasOwnProperty(compField)){
 									document.getElementById('comp'+compField).innerHTML = ' ';
+									document.getElementById('perc'+compField).innerHTML = ' ';
+								}
 								
 							}
 						}
@@ -666,10 +688,14 @@
 								if(cache['SingularData'][section].hasOwnProperty(compField) && compCache['SingularData'][section].hasOwnProperty(compField) && section != 'Summary'){
 									//calculate difference (neg is good, pos is bad)
 									var difference = parseFloat(cache['SingularData'][section][compField][0]) - parseFloat(compCache['SingularData'][section][compField][0]);
+									var percentage = (difference / parseFloat(compCache['SingularData'][section][compField][0])) * 100
 									//show difference
 									if(difference < 0){ //green and +
 										document.getElementById('comp'+compField).innerHTML = (' ' + trimNumber(difference));
 										document.getElementById('comp'+compField).className = 'greenText compareText';
+
+										document.getElementById('perc'+compField).innerHTML = (' ' + trimNumber(percentage)+'%');
+										document.getElementById('perc'+compField).className = 'greenText compareText';
 									}
 									else if(document.getElementById('comp'+compField) == null){
 
@@ -677,6 +703,9 @@
 									else{//red and -
 										document.getElementById('comp'+compField).innerHTML = (' +' + trimNumber(difference));
 										document.getElementById('comp'+compField).className = 'redText compareText';
+
+										document.getElementById('perc'+compField).innerHTML = (' +' + trimNumber(percentage)+'%');
+										document.getElementById('perc'+compField).className = 'redText compareText';
 									}
 
 								}
