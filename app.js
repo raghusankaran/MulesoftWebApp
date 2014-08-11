@@ -39,7 +39,7 @@ app.post('/login', function (req, res) {
 
       if (userList.hasOwnProperty(post.user) && post.password === userList[post.user]) {
         req.session.user_id = post.user;
-        console.log('User: ' + post.user + 'logged in.');
+        console.log('User: ' + post.user + ' logged in.');
         res.redirect('/');
       }
        else {
@@ -61,7 +61,7 @@ app.get('/', checkAuth, function(req, res){
 	res.render('home');
 });
 app.get('/report', checkAuth, function(req, res){
-  console.log('User: ' + req.session.user_id + 'checked out the REPORT page');
+  console.log('User: ' + req.session.user_id + ' checked out the REPORT page');
 	res.render('report');
 });
 
@@ -69,7 +69,7 @@ app.get('/builds',checkAuth, function(req, res){
 	res.render('builds');
 });
 app.get('/home', checkAuth, function(req, res){
-  console.log('User: ' + req.session.user_id + 'checked out the HOME page');
+  console.log('User: ' + req.session.user_id + ' checked out the HOME page');
 	res.render('home');
 });
 app.get('/graph',checkAuth, function(req, res){
@@ -77,7 +77,7 @@ app.get('/graph',checkAuth, function(req, res){
 });
 
 app.get('/update',checkAuth, function(req, res){
-  console.log('User: ' + req.session.user_id + 'checked out the UPDATE page');
+  console.log('User: ' + req.session.user_id + ' checked out the UPDATE page');
 	res.render('update');
 });
 
