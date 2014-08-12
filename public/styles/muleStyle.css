@@ -374,6 +374,7 @@ canvas{
 	max-height: 600px;
 	margin: 20px;
 	margin-top: 50px;
+	padding-right: 5px;
 }
 #nightlyTest{
 	float: left;
