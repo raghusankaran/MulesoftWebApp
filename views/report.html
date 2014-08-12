@@ -892,7 +892,7 @@
 			}
 			function trimNumber(num){
 				var str = '' + num;
-				if(str == 'NaN'){
+				if(str == 'NaN' || str == 'Infinity'){
 					str = '0';
 				}
 				else if(str.indexOf('0.') == 0){
