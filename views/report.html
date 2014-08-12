@@ -238,9 +238,20 @@
 					document.getElementById('comp'+metric).style.display = 'none';
 					document.getElementById('perc'+metric).style.display = 'inline';
 				}
-				else{
+				else if(option == 'perc'){
 					document.getElementById('comp'+metric).style.display = 'inline';
 					document.getElementById('perc'+metric).style.display = 'none';
+				}
+				else if(option == 'all'){
+					var elements = document.getElementsByClassName('compareText');
+					for(var i=0; i<elements.length; i++){
+						if(elements[i].style.display == 'none'){
+							elements[i].style.display = 'inline';
+						}
+						else{
+							elements[i].style.display = 'none';
+						}
+					}
 				}
 			}
 			function printMetric(nameOfP, name, value){
