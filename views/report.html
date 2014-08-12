@@ -1249,6 +1249,8 @@
 				printerFriendlyHTML += content.innerHTML;
 
 				document.getElementsByTagName('html')[0].innerHTML = (printerFriendlyHTML);
+				while(!window.print())
+
 				window.print();
 			}
 		</script>
