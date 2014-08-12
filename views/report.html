@@ -1247,8 +1247,8 @@
 				}
 
 				printerFriendlyHTML += content.innerHTML;
-				document.write(printerFriendlyHTML);
-				window.onload=function(){window.print();};
+				document.getElementsByTagName('body')[0].innerHTML = (printerFriendlyHTML);
+				window.print();
 			}
 		</script>
 	</head>
