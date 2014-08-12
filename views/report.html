@@ -1248,7 +1248,7 @@
 
 				printerFriendlyHTML += content.innerHTML;
 				document.write(printerFriendlyHTML);
-				window.print();
+				window.onload=function(){window.print();};
 			}
 		</script>
 	</head>
