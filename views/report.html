@@ -639,6 +639,7 @@
 		
 			function compare(type){
 				var buttonName, otherButton, compCache;
+				var baseExists = true;
 				if(type == 'prev'){
 					buttonName = 'prevbutton';
 					otherButton = 'basebutton';
@@ -663,12 +664,16 @@
 						document.getElementById('baseVersion').style.color = "cyan";
 						fillBaseCache();
 						compCache = baseCache;
+
 					}
-					else
+					else{
 						compCache = null;
+						baseExists = false;
+					}
 
 				}
-				buildCompareGraphDropDown();
+				if(baseExists)
+					buildCompareGraphDropDown();
 				if(document.getElementById(buttonName).value == 'ON' && compCache != null)
 				{
 					document.getElementById(buttonName).value = 'OFF';
