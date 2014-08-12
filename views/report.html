@@ -1247,13 +1247,12 @@
 				}
 
 				printerFriendlyHTML += content.innerHTML;
-				document.getElementById('print').innerHTML = (printerFriendlyHTML);
-				document.getElementsByTagName('body')[0].remove();
+
+				document.getElementsByTagName('html')[0].innerHTML = (printerFriendlyHTML);
 				window.print();
 			}
 		</script>
 	</head>
-	<div id='print'></div>
 	<body onresize="resizeEasy()">
 		<div id= "pagewrapper">
 			<div id="heading" class="mule">
