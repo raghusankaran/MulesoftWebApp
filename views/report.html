@@ -111,8 +111,8 @@
 				dropDown.style.fontSize = '20px';
 				if(optionalID == 0){
 					for(var i=0; i < buildIds.length; i++){
-						if(buildIds[i].description != null  && buildIds[i].description.length > 75)
-							buildIds[i].description= buildIds[i].description.substring(0,75);
+						if(buildIds[i].description != null  && buildIds[i].description.length > 60)
+							buildIds[i].description= buildIds[i].description.substring(0,60);
 
 						if(i == 0)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
@@ -122,8 +122,8 @@
 				}
 				else{
 					for(var i=0; i < buildIds.length; i++){
-						if(buildIds[i].description != null && buildIds[i].description.length > 75)
-							buildIds[i].description= buildIds[i].description.substring(0,75);
+						if(buildIds[i].description != null && buildIds[i].description.length > 60)
+							buildIds[i].description= buildIds[i].description.substring(0,60);
 
 						if(buildIds[i].number == optionalID)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
