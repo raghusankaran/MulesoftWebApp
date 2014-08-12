@@ -1175,7 +1175,7 @@
 				return image;
 			}
 
-			function print(){
+			function printPage(){
 				var printerFriendlyHTML = "<link href='public/styles/printFriend.css' rel='stylesheet'type='text/css'>"
 				var content = document.getElementById('content');
 				var graphImage1 = convertCanvasToImage(document.getElementById('graph1'));
@@ -1283,7 +1283,7 @@
 						
 						<p id='setAsBase'>Set this run as the base line: <input type='button' value='YES' onclick='setThisToBaseline()'></p>
 
-						<p id='setAsBase'>Print this run: <input type='button' value='PRINT' onclick='print()'></p>
+						<p id='setAsBase'>Print this run: <input type='button' value='PRINT' onclick='printPage()'></p>
 
 					</div>
 				</div>
