@@ -1250,8 +1250,9 @@
 
 				document.getElementsByTagName('html')[0].innerHTML = (printerFriendlyHTML);
 				
-				
-				window.print();
+				setTimeout(function(){
+					window.print();
+				}, 0);
 			}
 		</script>
 	</head>
