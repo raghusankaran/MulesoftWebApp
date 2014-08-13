@@ -5,6 +5,7 @@ function printPage(){
 									"<script src='../print.js'></script>"+
 								"</head>";
 		var content = document.getElementById('content');
+		var save = content.innerHTML;
 		
 		var graphImage1 = convertCanvasToImage(document.getElementById('graph1'));
 		var graphImage2 = convertCanvasToImage(document.getElementById('graph2'));
@@ -77,6 +78,7 @@ function printPage(){
 		printerFriendlyHTML += content.innerHTML;
 
 		window.open().document.write(printerFriendlyHTML);
+		content.innerHTML = save;
 	}
 	else{
 		window.print();
