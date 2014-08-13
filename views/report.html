@@ -1248,12 +1248,12 @@
 
 				printerFriendlyHTML += content.innerHTML;
 
-				document.getElementsByTagName('html')[0].innerHTML = (printerFriendlyHTML);
-				while(document.readyState != 'complete'){
-					  setTimeout(function(){}, 2000);
-				}
-				
-				window.print();
+				document.write(printerFriendlyHTML);
+				window.document.close(); 
+				window.focus(); 
+				window.print(); 
+				window.close(); 
+
 				
 			}
 		</script>
