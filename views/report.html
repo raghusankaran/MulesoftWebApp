@@ -6,6 +6,7 @@
 		<link rel="Shortcut Icon" type="image/ico" href="views/sources/favicon.ico">
 		<script src="../config.js"></script>
 		<script src="../graph.js"></script>
+		<script src="../print.js"></script>
 		<script>
 			var jobName = getQueryVariable('jobName');
 			var allBuildIds = [];
@@ -1177,7 +1178,10 @@
 
 			function printPage(){
 				if(document.getElementById('pagewrapper') != null){
-					var printerFriendlyHTML = "<link href='public/styles/printFriend.css' rel='stylesheet'type='text/css'>"
+					var printerFriendlyHTML = "<head>"+
+													"<link href='public/styles/printFriend.css' rel='stylesheet'type='text/css'>"+
+													"<script src='../print.js'></script>"+
+												"</head>";
 					var content = document.getElementById('content');
 					
 					var graphImage1 = convertCanvasToImage(document.getElementById('graph1'));
