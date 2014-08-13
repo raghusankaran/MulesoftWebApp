@@ -1178,7 +1178,7 @@
 			function printPage(){
 				var printerFriendlyHTML = "<link href='public/styles/printFriend.css' rel='stylesheet'type='text/css'>"
 				var content = document.getElementById('content');
-				document.getElementById('printButton').onclick = 'window.print();';
+				document.getElementById('printButton').onclick = function(){window.print();};
 				var graphImage1 = convertCanvasToImage(document.getElementById('graph1'));
 				var graphImage2 = convertCanvasToImage(document.getElementById('graph2'));
 				document.getElementById('graph1').remove();
@@ -1250,7 +1250,7 @@
 				printerFriendlyHTML += content.innerHTML;
 
 				window.open().document.write(printerFriendlyHTML);
-				document.getElementById('printButton').onclick = 'printPage()';
+				document.getElementById('printButton').onclick = printPage;
 				
 				
 			}
