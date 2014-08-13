@@ -600,7 +600,11 @@ overflow-y: scroll;
 max-height: 430px;
 }
 
+#printSection{
+	margin-top: 40px;
+	margin-left: 20px;
 
+}
 
 
 
