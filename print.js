@@ -6,7 +6,8 @@ function printPage(){
 								"</head>";
 		var content = document.getElementById('content');
 		
-		
+		document.getElementById('printSection').innerHTML = 'Click here to print this page!';
+		document.getElementById('printButton').value = 'Print!';
 		var graphImage1 = convertCanvasToImage(document.getElementById('graph1'));
 		var graphImage2 = convertCanvasToImage(document.getElementById('graph2'));
 		document.getElementById('graph1').remove();
