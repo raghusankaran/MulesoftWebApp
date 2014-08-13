@@ -82,6 +82,7 @@ function printPage(){
 		location.reload();
 	}
 	else{
+		document.getElementById('printSection').remove();
 		window.print();
 	}
 		
