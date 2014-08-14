@@ -307,7 +307,7 @@ canvas{
 	margin-left: 10px;
 }
 #testMetrics{
-	font-size:16px;
+	font-size:20px;
 	width: 85%;
 	margin-left: 40px;
 	
@@ -324,7 +324,7 @@ canvas{
 }
 
 #jvmMetrics{
-	font-size:16px;
+	font-size:20px;
 	position: relative;
 	left: 40px;
 	width: 85%;
