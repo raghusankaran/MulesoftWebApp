@@ -37,6 +37,7 @@ html{
 body{
 		
 		background-color: rgb(9,25,36);
+		-webkit-font-smoothing: antialiased;
 		
 
 	}
