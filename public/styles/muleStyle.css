@@ -50,11 +50,11 @@ canvas{
 	width: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: "Ubuntu", Helvetica, Arial, Sans-serif;
 	
 }
 p,pre{
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: "Ubuntu", Helvetica, Arial, Sans-serif;
 	width:700px;
 	color: white;
 
