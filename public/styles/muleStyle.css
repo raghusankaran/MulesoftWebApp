@@ -357,7 +357,7 @@ canvas{
 .grayText{color:#4F4F4F;}
 .whiteText{color:white;}
 .yellowText{color:yellow;}
-.cyanText{color:cyan;}
+.cyanText{color:rgb(157, 221, 255));}
 .dataResults{
 	position: relative;
 	left: 50px;
