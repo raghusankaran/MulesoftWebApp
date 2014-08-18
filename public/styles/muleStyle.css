@@ -354,23 +354,23 @@ canvas{
 }
 .greenText{
 	color:#009933;
-	font-weight: bold;}
+	}
 .redText{
-	color:#C40606;
-	font-weight: bold;
+	color:#DF1C1C;
+	
 }
 .grayText{
 	color:rgb(9,25,36);
-	font-weight: bold;
+	
 }
 .whiteText{color:white;}
 .yellowText{
 	color:yellow;
-	font-weight: bold;
+	
 }
 .cyanText{
 	color:rgb(157, 221, 255);
-	font-weight: bold;
+	
 }
 .dataResults{
 	position: relative;
