@@ -352,12 +352,12 @@ canvas{
 #baseResults{
 	display: none;
 }
-.greenText{color:#009933;}
-.redText{color:#FF0000;}
-.grayText{color:rgb(9,25,36);}
+.greenText{color:#009933;font-weight: bolder;}
+.redText{color:#C40606;font-weight: bolder;}
+.grayText{color:rgb(9,25,36);font-weight: bolder;}
 .whiteText{color:white;}
-.yellowText{color:yellow;}
-.cyanText{color:rgb(157, 221, 255));}
+.yellowText{color:yellow;font-weight: bolder;}
+.cyanText{color:rgb(157, 221, 255));font-weight: bolder;}
 .dataResults{
 	position: relative;
 	left: 50px;
