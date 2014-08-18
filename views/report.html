@@ -1142,7 +1142,7 @@
 				resizeAllGraphs(options);
 			}
 			function resizeAllGraphs(optionsArray){
-				var x =window.innerWidth*.8,
+				var x =window.innerWidth*.75,
 				    y =window.innerHeight*.7;
 				for(var line=0; line < optionsArray.length; line++){
 					resizeCanvas('graph' + (line+1), x, y, optionsArray[line]);
