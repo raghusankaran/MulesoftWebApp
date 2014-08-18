@@ -1,0 +1,45 @@
+Login
+
+Introduce Home Page
+	-Explain what PERF_CI is and how it functions
+
+	-Explain Recent Builds
+
+	-Show how to access other builds
+		*Build drop down 
+		*Search bar
+
+
+Explain SLA
+	-Explain what the purpose of SLA checks are
+	-Explain how to add/remove SLA checks
+		*Added SLA Checks only affect 
+	-Explain how to create new checks for new metrics
+		*These new checks will appear available as a new check to all kinds of jobs
+	-Show how changing SLA effects PERF CI and the recent builds section on the home page
+
+Explain "normal" report page
+	-Try to convey how dynamic the page is. 
+		*The point of the project is to display information in a legible manner
+		*While making it easy for Wai to add new metrics
+	-Show how the report page gives more information on how the build performs against the standards
+		*Metrics fail -red
+		*Metrics pass -green
+	-Show how to compare the metrics to that of any builds
+		*The difference between the builds is shown numerically
+		*Show how to toggle between percentages and unit measurements
+
+	-Introduce the importance of having a baseline feature
+		*Explain how to change and update the baseline
+		*Show how the baselines can be seen from the home page as well
+		*Demonstrate how to compare the current run to its baseline
+
+	-Show how to operate the graphs
+		*Comparing different metrics on the current graph
+		*Comparing metrics to baseline and selected graphs
+
+	-printing the page
+
+Show the differences on the PERF_CI report page
+	-Selecting different subjobs
+	-
