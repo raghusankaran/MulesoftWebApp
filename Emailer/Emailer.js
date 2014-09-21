@@ -8,7 +8,7 @@ function newBuildExists(){
 	var url = "http://mule-perflab06.managed.contegix.com:8080/job/PERF_CI/api/json?tree=builds[number,url]";
 	
 
-	var builds = getRequestWithAuth(url, user, pass);
+	var builds = getRequestWithAuth(url, username, passwor);
 
 	var current = fs.readFileSync('history.txt'); //Get current by accessing filesystem
 
@@ -26,7 +26,7 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'performancereporter@mulesoft.com',
+        user: 'mulesoftreporter@gmail.com',
         pass: 'anypoint'
     }
 });
@@ -105,7 +105,7 @@ function slaResults(slaObj, target){
 }
 function getSLARequirements(jobName){
 	var url = 'http://mule-perflab06.managed.contegix.com:8880/getTestMetrics/?job=' + jobName;
-	return getRequestWithAuth(url, user, pass);
+	return getRequestWithAuth(url, username, password);
 }
 function main(){
 
@@ -116,7 +116,7 @@ function main(){
 			var current = fs.readFileSync('history.txt');
 
 			var url = "http://mule-perflab06.managed.contegix.com:8880/getParsedData?id=" + current + "&jobName=PERF_CI";
-			var perfJobs = getRequestWithAuth(url, user, pass);
+			var perfJobs = getRequestWithAuth(url, username, password);
 			// setup e-mail data with unicode symbols
 			var mailOptions = {
 			    from: 'Performance Reporter <performancereporter@mulesoft.com>', // sender address
