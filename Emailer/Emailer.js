@@ -1,14 +1,16 @@
 var fs = require('fs');
+var request = require('request');
 
 var username = "naseem.alnaji";
 var password = "1325842Naseem";
+var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 
 function newBuildExists(){
 	//Check for new builds
 	var url = "http://mule-perflab06.managed.contegix.com:8080/job/PERF_CI/api/json?tree=builds[number,url]";
 	
 
-	var builds = getRequestWithAuth(url, username, passwor);
+	var builds = getRequestWithAuth(url, username, password);
 
 	var current = fs.readFileSync('history.txt'); //Get current by accessing filesystem
 
@@ -32,16 +34,50 @@ var transporter = nodemailer.createTransport({
 });
 
 function getRequest(url){
-	var request = new XMLHttpRequest();
-	request.open("GET", url, false);
-	request.send(null);
-	return JSON.parse(request.responseText);
+	return new Promise(function (fulfill, reject){
+		request(
+	    {
+	        url : urlToHudson	        
+	    },
+		    function (error, response, body) {
+		        if (!error && response.statusCode == 200) {
+		        	var info = JSON.parse(body);
+		  			fulfill(info);
+				}
+				else
+					reject(error);
+		    }
+		);			
+	}).then(function(res){
+		return res;
+	});	
 }
-function getRequestWithAuth(url,user,pass){
-	var request = new XMLHttpRequest();
-	request.open("GET", url, false, user, pass);
-	request.send(null);
-	return JSON.parse(request.responseText);
+function getRequestWithAuth(urlDest,user,pass){
+	return new Promise(function (fulfill, reject){
+		var authorize = 'Basic ' + new Buffer(user + ':' + pass).toString('base64');
+		request(
+	    {
+	        url : urlDest,
+	        headers : {
+            	"Authorization" : authorize
+        	}	        
+	    },
+		    function (error, response, body) {
+		        if (!error && response.statusCode == 200) {
+		        	console.log(body);
+		        	var info = JSON.parse(body);
+		  			fulfill(info);
+				}
+				else{
+
+					reject(error);
+				}
+					
+		    }
+		);			
+	}).then(function(res){
+		return res;
+	});
 }
 function sleep(seconds, callback) {
 	var millis = seconds * 1000;
