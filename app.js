@@ -95,7 +95,7 @@ app.post('/putTestFile',checkAuth, routings.addJobTest);
 app.get('/retrieveJobs',checkAuth, routings.getJobNames);
 
 //GET the test metrics for a job
-app.get('/getTestMetrics',checkAuth, routings.getTestMetrics);
+app.get('/getTestMetrics', routings.getTestMetrics);
 
 
 app.get('/updateBaseline', checkAuth,routings.updateBaseline);
