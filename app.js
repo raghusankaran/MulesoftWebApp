@@ -114,8 +114,7 @@ app.post('/addTestOption',checkAuth, routings.addTestOption);
 app.post('/deleteTestOption', checkAuth,routings.deleteTestOption);
 //GET ordered list of job names
 app.get('/getRecentJobs/',checkAuth, routings.getRecentJobs);
-
-app.get('/getParsedData',checkAuth, routings.getParsedData);
+app.get('/getParsedData', routings.getParsedData);
 app.get('/getBuildsByDescription',checkAuth, routings.getBuildsByDescription);
 
 
