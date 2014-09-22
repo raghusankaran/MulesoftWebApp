@@ -178,7 +178,7 @@ function main(){
 					// setup e-mail data with unicode symbols
 					var mailOptions = {
 					    from: 'Performance Reporter <performancereporter@mulesoft.com>', // sender address
-					    to: 'naji247@gmail.com', // list of receivers
+					    to: 'naseem.alnaji@mulesoft.com, wai.ip@mulesoft.com, mohammed.abouzahr@mulesoft.com', // list of receivers
 					    subject: 'Performance Report', // Subject line			    
 					    html: '<p><b>Performance Report:</b></p>' // html body
 					};
