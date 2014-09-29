@@ -497,7 +497,7 @@ function fileToObject(pathToFile){
 			dataFound.pop();
 		}
 		
-		if(dataFound[0].indexOf('e+')){
+		if(dataFound[0].indexOf('e+') > -1){
 			var expForm = dataFound[0];
 			var data= String(expForm).split(/e\+/);
 		    var  z= '', sign= parseFloat(data[0])<0? '-':'',
