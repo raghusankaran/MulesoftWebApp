@@ -497,8 +497,23 @@ function fileToObject(pathToFile){
 			dataFound.pop();
 		}
 		
-		
+		if(dataFound[0].indexOf('e+')){
+			var expForm = dataFound[0];
+			var data= String(expForm).split(/e\+/);
+		    var  z= '', sign= parseFloat(data[0])<0? '-':'',
+		    str= data[0].replace('.', ''),
+		    mag= Number(data[1])+ 1;
 
+		    if(mag<0){
+		        z= sign + '0.';
+		        while(mag++) z += '0';
+		        dataFound[0]= z + str.replace(/^\-/,'');
+		    }else{
+		    	mag -= str.length;
+			    while(mag--) z += '0';
+			    dataFound[0] = str + z;
+		    }		
+		}
 		//Set fileObj.data = data
 		fileObj.data = dataFound;
 	}catch(err){}
