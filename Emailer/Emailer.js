@@ -8,16 +8,17 @@ var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
 function newBuildExists(){
 	//Check for new builds
 	var url = "http://mule-perflab06.managed.contegix.com:8080/job/PERF_CI/api/json?tree=builds[number,url]";
+	var url = "http://mule-perflab06.managed.contegix.com:8080/job/PERF_CI/api/json?tree=lastStableBuild[number,url]";
 	return new Promise(function (fulfill, reject){
 
 		getRequestWithAuth(url, username, password).then(function(res){
 
-			var builds = res['builds'];			
+			var builds = res['lastStableBuild'];			
 			var current = fs.readFileSync('history.txt',encoding='utf8'); //Get current by accessing filesystem
 			console.log('History.txt reads: '+ current);
-			console.log('Hudson reads: '+builds[0].number);
-			if(builds[0].number != current){
-				fs.writeFileSync('history.txt', builds[0].number);
+			console.log('Hudson reads: '+builds.number);
+			if(builds.number != current){
+				fs.writeFileSync('history.txt', builds.number);
 				fulfill(true);
 			}
 			else
@@ -178,7 +179,7 @@ function main(){
 					// setup e-mail data with unicode symbols
 					var mailOptions = {
 					    from: 'Performance Reporter <performancereporter@mulesoft.com>', // sender address
-					    to: 'naseem.alnaji@mulesoft.com, wai.ip@mulesoft.com, mohammed.abouzahr@mulesoft.com', // list of receivers
+					    to: 'naseem.alnaji@mulesoft.com',//, wai.ip@mulesoft.com, mohammed.abouzahr@mulesoft.com', // list of receivers
 					    subject: 'Performance Report', // Subject line			    
 					    html: '<p><b>Performance Report:</b></p>' // html body
 					};
