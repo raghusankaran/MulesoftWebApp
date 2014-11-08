@@ -112,8 +112,8 @@
 				dropDown.style.fontSize = '20px';
 				if(optionalID == 0){
 					for(var i=0; i < buildIds.length; i++){
-						if(buildIds[i].description != null  && buildIds[i].description.length > 60)
-							buildIds[i].description= buildIds[i].description.substring(0,60);
+						if(buildIds[i].description != null  && buildIds[i].description.length > 78)
+							buildIds[i].description= buildIds[i].description.substring(0,78);
 
 						if(i == 0)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
@@ -123,8 +123,8 @@
 				}
 				else{
 					for(var i=0; i < buildIds.length; i++){
-						if(buildIds[i].description != null && buildIds[i].description.length > 60)
-							buildIds[i].description= buildIds[i].description.substring(0,60);
+						if(buildIds[i].description != null && buildIds[i].description.length > 78)
+							buildIds[i].description= buildIds[i].description.substring(0,78);
 
 						if(buildIds[i].number == optionalID)
 							dropDown.innerHTML += '<option value="'+buildIds[i].number+'" selected="selected">'+buildIds[i].number+' | ' +buildIds[i].description+'</option>';
@@ -1313,7 +1313,7 @@
 
 							<pre id='compareGDropText'  class='printerFriendlyText' style="display:none"></pre><!-- XXX -->
 
-							<form action="" "id="fwekf" style='float: left'>
+							<form action="" id="fwekf" style='float: left'>
 								<span class='inGraphText'>Choose the <span class='cyanText'>selected</span> run's server and metric: </span>
 								
 								<select id="compareGDropServer" class='select-style' onchange="reloadGraphs();compareChange()">
