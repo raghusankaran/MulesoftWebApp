@@ -7,11 +7,11 @@
 		<script src="../config.js"></script>
 		<script type="text/javascript">
 			var elements = ["Throughput","TPS", "CPU", "Memory"]
-			var jobs = getRequest(config.retrieveJobs).split(",");
-			var jobIDs = [1,2,3,4,5,6];
+			var jobs = getRequest(config.retrieveJobs).split(",");			
 			var currJob = getQueryVariable("job");
-			var start = getQueryVariable("start") == "UNDEFINED" ? getQueryVariable("start") : jobIDs[0];
-			var start = getQueryVariable("start") == "UNDEFINED" ? getQueryVariable("start") : jobIDs[jobIDs.length-1];
+			var jobIDs = getQueryVariable("start") != "UNDEFINED" ? getRequest(config.retrieveJobs).split(","): [0];
+			var start = getQueryVariable("start") != "UNDEFINED" ? getQueryVariable("start") : jobIDs[0];
+			var start = getQueryVariable("start") != "UNDEFINED" ? getQueryVariable("start") : jobIDs[jobIDs.length-1];
 			function getQueryVariable(variable) {
 			    var query = window.location.search.substring(1);
 			    var vars = query.split('&');
