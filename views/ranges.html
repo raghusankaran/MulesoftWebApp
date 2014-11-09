@@ -90,7 +90,7 @@
 			}
 			function update(){
 				var mainDrop = document.getElementById('funInputDrop');
-				var job = mainDrop.options[mainDrop.selectedIndex];
+				var job = mainDrop.options[mainDrop.selectedIndex].value;
 				window.location.href = config.ranges + job;
 			}
 		</script>	
