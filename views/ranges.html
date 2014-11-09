@@ -53,6 +53,20 @@
 						drop.innerHTML += "<option value="+jobs[e]+" selected='true'>"+jobs[e]+"</option>";
 					else
 						drop.innerHTML += "<option value="+jobs[e]+">"+jobs[e]+"</option>";
+				}
+				drop = document.getElementById('funStartDrop');
+				for(var e=0; e<jobIDs.length; e++){					
+					if(jobIDs[e] == start)						
+						drop.innerHTML += "<option value="+jobIDs[e]+" selected='true'>"+jobIDs[e]+"</option>";
+					else
+						drop.innerHTML += "<option value="+jobIDs[e]+">"+jobIDs[e]+"</option>";
+				}
+				drop = document.getElementById('funEndDrop');
+				for(var e=0; e<jobIDs.length; e++){					
+					if(jobIDs[e] == end)						
+						drop.innerHTML += "<option value="+jobIDs[e]+" selected='true'>"+jobIDs[e]+"</option>";
+					else
+						drop.innerHTML += "<option value="+jobIDs[e]+">"+jobIDs[e]+"</option>";
 				}				
 				for(var i=0; i < 6; i++){
 					add = ""
