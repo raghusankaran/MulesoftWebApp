@@ -80,7 +80,7 @@ app.get('/update',checkAuth, function(req, res){
   console.log('User: ' + req.session.user_id + ' checked out the UPDATE page');
 	res.render('update');
 });
-app.get('/ranges',checkAuth, function(req, res){
+app.get('/ranges', function(req, res){
   console.log('User: ' + req.session.user_id + ' checked out the RANGES page');
   res.render('ranges');
 });
