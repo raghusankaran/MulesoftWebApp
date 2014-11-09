@@ -623,10 +623,48 @@ max-height: 430px;
 
 }
 
+.funBox{
+	width: 29%;
+	height: 379px;
+	margin: 1%;
+	padding: 10px;
+	float: left;
+	background-color: rgb(22,87,134);
+	border-radius: 15px;
+	border: 2px #FFF solid;
 
+}
+.funBoxDrop{
+	border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    font-size: xx-large;
+	width: 100%;
+}
 
+.funGraph{
+	width: 93%;
+	height: 66%;
+	margin: 10px;
+	margin-bottom: 0px;
+	margin-top: 20px;
+}
+.funValue{
+	font-size: 45px;
+	text-align: center;
+}
+#funInputDrop{
+	font-size: 65px;
+	margin-left: 15px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	-webkit-appearance: none;
 
-
+}
+.funInputDateText{
+	margin-left: 5%;
+	font-size: 37px;
+}
 
 
 

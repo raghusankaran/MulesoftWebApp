@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+		<link href='../public/styles/muleStyle.css' rel='stylesheet'type='text/css'>
+		<link rel="Shortcut Icon" type="image/ico" href="views/sources/favicon.ico">
+		<script src="../config.js"></script>
+		<script type="text/javascript">
+			var elements = ["Throughput","TPS", "CPU", "Memory"]
+			var jobs = getRequest(config.retrieveJobs).split(",");
+			var jobIDs = [1,2,3,4,5,6];
+			var currJob = getQueryVariable("job");
+			var start = getQueryVariable("start") == "UNDEFINED" ? getQueryVariable("start") : jobIDs[0];
+			var start = getQueryVariable("start") == "UNDEFINED" ? getQueryVariable("start") : jobIDs[jobIDs.length-1];
+			function getQueryVariable(variable) {
+			    var query = window.location.search.substring(1);
+			    var vars = query.split('&');
+			    for (var i = 0; i < vars.length; i++) {
+			        var pair = vars[i].split('=');
+			        if (decodeURIComponent(pair[0]) == variable) {
+			            return decodeURIComponent(pair[1]);
+			        }
+			    }
+			    return 'UNDEFINED';
+			}
+			function getRequestJSON(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return JSON.parse(request.responseText);
+			}
+			function getRequest(url){
+				var request = new XMLHttpRequest();
+				request.open("GET", url, false);
+				request.send(null);
+				return request.responseText;
+			}
+			function initialize(){
+				var content = document.getElementById('content');
+				var add = "";
+				var drop;
+				add += "<div id='funInputTitle'>";
+				add += "<form><select id='funInputDrop'>";				
+				add += "</select>";
+				add += "<span class='funInputDateText'>Start Date: </span><input type='text' id='funStartTime'>";
+				add += "<span class='funInputDateText'>End Date: </span><input type='text' id='funEndTime'>";				
+				add += "</form></div>";
+				content.innerHTML += add;
+				drop = document.getElementById('funInputDrop');
+				for(var e=0; e<jobs.length; e++){					
+					if(jobs[e] == currJob)						
+						drop.innerHTML += "<option value="+jobs[e]+" selected='true'>"+jobs[e]+"</option>";
+					else
+						drop.innerHTML += "<option value="+jobs[e]+">"+jobs[e]+"</option>";
+				}				
+				for(var i=0; i < 6; i++){
+					add = ""
+					add += "<div class='funBox' id='funBox"+i+"'> ";
+					add += "<form id='funBoxForm"+i+"'>"
+					add += "<select class='funBoxDrop' id='funBoxDrop"+i+"'></select>"
+					add += "</form>";
+					add += "</div>";
+					content.innerHTML += add;
+					drop = document.getElementById("funBoxDrop"+i);
+					for(var e=0; e<elements.length; e++){
+						drop.innerHTML += "<option value="+elements[e]+">"+elements[e]+"</option>";
+					}
+					add = "";
+					add += "<canvas class = 'funGraph' id='funGraph"+i+"' width='100%' height='90%'></canvas>";
+					add += "<div class = 'funValue' id='funValue"+i+"' >18,000</div>";
+					var funDiv = document.getElementById("funBox"+i);
+					funDiv.innerHTML += add;
+
+				}
+			}
+		</script>	
+	</head>
+	<body>
+		<div id= "pagewrapper">
+			<div id="heading" class="mule">
+				<img src="views/sources/mulesoft-logo.png" id="ml"alt="MuleLogo" width = '340px' height='120px'>
+
+				<p id="logo"> Performance Analyzer</p>
+			</div>
+			<div id="menu" class="mule">
+				<p id='menuHeading'><u><b>Menu</b></u></p><br>
+				<p class = 'menuItems'> <a href="/">Home</a></p>
+				<p class = 'menuItems'> <a href="/logout">Logout</a></p>
+			</div>
+			<div id='content'>
+			</div>
+		</div>
+		<script>
+			initialize();
+		</script>
+	</body>
+
+</html>
