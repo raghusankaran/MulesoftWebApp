@@ -43,7 +43,7 @@
 				add += "<div id='funInputTitle'>";
 				add += "<form><select id='funInputDrop'>";				
 				add += "</select>";
-				add += "<span class='funInputDateText'>Start Date: </span><select id='funStartDrop' class='funIdDrop'></select>";
+				add += "<span class='funInputDateText'>Start Date: </span><select id='funStartDrop' class='funIdDrop' onchange='update()'></select>";
 				add += "<span class='funInputDateText'>End Date: </span><select id='funEndDrop' class='funIdDrop'></select>";				
 				add += "</form></div>";
 				content.innerHTML += add;
@@ -87,6 +87,12 @@
 					funDiv.innerHTML += add;
 
 				}
+			}
+			function update(job, newStart, newEnd){
+				if(start != null || end != null)
+					window.location.href = config.ranges + job +'&start=' + newStart+'&end='+newEnd;
+				else
+					window.location.href = config.ranges + job;
 			}
 		</script>	
 	</head>

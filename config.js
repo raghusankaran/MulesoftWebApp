@@ -11,6 +11,7 @@ var config = {
 	retrieveRecentJobs: urlPath + 'getRecentJobs/',
 	report: urlPath +'report?jobName=',
 	update: urlPath +'update?job=',
+	ranges: urlPath +'ranges?job=',
 	testFilesPath: "/mnt/nfsshare/SLAS/",
 	getTestMetrics: urlPath+ 'getTestMetrics/?job=',
 	//Form~~
