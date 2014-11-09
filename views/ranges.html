@@ -9,7 +9,7 @@
 			var elements = ["Throughput","TPS", "CPU", "Memory"]
 			var jobs = getRequest(config.retrieveJobs).split(",");			
 			var currJob = getQueryVariable("job");
-			var jobIDs = currJob == "UNDEFINED" ? getRequest(config.retrieveBuilds+=currJob).split(","): [0,0];
+			var jobIDs = currJob != "UNDEFINED" ? getRequest(config.retrieveBuilds+=currJob).split(","): [0,0];
 			jobIDs.pop();
 			var start = getQueryVariable("start") == "UNDEFINED" ? jobIDs[0] : getQueryVariable("start");
 			var end = getQueryVariable("end") == "UNDEFINED" ? jobIDs[jobIDs.length-1] : getQueryVariable("end") ;
